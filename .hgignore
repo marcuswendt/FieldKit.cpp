@@ -1,0 +1,5 @@
+syntax: glob
+
+# XCode
+xcode/build/*
+*.pbxuser
