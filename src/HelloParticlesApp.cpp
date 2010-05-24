@@ -43,9 +43,9 @@ void HelloParticlesApp::prepareSettings(Settings *settings){
 void HelloParticlesApp::setup() {
 	timer = new Timer();
 	physics = new Physics();
-	physics->space->width(getWindowWidth());
-	physics->space->height(getWindowHeight());
-	physics->space->depth(getWindowHeight());
+	physics->space->setWidth(getWindowWidth());
+	physics->space->setHeight(getWindowHeight());
+	physics->space->setDepth(getWindowHeight());
 }
 
 void HelloParticlesApp::update() {

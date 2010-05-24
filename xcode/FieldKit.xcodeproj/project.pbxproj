@@ -32,7 +32,6 @@
 		2C88901011A6A08B00E716F0 /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900C11A6A08B00E716F0 /* Emitter.cpp */; };
 		2C88901111A6A08B00E716F0 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900E11A6A08B00E716F0 /* Particle.cpp */; };
 		2C88901211A6A08B00E716F0 /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900F11A6A08B00E716F0 /* Physics.cpp */; };
-		2CB6AA9711A6CC9500983354 /* Space.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6AA9611A6CC9500983354 /* Space.cpp */; };
 		2CB6AAC711A6D1DD00983354 /* Behavioural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6AAC611A6D1DD00983354 /* Behavioural.cpp */; };
 		2CB6AB6811A7378F00983354 /* IterationTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6AB4A11A7375F00983354 /* IterationTest.cpp */; };
 		2CB6AD3B11A73EFC00983354 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -99,7 +98,6 @@
 		2C88900E11A6A08B00E716F0 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
 		2C88900F11A6A08B00E716F0 /* Physics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Physics.cpp; sourceTree = "<group>"; };
 		2CB6AA9511A6CC9500983354 /* Space.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Space.h; sourceTree = "<group>"; };
-		2CB6AA9611A6CC9500983354 /* Space.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Space.cpp; sourceTree = "<group>"; };
 		2CB6AAC611A6D1DD00983354 /* Behavioural.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Behavioural.cpp; sourceTree = "<group>"; };
 		2CB6AB4A11A7375F00983354 /* IterationTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IterationTest.cpp; sourceTree = "<group>"; };
 		2CB6AB6411A7378400983354 /* IterationTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IterationTest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,8 +261,8 @@
 		2C88900211A6A07E00E716F0 /* fieldkit */ = {
 			isa = PBXGroup;
 			children = (
-				2CEFC56911A91B29002362A9 /* math */,
 				2C88900311A6A07E00E716F0 /* FieldKit.h */,
+				2CEFC56911A91B29002362A9 /* math */,
 				2C88900411A6A07E00E716F0 /* physics */,
 			);
 			name = fieldkit;
@@ -300,7 +298,6 @@
 		2C88900B11A6A08B00E716F0 /* physics */ = {
 			isa = PBXGroup;
 			children = (
-				2CB6AA9611A6CC9500983354 /* Space.cpp */,
 				2CC1C94311AAAE930052C0B3 /* Spatial.cpp */,
 				2CEFC56011A91881002362A9 /* BasicSpace.cpp */,
 				2C88900C11A6A08B00E716F0 /* Emitter.cpp */,
@@ -456,7 +453,6 @@
 				2C88901011A6A08B00E716F0 /* Emitter.cpp in Sources */,
 				2C88901111A6A08B00E716F0 /* Particle.cpp in Sources */,
 				2C88901211A6A08B00E716F0 /* Physics.cpp in Sources */,
-				2CB6AA9711A6CC9500983354 /* Space.cpp in Sources */,
 				2CB6AAC711A6D1DD00983354 /* Behavioural.cpp in Sources */,
 				2CEFC56111A91881002362A9 /* BasicSpace.cpp in Sources */,
 				2CC1C94411AAAE930052C0B3 /* Spatial.cpp in Sources */,

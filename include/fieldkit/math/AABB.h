@@ -9,9 +9,21 @@
  */
 #pragma once
 
+#include "BoundingVolume.h"
+
 namespace fk { namespace math {
-	class AABB : public BoundingVolume {
-	public:
+	class AABB : public Vec3f, BoundingVolume {
+	protected:
+		Vec3f extent;
 		
+	public:
+		void setWidth(float value);
+		float getWidth();
+		
+		void setHeight(float value);
+		float getHeight();
+		
+		void setDepth(float value);
+		float getDepth();
 	};
 } } // namespace fk::math

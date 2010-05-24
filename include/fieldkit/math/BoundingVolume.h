@@ -12,6 +12,6 @@
 namespace fk { namespace math {
 	class BoundingVolume {
 	public:
-		
+		virtual bool contains(Vec3f p) = 0;
 	};
 } } // namespace fk::math
