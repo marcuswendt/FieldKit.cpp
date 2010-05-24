@@ -10,27 +10,18 @@
 
 #pragma once
 
+#include "AABB.h"
 #include "Spatial.h"
 #include "BoundingVolume.h"
 
-using namespace fk::math;
-
 namespace fk { namespace physics {
-	class Space {
+	class Space : public fk::math::AABB {
 	public:
 		Space();
+		Space(float w, float h, float d);
 		
-		virtual void clear() = 0;
-		virtual void insert(Spatial* s) = 0;
-		virtual void select(BoundingVolume* volume) = 0;
-		
-		virtual void setWidth(float value) = 0;
-		virtual float getWidth() = 0;
-		
-		virtual void setHeight(float value) = 0;
-		virtual float getHeight() = 0;
-		
-		virtual void setDepth(float value) = 0;
-		virtual float getDepth() = 0;
+		virtual void clear();
+		virtual void insert(Spatial* s);
+		virtual void select(fk::math::BoundingVolume* volume);
 	};
 } } // namespace fk::physics

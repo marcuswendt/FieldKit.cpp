@@ -42,10 +42,11 @@ void HelloParticlesApp::prepareSettings(Settings *settings){
 // -- Loop ---------------------------------------------------------------------
 void HelloParticlesApp::setup() {
 	timer = new Timer();
+	
+	Space* space = new Space(getWindowWidth(), getWindowHeight(), getWindowHeight());
+	printf("Space %f %f %f \n", space->extent.x, space->extent.y, space->extent.z);
+	
 	physics = new Physics();
-	physics->space->setWidth(getWindowWidth());
-	physics->space->setHeight(getWindowHeight());
-	physics->space->setDepth(getWindowHeight());
 }
 
 void HelloParticlesApp::update() {

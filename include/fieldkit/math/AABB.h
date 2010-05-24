@@ -12,11 +12,17 @@
 #include "BoundingVolume.h"
 
 namespace fk { namespace math {
-	class AABB : public Vec3f, BoundingVolume {
-	protected:
+	class AABB : BoundingVolume {
+	public:
+		Vec3f min;
+		Vec3f max;
 		Vec3f extent;
 		
-	public:
+		AABB();
+		AABB(float w, float h, float d);
+		
+		bool contains(Vec3f p);
+		
 		void setWidth(float value);
 		float getWidth();
 		
@@ -25,5 +31,11 @@ namespace fk { namespace math {
 		
 		void setDepth(float value);
 		float getDepth();
+		
+		void setDimension(float w, float h, float d);
+		Vec3f getDimension();
+		
+	protected:
+		void updateBounds();
 	};
 } } // namespace fk::math

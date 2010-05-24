@@ -12,8 +12,22 @@
 
 namespace fk { namespace math {
 	
+	AABB::AABB() {}
+	
+	AABB::AABB(float w, float h, float d) : BoundingVolume() {
+		setDimension(w, h, d);
+	}
+	
+	bool AABB::contains(Vec3f p) {
+		if(p.x < min.x || p.x > max.x) return false;
+		if(p.y < min.y || p.y > max.y) return false;
+		if(p.z < min.z || p.z > max.z) return false;
+		return true;
+	}
+	
 	void AABB::setWidth(float value) {
-		extent.x = value / 2.0;
+		extent.x = value * 0.5;
+		updateBounds();
 	}
 	
 	float AABB::getWidth() {
@@ -21,7 +35,8 @@ namespace fk { namespace math {
 	}
 
 	void AABB::setHeight(float value) {
-		extent.y = value / 2.0;
+		extent.y = value * 0.5;
+		updateBounds();
 	}
 	
 	float AABB::getHeight() {
@@ -29,10 +44,27 @@ namespace fk { namespace math {
 	}
 
 	void AABB::setDepth(float value) {
-		extent.z = value / 2.0;
+		extent.z = value * 0.5;
+		updateBounds();
 	}
 	
 	float AABB::getDepth() {
 		return extent.z * 2.0;
+	}
+	
+	void AABB::setDimension(float w, float h, float d) {
+		extent.x = w * 2.0;
+		extent.y = h * 2.0;
+		extent.z = d * 2.0;
+		updateBounds();
+	}
+	
+	Vec3f AABB::getDimension() {
+		return extent * 2.0;
+	}
+	
+	void AABB::updateBounds() {
+		min = position - extent;
+		max = position + extent;
 	}
 } } // namespace fk::math
