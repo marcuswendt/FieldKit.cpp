@@ -1,0 +1,9 @@
+//
+// Prefix header for all source files of the 'basicApp' target in the 'basicApp' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
+
+#include "FieldKit.h"
