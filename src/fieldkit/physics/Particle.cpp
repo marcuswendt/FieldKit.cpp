@@ -20,9 +20,11 @@ namespace fk { namespace physics {
 		age = 0; 
 		lifeTime = 1000;
 		size = 1.0;
+		drag = 0.03;
 		isLocked = false;
 		isAlive = true;
 		
+		force = force.zero();
 		clearVelocity();
 	}
 	
@@ -54,7 +56,7 @@ namespace fk { namespace physics {
 		
 		scaleVelocity(1.0 - drag);
 		
-		force.zero();
+		force = force.zero();
 	}
 	
 	void Particle::lock() {

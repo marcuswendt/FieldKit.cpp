@@ -9,26 +9,23 @@
  */
 #pragma once
 
-#include <functional>
+#include "Space.h"
 
 namespace fk { namespace physics {
 
 	// forward class declaration
 	class Particle;
-		
-//	class Behaviour : public unary_function<Particle*, void>{
-//	public:
-////		virtual void operator()(Particle* p) = 0;
-////		
-////		void apply(Particle* p) {
-////			this->operator()(p);
-////		}
-//		
-//		virtual void apply(Particle* p);
-//	};
-	
+
 	class Behaviour {
 	public:
+		Space* space;
+		
+		Behaviour() {};
+		
+		Behaviour(Space* space) {
+			this->space = space;
+		};
+		
 		virtual void apply(Particle* p) = 0;
 	};
 	
