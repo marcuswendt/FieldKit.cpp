@@ -28,9 +28,14 @@ namespace fk { namespace physics {
 		bool isEnabled;
 		
 		Emitter(Physics* physics);
-		~Emitter();
+		~Emitter() {};
+		
 		virtual void update(float dt);
-		virtual void emit(Vec3f location);
+		virtual Particle* emit(Vec3f location);
+		
+	protected:
+		void applyBehaviours(Particle* p);
+		void applyConstraints(Particle* p);
 	};
 	
 } } // namespace fk::physics

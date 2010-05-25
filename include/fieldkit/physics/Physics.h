@@ -23,7 +23,7 @@ namespace fk { namespace physics {
 		Emitter* emitter;
 		Space* space;
 		
-		Physics();
+		Physics(Space* space);
 		virtual ~Physics();
 			
 		virtual void update(float dt);
@@ -31,15 +31,15 @@ namespace fk { namespace physics {
 		// -- Particles --------------------------------------------------------
 		list<Particle*>	particles;
 		
-		void addParticle(Particle* p);	
-		void removeParticle(Particle* p);
-		
+		Particle* createParticle();	
 		int numParticles() { return particles.size(); }
 		
 		// -- Springs ----------------------------------------------------------
 		//list<Particle>	particles;
 		
 	protected:
+		list<Particle*>	deadParticles;
+		
 		virtual void updateParticles(float dt);
 		virtual void updateSprings();
 		virtual void updateNeighbours();

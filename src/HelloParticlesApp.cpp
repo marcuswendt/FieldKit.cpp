@@ -40,13 +40,28 @@ void HelloParticlesApp::prepareSettings(Settings *settings){
 };
 
 // -- Loop ---------------------------------------------------------------------
+class Gravity : public Behaviour {
+	void apply(Particle* p) {
+		p->force.y += 0.1;
+	}		
+};
+
 void HelloParticlesApp::setup() {
 	timer = new Timer();
 	
 	Space* space = new Space(getWindowWidth(), getWindowHeight(), getWindowHeight());
-	printf("Space %f %f %f \n", space->extent.x, space->extent.y, space->extent.z);
+	//printf("Space %c", space->toString());
 	
-	physics = new Physics();
+	physics = new Physics(space);
+	
+	Emitter* emitter = new Emitter(physics);
+	physics->emitter = emitter;
+	emitter->position = space->center();
+	emitter->rate = 1.0;
+	emitter->interval = 1;
+	emitter->max = 10000;
+	
+	emitter->addBehaviour(new Gravity());
 }
 
 void HelloParticlesApp::update() {
@@ -57,10 +72,20 @@ void HelloParticlesApp::update() {
 	//printf("dt %f \n", dt);
 	
 	physics->update(dt);
+	
+	printf("particles %i \n", physics->numParticles());
 }
 
 void HelloParticlesApp::draw() {
-	ci::gl::clear(Color(0, 0, 0));	
+	ci::gl::clear(Color(0, 0, 0));
+	
+	glColor3f(1,1,1);
+	glBegin(GL_POINTS);
+	BOOST_FOREACH(Particle* p, physics->particles) {
+		glPointSize(p->size * 3);
+		glVertex3f(p->position.x, p->position.y, p->position.z);
+	}
+	glEnd();
 }
 
 

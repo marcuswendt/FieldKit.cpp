@@ -29,6 +29,7 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		00BAE65A0E7ED9C10018A608 /* HelloParticlesApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00BAE6590E7ED9C10018A608 /* HelloParticlesApp.cpp */; };
 		00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 00CCAF14116A9FEE008396D5 /* CinderApp.icns */; };
+		2C094C7711AAF63E0018103A /* BoundingVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C094C7611AAF63E0018103A /* BoundingVolume.cpp */; };
 		2C88901011A6A08B00E716F0 /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900C11A6A08B00E716F0 /* Emitter.cpp */; };
 		2C88901111A6A08B00E716F0 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900E11A6A08B00E716F0 /* Particle.cpp */; };
 		2C88901211A6A08B00E716F0 /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900F11A6A08B00E716F0 /* Physics.cpp */; };
@@ -87,6 +88,8 @@
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2C094C6111AAF46B0018103A /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		2C094C7611AAF63E0018103A /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
 		2C88900311A6A07E00E716F0 /* FieldKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldKit.h; sourceTree = "<group>"; };
 		2C88900511A6A07E00E716F0 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
 		2C88900611A6A07E00E716F0 /* Behavioural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavioural.h; sourceTree = "<group>"; };
@@ -261,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				2C88900311A6A07E00E716F0 /* FieldKit.h */,
+				2C094C6111AAF46B0018103A /* Logger.h */,
 				2CEFC56911A91B29002362A9 /* math */,
 				2C88900411A6A07E00E716F0 /* physics */,
 			);
@@ -329,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC1C97711AABF2D0052C0B3 /* AABB.cpp */,
+				2C094C7611AAF63E0018103A /* BoundingVolume.cpp */,
 			);
 			path = math;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				2CEFC56111A91881002362A9 /* Space.cpp in Sources */,
 				2CC1C94411AAAE930052C0B3 /* Spatial.cpp in Sources */,
 				2CC1C97811AABF2D0052C0B3 /* AABB.cpp in Sources */,
+				2C094C7711AAF63E0018103A /* BoundingVolume.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

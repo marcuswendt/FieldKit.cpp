@@ -16,11 +16,9 @@ namespace fk { namespace physics {
 		this->physics = physics;
 		
 		rate = 1;
-		interval = 1000.0;
-		max = 100;		
-	}
-	
-	Emitter::~Emitter() {
+		interval = 0.1;
+		max = 100;
+		isEnabled = true;
 	}
 	
 	void Emitter::update(float dt) {
@@ -34,16 +32,35 @@ namespace fk { namespace physics {
 		
 		// emit particles
 		int i=0;
-		//while(i < rate && physics->numParticles() < max) {
 		while(i < rate && physics->numParticles() < max) {
 			emit(position);
 			i += 1;
 		}
 	}
 	
-	
-	void Emitter::emit(Vec3f location) {
+	// emits a single particle and applies the emitter behaviours
+	Particle* Emitter::emit(Vec3f location) {
+		Particle* p = physics->createParticle();
 		
+		// set particle to start at the emitters position
+		p->init(location);
+		
+		// apply emitter behaviours
+		applyBehaviours(p);
+		applyConstraints(p);
+		
+		return p;
 	}
 	
+	void Emitter::applyBehaviours(Particle* p) {
+		BOOST_FOREACH(Behaviour* b, behaviours) {
+			b->apply(p);
+		}
+	}
+	
+	void Emitter::applyConstraints(Particle* p) {
+		BOOST_FOREACH(Constraint* c, constraints) {
+			c->apply(p);
+		}
+	}
 } } // namespace fk::physics

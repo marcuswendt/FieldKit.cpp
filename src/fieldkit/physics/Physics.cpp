@@ -11,7 +11,10 @@
 
 namespace fk { namespace physics {
 
-	Physics::Physics() {}
+	Physics::Physics(Space* space) {
+		this->space = space;
+		this->emitter = NULL;
+	}
 	
 	Physics::~Physics() {
 		// TODO clean up particles here?
@@ -27,19 +30,50 @@ namespace fk { namespace physics {
 	}
 	
 	// -- Particles ------------------------------------------------------------
+	
+	// check if we still have a dead particle that we can reuse, otherwise create a new one
+	Particle* Physics::createParticle() {
+		Particle* p;
+		
+		if(deadParticles.size() > 0) {
+			p = *deadParticles.begin();
+			deadParticles.pop_front();
+			return p;
+		} else {
+			p = new Particle();
+		}
+		
+		// add particle to list
+		particles.push_back(p);
+		
+		return p;
+	}
+	
+	// updates all particles by applying all behaviours and constraints
 	void Physics::updateParticles(float dt) {
 		BOOST_FOREACH(Particle* p, particles) {
+			
+			// apply behaviours
+			BOOST_FOREACH(Behaviour* b, behaviours) {
+				b->apply(p);
+			}
+			
+			// apply constraints
+			BOOST_FOREACH(Constraint* c, constraints) {
+				c->apply(p);
+			}
+			
+			// update particle
 			p->update(dt);
+			
+			// check if particle is still alive, otherwise remove it
+			if(!p->isAlive) {
+				deadParticles.push_back(p);
+				particles.remove(p);
+			}
 		}
 	}
 	
-	void Physics::addParticle(Particle* p) { 
-		particles.push_back(p);
-	}
-
-	void Physics::removeParticle(Particle* p) { 
-		particles.remove(p);
-	}
 	
 	// -- Springs --------------------------------------------------------------
 	void Physics::updateSprings() {

@@ -14,8 +14,10 @@
 #include "Spatial.h"
 #include "BoundingVolume.h"
 
+using namespace fk::math;
+
 namespace fk { namespace physics {
-	class Space : public fk::math::AABB {
+	class Space : public AABB {
 	public:
 		Space();
 		Space(float w, float h, float d);
@@ -23,5 +25,7 @@ namespace fk { namespace physics {
 		virtual void clear();
 		virtual void insert(Spatial* s);
 		virtual void select(fk::math::BoundingVolume* volume);
+		
+		virtual Vec3f center();
 	};
 } } // namespace fk::physics

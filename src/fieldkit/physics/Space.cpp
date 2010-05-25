@@ -7,7 +7,10 @@
  *   Space.cpp
  *	 Created by Marcus Wendt on 23/05/2010.
  */
+
 #include "Space.h"
+
+using namespace fk::math;
 
 namespace fk { namespace physics {
 		
@@ -25,6 +28,10 @@ namespace fk { namespace physics {
 
 	void Space::select(fk::math::BoundingVolume* volume) {
 		// TODO
+	}
+	
+	Vec3f Space::center() {
+		return this->position;
 	}
 
 } } // fk::physics

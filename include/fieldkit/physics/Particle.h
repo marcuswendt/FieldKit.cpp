@@ -18,13 +18,29 @@ namespace fk { namespace physics {
 		float age;
 		float lifeTime;
 		float size;
+		float drag;
 		bool isLocked;
+		bool isAlive;
+		
 		Vec3f position;
 		Vec3f prev;
+		Vec3f force;
 		
-		Particle();
-		virtual ~Particle();
+		Particle() {};
+		~Particle() {};
+		
+		// lifecycle
+		virtual void init(Vec3f location);
 		virtual void update(float dt);
+		
+		virtual inline void updateState(float dt);
+		virtual inline void updatePosition();
+		
+		// verlet integration
+		void lock();
+		void unlock();
+		void clearVelocity();
+		void scaleVelocity(float s);
 };
 	
 } } // namespace fk::physics

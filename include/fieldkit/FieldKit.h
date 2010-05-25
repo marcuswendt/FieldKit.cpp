@@ -14,4 +14,5 @@
 
 #include <boost/foreach.hpp>
 
+using namespace std;
 using namespace ci;

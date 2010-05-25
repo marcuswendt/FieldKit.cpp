@@ -12,7 +12,7 @@
 #include "BoundingVolume.h"
 
 namespace fk { namespace math {
-	class AABB : BoundingVolume {
+	class AABB : public BoundingVolume {
 	public:
 		Vec3f min;
 		Vec3f max;
@@ -23,17 +23,17 @@ namespace fk { namespace math {
 		
 		bool contains(Vec3f p);
 		
-		void setWidth(float value);
-		float getWidth();
+		void width(float value);
+		float width();
 		
-		void setHeight(float value);
-		float getHeight();
+		void height(float value);
+		float height();
 		
-		void setDepth(float value);
-		float getDepth();
+		void depth(float value);
+		float depth();
 		
-		void setDimension(float w, float h, float d);
-		Vec3f getDimension();
+		void dimension(float w, float h, float d);
+		Vec3f dimension();
 		
 	protected:
 		void updateBounds();
