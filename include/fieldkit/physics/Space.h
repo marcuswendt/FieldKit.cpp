@@ -10,14 +10,17 @@
 
 #pragma once
 
-#include "AABB.h"
-#include "Spatial.h"
-#include "BoundingVolume.h"
+#include "fieldkit/math/AABB.h"
+#include "fieldkit/math/BoundingVolume.h"
+#include "fieldkit/physics/Spatial.h"
 
 using namespace fk::math;
 
-namespace fk { namespace physics {
-	class Space : public AABB {
+namespace fk { 
+namespace physics 
+{
+	class Space : public AABB 
+	{
 	public:
 		Space();
 		Space(float w, float h, float d);
@@ -28,4 +31,5 @@ namespace fk { namespace physics {
 		
 		virtual Vec3f center();
 	};
-} } // namespace fk::physics
+} 
+} // namespace fk::physics

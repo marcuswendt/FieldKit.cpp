@@ -9,6 +9,8 @@
  */
 #pragma once
 
+#include "FieldKit.h"
+
 namespace fk { namespace math {
 	class BoundingVolume {
 	public:

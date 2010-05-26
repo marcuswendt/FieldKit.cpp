@@ -10,6 +10,9 @@
 #pragma once
 
 #include "Behavioural.h"
+#include "FieldKit.h"
+
+using namespace ci;
 
 namespace fk { namespace physics {
 	class Particle {
@@ -33,8 +36,8 @@ namespace fk { namespace physics {
 		virtual void init(Vec3f location);
 		virtual void update(float dt);
 		
-		virtual inline void updateState(float dt);
-		virtual inline void updatePosition();
+		virtual void updateState(float dt);
+		virtual void updatePosition();
 		
 		// verlet integration
 		void lock();

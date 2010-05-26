@@ -7,6 +7,8 @@
  *   Emitter.cpp
  *	 Created by Marcus Wendt on 20/05/2010.
  */
+
+#include "FieldKit.h"
 #include "Emitter.h"
 #include "Physics.h"
 
