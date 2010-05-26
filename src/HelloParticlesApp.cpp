@@ -85,8 +85,8 @@ void HelloParticlesApp::setup() {
 	physics->emitter = emitter;
 	emitter->position = space->center();
 	emitter->rate = 10.0;
-	emitter->interval = 0.1;
-	emitter->max = 10000;
+	emitter->interval = 0.01;
+	emitter->max = 50000;
 	
 	emitter->addBehaviour(new RandomEmitter(space));
 	physics->addBehaviour(new Gravity());
@@ -109,7 +109,7 @@ void HelloParticlesApp::draw() {
 	ci::gl::clear(Color(0, 0, 0));
 	
 	glColor3f(1,1,1);
-	glPointSize(5);
+	glPointSize(3);
 	glBegin(GL_POINTS);
 	BOOST_FOREACH(Particle* p, physics->particles) {
 		glVertex3f(p->position.x, p->position.y, p->position.z);

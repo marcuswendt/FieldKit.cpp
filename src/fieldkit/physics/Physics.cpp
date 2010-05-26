@@ -13,7 +13,7 @@ namespace fk { namespace physics {
 
 	Physics::Physics(Space* space) {
 		this->space = space;
-		this->emitter = NULL;
+		emitter = NULL;
 	}
 	
 	Physics::~Physics() {

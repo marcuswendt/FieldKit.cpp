@@ -260,6 +260,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2C0C66B711AC4D76008081A8 /* behaviours */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = behaviours;
+			sourceTree = "<group>";
+		};
+		2C0C66B811AC4D8C008081A8 /* behaviours */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = behaviours;
+			path = ../src/fieldkit/physics/behaviours;
+			sourceTree = SOURCE_ROOT;
+		};
 		2C88900211A6A07E00E716F0 /* fieldkit */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +290,7 @@
 		2C88900411A6A07E00E716F0 /* physics */ = {
 			isa = PBXGroup;
 			children = (
+				2C0C66B811AC4D8C008081A8 /* behaviours */,
 				2CB6AA9511A6CC9500983354 /* Space.h */,
 				2CC1C94211AAAE930052C0B3 /* Spatial.h */,
 				2C88900D11A6A08B00E716F0 /* Emitter.h */,
@@ -300,6 +316,7 @@
 		2C88900B11A6A08B00E716F0 /* physics */ = {
 			isa = PBXGroup;
 			children = (
+				2C0C66B711AC4D76008081A8 /* behaviours */,
 				2CC1C94311AAAE930052C0B3 /* Spatial.cpp */,
 				2CEFC56011A91881002362A9 /* Space.cpp */,
 				2C88900C11A6A08B00E716F0 /* Emitter.cpp */,
