@@ -9,40 +9,44 @@
  */
 #pragma once
 
-#include "Behavioural.h"
-#include "Particle.h"
-#include "Emitter.h"
-#include "Space.h"
+#include "fieldkit/physics/Behavioural.h"
+#include "fieldkit/physics/Particle.h"
+#include "fieldkit/physics/Emitter.h"
+#include "fieldkit/physics/Space.h"
 
 #include <list>
 using std::list;
 
-namespace fk { namespace physics {
-	class Physics : public Behavioural {
-	public:
-		Emitter* emitter;
-		Space* space;
-		
-		Physics(Space* space);
-		virtual ~Physics();
-			
-		virtual void update(float dt);
+namespace fk { 
+namespace physics {
 	
-		// -- Particles --------------------------------------------------------
-		list<Particle*>	particles;
+class Physics : public Behavioural 
+{
+public:
+	Emitter* emitter;
+	Space* space;
 		
-		Particle* createParticle();	
-		int numParticles() { return particles.size(); }
+	Physics(Space* space);
+	virtual ~Physics();		
+	
+	virtual void update(float dt);
+	
+	// -- Particles --------------------------------------------------------
+	list<Particle*>	particles;
 		
-		// -- Springs ----------------------------------------------------------
-		//list<Particle>	particles;
+	Particle* createParticle();	
+	int numParticles() { return particles.size(); }
 		
-	protected:
-		list<Particle*>	deadParticles;
+	// -- Springs ----------------------------------------------------------
+	//list<Particle>	particles;
 		
-		virtual void updateParticles(float dt);
-		virtual void updateSprings();
-		virtual void updateNeighbours();
-	};
+protected:
+	list<Particle*>	deadParticles;
+		
+	virtual void updateParticles(float dt);
+	virtual void updateSprings();
+	virtual void updateNeighbours();
+};
 
-} } // namespace fk::physics
+} 
+} // namespace fk::physics

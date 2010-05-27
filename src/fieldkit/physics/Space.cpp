@@ -8,30 +8,51 @@
  *	 Created by Marcus Wendt on 23/05/2010.
  */
 
-#include "Space.h"
-
+#include "fieldkit/physics/Space.h"
 using namespace fk::math;
+#include "cinder/Vector.h"
 
-namespace fk { namespace physics {
+namespace fk { 
+namespace physics {
 		
-	Space::Space() {}
-	
-	Space::Space(float w, float h, float d) : AABB(w, h, d) {};
-	
-	void Space::clear() {
-		// TODO
-	}
+Space::Space() {}
 
-	void Space::insert(Spatial* s) {
-		// TODO
-	}
+Space::Space(float w, float h, float d) : AABB(w, h, d) {};
 
-	void Space::select(fk::math::BoundingVolume* volume) {
-		// TODO
+void Space::clear() 
+{
+	spatials.clear();
+}
+
+void Space::insert(Spatial* s) 
+{
+	spatials.push_back(s);
+}
+
+// find spatials with the volume
+void Space::findSpatialsInVolume(list<void *> *resultlist, fk::math::BoundingVolume* volume) 
+{
+	resultlist->clear();
+	ci::Vec3f *pos;
+	BOOST_FOREACH(Spatial *obj, spatials)
+	{
+		pos = obj->getSpatialPosition();
+		if(volume->contains(*pos))
+		{
+			resultlist->push_back(obj);
+		}
 	}
+}
+
+void Space::select(BoundingVolume* volume)
+{
 	
-	Vec3f Space::center() {
-		return this->position;
-	}
+}
 
-} } // fk::physics
+Vec3f Space::center() 
+{
+	return this->position;
+}
+
+} 
+} // fk::physics

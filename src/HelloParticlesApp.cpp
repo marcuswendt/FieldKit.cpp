@@ -9,12 +9,13 @@
  */
 
 #include "cinder/app/AppBasic.h"
-#include <list>
-#include "Physics.h"
-
 using namespace ci;
 using namespace ci::app;
+
+#include <list>
 using namespace std;
+
+#include "fieldkit/physics/Physics.h"
 using namespace fk::physics;
 
 class HelloParticlesApp : public AppBasic {
@@ -42,14 +43,14 @@ void HelloParticlesApp::prepareSettings(Settings *settings){
 // -- Loop ---------------------------------------------------------------------
 class Gravity : public Behaviour {
 	void apply(Particle* p) {
-		p->force.y += 0.1;
+		p->force.y += 0.1f;
 	}		
 };
 
 void HelloParticlesApp::setup() {
 	timer = new Timer();
 	
-	Space* space = new Space(getWindowWidth(), getWindowHeight(), getWindowHeight());
+	Space* space = new Space((float)getWindowWidth(), (float)getWindowHeight(), (float)getWindowHeight());
 	//printf("Space %c", space->toString());
 	
 	physics = new Physics(space);
@@ -57,7 +58,7 @@ void HelloParticlesApp::setup() {
 	Emitter* emitter = new Emitter(physics);
 	physics->emitter = emitter;
 	emitter->position = space->center();
-	emitter->rate = 1.0;
+	emitter->rate = 1;
 	emitter->interval = 1;
 	emitter->max = 10000;
 	
@@ -66,7 +67,7 @@ void HelloParticlesApp::setup() {
 
 void HelloParticlesApp::update() {
 	timer->stop();
-	double dt = timer->getSeconds();
+	float dt = (float)timer->getSeconds();
 	timer->start();
 	
 	//printf("dt %f \n", dt);
@@ -79,7 +80,7 @@ void HelloParticlesApp::update() {
 void HelloParticlesApp::draw() {
 	ci::gl::clear(Color(0, 0, 0));
 	
-	glColor3f(1,1,1);
+	glColor4f(1,1,1,1);
 	glBegin(GL_POINTS);
 	BOOST_FOREACH(Particle* p, physics->particles) {
 		glPointSize(p->size * 3);

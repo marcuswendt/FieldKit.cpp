@@ -9,8 +9,8 @@
  */
 #pragma once
 
-#include "Behaviour.h"
-#include "Constraint.h"
+#include "fieldkit/physics/Behaviour.h"
+#include "fieldkit/physics/Constraint.h"
 
 #include <list>
 using std::list;

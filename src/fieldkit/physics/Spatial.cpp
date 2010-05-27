@@ -8,5 +8,5 @@
  *	 Created by Marcus Wendt on 24/05/2010.
  */
 
-#include "Spatial.h"
+#include "fieldkit/physics/Spatial.h"
 

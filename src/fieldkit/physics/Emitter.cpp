@@ -8,20 +8,21 @@
  *	 Created by Marcus Wendt on 20/05/2010.
  */
 
-#include "FieldKit.h"
-#include "Emitter.h"
-#include "Physics.h"
+#include "fieldkit/FieldKit.h"
+#include "fieldkit/physics/Emitter.h"
+#include "fieldkit/physics/Physics.h"
 
-namespace fk { namespace physics {
+namespace fk { 
+namespace physics {
 
-	Emitter::Emitter(Physics* physics) {
-		this->physics = physics;
-		
-		rate = 1;
-		interval = 0.1;
-		max = 100;
-		isEnabled = true;
-	}
+Emitter::Emitter(Physics* physics) 
+{
+	this->physics = physics;		
+	rate = 1;
+	interval = 0.1;
+	max = 100;
+	isEnabled = true;
+}
 	
 	void Emitter::update(float dt) {
 		if(!isEnabled) return;

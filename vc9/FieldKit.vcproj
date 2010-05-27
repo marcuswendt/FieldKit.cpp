@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\include\fieldkit;..\include\fieldkit\physics;..\include\fieldkit\math;..\src\fieldkit\physics;..\src\fieldkit\math;..\include;..\..\..\Libraries\cinder_0.8.0_mac\include;..\..\..\Libraries\cinder_0.8.0_mac\boost"
+				AdditionalIncludeDirectories="..\include\fieldkit;..\include;..\..\..\Libraries\cinder_0.8.0_mac\include;..\..\..\Libraries\cinder_0.8.0_mac\boost"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -118,7 +118,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\src\fieldkit\physics;..\src\fieldkit\math;..\include;..\..\..\Libraries\cinder_0.8.0_mac\include;..\..\..\Libraries\cinder_0.8.0_mac\boost"
+				AdditionalIncludeDirectories="..\include;..\..\..\Libraries\cinder_0.8.0_mac\include;..\..\..\Libraries\cinder_0.8.0_mac\boost"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
@@ -220,6 +220,38 @@
 						RelativePath="..\src\fieldkit\physics\Spatial.cpp"
 						>
 					</File>
+					<Filter
+						Name="behaviours"
+						>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\FlockAlign.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\FlockAttract.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\FlockBehaviour.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\FlockRepel.cpp"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="constraints"
+						>
+					</Filter>
+					<Filter
+						Name="spaces"
+						>
+						<File
+							RelativePath="..\src\fieldkit\physics\spaces\OctTree.cpp"
+							>
+						</File>
+					</Filter>
 				</Filter>
 			</Filter>
 		</Filter>
@@ -242,6 +274,10 @@
 						RelativePath="..\include\fieldkit\math\AABB.h"
 						>
 					</File>
+					<File
+						RelativePath="..\include\fieldkit\math\BoundingVolume.h"
+						>
+					</File>
 				</Filter>
 				<Filter
 					Name="physics"
@@ -252,10 +288,6 @@
 					</File>
 					<File
 						RelativePath="..\include\fieldkit\physics\Behavioural.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\math\BoundingVolume.h"
 						>
 					</File>
 					<File
@@ -286,6 +318,34 @@
 						RelativePath="..\include\fieldkit\physics\Spatial.h"
 						>
 					</File>
+					<Filter
+						Name="behaviours"
+						>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\FlockAlign.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\FlockAttract.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\FlockBehaviour.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\FlockRepel.h"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="spaces"
+						>
+						<File
+							RelativePath="..\include\fieldkit\physics\spaces\OctTree.h"
+							>
+						</File>
+					</Filter>
 				</Filter>
 			</Filter>
 		</Filter>

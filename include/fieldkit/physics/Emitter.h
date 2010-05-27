@@ -9,8 +9,8 @@
  */
 #pragma once
 
-#include "FieldKit.h"
-#include "Behavioural.h"
+#include "fieldkit/FieldKit.h"
+#include "fieldkit/physics/Behavioural.h"
 
 namespace fk { namespace physics {
 	

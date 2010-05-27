@@ -12,24 +12,28 @@
 
 #include "fieldkit/math/AABB.h"
 #include "fieldkit/math/BoundingVolume.h"
-#include "fieldkit/physics/Spatial.h"
-
 using namespace fk::math;
+#include "fieldkit/physics/Spatial.h"
+#include <list>
 
 namespace fk { 
-namespace physics 
+namespace physics {
+
+class Space : public AABB 
 {
-	class Space : public AABB 
-	{
-	public:
-		Space();
-		Space(float w, float h, float d);
+public:
+	list<Spatial *>spatials;
 		
-		virtual void clear();
-		virtual void insert(Spatial* s);
-		virtual void select(fk::math::BoundingVolume* volume);
+	Space();
+	Space(float w, float h, float d);
 		
-		virtual Vec3f center();
-	};
+	virtual void clear();
+	virtual void insert(Spatial* s);
+	virtual void findSpatialsInVolume(list<void *> *resultlist, fk::math::BoundingVolume* volume); 
+	virtual void select(BoundingVolume* volume); 
+
+	virtual Vec3f center();
+};
+
 } 
 } // namespace fk::physics

@@ -8,69 +8,72 @@
  *	 Created by Marcus Wendt on 20/05/2010.
  */
 
-#include "Particle.h"
+#include "fieldkit/physics/Particle.h"
 
-namespace fk { namespace physics {
+namespace fk { 
+namespace physics {
 	
-	void Particle::init(Vec3f location) {
-		this->position = location;
+void Particle::init(Vec3f location) {
+	this->position = location;
 		
-		// set defaults
-		state = 0;
-		age = 0; 
-		lifeTime = 1000;
-		size = 1.0;
-		isLocked = false;
-		isAlive = true;
+	// set defaults
+	state = 0;
+	age = 0; 
+	lifeTime = 1000;
+	size = 1.0;
+	isLocked = false;
+	isAlive = true;
 		
-		clearVelocity();
-	}
+	clearVelocity();
+}
 	
-	void Particle::update(float dt) {
-		updateState(dt);
-		updatePosition();
-	}
+void Particle::update(float dt) {
+	updateState(dt);
+	updatePosition();
+}
 	
-	// update lifecycle
-	void Particle::updateState(float dt) {
-		age += dt;
-		if(age > lifeTime)
-			isAlive = false;	
-	}
+// update lifecycle
+void Particle::updateState(float dt) {
+	age += dt;
+	if(age > lifeTime)
+		isAlive = false;	
+}
 
-	// update position using verlet integration
-	void Particle::updatePosition() {
-		if(isLocked) return;
+// update position using verlet integration
+void Particle::updatePosition() {
+	if(isLocked) return;
 		
-		Vec3f tmp = position;
+	Vec3f tmp = position;
 
-		//force *= _timestepSq;
+	//force *= _timestepSq;
 		
-		position.x += (position.x - prev.x) + force.x;
-		position.y += (position.y - prev.y) + force.y;
-		position.z += (position.z - prev.z) + force.z;
+	position.x += (position.x - prev.x) + force.x;
+	position.y += (position.y - prev.y) + force.y;
+	position.z += (position.z - prev.z) + force.z;
+	
+	prev = tmp;
 		
-		prev = tmp;
-		
-		scaleVelocity(1.0 - drag);
-		
-		force.zero();
-	}
+	scaleVelocity(1.0f - drag);
+
+	force.zero();
+}
 	
-	void Particle::lock() {
-		isLocked = true;
-	}
+void Particle::lock() {
+	isLocked = true;
+}
 	
-	void Particle::unlock() {
-		isLocked = false;
-	}
+void Particle::unlock() {
+	isLocked = false;
+}
 	
-	void Particle::clearVelocity() {
-		prev = position;
-	}
+void Particle::clearVelocity() {
+	prev = position;
+}
 	
-	void Particle::scaleVelocity(float s) {
-		prev = prev.lerp(s, position);
-	}
-} } // fk::physics
+void Particle::scaleVelocity(float s) {
+	prev = prev.lerp(s, position);
+}
+
+} 
+} // fk::physics
 

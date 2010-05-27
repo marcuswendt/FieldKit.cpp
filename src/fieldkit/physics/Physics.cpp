@@ -7,81 +7,91 @@
  *   Physics.cpp
  *	 Created by Marcus Wendt on 20/05/2010.
  */
-#include "Physics.h"
 
-namespace fk { namespace physics {
+#include "fieldkit/physics/Physics.h"
 
-	Physics::Physics(Space* space) {
-		this->space = space;
-		this->emitter = NULL;
-	}
+namespace fk { 
+namespace physics {
+
+Physics::Physics(Space* space) {
+	this->space = space;
+	this->emitter = NULL;
+}
 	
-	Physics::~Physics() {
-		// TODO clean up particles here?
-	}
+Physics::~Physics() {
+	// TODO clean up particles here?
+}
 	
-	void Physics::update(float dt) {
-		if(emitter != NULL)
-			emitter->update(dt);
+void Physics::update(float dt) {
+	if(emitter != NULL)
+		emitter->update(dt);
 		
-		updateParticles(dt);
-		updateSprings();
-		updateNeighbours();
-	}
+	updateParticles(dt);
+	updateSprings();
+	updateNeighbours();
+}
 	
-	// -- Particles ------------------------------------------------------------
+// -- Particles ------------------------------------------------------------
 	
-	// check if we still have a dead particle that we can reuse, otherwise create a new one
-	Particle* Physics::createParticle() {
-		Particle* p;
+// check if we still have a dead particle that we can reuse, otherwise create a new one
+Particle* Physics::createParticle() {
+	Particle* p;
 		
-		if(deadParticles.size() > 0) {
-			p = *deadParticles.begin();
-			deadParticles.pop_front();
-			return p;
-		} else {
-			p = new Particle();
-		}
-		
-		// add particle to list
-		particles.push_back(p);
-		
+	if(deadParticles.size() > 0) {
+		p = *deadParticles.begin();
+		deadParticles.pop_front();
 		return p;
+	} else {
+		p = new Particle();	
 	}
+		
+	// add particle to list
+	particles.push_back(p);
+		
+	return p;
+}
 	
-	// updates all particles by applying all behaviours and constraints
-	void Physics::updateParticles(float dt) {
-		BOOST_FOREACH(Particle* p, particles) {
-			
-			// apply behaviours
-			BOOST_FOREACH(Behaviour* b, behaviours) {
-				b->apply(p);
-			}
-			
-			// apply constraints
-			BOOST_FOREACH(Constraint* c, constraints) {
-				c->apply(p);
-			}
-			
-			// update particle
-			p->update(dt);
-			
-			// check if particle is still alive, otherwise remove it
-			if(!p->isAlive) {
-				deadParticles.push_back(p);
-				particles.remove(p);
-			}
+// updates all particles by applying all behaviours and constraints
+void Physics::updateParticles(float dt) {
+	BOOST_FOREACH(Particle* p, particles) {
+		// apply behaviours
+		BOOST_FOREACH(Behaviour* b, behaviours) {
+			b->apply(p);
+		}
+		
+		// apply constraints
+		BOOST_FOREACH(Constraint* c, constraints) {
+			c->apply(p);
+		}
+		
+		// update particle
+		p->update(dt);
+		
+		// check if particle is still alive, otherwise remove it
+		if(!p->isAlive) {
+			deadParticles.push_back(p);
+			particles.remove(p);
 		}
 	}
+}
 	
+// -- Springs --------------------------------------------------------------
+void Physics::updateSprings() {
+	// TODO
+}
 	
-	// -- Springs --------------------------------------------------------------
-	void Physics::updateSprings() {
-		// TODO
+// -- Neighbours -----------------------------------------------------------
+void Physics::updateNeighbours() {
+	//
+	BOOST_FOREACH(Particle *p, particles)
+	{
+		if(p->neighbourBound)
+		{
+			p->neighbours.clear();
+			space->findSpatialsInVolume(&p->neighbours, p->neighbourBound);
+		}
 	}
-	
-	// -- Neighbours -----------------------------------------------------------
-	void Physics::updateNeighbours() {
-		// TODO
-	}
-} } // fk::physics
+}
+
+} 
+} // fk::physics

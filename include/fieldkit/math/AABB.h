@@ -16,7 +16,7 @@ namespace fk { namespace math {
 	public:
 		Vec3f min;
 		Vec3f max;
-		Vec3f extent;
+		Vec3f extent;  // half sized dimensions (halfw,halfh,halfdepth)
 		
 		AABB();
 		AABB(float w, float h, float d);

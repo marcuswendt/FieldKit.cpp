@@ -9,10 +9,24 @@
  */
 #pragma once
 
-namespace fk { namespace physics {
-	class Spatial {
-	public:
-		Spatial(){};
-		
-	};
-} } // namespace fk::physics
+#include "fieldkit/math/BoundingVolume.h"
+using namespace fk::math;
+#include "fieldkit/FieldKit.h"
+
+namespace fk { 
+namespace physics {
+
+enum SPATIAL_TYPE{
+	SPATIAL_TYPE_PARTICLE
+};
+
+class Spatial 
+{
+public:
+	
+	Spatial(){};
+	virtual Vec3f *getSpatialPosition(){ return 0; };
+};
+
+} 
+} // namespace fk::physics

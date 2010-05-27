@@ -9,14 +9,21 @@
  */
 #pragma once
 
-#include "Behavioural.h"
-#include "FieldKit.h"
-
-using namespace ci;
+#include "fieldkit/physics/Spatial.h"
+#include "fieldkit/physics/Behavioural.h"
+#include "fieldkit/math/BoundingVolume.h"
+#include "fieldkit/FieldKit.h"
+#include <list>
+using std::list;
 
 namespace fk { namespace physics {
-	class Particle {
+
+class Particle : public Spatial
+{
 	public:
+		list<void *> neighbours;
+		BoundingVolume *neighbourBound;
+		
 		int state;
 		float age;
 		float lifeTime;
@@ -38,7 +45,8 @@ namespace fk { namespace physics {
 		
 		virtual void updateState(float dt);
 		virtual void updatePosition();
-		
+		Vec3f *getSpatialPosition(){ return &position; };
+
 		// verlet integration
 		void lock();
 		void unlock();

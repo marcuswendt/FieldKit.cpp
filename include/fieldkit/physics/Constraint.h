@@ -9,11 +9,11 @@
  */
 #pragma once
 
-#include "Behaviour.h"
+#include "fieldkit/physics/Behaviour.h"
 
 namespace fk { namespace physics {
 
-	class Constraint : public Behaviour {
-	};
+class Constraint : public Behaviour {
+};
 	
 } } // namespace fk::physics
