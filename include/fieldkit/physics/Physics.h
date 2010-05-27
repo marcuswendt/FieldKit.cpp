@@ -13,23 +13,21 @@
 #include "fieldkit/physics/Particle.h"
 #include "fieldkit/physics/Emitter.h"
 #include "fieldkit/physics/Space.h"
+#include "Spring.h"
 
 #include <list>
 using std::list;
 
-namespace fk { 
-namespace physics {
-	
-class Physics : public Behavioural 
-{
-public:
-	Emitter* emitter;
-	Space* space;
+namespace fk { namespace physics {
+	class Physics : public Behavioural {
+	public:
+		Emitter* emitter;
+		Space* space;
 		
-	Physics(Space* space);
-	virtual ~Physics();		
-	
-	virtual void update(float dt);
+		Physics(Space* space);
+		virtual ~Physics();
+			
+		virtual void update(float dt);
 	
 	// -- Particles --------------------------------------------------------
 	list<Particle*>	particles;
@@ -38,7 +36,12 @@ public:
 	int numParticles() { return particles.size(); }
 		
 	// -- Springs ----------------------------------------------------------
-	//list<Particle>	particles;
+		list<Spring*>	springs;
+		
+		int numSprings() { return springs.size(); }
+
+		void addSpring(Spring* spring);
+		void removeSpring(Spring* spring);
 		
 protected:
 	list<Particle*>	deadParticles;

@@ -27,13 +27,32 @@ class Particle : public Spatial
 		int state;
 		float age;
 		float lifeTime;
-		float size;
-		float drag;
-		bool isLocked;
+		
+		// flag set if particles lifeTime is up
 		bool isAlive;
 		
+		// physical size in the simulation space
+		float size;
+		
+		// used by Springs and some Behaviours
+		float weight;
+		
+		// inverted weight
+		float invWeight;
+		
+		// wether this particle can be affected by behaviours
+		bool isLocked;
+
+		// position in the simulation space
 		Vec3f position;
+		
+		// previous position in the simulation space
 		Vec3f prev;
+		
+		// amount of friction
+		float drag;
+		
+		// force accumulator applied to this particle (set to zero after each update)
 		Vec3f force;
 		
 		Particle() {};
@@ -52,6 +71,11 @@ class Particle : public Spatial
 		void unlock();
 		void clearVelocity();
 		void scaleVelocity(float s);
+		
+		// getters & setters
+		void setWeight(float value);
+		inline float getWeight() { return this->weight; };
+		inline float getInvWeight() { return this->invWeight; };
 };
 	
 } } // namespace fk::physics

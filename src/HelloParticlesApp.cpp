@@ -9,13 +9,14 @@
  */
 
 #include "cinder/app/AppBasic.h"
-using namespace ci;
-using namespace ci::app;
-
+#include "cinder/Rand.h"
 #include <list>
-using namespace std;
 
 #include "fieldkit/physics/Physics.h"
+
+using namespace ci;
+using namespace ci::app;
+using namespace std;
 using namespace fk::physics;
 
 class HelloParticlesApp : public AppBasic {
@@ -41,16 +42,41 @@ void HelloParticlesApp::prepareSettings(Settings *settings){
 };
 
 // -- Loop ---------------------------------------------------------------------
+class RandomEmitter : public Behaviour {
+public:
+	RandomEmitter(Space* space) : Behaviour(space) {};
+	
+	void apply(Particle* p) {
+		p->position.x = Rand::randFloat(space->min.x, space->max.x);
+		p->position.y = Rand::randFloat(space->min.y, space->max.y);
+		p->position.z = Rand::randFloat(space->min.z, space->max.z);
+		p->clearVelocity();
+	}		
+};
+
 class Gravity : public Behaviour {
 	void apply(Particle* p) {
-		p->force.y += 0.1f;
+		p->force.y += 0.1;
+	}		
+};
+
+class Wrap : public Behaviour {
+public:
+	Wrap(Space* space) : Behaviour(space) {};
+	
+	void apply(Particle* p) {
+		if(p->position.y > space->max.y) {
+			p->position.y = 0;
+			p->clearVelocity();
+		}
+		//p->force.y += 0.1;
 	}		
 };
 
 void HelloParticlesApp::setup() {
 	timer = new Timer();
 	
-	Space* space = new Space((float)getWindowWidth(), (float)getWindowHeight(), (float)getWindowHeight());
+	Space* space = new Space(getWindowWidth(), getWindowHeight(), getWindowHeight());
 	//printf("Space %c", space->toString());
 	
 	physics = new Physics(space);
@@ -58,16 +84,18 @@ void HelloParticlesApp::setup() {
 	Emitter* emitter = new Emitter(physics);
 	physics->emitter = emitter;
 	emitter->position = space->center();
-	emitter->rate = 1;
-	emitter->interval = 1;
-	emitter->max = 10000;
+	emitter->rate = 10.0;
+	emitter->interval = 0.01;
+	emitter->max = 50000;
 	
-	emitter->addBehaviour(new Gravity());
+	emitter->addBehaviour(new RandomEmitter(space));
+	physics->addBehaviour(new Gravity());
+	physics->addBehaviour(new Wrap(space));
 }
 
 void HelloParticlesApp::update() {
 	timer->stop();
-	float dt = (float)timer->getSeconds();
+	double dt = timer->getSeconds();
 	timer->start();
 	
 	//printf("dt %f \n", dt);
@@ -80,10 +108,10 @@ void HelloParticlesApp::update() {
 void HelloParticlesApp::draw() {
 	ci::gl::clear(Color(0, 0, 0));
 	
-	glColor4f(1,1,1,1);
+	glColor3f(1,1,1);
+	glPointSize(3);
 	glBegin(GL_POINTS);
 	BOOST_FOREACH(Particle* p, physics->particles) {
-		glPointSize(p->size * 3);
 		glVertex3f(p->position.x, p->position.y, p->position.z);
 	}
 	glEnd();

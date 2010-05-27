@@ -10,70 +10,78 @@
 
 #include "fieldkit/physics/Particle.h"
 
-namespace fk { 
-namespace physics {
+namespace fk { namespace physics {
 	
-void Particle::init(Vec3f location) {
-	this->position = location;
+	void Particle::init(Vec3f location) {
+		this->position = location;
+		clearVelocity();
 		
-	// set defaults
-	state = 0;
-	age = 0; 
-	lifeTime = 1000;
-	size = 1.0;
-	isLocked = false;
-	isAlive = true;
+		// set defaults
+		state = 0;
+		age = 0; 
+		lifeTime = 1000;
+		isAlive = true;
 		
-	clearVelocity();
-}
+		size = 1.0;
+		isLocked = false;
+		
+		setWeight(1.0);
+		
+		drag = 0.03;
+		force = Vec3f();
+	}
 	
-void Particle::update(float dt) {
-	updateState(dt);
-	updatePosition();
-}
+	void Particle::update(float dt) {
+		updateState(dt);
+		updatePosition();
+	}
 	
-// update lifecycle
-void Particle::updateState(float dt) {
-	age += dt;
-	if(age > lifeTime)
-		isAlive = false;	
-}
+	// update lifecycle
+	void Particle::updateState(float dt) {
+		age += dt;
+		if(age > lifeTime)
+			isAlive = false;	
+	}
 
-// update position using verlet integration
-void Particle::updatePosition() {
-	if(isLocked) return;
+	// -- verlet integration ---------------------------------------------------
+	void Particle::updatePosition() {
+		if(isLocked) return;
 		
-	Vec3f tmp = position;
+		Vec3f tmp = position;
 
-	//force *= _timestepSq;
+		//force *= _timestepSq;
 		
-	position.x += (position.x - prev.x) + force.x;
-	position.y += (position.y - prev.y) + force.y;
-	position.z += (position.z - prev.z) + force.z;
-	
-	prev = tmp;
+		position.x += (position.x - prev.x) + force.x;
+		position.y += (position.y - prev.y) + force.y;
+		position.z += (position.z - prev.z) + force.z;
 		
-	scaleVelocity(1.0f - drag);
-
-	force.zero();
-}
+		prev = tmp;
+		
+		scaleVelocity(1.0 - drag);
+		
+		force = force.zero();
+	}
 	
-void Particle::lock() {
-	isLocked = true;
-}
+	void Particle::lock() {
+		isLocked = true;
+	}
 	
-void Particle::unlock() {
-	isLocked = false;
-}
+	void Particle::unlock() {
+		isLocked = false;
+	}
 	
-void Particle::clearVelocity() {
-	prev = position;
-}
+	void Particle::clearVelocity() {
+		prev = position;
+	}
 	
-void Particle::scaleVelocity(float s) {
-	prev = prev.lerp(s, position);
-}
-
-} 
-} // fk::physics
+	void Particle::scaleVelocity(float s) {
+		prev = prev.lerp(s, position);
+	}
+	
+	// -- getters & setters ----------------------------------------------------
+	void Particle::setWeight(float value) {
+		this->weight = value;
+		this->invWeight = 1.0 / value;
+	}
+} } // fk::physics
 
