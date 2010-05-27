@@ -29,7 +29,6 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		00BAE65A0E7ED9C10018A608 /* HelloParticlesApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00BAE6590E7ED9C10018A608 /* HelloParticlesApp.cpp */; };
 		00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 00CCAF14116A9FEE008396D5 /* CinderApp.icns */; };
-		2C094C7711AAF63E0018103A /* BoundingVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C094C7611AAF63E0018103A /* BoundingVolume.cpp */; };
 		2C88901011A6A08B00E716F0 /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900C11A6A08B00E716F0 /* Emitter.cpp */; };
 		2C88901111A6A08B00E716F0 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900E11A6A08B00E716F0 /* Particle.cpp */; };
 		2C88901211A6A08B00E716F0 /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900F11A6A08B00E716F0 /* Physics.cpp */; };
@@ -58,6 +57,7 @@
 		2CB6ADCD11A7D31900983354 /* IterationTestOpenMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6ADB911A7D2DA00983354 /* IterationTestOpenMP.cpp */; };
 		2CC1C94411AAAE930052C0B3 /* Spatial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C94311AAAE930052C0B3 /* Spatial.cpp */; };
 		2CC1C97811AABF2D0052C0B3 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C97711AABF2D0052C0B3 /* AABB.cpp */; };
+		2CD0787911AE79530088280C /* Spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0787811AE79530088280C /* Spring.cpp */; };
 		2CEFC56111A91881002362A9 /* Space.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CEFC56011A91881002362A9 /* Space.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
@@ -89,7 +89,6 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2C094C6111AAF46B0018103A /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
-		2C094C7611AAF63E0018103A /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
 		2C88900311A6A07E00E716F0 /* FieldKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldKit.h; sourceTree = "<group>"; };
 		2C88900511A6A07E00E716F0 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
 		2C88900611A6A07E00E716F0 /* Behavioural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavioural.h; sourceTree = "<group>"; };
@@ -110,6 +109,8 @@
 		2CC1C94311AAAE930052C0B3 /* Spatial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spatial.cpp; sourceTree = "<group>"; };
 		2CC1C97611AABF2D0052C0B3 /* AABB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABB.h; sourceTree = "<group>"; };
 		2CC1C97711AABF2D0052C0B3 /* AABB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AABB.cpp; sourceTree = "<group>"; };
+		2CD0787711AE79480088280C /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spring.h; sourceTree = "<group>"; };
+		2CD0787811AE79530088280C /* Spring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spring.cpp; sourceTree = "<group>"; };
 		2CEFC56011A91881002362A9 /* Space.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Space.cpp; sourceTree = "<group>"; };
 		2CEFC56B11A91B3B002362A9 /* BoundingVolume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundingVolume.h; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* FieldKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldKit_Prefix.pch; sourceTree = "<group>"; };
@@ -299,6 +300,7 @@
 				2C88900711A6A07E00E716F0 /* Constraint.h */,
 				2C88900811A6A07E00E716F0 /* Particle.h */,
 				2C88900911A6A07E00E716F0 /* Physics.h */,
+				2CD0787711AE79480088280C /* Spring.h */,
 			);
 			path = physics;
 			sourceTree = "<group>";
@@ -323,6 +325,7 @@
 				2C88900E11A6A08B00E716F0 /* Particle.cpp */,
 				2C88900F11A6A08B00E716F0 /* Physics.cpp */,
 				2CB6AAC611A6D1DD00983354 /* Behavioural.cpp */,
+				2CD0787811AE79530088280C /* Spring.cpp */,
 			);
 			path = physics;
 			sourceTree = "<group>";
@@ -350,7 +353,6 @@
 			isa = PBXGroup;
 			children = (
 				2CC1C97711AABF2D0052C0B3 /* AABB.cpp */,
-				2C094C7611AAF63E0018103A /* BoundingVolume.cpp */,
 			);
 			path = math;
 			sourceTree = "<group>";
@@ -477,7 +479,7 @@
 				2CEFC56111A91881002362A9 /* Space.cpp in Sources */,
 				2CC1C94411AAAE930052C0B3 /* Spatial.cpp in Sources */,
 				2CC1C97811AABF2D0052C0B3 /* AABB.cpp in Sources */,
-				2C094C7711AAF63E0018103A /* BoundingVolume.cpp in Sources */,
+				2CD0787911AE79530088280C /* Spring.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,18 +14,21 @@ namespace fk { namespace physics {
 	
 	void Particle::init(Vec3f location) {
 		this->position = location;
+		clearVelocity();
 		
 		// set defaults
 		state = 0;
 		age = 0; 
 		lifeTime = 1000;
-		size = 1.0;
-		drag = 0.03;
-		isLocked = false;
 		isAlive = true;
 		
-		force = force.zero();
-		clearVelocity();
+		size = 1.0;
+		isLocked = false;
+		
+		setWeight(1.0);
+		
+		drag = 0.03;
+		force = Vec3f();
 	}
 	
 	void Particle::update(float dt) {
@@ -40,7 +43,7 @@ namespace fk { namespace physics {
 			isAlive = false;	
 	}
 
-	// update position using verlet integration
+	// -- verlet integration ---------------------------------------------------
 	void Particle::updatePosition() {
 		if(isLocked) return;
 		
@@ -73,6 +76,12 @@ namespace fk { namespace physics {
 	
 	void Particle::scaleVelocity(float s) {
 		prev = prev.lerp(s, position);
+	}
+	
+	// -- getters & setters ----------------------------------------------------
+	void Particle::setWeight(float value) {
+		this->weight = value;
+		this->invWeight = 1.0 / value;
 	}
 } } // fk::physics
 

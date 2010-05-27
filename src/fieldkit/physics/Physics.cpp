@@ -17,7 +17,8 @@ namespace fk { namespace physics {
 	}
 	
 	Physics::~Physics() {
-		// TODO clean up particles here?
+		// TODO delete particles here?
+		// TODO delete springs?
 	}
 	
 	void Physics::update(float dt) {
@@ -76,8 +77,26 @@ namespace fk { namespace physics {
 	
 	
 	// -- Springs --------------------------------------------------------------
+	void Physics::addSpring(Spring* spring) {
+		springs.push_back(spring);
+	}
+	
+	void Physics::removeSpring(Spring* spring) {
+		springs.remove(spring);
+	}
+	
+	// updates all spring connections based on new particle positions
 	void Physics::updateSprings() {
-		// TODO
+		// update all springs
+		BOOST_FOREACH(Spring* s, springs) {
+			s->update();
+			
+			// apply constraints after spring update
+			BOOST_FOREACH(Constraint* c, constraints) {
+				c->apply(s->a);
+				c->apply(s->b);
+			}			
+		}		
 	}
 	
 	// -- Neighbours -----------------------------------------------------------

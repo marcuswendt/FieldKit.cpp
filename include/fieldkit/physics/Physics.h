@@ -10,9 +10,10 @@
 #pragma once
 
 #include "Behavioural.h"
+#include "Space.h"
 #include "Particle.h"
 #include "Emitter.h"
-#include "Space.h"
+#include "Spring.h"
 
 #include <list>
 using std::list;
@@ -35,7 +36,12 @@ namespace fk { namespace physics {
 		int numParticles() { return particles.size(); }
 		
 		// -- Springs ----------------------------------------------------------
-		//list<Particle>	particles;
+		list<Spring*>	springs;
+		
+		int numSprings() { return springs.size(); }
+
+		void addSpring(Spring* spring);
+		void removeSpring(Spring* spring);
 		
 	protected:
 		list<Particle*>	deadParticles;
