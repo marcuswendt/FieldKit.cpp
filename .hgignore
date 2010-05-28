@@ -1,5 +1,8 @@
 syntax: glob
 
+# OSX
+.DS_Store
+
 # XCode
 xcode/build/*
 *.pbxuser
