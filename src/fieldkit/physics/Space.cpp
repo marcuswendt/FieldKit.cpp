@@ -9,8 +9,9 @@
  */
 
 #include "fieldkit/physics/Space.h"
-using namespace fk::math;
 #include "cinder/Vector.h"
+
+using namespace fk::math;
 
 namespace fk { 
 namespace physics {

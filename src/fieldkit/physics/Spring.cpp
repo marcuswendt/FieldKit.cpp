@@ -37,7 +37,7 @@ namespace fk { namespace physics {
 		}
 		
         if(!b->isLocked && !isBLocked) {
-        	b->position += delta * normDistStrength * b->invWeight;
+        	b->position += delta * -normDistStrength * b->invWeight;
 		}
 	}
 	
