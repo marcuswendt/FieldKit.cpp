@@ -34,6 +34,30 @@
 		2C3D6A0F11AFEC350015757B /* FlockBehaviour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0B11AFEC350015757B /* FlockBehaviour.cpp */; };
 		2C3D6A1011AFEC350015757B /* FlockRepel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0C11AFEC350015757B /* FlockRepel.cpp */; };
 		2C3D6A1311AFEC520015757B /* OctTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A1211AFEC520015757B /* OctTree.cpp */; };
+		2C55A27711B060F700041C25 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C97711AABF2D0052C0B3 /* AABB.cpp */; };
+		2C55A27811B060FE00041C25 /* AttractorPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0789011AE85370088280C /* AttractorPoint.cpp */; };
+		2C55A27911B060FE00041C25 /* Behavioural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6AAC611A6D1DD00983354 /* Behavioural.cpp */; };
+		2C55A27A11B060FE00041C25 /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900C11A6A08B00E716F0 /* Emitter.cpp */; };
+		2C55A27B11B060FE00041C25 /* FlockAlign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0911AFEC350015757B /* FlockAlign.cpp */; };
+		2C55A27C11B060FE00041C25 /* FlockAttract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0A11AFEC350015757B /* FlockAttract.cpp */; };
+		2C55A27D11B060FE00041C25 /* FlockBehaviour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0B11AFEC350015757B /* FlockBehaviour.cpp */; };
+		2C55A27E11B060FE00041C25 /* FlockRepel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0C11AFEC350015757B /* FlockRepel.cpp */; };
+		2C55A27F11B060FE00041C25 /* OctTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A1211AFEC520015757B /* OctTree.cpp */; };
+		2C55A28011B060FE00041C25 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900E11A6A08B00E716F0 /* Particle.cpp */; };
+		2C55A28111B060FE00041C25 /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900F11A6A08B00E716F0 /* Physics.cpp */; };
+		2C55A28211B060FE00041C25 /* Space.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CEFC56011A91881002362A9 /* Space.cpp */; };
+		2C55A28311B060FE00041C25 /* Spatial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C94311AAAE930052C0B3 /* Spatial.cpp */; };
+		2C55A28411B060FE00041C25 /* Spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0787811AE79530088280C /* Spring.cpp */; };
+		2C55A3E911B0610F00041C25 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		2C55A3EA11B0610F00041C25 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		2C55A3EB11B0610F00041C25 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
+		2C55A3EC11B0610F00041C25 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		2C55A3ED11B0610F00041C25 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		2C55A3EE11B0610F00041C25 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0097E3E40F3E9819005A4392 /* QuickTime.framework */; };
+		2C55A3EF11B0610F00041C25 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		2C55A3F011B0610F00041C25 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		2C55A3F111B0610F00041C25 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		2C88901011A6A08B00E716F0 /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900C11A6A08B00E716F0 /* Emitter.cpp */; };
 		2C88901111A6A08B00E716F0 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900E11A6A08B00E716F0 /* Particle.cpp */; };
 		2C88901211A6A08B00E716F0 /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900F11A6A08B00E716F0 /* Physics.cpp */; };
@@ -105,6 +129,7 @@
 		2C3D6A1611AFEC620015757B /* FlockBehaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlockBehaviour.h; path = ../include/fieldkit/physics/behaviours/FlockBehaviour.h; sourceTree = SOURCE_ROOT; };
 		2C3D6A1711AFEC620015757B /* FlockRepel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlockRepel.h; path = ../include/fieldkit/physics/behaviours/FlockRepel.h; sourceTree = SOURCE_ROOT; };
 		2C3D6A1911AFEC880015757B /* OctTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OctTree.h; sourceTree = "<group>"; };
+		2C55A26211B0608700041C25 /* libFieldKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C88900311A6A07E00E716F0 /* FieldKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldKit.h; sourceTree = "<group>"; };
 		2C88900511A6A07E00E716F0 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
 		2C88900611A6A07E00E716F0 /* Behavioural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavioural.h; sourceTree = "<group>"; };
@@ -142,6 +167,23 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2C55A26011B0608700041C25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C55A3E911B0610F00041C25 /* Cocoa.framework in Frameworks */,
+				2C55A3EA11B0610F00041C25 /* OpenGL.framework in Frameworks */,
+				2C55A3EB11B0610F00041C25 /* Carbon.framework in Frameworks */,
+				2C55A3EC11B0610F00041C25 /* CoreVideo.framework in Frameworks */,
+				2C55A3ED11B0610F00041C25 /* QTKit.framework in Frameworks */,
+				2C55A3EE11B0610F00041C25 /* QuickTime.framework in Frameworks */,
+				2C55A3EF11B0610F00041C25 /* Accelerate.framework in Frameworks */,
+				2C55A3F011B0610F00041C25 /* AudioToolbox.framework in Frameworks */,
+				2C55A3F111B0610F00041C25 /* AudioUnit.framework in Frameworks */,
+				2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CB6AB6211A7378400983354 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +280,7 @@
 				8D1107320486CEB800E47090 /* HelloParticles.app */,
 				2CB6AB6411A7378400983354 /* IterationTest */,
 				2CB6ADCB11A7D2F000983354 /* IterationTestOpenMP */,
+				2C55A26211B0608700041C25 /* libFieldKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -418,7 +461,34 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		2C55A25E11B0608700041C25 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		2C55A26111B0608700041C25 /* FieldKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C55A27011B0608C00041C25 /* Build configuration list for PBXNativeTarget "FieldKit" */;
+			buildPhases = (
+				2C55A25E11B0608700041C25 /* Headers */,
+				2C55A25F11B0608700041C25 /* Sources */,
+				2C55A26011B0608700041C25 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FieldKit;
+			productName = FieldKit;
+			productReference = 2C55A26211B0608700041C25 /* libFieldKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		2CB6AB6311A7378400983354 /* IterationTest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CB6AB6911A737AD00983354 /* Build configuration list for PBXNativeTarget "IterationTest" */;
@@ -481,10 +551,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8D1107260486CEB800E47090 /* HelloParticles */,
 				2C88901811A6A56500E716F0 /* Tests */,
+				8D1107260486CEB800E47090 /* HelloParticles */,
 				2CB6AB6311A7378400983354 /* IterationTest */,
 				2CB6ADBA11A7D2F000983354 /* IterationTestOpenMP */,
+				2C55A26111B0608700041C25 /* FieldKit */,
 			);
 		};
 /* End PBXProject section */
@@ -501,6 +572,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2C55A25F11B0608700041C25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C55A27711B060F700041C25 /* AABB.cpp in Sources */,
+				2C55A27811B060FE00041C25 /* AttractorPoint.cpp in Sources */,
+				2C55A27911B060FE00041C25 /* Behavioural.cpp in Sources */,
+				2C55A27A11B060FE00041C25 /* Emitter.cpp in Sources */,
+				2C55A27B11B060FE00041C25 /* FlockAlign.cpp in Sources */,
+				2C55A27C11B060FE00041C25 /* FlockAttract.cpp in Sources */,
+				2C55A27D11B060FE00041C25 /* FlockBehaviour.cpp in Sources */,
+				2C55A27E11B060FE00041C25 /* FlockRepel.cpp in Sources */,
+				2C55A27F11B060FE00041C25 /* OctTree.cpp in Sources */,
+				2C55A28011B060FE00041C25 /* Particle.cpp in Sources */,
+				2C55A28111B060FE00041C25 /* Physics.cpp in Sources */,
+				2C55A28211B060FE00041C25 /* Space.cpp in Sources */,
+				2C55A28311B060FE00041C25 /* Spatial.cpp in Sources */,
+				2C55A28411B060FE00041C25 /* Spring.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CB6AB6111A7378400983354 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -550,6 +642,43 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		2C55A26311B0608800041C25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PREBINDING = NO;
+				PRODUCT_NAME = FieldKit_d;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SYMROOT = ../lib;
+				VALID_ARCHS = x86_64;
+			};
+			name = Debug;
+		};
+		2C55A26411B0608800041C25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = FieldKit;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SYMROOT = ../lib;
+				VALID_ARCHS = x86_64;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		2C88901911A6A56500E716F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -660,7 +789,6 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CINDER_PATH = ../../../Libraries/cinder;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -683,7 +811,6 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CINDER_PATH = ../../../Libraries/cinder;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_FAST_MATH = YES;
@@ -710,7 +837,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
-				CINDER_PATH = ../../../Libraries/cinder_0.8.0_mac;
+				CINDER_PATH = ../../../Libraries/cinder;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
@@ -725,7 +852,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
-				CINDER_PATH = ../../../Libraries/cinder_0.8.0_mac;
+				CINDER_PATH = ../../../Libraries/cinder;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
@@ -738,6 +865,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2C55A27011B0608C00041C25 /* Build configuration list for PBXNativeTarget "FieldKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C55A26311B0608800041C25 /* Debug */,
+				2C55A26411B0608800041C25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2C88901D11A6A59400E716F0 /* Build configuration list for PBXAggregateTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

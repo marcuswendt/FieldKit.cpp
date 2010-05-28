@@ -1,5 +1,7 @@
 syntax: glob
 
+lib/*
+
 # OSX
 .DS_Store
 
@@ -7,3 +9,4 @@ syntax: glob
 xcode/build/*
 *.pbxuser
 *.perspectivev3
+*.mode1v3
