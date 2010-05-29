@@ -20,6 +20,28 @@ namespace fk { namespace physics {
 	public:
 		Physics* physics;
 		
+		Emitter(Physics* physics);
+		~Emitter() {};
+		
+		virtual void update(float dt);
+		virtual Particle* emit(Vec3f location);
+		
+		void setPosition(Vec3f location) { position.set(location); }
+		Vec3f getPosition() { return position; }
+		
+		void setRate(int value) { rate = value; }
+		int getRate() { return rate; }
+		
+		void setMax(int value);
+		int getMax() { return max; }
+		
+		void setInterval(float value) { interval = value; }
+		float getInterval() { return interval; }
+		
+		void setEnabled(bool value) { isEnabled = value; }
+		bool getIsEnabled() { return isEnabled; }
+		
+	protected:
 		Vec3f position;
 		
 		int rate;
@@ -27,14 +49,7 @@ namespace fk { namespace physics {
 		float interval;
 		float time;
 		bool isEnabled;
-		
-		Emitter(Physics* physics);
-		~Emitter() {};
-		
-		virtual void update(float dt);
-		virtual Particle* emit(Vec3f location);
-		
-	protected:
+				
 		void applyBehaviours(Particle* p);
 		void applyConstraints(Particle* p);
 	};

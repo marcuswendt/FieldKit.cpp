@@ -11,6 +11,10 @@
 #include "fieldkit/physics/Particle.h"
 
 namespace fk { namespace physics {
+
+	Particle::Particle() {
+		isAlive = false;
+	}
 	
 	void Particle::init(Vec3f location) {
 		set(location);

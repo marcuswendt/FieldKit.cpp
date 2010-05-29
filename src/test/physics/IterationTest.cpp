@@ -8,6 +8,36 @@
  *	 Created by Marcus Wendt on 21/05/2010.
  */
 
+/*
+ 
+ Results on my Mac Pro 2x.26Ghz Quad-Core Nehalem
+ 
+ Debug Mode
+ 
+ ---- Iteration Test ----
+ initialising 10000 particles
+ running tests 100000 times
+ running StaticArrayTest: 85.021642 s 
+ running STLObjectListTest: 102.046584 s 
+ running STLPointerListTest: 103.400822 s 
+ running STLPointerVectorTest: 107.725085 s 
+ running STLObjectVectorTest: 111.854316 s 
+ ---- Done ----
+ 
+ 
+ Release Mode
+ 
+ ---- Iteration Test ----
+ initialising 10000 particles
+ running tests 100000 times
+ running StaticArrayTest: 38.603858 s 
+ running STLObjectListTest: 38.412148 s 
+ running STLPointerListTest: 39.084085 s 
+ running STLPointerVectorTest: 38.526468 s 
+ running STLObjectVectorTest: 38.399052 s 
+ ---- Done ----
+ */
+
 #include <list>
 #include <vector>
 #include <boost/foreach.hpp>

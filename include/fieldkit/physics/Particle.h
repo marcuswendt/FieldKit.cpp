@@ -51,7 +51,7 @@ namespace fk { namespace physics {
 		// force accumulator applied to this particle (set to zero after each update)
 		Vec3f force;
 		
-		Particle() {};
+		Particle();
 		~Particle() {};
 		
 		// lifecycle

@@ -72,10 +72,10 @@ void HelloParticlesApp::setup() {
 	
 	Emitter* emitter = new Emitter(physics);
 	physics->emitter = emitter;
-	emitter->position = space->getCenter();
-	emitter->rate = 1000.0;
-	emitter->interval = 0.01;
-	emitter->max = 50000;
+	emitter->setPosition(space->getCenter());
+	emitter->setRate(1000);
+	emitter->setInterval(0.01);
+	emitter->setMax(50000);
 	
 	emitter->addBehaviour(new RandomEmitter(space));
 	
@@ -92,7 +92,7 @@ void HelloParticlesApp::setup() {
 	layout.setDynamicPositions();
 	layout.setStaticTexCoords2d();
 	
-	vboParticles = gl::VboMesh(emitter->max, 0, layout, GL_POINTS);
+	vboParticles = gl::VboMesh(emitter->getMax(), 0, layout, GL_POINTS);
 }
 
 void HelloParticlesApp::update() {
@@ -107,7 +107,7 @@ void HelloParticlesApp::update() {
 	// copy particle positions into vbo
 	gl::VboMesh::VertexIter iter = vboParticles.mapVertexBuffer();
 	BOOST_FOREACH(Particle* p, physics->particles) {
-		//printf("set pos: %f %f %f\n", p->x, p->y, p->z);
+		if(!p->isAlive) continue;
 		iter.setPosition(p->x, p->y, p->z);
 		++iter;
 	}
@@ -120,7 +120,7 @@ void HelloParticlesApp::draw() {
 	glPointSize(3);
 	
 	// draw all particles at once using vbo
-	drawArrays(vboParticles, 0, physics->numParticles());
+	drawArrays(vboParticles, 0, physics->getNumParticles());
 }
 
 
