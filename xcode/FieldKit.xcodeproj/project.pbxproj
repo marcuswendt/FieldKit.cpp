@@ -44,6 +44,8 @@
 		2C0F90D311B11E7400AD264D /* Boundary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F90D211B11E7400AD264D /* Boundary.cpp */; };
 		2C0F90D411B11E7400AD264D /* Boundary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F90D211B11E7400AD264D /* Boundary.cpp */; };
 		2C0F90D711B11E9300AD264D /* Boundary.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0F90D611B11E9300AD264D /* Boundary.h */; };
+		2C0F929C11B1494B00AD264D /* Force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F929B11B1494B00AD264D /* Force.cpp */; };
+		2C0F929D11B1494B00AD264D /* Force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F929B11B1494B00AD264D /* Force.cpp */; };
 		2C3D6A0D11AFEC350015757B /* Flocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0911AFEC350015757B /* Flocking.cpp */; };
 		2C3D6A1311AFEC520015757B /* OctTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A1211AFEC520015757B /* OctTree.cpp */; };
 		2C55A27711B060F700041C25 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C97711AABF2D0052C0B3 /* AABB.cpp */; };
@@ -144,6 +146,7 @@
 		2C094C6111AAF46B0018103A /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		2C0F90D211B11E7400AD264D /* Boundary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boundary.cpp; sourceTree = "<group>"; };
 		2C0F90D611B11E9300AD264D /* Boundary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Boundary.h; path = ../include/fieldkit/physics/behaviours/Boundary.h; sourceTree = SOURCE_ROOT; };
+		2C0F929B11B1494B00AD264D /* Force.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Force.cpp; sourceTree = "<group>"; };
 		2C3D6A0911AFEC350015757B /* Flocking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flocking.cpp; sourceTree = "<group>"; };
 		2C3D6A1211AFEC520015757B /* OctTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OctTree.cpp; sourceTree = "<group>"; };
 		2C3D6A1411AFEC620015757B /* Flocking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flocking.h; path = ../include/fieldkit/physics/behaviours/Flocking.h; sourceTree = SOURCE_ROOT; };
@@ -348,6 +351,7 @@
 				2CD0789011AE85370088280C /* Attractor.cpp */,
 				2C0F90D211B11E7400AD264D /* Boundary.cpp */,
 				2C3D6A0911AFEC350015757B /* Flocking.cpp */,
+				2C0F929B11B1494B00AD264D /* Force.cpp */,
 			);
 			path = behaviours;
 			sourceTree = "<group>";
@@ -603,6 +607,7 @@
 				2C55A28311B060FE00041C25 /* Spatial.cpp in Sources */,
 				2C55A28411B060FE00041C25 /* Spring.cpp in Sources */,
 				2C0F90D411B11E7400AD264D /* Boundary.cpp in Sources */,
+				2C0F929C11B1494B00AD264D /* Force.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,6 +644,7 @@
 				2C3D6A0D11AFEC350015757B /* Flocking.cpp in Sources */,
 				2C3D6A1311AFEC520015757B /* OctTree.cpp in Sources */,
 				2C0F90D311B11E7400AD264D /* Boundary.cpp in Sources */,
+				2C0F929D11B1494B00AD264D /* Force.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,13 +22,16 @@ namespace fk { namespace physics {
 			direction.set(0,0,0);
 		};
 		
-		void setDirection(Vec3f value) { direction = value.normalized(); }
-		Vec3f getDirection() { return direction; }
 		
-		void apply(Particle* p) { p->force += direction * weight; }
+		void setDirection(Vec3f value);
+		Vec3f getDirection();
+		
+		void prepare(float dt);
+		void apply(Particle* p);
 		
 	protected:
 		Vec3f direction;
+		Vec3f force;
 	};
 	
 	// -- Gravity --------------------------------------------------------------

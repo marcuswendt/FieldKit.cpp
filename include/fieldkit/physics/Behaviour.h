@@ -28,6 +28,7 @@ namespace fk { namespace physics {
 			this->space = space;
 		};
 		
+		virtual void prepare(float dt) {};
 		virtual void apply(Particle* p) = 0;
 	};
 	

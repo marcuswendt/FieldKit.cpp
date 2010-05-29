@@ -52,6 +52,16 @@ namespace fk { namespace physics {
 	
 	// updates all particles by applying all behaviours and constraints
 	void Physics::updateParticles(float dt) {
+		// prepare behaviours & constraints
+		BOOST_FOREACH(Behaviour* b, behaviours) {
+			b->prepare(dt);
+		}
+		
+		BOOST_FOREACH(Constraint* c, constraints) {
+			c->prepare(dt);
+		}
+		
+		// update all particles
 		BOOST_FOREACH(Particle* p, particles) {
 			
 			// apply behaviours
