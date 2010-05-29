@@ -20,7 +20,7 @@ namespace fk { namespace physics {
 		isBLocked = false;
 	}
 	
-	Spring::Spring(Particle* a, Particle* b, float restLength, float strength) {
+	Spring::Spring(ParticlePtr a, ParticlePtr b, float restLength, float strength) {
 		this->a = a;
 		this->b = b;
 		this->restLength = restLength;

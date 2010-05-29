@@ -13,7 +13,7 @@ using namespace fk::physics;
 // -- Align --------------------------------------------------------------------
 
 //  calc average force and move towards it (use velocity if available)..
-void FlockAlign::apply(Particle *p)
+void FlockAlign::apply(ParticlePtr p)
 {
 	Vec3f average(0.0f,0.0f,0.0f);
 	Particle *q;
@@ -24,7 +24,7 @@ void FlockAlign::apply(Particle *p)
 	while( it != p->neighbours.end()) 
 	{ 
 		q = (Particle *) *it;				
-		average += q->force;
+		average += q->force;s
 	}
 	if(n > 0) average /= (float)n;
 
@@ -38,7 +38,7 @@ void FlockAlign::apply(Particle *p)
 // -- Attract ------------------------------------------------------------------
 
 // calculate center of neighbours and move towards it
-void FlockAttract::apply(Particle *p)
+void FlockAttract::apply(ParticlePtr p)
 {
 	Vec3f center(0.0f,0.0f,0.0f);
 	int n = p->neighbours.size();
@@ -61,7 +61,7 @@ void FlockAttract::apply(Particle *p)
 
 // -- Repel --------------------------------------------------------------------
 
-void FlockRepel::apply(Particle *p)
+void FlockRepel::apply(ParticlePtr p)
 {
 	float distSq, radius, radiusSq, dist;
 	Vec3f tmp;

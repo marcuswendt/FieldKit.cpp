@@ -19,17 +19,17 @@ namespace physics {
 	
 	class FlockAlign : public WeightedBehaviour {
 	public:
-		void apply(Particle *Particle);
+		void apply(ParticlePtr Particle);
 	};
 	
 	class FlockAttract : public WeightedBehaviour{
 	public:
-		void apply(Particle *Particle);
+		void apply(ParticlePtr Particle);
 	};
 	
 	class FlockRepel : public WeightedBehaviour {
 	public:
-		void apply(Particle *Particle);
+		void apply(ParticlePtr Particle);
 	};
 }
 

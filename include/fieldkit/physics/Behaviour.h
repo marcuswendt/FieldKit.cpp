@@ -9,14 +9,12 @@
  */
 #pragma once
 
-#include "Space.h"
+#include "fieldkit/FieldKit.h"
+#include "fieldkit/physics/Space.h"
+#include "fieldkit/physics/Particle.h"
 
 namespace fk { namespace physics {
 
-	// forward class declaration
-	class Particle;
-
-	
 	// Base class for all physics behaviours
 	class Behaviour {
 	public:
@@ -29,7 +27,7 @@ namespace fk { namespace physics {
 		};
 		
 		virtual void prepare(float dt) {};
-		virtual void apply(Particle* p) = 0;
+		virtual void apply(ParticlePtr p) = 0;
 	};
 	
 	// A behaviour with a weight field

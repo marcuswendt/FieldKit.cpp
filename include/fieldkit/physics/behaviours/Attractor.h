@@ -20,7 +20,7 @@ namespace fk { namespace physics {
 		AttractorPoint() : WeightedBehaviour() {};
 		
 		Vec3f position;
-		virtual void apply(Particle* p) = 0;
+		virtual void apply(ParticlePtr p) = 0;
 	};
 	
 } } // namespace fk::physics

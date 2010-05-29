@@ -31,7 +31,7 @@ namespace fk { namespace physics {
 			preserveMomentum = false;
 		}
 		
-		void apply(Particle* p);
+		void apply(ParticlePtr p);
 	};
 	
 } } // namespace fk::physics

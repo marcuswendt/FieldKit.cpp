@@ -25,7 +25,7 @@ Emitter::Emitter(Physics* physics)
 
 void Emitter::setMax(int value) {
 	max = value;
-	physics->reserveParticles(max);
+	physics->allocParticles(max);
 }
 
 void Emitter::update(float dt) {
@@ -46,26 +46,16 @@ void Emitter::update(float dt) {
 }
 
 // emits a single particle and applies the emitter behaviours
-Particle* Emitter::emit(Vec3f location) {
-	Particle* p = physics->createParticle();
+void Emitter::emit(Vec3f location) {
+	ParticlePtr p = physics->createParticle();
 	
 	// set particle to start at the emitters position
 	p->init(location);
 	
 	// apply emitter behaviours
-	applyBehaviours(p);
-	applyConstraints(p);
-	
-	return p;
-}
-
-void Emitter::applyBehaviours(Particle* p) {
 	BOOST_FOREACH(Behaviour* b, behaviours) {
 		b->apply(p);
 	}
-}
-
-void Emitter::applyConstraints(Particle* p) {
 	BOOST_FOREACH(Constraint* c, constraints) {
 		c->apply(p);
 	}

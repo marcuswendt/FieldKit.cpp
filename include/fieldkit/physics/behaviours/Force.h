@@ -27,7 +27,7 @@ namespace fk { namespace physics {
 		Vec3f getDirection();
 		
 		void prepare(float dt);
-		void apply(Particle* p);
+		void apply(ParticlePtr p);
 		
 	protected:
 		Vec3f direction;

@@ -14,6 +14,7 @@ namespace fk { namespace physics {
 
 	Particle::Particle() {
 		isAlive = false;
+		isLocked = false;
 	}
 	
 	void Particle::init(Vec3f location) {

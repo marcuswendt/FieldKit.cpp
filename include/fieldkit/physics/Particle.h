@@ -10,11 +10,11 @@
 #pragma once
 
 #include "fieldkit/physics/Spatial.h"
-#include "fieldkit/physics/Behavioural.h"
 #include "fieldkit/math/BoundingVolume.h"
 #include "fieldkit/FieldKit.h"
+
 #include <list>
-using std::list;
+#include <vector>
 
 namespace fk { namespace physics {
 	
@@ -76,5 +76,7 @@ namespace fk { namespace physics {
 	protected:
 		Vec3f tmp;
 	};
+	
+	typedef vector<Particle>::iterator ParticlePtr;
 	
 } } // namespace fk::physics

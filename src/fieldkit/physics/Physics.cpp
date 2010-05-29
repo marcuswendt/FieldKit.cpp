@@ -14,7 +14,6 @@ using namespace fk::physics;
 Physics::Physics(Space* space) {
 	this->space = space;
 	emitter = NULL;
-	numParticles = 0;
 }
 
 Physics::~Physics() {
@@ -33,34 +32,23 @@ void Physics::update(float dt) {
 
 // -- Particles ------------------------------------------------------------
 // check if we still have a dead particle that we can reuse, otherwise create a new one
-Particle* Physics::createParticle() {
-	
+ParticlePtr Physics::createParticle() {
 	numParticles++;
-	
-	// check if we can find an existing dead particle
-	BOOST_FOREACH(Particle* p, particles) {
-		if(!p->isAlive) return p;
+	for(ParticlePtr pIt = particles.begin(); pIt != particles.end();) {
+		if(!pIt->isAlive) return pIt;
+		pIt++;
 	}
-	
-	// otherwise create a new one
-	return allocParticle();
-//	Particle* p = allocParticle();
-//	particles.push_back(p);
-//	return p;	
+	printf("WARNING: running out of particles\n");
+	// FIXME
+	return particles.begin();
 }
 
-void Physics::reserveParticles(int count) {
+// allocates a bunch of new particles
+void Physics::allocParticles(int count) {
 	particles.reserve(count);
 	while(particles.size() < count) {
-		allocParticle();	
+		particles.push_back(Particle());
 	}
-}
-
-// allocates a new Particle instance
-Particle* Physics::allocParticle() {
-	Particle* p = new Particle();
-	particles.push_back(p);
-	return p;
 }
 
 // updates all particles by applying all behaviours and constraints
@@ -75,7 +63,7 @@ void Physics::updateParticles(float dt) {
 	}
 	
 	// update all particles
-	BOOST_FOREACH(Particle* p, particles) {
+	for(ParticlePtr p = particles.begin(); p != particles.end(); p++) {
 		if(!p->isAlive) continue;
 		
 		// apply behaviours
@@ -125,13 +113,10 @@ void Physics::updateSprings() {
 
 // -- Neighbours -----------------------------------------------------------
 void Physics::updateNeighbours() {
-//
-	BOOST_FOREACH(Particle *p, particles)
-	{
-		if(p->neighbourBound)
-		{
-			p->neighbours.clear();
-			space->findSpatialsInVolume(&p->neighbours, p->neighbourBound);
+	BOOST_FOREACH(Particle p, particles) {
+		if(p.neighbourBound) {
+			p.neighbours.clear();
+			space->findSpatialsInVolume(&p.neighbours, p.neighbourBound);
 		}
 	}
 }

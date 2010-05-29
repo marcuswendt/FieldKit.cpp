@@ -23,8 +23,8 @@ namespace fk { namespace physics {
 		Emitter(Physics* physics);
 		~Emitter() {};
 		
-		virtual void update(float dt);
-		virtual Particle* emit(Vec3f location);
+		void update(float dt);
+		void emit(Vec3f location);
 		
 		void setPosition(Vec3f location) { position.set(location); }
 		Vec3f getPosition() { return position; }
@@ -49,9 +49,6 @@ namespace fk { namespace physics {
 		float interval;
 		float time;
 		bool isEnabled;
-				
-		void applyBehaviours(Particle* p);
-		void applyConstraints(Particle* p);
 	};
 	
 } } // namespace fk::physics

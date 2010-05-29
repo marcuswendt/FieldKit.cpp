@@ -51,11 +51,12 @@ class RandomEmitter : public Behaviour {
 public:
 	RandomEmitter(Space* space) : Behaviour(space) {};
 	
-	void apply(Particle* p) {
+	void apply(ParticlePtr p) {
 		p->x = Rand::randFloat(space->min.x, space->max.x);
 		p->y = Rand::randFloat(space->min.y, space->max.y);
 		p->z = Rand::randFloat(space->min.z, space->max.z);
 		
+		p->lifeTime = Rand::randFloat(1, 10);
 		//printf("random emit: %f %f %f\n", p->x, p->y, p->z);
 		p->clearVelocity();
 	}		
@@ -73,12 +74,11 @@ void HelloParticlesApp::setup() {
 	Emitter* emitter = new Emitter(physics);
 	physics->emitter = emitter;
 	emitter->setPosition(space->getCenter());
-	emitter->setRate(1000);
 	emitter->setInterval(0.01);
+	emitter->setRate(1000);
 	emitter->setMax(50000);
 	
 	emitter->addBehaviour(new RandomEmitter(space));
-	
 	physics->addBehaviour(new Gravity());
 	
 	// wrap
@@ -106,7 +106,7 @@ void HelloParticlesApp::update() {
 
 	// copy particle positions into vbo
 	gl::VboMesh::VertexIter iter = vboParticles.mapVertexBuffer();
-	BOOST_FOREACH(Particle* p, physics->particles) {
+	for(ParticlePtr p = physics->particles.begin(); p != physics->particles.end(); p++) {
 		if(!p->isAlive) continue;
 		iter.setPosition(p->x, p->y, p->z);
 		++iter;

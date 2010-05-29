@@ -46,7 +46,6 @@
 		2C0F90D711B11E9300AD264D /* Boundary.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0F90D611B11E9300AD264D /* Boundary.h */; };
 		2C0F929C11B1494B00AD264D /* Force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F929B11B1494B00AD264D /* Force.cpp */; };
 		2C0F929D11B1494B00AD264D /* Force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F929B11B1494B00AD264D /* Force.cpp */; };
-		2C3D6A0D11AFEC350015757B /* Flocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0911AFEC350015757B /* Flocking.cpp */; };
 		2C3D6A1311AFEC520015757B /* OctTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A1211AFEC520015757B /* OctTree.cpp */; };
 		2C55A27711B060F700041C25 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C97711AABF2D0052C0B3 /* AABB.cpp */; };
 		2C55A27811B060FE00041C25 /* Attractor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0789011AE85370088280C /* Attractor.cpp */; };
@@ -151,7 +150,7 @@
 		2C3D6A1211AFEC520015757B /* OctTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OctTree.cpp; sourceTree = "<group>"; };
 		2C3D6A1411AFEC620015757B /* Flocking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flocking.h; path = ../include/fieldkit/physics/behaviours/Flocking.h; sourceTree = SOURCE_ROOT; };
 		2C3D6A1911AFEC880015757B /* OctTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OctTree.h; sourceTree = "<group>"; };
-		2C55A26211B0608700041C25 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C55A26211B0608700041C25 /* libFieldKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C88900311A6A07E00E716F0 /* FieldKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldKit.h; sourceTree = "<group>"; };
 		2C88900511A6A07E00E716F0 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
 		2C88900611A6A07E00E716F0 /* Behavioural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavioural.h; sourceTree = "<group>"; };
@@ -301,7 +300,7 @@
 				8D1107320486CEB800E47090 /* HelloParticles.app */,
 				2CB6AB6411A7378400983354 /* IterationTest */,
 				2CB6ADCB11A7D2F000983354 /* IterationTestOpenMP */,
-				2C55A26211B0608700041C25 /* libFieldKit_d.a */,
+				2C55A26211B0608700041C25 /* libFieldKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -504,7 +503,7 @@
 			);
 			name = FieldKit;
 			productName = FieldKit;
-			productReference = 2C55A26211B0608700041C25 /* libFieldKit_d.a */;
+			productReference = 2C55A26211B0608700041C25 /* libFieldKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		2CB6AB6311A7378400983354 /* IterationTest */ = {
@@ -641,7 +640,6 @@
 				2CC1C97811AABF2D0052C0B3 /* AABB.cpp in Sources */,
 				2CD0787911AE79530088280C /* Spring.cpp in Sources */,
 				2CD0789111AE85370088280C /* Attractor.cpp in Sources */,
-				2C3D6A0D11AFEC350015757B /* Flocking.cpp in Sources */,
 				2C3D6A1311AFEC520015757B /* OctTree.cpp in Sources */,
 				2C0F90D311B11E7400AD264D /* Boundary.cpp in Sources */,
 				2C0F929D11B1494B00AD264D /* Force.cpp in Sources */,

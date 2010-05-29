@@ -19,6 +19,7 @@
 using std::vector;
 
 namespace fk { namespace physics {
+		
 	class Physics : public Behavioural {
 	public:
 		Emitter* emitter;
@@ -29,30 +30,28 @@ namespace fk { namespace physics {
 			
 		virtual void update(float dt);
 	
-	// -- Particles --------------------------------------------------------
-	vector<Particle*> particles;
+		// -- Particles --------------------------------------------------------
+		vector<Particle> particles;
+			
+		ParticlePtr createParticle();	
+		void allocParticles(int count);
+			
+		int getNumParticles() { return numParticles; }
+			
+		// -- Springs ----------------------------------------------------------
+		vector<Spring*>	springs;
 		
-	Particle* createParticle();	
-	void reserveParticles(int count);
-	Particle* allocParticle();
-		
-	//int numParticles() { return particles.size(); }
-	int getNumParticles() { return numParticles; }
-		
-	// -- Springs ----------------------------------------------------------
-	vector<Spring*>	springs;
-	
-	int numSprings() { return springs.size(); }
+		int numSprings() { return springs.size(); }
 
-	void addSpring(Spring* spring);
-	void removeSpring(Spring* spring);
+		void addSpring(Spring* spring);
+		void removeSpring(Spring* spring);
 		
 	protected:	
-	int numParticles;
-	virtual void updateParticles(float dt);
-	virtual void updateSprings();
-	virtual void updateNeighbours();
-};
+		int numParticles;
+		virtual void updateParticles(float dt);
+		virtual void updateSprings();
+		virtual void updateNeighbours();
+	};
 
 } 
 } // namespace fk::physics
