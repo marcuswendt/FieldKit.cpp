@@ -10,10 +10,10 @@
 
 #pragma once
 
-#include "FieldKit.h"
-#include "Behaviour.h"
-#include "Weighable.h"
-#include "Particle.h"
+#include "fieldkit/FieldKit.h"
+#include "fieldkit/physics/Particle.h"
+#include "fieldkit/physics/Behaviour.h"
+#include "fieldkit/physics/behaviours/Weighable.h"
 
 namespace fk { namespace physics {
 	

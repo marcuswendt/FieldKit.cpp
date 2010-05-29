@@ -10,10 +10,10 @@
 
 #pragma once
 
-#include "FieldKit.h"
-#include "Behaviour.h"
-#include "Weighable.h"
-#include "Particle.h"
+#include "fieldkit/FieldKit.h"
+#include "fieldkit/physics/Particle.h"
+#include "fieldkit/physics/Behaviour.h"
+#include "fieldkit/physics/behaviours/Weighable.h"
 
 namespace fk { namespace physics {
 	
@@ -34,15 +34,15 @@ namespace fk { namespace physics {
 	// -- Gravity --------------------------------------------------------------
 	class Gravity : public Force {
 	public:
-		Gravity : Force() {
-			direction = Vec3f(0, -1, 0);
+		Gravity() : Force() {
+			direction = Vec3f(0, 1, 0);
 		}
 	};
 
 	// -- Wind -----------------------------------------------------------------
 	class Wind : public Force {
 	public:
-		Gravity : Force() {
+		Wind() : Force() {
 			direction = Vec3f(1, 0, 0);
 		}
 	};

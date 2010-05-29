@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "FieldKit.h"
+#include "fieldkit/Fieldkit.h"
 
 namespace fk { namespace physics {
 	

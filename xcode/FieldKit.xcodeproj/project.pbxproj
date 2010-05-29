@@ -3,10 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		2C0F8FFE11B1163900AD264D /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2C0F900F11B1169700AD264D /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				2C0F900411B1164200AD264D /* PBXTargetDependency */,
+				2C0F900211B1163D00AD264D /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
 		2C88901811A6A56500E716F0 /* Tests */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 2C88901D11A6A59400E716F0 /* Build configuration list for PBXAggregateTarget "Tests" */;
@@ -29,6 +41,9 @@
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		00BAE65A0E7ED9C10018A608 /* HelloParticlesApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00BAE6590E7ED9C10018A608 /* HelloParticlesApp.cpp */; };
 		00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 00CCAF14116A9FEE008396D5 /* CinderApp.icns */; };
+		2C0F90D311B11E7400AD264D /* BoxWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F90D211B11E7400AD264D /* BoxWrap.cpp */; };
+		2C0F90D411B11E7400AD264D /* BoxWrap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F90D211B11E7400AD264D /* BoxWrap.cpp */; };
+		2C0F90D711B11E9300AD264D /* BoxWrap.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0F90D611B11E9300AD264D /* BoxWrap.h */; };
 		2C3D6A0D11AFEC350015757B /* FlockAlign.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0911AFEC350015757B /* FlockAlign.cpp */; };
 		2C3D6A0E11AFEC350015757B /* FlockAttract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0A11AFEC350015757B /* FlockAttract.cpp */; };
 		2C3D6A0F11AFEC350015757B /* FlockBehaviour.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0B11AFEC350015757B /* FlockBehaviour.cpp */; };
@@ -96,6 +111,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2C0F900111B1163D00AD264D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C88901811A6A56500E716F0;
+			remoteInfo = Tests;
+		};
+		2C0F900311B1164200AD264D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C55A26111B0608700041C25;
+			remoteInfo = FieldKit;
+		};
 		2C88901B11A6A56900E716F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -119,6 +148,8 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2C094C6111AAF46B0018103A /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		2C0F90D211B11E7400AD264D /* BoxWrap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxWrap.cpp; sourceTree = "<group>"; };
+		2C0F90D611B11E9300AD264D /* BoxWrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoxWrap.h; path = ../include/fieldkit/physics/behaviours/BoxWrap.h; sourceTree = SOURCE_ROOT; };
 		2C3D6A0911AFEC350015757B /* FlockAlign.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlockAlign.cpp; sourceTree = "<group>"; };
 		2C3D6A0A11AFEC350015757B /* FlockAttract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlockAttract.cpp; sourceTree = "<group>"; };
 		2C3D6A0B11AFEC350015757B /* FlockBehaviour.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlockBehaviour.cpp; sourceTree = "<group>"; };
@@ -328,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				2CD0789011AE85370088280C /* AttractorPoint.cpp */,
+				2C0F90D211B11E7400AD264D /* BoxWrap.cpp */,
 				2C3D6A0911AFEC350015757B /* FlockAlign.cpp */,
 				2C3D6A0A11AFEC350015757B /* FlockAttract.cpp */,
 				2C3D6A0B11AFEC350015757B /* FlockBehaviour.cpp */,
@@ -340,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				2CD0789211AE85530088280C /* AttractorPoint.h */,
+				2C0F90D611B11E9300AD264D /* BoxWrap.h */,
 				2CD0789311AE862D0088280C /* Force.h */,
 				2CD0789611AE86940088280C /* Weighable.h */,
 				2C3D6A1411AFEC620015757B /* FlockAlign.h */,
@@ -466,6 +499,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0F90D711B11E9300AD264D /* BoxWrap.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,12 +579,13 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FieldKit" */;
-			compatibilityVersion = "Xcode 3.0";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* FieldKit */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				2C0F8FFE11B1163900AD264D /* All */,
 				2C88901811A6A56500E716F0 /* Tests */,
 				8D1107260486CEB800E47090 /* HelloParticles */,
 				2CB6AB6311A7378400983354 /* IterationTest */,
@@ -590,6 +625,7 @@
 				2C55A28211B060FE00041C25 /* Space.cpp in Sources */,
 				2C55A28311B060FE00041C25 /* Spatial.cpp in Sources */,
 				2C55A28411B060FE00041C25 /* Spring.cpp in Sources */,
+				2C0F90D411B11E7400AD264D /* BoxWrap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,12 +664,23 @@
 				2C3D6A0F11AFEC350015757B /* FlockBehaviour.cpp in Sources */,
 				2C3D6A1011AFEC350015757B /* FlockRepel.cpp in Sources */,
 				2C3D6A1311AFEC520015757B /* OctTree.cpp in Sources */,
+				2C0F90D311B11E7400AD264D /* BoxWrap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2C0F900211B1163D00AD264D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C88901811A6A56500E716F0 /* Tests */;
+			targetProxy = 2C0F900111B1163D00AD264D /* PBXContainerItemProxy */;
+		};
+		2C0F900411B1164200AD264D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C55A26111B0608700041C25 /* FieldKit */;
+			targetProxy = 2C0F900311B1164200AD264D /* PBXContainerItemProxy */;
+		};
 		2C88901C11A6A56900E716F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* HelloParticles */;
@@ -642,21 +689,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		2C0F8FFF11B1163900AD264D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		2C0F900011B1163900AD264D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		2C55A26311B0608800041C25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PREBINDING = NO;
 				PRODUCT_NAME = FieldKit_d;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				SYMROOT = ../lib;
-				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -664,17 +728,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PREBINDING = NO;
 				PRODUCT_NAME = FieldKit;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				SYMROOT = ../lib;
-				VALID_ARCHS = x86_64;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -836,13 +896,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CINDER_PATH = ../../../Libraries/cinder;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.6;
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
 			};
 			name = Debug;
@@ -851,13 +911,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CINDER_PATH = ../../../Libraries/cinder;
+				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/boost\"";
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx10.6;
 				USER_HEADER_SEARCH_PATHS = "\"$(CINDER_PATH)/include\" ../include";
 			};
 			name = Release;
@@ -865,6 +926,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2C0F900F11B1169700AD264D /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C0F8FFF11B1163900AD264D /* Debug */,
+				2C0F900011B1163900AD264D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2C55A27011B0608C00041C25 /* Build configuration list for PBXNativeTarget "FieldKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

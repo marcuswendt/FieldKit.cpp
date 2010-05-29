@@ -10,8 +10,8 @@
 
 #pragma once
 
-#include "fieldkit/physics/behaviours/FlockBehaviour.h"
 #include "fieldkit/Fieldkit.h"
+#include "fieldkit/physics/behaviours/FlockBehaviour.h"
 
 namespace fk { 
 namespace physics {

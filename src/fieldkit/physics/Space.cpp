@@ -8,8 +8,8 @@
  *	 Created by Marcus Wendt on 23/05/2010.
  */
 
+#include "fieldkit/FieldKit.h"
 #include "fieldkit/physics/Space.h"
-#include "cinder/Vector.h"
 
 using namespace fk::math;
 

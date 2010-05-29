@@ -9,7 +9,7 @@
  */
 #pragma once
 
-#include "BoundingVolume.h"
+#include "fieldkit/math/BoundingVolume.h"
 
 namespace fk { namespace math {
 	class AABB : public BoundingVolume {
