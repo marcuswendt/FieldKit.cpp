@@ -18,7 +18,9 @@ namespace fk { namespace physics {
 	class Force : public WeightedBehaviour {
 	public:
 		
-		Force() : WeightedBehaviour() {};
+		Force() : WeightedBehaviour() {
+			direction.set(0,0,0);
+		};
 		
 		void setDirection(Vec3f value) { direction = value.normalized(); }
 		Vec3f getDirection() { return direction; }
@@ -33,7 +35,7 @@ namespace fk { namespace physics {
 	class Gravity : public Force {
 	public:
 		Gravity() : Force() {
-			direction = Vec3f(0, 1, 0);
+			direction.set(0, 1, 0);
 		}
 	};
 
@@ -41,7 +43,7 @@ namespace fk { namespace physics {
 	class Wind : public Force {
 	public:
 		Wind() : Force() {
-			direction = Vec3f(1, 0, 0);
+			direction.set(1, 0, 0);
 		}
 	};
 } } // namespace fk::physics

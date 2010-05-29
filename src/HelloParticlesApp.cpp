@@ -55,6 +55,8 @@ public:
 		p->x = Rand::randFloat(space->min.x, space->max.x);
 		p->y = Rand::randFloat(space->min.y, space->max.y);
 		p->z = Rand::randFloat(space->min.z, space->max.z);
+		
+		//printf("random emit: %f %f %f\n", p->x, p->y, p->z);
 		p->clearVelocity();
 	}		
 };
@@ -64,7 +66,7 @@ void HelloParticlesApp::setup() {
 	
 	// init physics
 	Space* space = new Space(getWindowWidth(), getWindowHeight(), 0);
-	//printf("Space %c", space->toString());
+	printf("init space %f %f %f\n", space->getWidth(), space->getHeight(), space->getDepth());
 	
 	physics = new Physics(space);
 	
@@ -73,9 +75,10 @@ void HelloParticlesApp::setup() {
 	emitter->position = space->getCenter();
 	emitter->rate = 1000.0;
 	emitter->interval = 0.01;
-	emitter->max = 30 * 1000;
+	emitter->max = 50000;
 	
 	emitter->addBehaviour(new RandomEmitter(space));
+	
 	physics->addBehaviour(new Gravity());
 	
 	// wrap
@@ -104,6 +107,7 @@ void HelloParticlesApp::update() {
 	// copy particle positions into vbo
 	gl::VboMesh::VertexIter iter = vboParticles.mapVertexBuffer();
 	BOOST_FOREACH(Particle* p, physics->particles) {
+		//printf("set pos: %f %f %f\n", p->x, p->y, p->z);
 		iter.setPosition(p->x, p->y, p->z);
 		++iter;
 	}

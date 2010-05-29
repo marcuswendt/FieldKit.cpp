@@ -17,9 +17,8 @@
 using std::list;
 
 namespace fk { namespace physics {
-
-class Particle : public Vec3f, Spatial
-{
+	
+	class Particle : public Vec3f, Spatial {
 	public:
 		list<void *> neighbours;
 		BoundingVolume *neighbourBound;
@@ -73,6 +72,9 @@ class Particle : public Vec3f, Spatial
 		void setWeight(float value);
 		inline float getWeight() { return this->weight; };
 		inline float getInvWeight() { return this->invWeight; };
-};
+	
+	protected:
+		Vec3f tmp;
+	};
 	
 } } // namespace fk::physics

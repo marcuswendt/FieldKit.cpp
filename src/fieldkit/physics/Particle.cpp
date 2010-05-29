@@ -28,7 +28,7 @@ namespace fk { namespace physics {
 		setWeight(1.0);
 		
 		drag = 0.03;
-		force = Vec3f();
+		force = Vec3f(0,0,0);
 	}
 	
 	void Particle::update(float dt) {
@@ -47,18 +47,20 @@ namespace fk { namespace physics {
 	void Particle::updatePosition() {
 		if(isLocked) return;
 		
-		Vec3f tmp = *this;
-
-		//force *= _timestepSq;
+		tmp.set(*this);
 		
 		x += (x - prev.x) + force.x;
 		y += (y - prev.y) + force.y;
 		z += (z - prev.z) + force.z;
 		
-		prev = tmp;
+//		printf("pos: %f %f %f prev %f %f %f force %f %f %f\n", 
+//			   x, y, z, 
+//			   prev.x, prev.y, prev.z, 
+//			   force.x, force.y, force.z);
+		
+		prev.set(tmp);
 		
 		scaleVelocity(1.0 - drag);
-		
 		force = force.zero();
 	}
 	
