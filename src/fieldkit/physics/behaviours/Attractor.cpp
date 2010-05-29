@@ -13,5 +13,5 @@ using namespace fk::physics;
 
 // -- Point --------------------------------------------------------------------
 void AttractorPoint::apply(Particle* p) {
-	p->force += (position - p->position).normalized() * weight;
+	p->force += (position - *p).normalized() * weight;
 };

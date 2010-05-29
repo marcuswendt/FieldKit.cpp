@@ -20,7 +20,7 @@ enum SPATIAL_TYPE{
 	SPATIAL_TYPE_PARTICLE
 };
 
-class Spatial 
+class Spatial
 {
 public:
 	

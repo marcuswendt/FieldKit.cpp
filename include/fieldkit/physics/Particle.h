@@ -18,7 +18,7 @@ using std::list;
 
 namespace fk { namespace physics {
 
-class Particle : public Spatial
+class Particle : public Vec3f, Spatial
 {
 	public:
 		list<void *> neighbours;
@@ -42,9 +42,6 @@ class Particle : public Spatial
 		
 		// wether this particle can be affected by behaviours
 		bool isLocked;
-
-		// position in the simulation space
-		Vec3f position;
 		
 		// previous position in the simulation space
 		Vec3f prev;
@@ -64,7 +61,7 @@ class Particle : public Spatial
 		
 		virtual void updateState(float dt);
 		virtual void updatePosition();
-		Vec3f *getSpatialPosition(){ return &position; };
+		Vec3f *getSpatialPosition(){ return this; };
 
 		// verlet integration
 		void lock();

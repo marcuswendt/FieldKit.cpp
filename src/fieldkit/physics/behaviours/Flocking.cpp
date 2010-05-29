@@ -47,11 +47,11 @@ void FlockAttract::apply(Particle *p)
 	while( it != p->neighbours.end()) 
 	{ 
 		q = (Particle *) *it;				
-		center += q->position;	
+		center += *q;	
 	}
 	if(n >0) center /= (float)n;
 	
-	Vec3f vec = (p->position - center);
+	Vec3f vec = (*p - center);
 	vec.normalize();
 	vec *= weight;
 	
@@ -73,7 +73,7 @@ void FlockRepel::apply(Particle *p)
 		q = (Particle *) *it;				
 		if(q != p) 
 		{
-			tmp = q->position - p->position;
+			tmp = *q - *p;
 			distSq = tmp.lengthSquared();
 			radius = (p->size + q->size) * 0.51f;
 			radiusSq = radius * radius;

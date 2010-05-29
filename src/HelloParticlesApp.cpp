@@ -52,9 +52,9 @@ public:
 	RandomEmitter(Space* space) : Behaviour(space) {};
 	
 	void apply(Particle* p) {
-		p->position.x = Rand::randFloat(space->min.x, space->max.x);
-		p->position.y = Rand::randFloat(space->min.y, space->max.y);
-		p->position.z = Rand::randFloat(space->min.z, space->max.z);
+		p->x = Rand::randFloat(space->min.x, space->max.x);
+		p->y = Rand::randFloat(space->min.y, space->max.y);
+		p->z = Rand::randFloat(space->min.z, space->max.z);
 		p->clearVelocity();
 	}		
 };
@@ -104,7 +104,7 @@ void HelloParticlesApp::update() {
 	// copy particle positions into vbo
 	gl::VboMesh::VertexIter iter = vboParticles.mapVertexBuffer();
 	BOOST_FOREACH(Particle* p, physics->particles) {
-		iter.setPosition(p->position.x, p->position.y, p->position.z);
+		iter.setPosition(p->x, p->y, p->z);
 		++iter;
 	}
 }

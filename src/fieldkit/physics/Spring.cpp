@@ -28,16 +28,16 @@ namespace fk { namespace physics {
 	}
 	
 	void Spring::update() {
-		Vec3f delta = b->position - a->position;
+		Vec3f delta = *b - *a;
 		float dist = delta.length() + EPSILON_VALUE;
 		float normDistStrength = (dist - restLength) / (dist * (a->invWeight + b->invWeight)) * strength;
 		
 		if(!a->isLocked && !isALocked) {
-        	a->position += delta * normDistStrength * a->invWeight;
+        	*a += delta * normDistStrength * a->invWeight;
 		}
 		
         if(!b->isLocked && !isBLocked) {
-        	b->position += delta * -normDistStrength * b->invWeight;
+        	*b += delta * -normDistStrength * b->invWeight;
 		}
 	}
 	
