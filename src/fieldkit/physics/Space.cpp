@@ -4,7 +4,6 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Space.cpp
  *	 Created by Marcus Wendt on 23/05/2010.
  */
 
@@ -16,7 +15,7 @@ using namespace fk::math;
 namespace fk { 
 namespace physics {
 		
-Space::Space() {}
+Space::Space() : AABB() {}
 
 Space::Space(float w, float h, float d) : AABB(w, h, d) {};
 
@@ -50,8 +49,7 @@ void Space::select(BoundingVolume* volume)
 	
 }
 
-Vec3f Space::center() 
-{
+Vec3f Space::getCenter() {
 	return this->position;
 }
 

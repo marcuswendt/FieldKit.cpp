@@ -70,7 +70,7 @@ void HelloParticlesApp::setup() {
 	
 	Emitter* emitter = new Emitter(physics);
 	physics->emitter = emitter;
-	emitter->position = space->center();
+	emitter->position = space->getCenter();
 	emitter->rate = 1000.0;
 	emitter->interval = 0.01;
 	emitter->max = 30 * 1000;

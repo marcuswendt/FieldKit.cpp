@@ -4,7 +4,6 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Space.h
  *	 Created by Marcus Wendt on 21/05/2010.
  */
 
@@ -12,9 +11,10 @@
 
 #include "fieldkit/math/AABB.h"
 #include "fieldkit/math/BoundingVolume.h"
-using namespace fk::math;
 #include "fieldkit/physics/Spatial.h"
 #include <list>
+
+using namespace fk::math;
 
 namespace fk { 
 namespace physics {
@@ -32,7 +32,7 @@ public:
 	virtual void findSpatialsInVolume(list<void *> *resultlist, fk::math::BoundingVolume* volume); 
 	virtual void select(BoundingVolume* volume); 
 
-	virtual Vec3f center();
+	virtual Vec3f getCenter();
 };
 
 } 
