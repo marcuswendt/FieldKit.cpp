@@ -11,16 +11,26 @@
 #pragma once
 
 #include "fieldkit/Fieldkit.h"
-#include "fieldkit/physics/behaviours/FlockBehaviour.h"
+#include "fieldkit/physics/Behaviour.h"
+#include "fieldkit/physics/Particle.h"
 
 namespace fk { 
 namespace physics {
-
-class FlockAlign : public FlockBehaviour
-{
-public:
-	void apply(Particle *Particle);
-};
-
+	
+	class FlockAlign : public WeightedBehaviour {
+	public:
+		void apply(Particle *Particle);
+	};
+	
+	class FlockAttract : public WeightedBehaviour{
+	public:
+		void apply(Particle *Particle);
+	};
+	
+	class FlockRepel : public WeightedBehaviour {
+	public:
+		void apply(Particle *Particle);
+	};
 }
+
 } // namespace fk::physics

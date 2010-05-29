@@ -4,7 +4,6 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Force.h
  *	 Created by Marcus Wendt on 27/05/2010.
  */
 
@@ -13,14 +12,13 @@
 #include "fieldkit/FieldKit.h"
 #include "fieldkit/physics/Particle.h"
 #include "fieldkit/physics/Behaviour.h"
-#include "fieldkit/physics/behaviours/Weighable.h"
 
 namespace fk { namespace physics {
 	
-	class Force : public Behaviour, public Weighable {
+	class Force : public WeightedBehaviour {
 	public:
 		
-		Force() : Weighable() {};
+		Force() : WeightedBehaviour() {};
 		
 		void setDirection(Vec3f value) { direction = value.normalized(); }
 		Vec3f getDirection() { return direction; }

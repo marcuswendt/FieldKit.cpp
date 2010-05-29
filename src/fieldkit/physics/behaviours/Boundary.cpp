@@ -4,16 +4,14 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   AttractorPoint.cpp
- *	 Created by Marcus Wendt on 27/05/2010.
+ *	 Created by Marcus Wendt on 29/05/2010.
  */
 
-#include "fieldkit/physics/behaviours/AttractorPoint.h"
+#include "fieldkit/physics/behaviours/Boundary.h"
 
-namespace fk { namespace physics {
+using namespace fk::physics;
 	
-	void AttractorPoint::apply(Particle* p) {
-		p->force += (position - p->position).normalized() * weight;
-	};
+// -- BoxWrap ------------------------------------------------------------------
+void BoxWrap::apply(Particle* p) {
 	
-} } // namespace fk::physics
+}

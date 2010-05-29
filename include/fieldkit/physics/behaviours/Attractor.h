@@ -4,23 +4,23 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   
- *	 Created by David Hoe on 26/05/2010.
+ *	 Created by Marcus Wendt on 27/05/2010.
  */
 
 #pragma once
 
-#include "fieldkit/physics/behaviours/FlockBehaviour.h"
-#include "fieldkit/Fieldkit.h"
+#include "fieldkit/FieldKit.h"
+#include "fieldkit/physics/Particle.h"
+#include "fieldkit/physics/Behaviour.h"
 
-namespace fk { 
-namespace physics {
-
-class FlockAttract : public FlockBehaviour
-{
-public:
-	void apply(Particle *Particle);
-};
+namespace fk { namespace physics {
 	
-}
-} // namespace fk::physics
+	class AttractorPoint : public WeightedBehaviour {
+	public:
+		AttractorPoint() : WeightedBehaviour() {};
+		
+		Vec3f position;
+		virtual void apply(Particle* p) = 0;
+	};
+	
+} } // namespace fk::physics

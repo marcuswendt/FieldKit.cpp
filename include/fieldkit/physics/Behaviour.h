@@ -16,6 +16,8 @@ namespace fk { namespace physics {
 	// forward class declaration
 	class Particle;
 
+	
+	// Base class for all physics behaviours
 	class Behaviour {
 	public:
 		Space* space;
@@ -27,6 +29,17 @@ namespace fk { namespace physics {
 		};
 		
 		virtual void apply(Particle* p) = 0;
+	};
+	
+	// A behaviour with a weight field
+	class WeightedBehaviour : public Behaviour {
+	public:
+		WeightedBehaviour() { weight = 1.0; }
+		void setWeight(float value) { this->weight = value; }
+		float getWeight() { return this->weight; }
+		
+	protected:
+		float weight;
 	};
 	
 } } // namespace fk::physics

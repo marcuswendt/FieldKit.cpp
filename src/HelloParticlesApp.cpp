@@ -14,7 +14,7 @@
 #include <list>
 
 #include "fieldkit/physics/Physics.h"
-#include "fieldkit/physics/behaviours/AttractorPoint.h"
+#include "fieldkit/physics/behaviours/Attractor.h"
 #include "fieldkit/physics/behaviours/Force.h"
 
 using namespace ci;

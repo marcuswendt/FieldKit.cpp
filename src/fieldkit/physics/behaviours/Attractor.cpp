@@ -4,18 +4,14 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   FlockBehaviour.cpp
- *	 Created by David Hoe on 27/05/2010.
+ *	 Created by Marcus Wendt on 27/05/2010.
  */
 
-#include "fieldkit/physics/behaviours/FlockBehaviour.h"
+#include "fieldkit/physics/behaviours/Attractor.h"
+
 using namespace fk::physics;
 
-FlockBehaviour::FlockBehaviour()
-{
-	weight = 1;
-}
-
-void FlockBehaviour::apply(Particle *p)
-{
-}
+// -- Point --------------------------------------------------------------------
+void AttractorPoint::apply(Particle* p) {
+	p->force += (position - p->position).normalized() * weight;
+};
