@@ -15,19 +15,23 @@
 
 namespace fk { namespace physics {
 	
-	class BoxWrap : public Behaviour {
+	// Keeps a particle inside the given AABB volume by wrapping it around its edges without loosing velocity.
+	class BoxWrap : public Behaviour, AABB {
 	public:
-		AABB box;
+		
+		// whether the particles velocity should be cleared when it was wrapped
+		bool preserveMomentum;
 		
 		BoxWrap() {
-			box = AABB();
+			preserveMomentum = false;
 		}
 		
 		BoxWrap(AABB box) {
-			this->box = box;
+			set(box);
+			preserveMomentum = false;
 		}
 		
-		void apply(Particle* p) = 0;
+		void apply(Particle* p);
 	};
 	
 } } // namespace fk::physics

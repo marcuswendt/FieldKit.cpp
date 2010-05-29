@@ -15,6 +15,7 @@
 
 #include "fieldkit/physics/Physics.h"
 #include "fieldkit/physics/behaviours/Attractor.h"
+#include "fieldkit/physics/behaviours/Boundary.h"
 #include "fieldkit/physics/behaviours/Force.h"
 
 using namespace ci;
@@ -58,21 +59,10 @@ public:
 	}		
 };
 
-class Wrap : public Behaviour {
-public:
-	Wrap(Space* space) : Behaviour(space) {};
-	
-	void apply(Particle* p) {
-		if(p->position.y > space->max.y) {
-			p->position.y = 0;
-			p->clearVelocity();
-		}
-	}		
-};
-
 void HelloParticlesApp::setup() {
 	timer = new Timer();
 	
+	// init physics
 	Space* space = new Space(getWindowWidth(), getWindowHeight(), 0);
 	//printf("Space %c", space->toString());
 	
@@ -87,8 +77,13 @@ void HelloParticlesApp::setup() {
 	
 	emitter->addBehaviour(new RandomEmitter(space));
 	physics->addBehaviour(new Gravity());
-	physics->addBehaviour(new Wrap(space));
 	
+	// wrap
+	BoxWrap* wrap = new BoxWrap(*space);
+	wrap->preserveMomentum = false;
+	physics->addBehaviour(wrap);
+	
+	// init graphics
 	gl::VboMesh::Layout layout;
 	layout.setStaticIndices();
 	layout.setDynamicPositions();

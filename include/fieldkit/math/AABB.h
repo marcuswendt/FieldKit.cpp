@@ -4,11 +4,11 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   AABB.h
  *	 Created by Marcus Wendt on 24/05/2010.
  */
 #pragma once
 
+#include "fieldkit/FieldKit.h"
 #include "fieldkit/math/BoundingVolume.h"
 
 namespace fk { namespace math {
@@ -22,18 +22,20 @@ namespace fk { namespace math {
 		AABB(float w, float h, float d);
 		
 		bool contains(Vec3f p);
+
+		void set(AABB box);
 		
-		void width(float value);
-		float width();
+		void setWidth(float value);
+		float getWidth();
 		
-		void height(float value);
-		float height();
+		void setHeight(float value);
+		float getHeight();
 		
-		void depth(float value);
-		float depth();
+		void setDepth(float value);
+		float getDepth();
 		
-		void dimension(float w, float h, float d);
-		Vec3f dimension();
+		void setDimension(float w, float h, float d);
+		Vec3f getDimension();
 		
 	protected:
 		void updateBounds();
