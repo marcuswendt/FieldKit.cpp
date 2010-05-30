@@ -33,7 +33,14 @@ namespace fk { namespace physics {
 	// A behaviour with a weight field
 	class WeightedBehaviour : public Behaviour {
 	public:
-		WeightedBehaviour() { weight = 1.0; }
+		WeightedBehaviour() { 
+			weight = 1.0; 
+		}
+		
+		WeightedBehaviour(Space* space) : Behaviour(space) {
+			weight = 1.0;
+		}
+		
 		void setWeight(float value) { this->weight = value; }
 		float getWeight() { return this->weight; }
 		

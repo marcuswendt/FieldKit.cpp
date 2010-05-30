@@ -37,6 +37,7 @@ class HelloParticlesApp : public AppBasic {
 	
 	Timer* timer;
 	Physics* physics;
+	AttractorPoint* attractor;
 	gl::VboMesh vboParticles;
 };
 
@@ -56,7 +57,7 @@ public:
 		p->y = Rand::randFloat(space->min.y, space->max.y);
 		p->z = Rand::randFloat(space->min.z, space->max.z);
 		
-		p->lifeTime = Rand::randFloat(1, 10);
+		p->lifeTime = Rand::randFloat(10, 100);
 		//printf("random emit: %f %f %f\n", p->x, p->y, p->z);
 		p->clearVelocity();
 	}		
@@ -76,7 +77,7 @@ void HelloParticlesApp::setup() {
 	emitter->setPosition(space->getCenter());
 	emitter->setInterval(0.01);
 	emitter->setRate(1000);
-	emitter->setMax(50000);
+	emitter->setMax(50 * 1000);
 	
 	emitter->addBehaviour(new RandomEmitter(space));
 	physics->addBehaviour(new Gravity());
@@ -85,6 +86,12 @@ void HelloParticlesApp::setup() {
 	BoxWrap* wrap = new BoxWrap(*space);
 	wrap->preserveMomentum = false;
 	physics->addBehaviour(wrap);
+	
+	// attractor 
+	attractor = new AttractorPoint(space);
+	attractor->setRange(0.25);
+	attractor->setWeight(0);
+	physics->addBehaviour(attractor);
 	
 	// init graphics
 	gl::VboMesh::Layout layout;
@@ -102,6 +109,10 @@ void HelloParticlesApp::update() {
 	double dt = timer->getSeconds();
 	timer->start();
 
+	float mouseX = getMousePos().x;
+	float mouseY = getMousePos().y;
+	attractor->setPosition(Vec3f(mouseX, mouseY, 0));
+	
 	physics->update(dt);
 
 	// copy particle positions into vbo
@@ -127,9 +138,11 @@ void HelloParticlesApp::draw() {
 
 // -- Events -------------------------------------------------------------------
 void HelloParticlesApp::mouseDown(MouseEvent event) {
+	attractor->setWeight(1);
 }
 
 void HelloParticlesApp::mouseUp(MouseEvent event) {
+	attractor->setWeight(0);
 }
 
 void HelloParticlesApp::mouseDrag(MouseEvent event) {

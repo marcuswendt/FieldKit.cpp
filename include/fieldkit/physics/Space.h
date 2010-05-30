@@ -33,6 +33,9 @@ public:
 	virtual void select(BoundingVolume* volume); 
 
 	virtual Vec3f getCenter();
+	
+	float toAbsolute(float value);
+	float toRelative(float value);
 };
 
 } 

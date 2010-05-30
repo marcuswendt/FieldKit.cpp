@@ -12,6 +12,20 @@
 using namespace fk::physics;
 
 // -- Point --------------------------------------------------------------------
+void AttractorPoint::prepare(float dt) {
+	rangeAbs = space->toAbsolute(range);
+	rangeAbsSq = rangeAbs * rangeAbs;
+}
+
 void AttractorPoint::apply(ParticlePtr p) {
-	p->force += (position - *p).normalized() * weight;
+
+	Vec3f delta = position - *p;
+	float distSq = delta.lengthSquared();
+
+	if(distSq < rangeAbsSq) {
+		float dist = sqrt(distSq);
+
+		// normalize and inverse proportional weight
+		p->force += (delta / dist) * (1.0 - dist/ rangeAbs) * weight;
+	}
 };

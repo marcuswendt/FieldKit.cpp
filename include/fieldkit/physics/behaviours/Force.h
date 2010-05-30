@@ -39,6 +39,7 @@ namespace fk { namespace physics {
 	public:
 		Gravity() : Force() {
 			direction.set(0, 1, 0);
+			setWeight(0.01);
 		}
 	};
 
@@ -47,6 +48,7 @@ namespace fk { namespace physics {
 	public:
 		Wind() : Force() {
 			direction.set(1, 0, 0);
+			setWeight(0.02);
 		}
 	};
 } } // namespace fk::physics

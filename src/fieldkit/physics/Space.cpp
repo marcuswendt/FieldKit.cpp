@@ -11,10 +11,8 @@
 #include "fieldkit/physics/Space.h"
 
 using namespace fk::math;
+using namespace fk::physics;
 
-namespace fk { 
-namespace physics {
-		
 Space::Space() : AABB() {}
 
 Space::Space(float w, float h, float d) : AABB(w, h, d) {};
@@ -53,5 +51,10 @@ Vec3f Space::getCenter() {
 	return this->position;
 }
 
-} 
-} // fk::physics
+float Space::toAbsolute(float value) {
+	return value * getWidth();
+}
+
+float Space::toRelative(float value) {
+	return value / getWidth();
+}

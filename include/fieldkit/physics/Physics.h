@@ -39,7 +39,7 @@ namespace fk { namespace physics {
 		int getNumParticles() { return numParticles; }
 			
 		// -- Springs ----------------------------------------------------------
-		vector<Spring*>	springs;
+		vector<Spring*> springs;
 		
 		int numSprings() { return springs.size(); }
 

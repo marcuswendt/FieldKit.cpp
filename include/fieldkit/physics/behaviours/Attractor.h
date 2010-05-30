@@ -17,10 +17,24 @@ namespace fk { namespace physics {
 	
 	class AttractorPoint : public WeightedBehaviour {
 	public:
-		AttractorPoint() : WeightedBehaviour() {};
+		AttractorPoint(Space* space) : WeightedBehaviour(space) {
+			setRange(0.1);
+		};
 		
+		void prepare(float dt);
+		void apply(ParticlePtr p);
+		
+		void setPosition(Vec3f location) { position.set(location); }
+		Vec3f getPosition() { return position; }
+		
+		void setRange(float value) { range = value; }
+		float getRange() { return range; }
+	protected:
 		Vec3f position;
-		virtual void apply(ParticlePtr p) = 0;
+		float range;
+		
+		float rangeAbs;
+		float rangeAbsSq;
 	};
 	
 } } // namespace fk::physics

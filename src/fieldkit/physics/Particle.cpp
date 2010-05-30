@@ -65,7 +65,7 @@ namespace fk { namespace physics {
 		
 		prev.set(tmp);
 		
-		scaleVelocity(1.0 - drag);
+		scaleVelocity(drag);
 		force = force.zero();
 	}
 	

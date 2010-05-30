@@ -93,7 +93,7 @@ void Physics::addSpring(Spring* spring) {
 }
 
 void Physics::removeSpring(Spring* spring) {
-	// TODO remove spring
+	// TODO
 //	springs.erase(spring);
 }
 
