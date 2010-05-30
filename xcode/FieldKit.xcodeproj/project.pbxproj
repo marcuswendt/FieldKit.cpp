@@ -26,6 +26,7 @@
 			);
 			dependencies = (
 				2C88901C11A6A56900E716F0 /* PBXTargetDependency */,
+				2C0F98A611B277ED00AD264D /* PBXTargetDependency */,
 			);
 			name = Tests;
 			productName = Tests;
@@ -46,6 +47,32 @@
 		2C0F90D711B11E9300AD264D /* Boundary.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0F90D611B11E9300AD264D /* Boundary.h */; };
 		2C0F929C11B1494B00AD264D /* Force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F929B11B1494B00AD264D /* Force.cpp */; };
 		2C0F929D11B1494B00AD264D /* Force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F929B11B1494B00AD264D /* Force.cpp */; };
+		2C0F985C11B275AF00AD264D /* Flocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0911AFEC350015757B /* Flocking.cpp */; };
+		2C0F985F11B275C800AD264D /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 00CCAF14116A9FEE008396D5 /* CinderApp.icns */; };
+		2C0F986111B275C800AD264D /* HelloParticlesApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00BAE6590E7ED9C10018A608 /* HelloParticlesApp.cpp */; };
+		2C0F986211B275C800AD264D /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900C11A6A08B00E716F0 /* Emitter.cpp */; };
+		2C0F986311B275C800AD264D /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900E11A6A08B00E716F0 /* Particle.cpp */; };
+		2C0F986411B275C800AD264D /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900F11A6A08B00E716F0 /* Physics.cpp */; };
+		2C0F986511B275C800AD264D /* Behavioural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6AAC611A6D1DD00983354 /* Behavioural.cpp */; };
+		2C0F986611B275C800AD264D /* Space.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CEFC56011A91881002362A9 /* Space.cpp */; };
+		2C0F986711B275C800AD264D /* Spatial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C94311AAAE930052C0B3 /* Spatial.cpp */; };
+		2C0F986811B275C800AD264D /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C97711AABF2D0052C0B3 /* AABB.cpp */; };
+		2C0F986911B275C800AD264D /* Spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0787811AE79530088280C /* Spring.cpp */; };
+		2C0F986A11B275C800AD264D /* Attractor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0789011AE85370088280C /* Attractor.cpp */; };
+		2C0F986B11B275C800AD264D /* OctTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A1211AFEC520015757B /* OctTree.cpp */; };
+		2C0F986C11B275C800AD264D /* Boundary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F90D211B11E7400AD264D /* Boundary.cpp */; };
+		2C0F986D11B275C800AD264D /* Force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F929B11B1494B00AD264D /* Force.cpp */; };
+		2C0F986E11B275C800AD264D /* Flocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A0911AFEC350015757B /* Flocking.cpp */; };
+		2C0F987011B275C800AD264D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		2C0F987111B275C800AD264D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		2C0F987211B275C800AD264D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
+		2C0F987311B275C800AD264D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		2C0F987411B275C800AD264D /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		2C0F987511B275C800AD264D /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0097E3E40F3E9819005A4392 /* QuickTime.framework */; };
+		2C0F987611B275C800AD264D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		2C0F987711B275C800AD264D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		2C0F987811B275C800AD264D /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		2C0F987911B275C800AD264D /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		2C3D6A1311AFEC520015757B /* OctTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C3D6A1211AFEC520015757B /* OctTree.cpp */; };
 		2C55A27711B060F700041C25 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C97711AABF2D0052C0B3 /* AABB.cpp */; };
 		2C55A27811B060FE00041C25 /* Attractor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0789011AE85370088280C /* Attractor.cpp */; };
@@ -120,6 +147,13 @@
 			remoteGlobalIDString = 2C55A26111B0608700041C25;
 			remoteInfo = FieldKit;
 		};
+		2C0F98A511B277ED00AD264D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C0F985D11B275C800AD264D /* FlockingParticles */;
+			remoteInfo = FlockingParticles;
+		};
 		2C88901B11A6A56900E716F0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -146,6 +180,8 @@
 		2C0F90D211B11E7400AD264D /* Boundary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boundary.cpp; sourceTree = "<group>"; };
 		2C0F90D611B11E9300AD264D /* Boundary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Boundary.h; path = ../include/fieldkit/physics/behaviours/Boundary.h; sourceTree = SOURCE_ROOT; };
 		2C0F929B11B1494B00AD264D /* Force.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Force.cpp; sourceTree = "<group>"; };
+		2C0F985B11B275A200AD264D /* FlockingParticlesApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlockingParticlesApp.cpp; sourceTree = "<group>"; };
+		2C0F987D11B275C800AD264D /* FlockingParticles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlockingParticles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3D6A0911AFEC350015757B /* Flocking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flocking.cpp; sourceTree = "<group>"; };
 		2C3D6A1211AFEC520015757B /* OctTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OctTree.cpp; sourceTree = "<group>"; };
 		2C3D6A1411AFEC620015757B /* Flocking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flocking.h; path = ../include/fieldkit/physics/behaviours/Flocking.h; sourceTree = SOURCE_ROOT; };
@@ -187,6 +223,23 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2C0F986F11B275C800AD264D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C0F987011B275C800AD264D /* Cocoa.framework in Frameworks */,
+				2C0F987111B275C800AD264D /* OpenGL.framework in Frameworks */,
+				2C0F987211B275C800AD264D /* Carbon.framework in Frameworks */,
+				2C0F987311B275C800AD264D /* CoreVideo.framework in Frameworks */,
+				2C0F987411B275C800AD264D /* QTKit.framework in Frameworks */,
+				2C0F987511B275C800AD264D /* QuickTime.framework in Frameworks */,
+				2C0F987611B275C800AD264D /* Accelerate.framework in Frameworks */,
+				2C0F987711B275C800AD264D /* AudioToolbox.framework in Frameworks */,
+				2C0F987811B275C800AD264D /* AudioUnit.framework in Frameworks */,
+				2C0F987911B275C800AD264D /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C55A26011B0608700041C25 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,6 +354,7 @@
 				2CB6AB6411A7378400983354 /* IterationTest */,
 				2CB6ADCB11A7D2F000983354 /* IterationTestOpenMP */,
 				2C55A26211B0608700041C25 /* libFieldKit.a */,
+				2C0F987D11B275C800AD264D /* FlockingParticles.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -451,9 +505,10 @@
 		2C88901611A6A50E00E716F0 /* physics */ = {
 			isa = PBXGroup;
 			children = (
-				00BAE6590E7ED9C10018A608 /* HelloParticlesApp.cpp */,
 				2CB6AB4A11A7375F00983354 /* IterationTest.cpp */,
 				2CB6ADB911A7D2DA00983354 /* IterationTestOpenMP.cpp */,
+				00BAE6590E7ED9C10018A608 /* HelloParticlesApp.cpp */,
+				2C0F985B11B275A200AD264D /* FlockingParticlesApp.cpp */,
 			);
 			path = physics;
 			sourceTree = "<group>";
@@ -489,6 +544,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2C0F985D11B275C800AD264D /* FlockingParticles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C0F987A11B275C800AD264D /* Build configuration list for PBXNativeTarget "FlockingParticles" */;
+			buildPhases = (
+				2C0F985E11B275C800AD264D /* Resources */,
+				2C0F986011B275C800AD264D /* Sources */,
+				2C0F986F11B275C800AD264D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlockingParticles;
+			productInstallPath = "$(HOME)/Applications";
+			productName = FieldKit;
+			productReference = 2C0F987D11B275C800AD264D /* FlockingParticles.app */;
+			productType = "com.apple.product-type.application";
+		};
 		2C55A26111B0608700041C25 /* FieldKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C55A27011B0608C00041C25 /* Build configuration list for PBXNativeTarget "FieldKit" */;
@@ -570,15 +643,24 @@
 			targets = (
 				2C0F8FFE11B1163900AD264D /* All */,
 				2C88901811A6A56500E716F0 /* Tests */,
+				2C55A26111B0608700041C25 /* FieldKit */,
 				8D1107260486CEB800E47090 /* HelloParticles */,
+				2C0F985D11B275C800AD264D /* FlockingParticles */,
 				2CB6AB6311A7378400983354 /* IterationTest */,
 				2CB6ADBA11A7D2F000983354 /* IterationTestOpenMP */,
-				2C55A26111B0608700041C25 /* FieldKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2C0F985E11B275C800AD264D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C0F985F11B275C800AD264D /* CinderApp.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -590,6 +672,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2C0F986011B275C800AD264D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C0F986111B275C800AD264D /* HelloParticlesApp.cpp in Sources */,
+				2C0F986211B275C800AD264D /* Emitter.cpp in Sources */,
+				2C0F986311B275C800AD264D /* Particle.cpp in Sources */,
+				2C0F986411B275C800AD264D /* Physics.cpp in Sources */,
+				2C0F986511B275C800AD264D /* Behavioural.cpp in Sources */,
+				2C0F986611B275C800AD264D /* Space.cpp in Sources */,
+				2C0F986711B275C800AD264D /* Spatial.cpp in Sources */,
+				2C0F986811B275C800AD264D /* AABB.cpp in Sources */,
+				2C0F986911B275C800AD264D /* Spring.cpp in Sources */,
+				2C0F986A11B275C800AD264D /* Attractor.cpp in Sources */,
+				2C0F986B11B275C800AD264D /* OctTree.cpp in Sources */,
+				2C0F986C11B275C800AD264D /* Boundary.cpp in Sources */,
+				2C0F986D11B275C800AD264D /* Force.cpp in Sources */,
+				2C0F986E11B275C800AD264D /* Flocking.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2C55A25F11B0608700041C25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -643,6 +746,7 @@
 				2C3D6A1311AFEC520015757B /* OctTree.cpp in Sources */,
 				2C0F90D311B11E7400AD264D /* Boundary.cpp in Sources */,
 				2C0F929D11B1494B00AD264D /* Force.cpp in Sources */,
+				2C0F985C11B275AF00AD264D /* Flocking.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +762,11 @@
 			isa = PBXTargetDependency;
 			target = 2C55A26111B0608700041C25 /* FieldKit */;
 			targetProxy = 2C0F900311B1164200AD264D /* PBXContainerItemProxy */;
+		};
+		2C0F98A611B277ED00AD264D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C0F985D11B275C800AD264D /* FlockingParticles */;
+			targetProxy = 2C0F98A511B277ED00AD264D /* PBXContainerItemProxy */;
 		};
 		2C88901C11A6A56900E716F0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -685,6 +794,58 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = All;
 				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		2C0F987B11B275C800AD264D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FieldKit_Prefix.pch;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"\\\"$(CINDER_PATH)/lib/libcinder_d.a\\\"",
+					"-lcurl",
+				);
+				PRODUCT_NAME = FlockingParticles;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2C0F987C11B275C800AD264D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_AUTO_VECTORIZATION = YES;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_FAST_MATH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FieldKit_Prefix.pch;
+				GCC_UNROLL_LOOPS = YES;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"$(CINDER_PATH)/lib/libcinder.a",
+					"-lcurl",
+				);
+				PRODUCT_NAME = FlockingParticles;
+				STRIP_INSTALLED_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -867,7 +1028,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
-					"\"$(CINDER_PATH)/lib/libcinder.a\"",
+					"$(CINDER_PATH)/lib/libcinder.a",
 					"-lcurl",
 				);
 				PRODUCT_NAME = HelloParticles;
@@ -915,6 +1076,15 @@
 			buildConfigurations = (
 				2C0F8FFF11B1163900AD264D /* Debug */,
 				2C0F900011B1163900AD264D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C0F987A11B275C800AD264D /* Build configuration list for PBXNativeTarget "FlockingParticles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C0F987B11B275C800AD264D /* Debug */,
+				2C0F987C11B275C800AD264D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

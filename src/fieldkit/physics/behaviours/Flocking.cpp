@@ -24,7 +24,7 @@ void FlockAlign::apply(ParticlePtr p)
 	while( it != p->neighbours.end()) 
 	{ 
 		q = (Particle *) *it;				
-		average += q->force;s
+		average += q->force;
 	}
 	if(n > 0) average /= (float)n;
 
@@ -67,11 +67,11 @@ void FlockRepel::apply(ParticlePtr p)
 	Vec3f tmp;
 	
 	list<void *>::iterator it = p->neighbours.begin();
-	Particle *q;
-	while( it != p->neighbours.end()) 
+	Particle* q;
+	while(it != p->neighbours.end()) 
 	{ 
-		q = (Particle *) *it;				
-		if(q != p) 
+		q = (Particle*) *it;
+		if(*q != *p) 
 		{
 			tmp = *q - *p;
 			distSq = tmp.lengthSquared();

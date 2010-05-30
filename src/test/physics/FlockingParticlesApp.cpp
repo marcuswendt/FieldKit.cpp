@@ -16,14 +16,15 @@
 #include "fieldkit/physics/behaviours/Attractor.h"
 #include "fieldkit/physics/behaviours/Boundary.h"
 #include "fieldkit/physics/behaviours/Force.h"
+#include "fieldkit/physics/behaviours/Flocking.h"
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
 using namespace fk::physics;
 
-class HelloParticlesApp : public AppBasic {
- public:
+class FlockingParticlesApp : public AppBasic {
+public:
 	void prepareSettings(Settings *settings);
 	void setup();
 	void update();
@@ -37,10 +38,11 @@ class HelloParticlesApp : public AppBasic {
 	Timer* timer;
 	Physics* physics;
 	AttractorPoint* attractor;
+	
 	gl::VboMesh vboParticles;
 };
 
-void HelloParticlesApp::prepareSettings(Settings *settings){
+void FlockingParticlesApp::prepareSettings(Settings *settings){
     settings->setWindowSize(1280, 720);
     settings->setFrameRate(60.0f);
 	
@@ -62,7 +64,7 @@ public:
 	}		
 };
 
-void HelloParticlesApp::setup() {
+void FlockingParticlesApp::setup() {
 	timer = new Timer();
 	
 	// init physics
@@ -92,6 +94,16 @@ void HelloParticlesApp::setup() {
 	attractor->setWeight(0);
 	physics->addBehaviour(attractor);
 	
+	// flocking
+	FlockAlign* align = new FlockAlign();
+	physics->addBehaviour(align);
+	
+	FlockAttract* attract = new FlockAttract();
+	physics->addBehaviour(attract);
+	
+	FlockRepel* repel = new FlockRepel();
+	physics->addBehaviour(repel);
+	
 	// init graphics
 	gl::VboMesh::Layout layout;
 	layout.setStaticIndices();
@@ -101,19 +113,19 @@ void HelloParticlesApp::setup() {
 	vboParticles = gl::VboMesh(emitter->getMax(), 0, layout, GL_POINTS);
 }
 
-void HelloParticlesApp::update() {
+void FlockingParticlesApp::update() {
 	
 	// update physics
 	timer->stop();
 	double dt = timer->getSeconds();
 	timer->start();
-
+	
 	float mouseX = getMousePos().x;
 	float mouseY = getMousePos().y;
 	attractor->setPosition(Vec3f(mouseX, mouseY, 0));
 	
 	physics->update(dt);
-
+	
 	// copy particle positions into vbo
 	gl::VboMesh::VertexIter iter = vboParticles.mapVertexBuffer();
 	for(ParticlePtr p = physics->particles.begin(); p != physics->particles.end(); p++) {
@@ -123,7 +135,7 @@ void HelloParticlesApp::update() {
 	}
 }
 
-void HelloParticlesApp::draw() {
+void FlockingParticlesApp::draw() {
 	ci::gl::clear(Color(0, 0, 0));
 	
 	glColor3f(1,1,1);
@@ -136,18 +148,18 @@ void HelloParticlesApp::draw() {
 
 
 // -- Events -------------------------------------------------------------------
-void HelloParticlesApp::mouseDown(MouseEvent event) {
+void FlockingParticlesApp::mouseDown(MouseEvent event) {
 	attractor->setWeight(1);
 }
 
-void HelloParticlesApp::mouseUp(MouseEvent event) {
+void FlockingParticlesApp::mouseUp(MouseEvent event) {
 	attractor->setWeight(0);
 }
 
-void HelloParticlesApp::mouseDrag(MouseEvent event) {
+void FlockingParticlesApp::mouseDrag(MouseEvent event) {
 }
 
-void HelloParticlesApp::keyDown(KeyEvent event) {
+void FlockingParticlesApp::keyDown(KeyEvent event) {
 }
 
-CINDER_APP_BASIC(HelloParticlesApp, RendererGl)
+CINDER_APP_BASIC(FlockingParticlesApp, RendererGl)
