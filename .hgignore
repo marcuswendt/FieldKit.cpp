@@ -10,3 +10,6 @@ xcode/build/*
 *.pbxuser
 *.perspectivev3
 *.mode1v3
+glob:vc10/Debug
+glob:vc9/Debug
+glob:*.sdf

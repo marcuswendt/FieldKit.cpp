@@ -10,8 +10,8 @@
 
 #pragma once
 
-#include "FieldKit.h"
-#include "Particle.h"
+#include "fieldkit/FieldKit.h"
+#include "fieldkit/physics/Particle.h"
 
 namespace fk { namespace physics {
 	class Spring {

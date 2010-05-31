@@ -8,7 +8,7 @@
  *	 Created by Marcus Wendt on 27/05/2010.
  */
 
-#include "Spring.h"
+#include "fieldkit/physics/Spring.h"
 
 namespace fk { namespace physics {
 	

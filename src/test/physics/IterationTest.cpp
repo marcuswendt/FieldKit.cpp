@@ -63,7 +63,7 @@ public:
 		
 		velocity += steer;
 		position += velocity;
-		velocity *= 0.97;
+		velocity *= 0.97f;
 		steer.zero();
 	}
 };

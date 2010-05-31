@@ -9,6 +9,7 @@
  */
 #pragma once
 
+#include "fieldkit/FieldKit.h"
 #include "fieldkit/physics/Behavioural.h"
 #include "fieldkit/physics/Particle.h"
 #include "fieldkit/physics/Emitter.h"

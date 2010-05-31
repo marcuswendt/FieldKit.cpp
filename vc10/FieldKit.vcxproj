@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -47,8 +47,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\include;..\..\..\Libraries\cinder_0.8.0_mac\include;..\..\..\Libraries\cinder_0.8.0_mac\boost</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include;..\..\Cinder\boost;..\..\Cinder\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -62,7 +62,7 @@
     </ResourceCompile>
     <Link>
       <AdditionalDependencies>cinder_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\..\Libraries\cinder_0.8.0_mac\lib;..\..\..\Libraries\cinder_0.8.0_mac\lib\msw;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\cinder\lib;..\..\cinder\lib\msw;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
@@ -74,7 +74,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\include;..\..\..\Libraries\cinder_0.8.0_mac\include;..\..\..\Libraries\cinder_0.8.0_mac\boost</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\include;..\..\Cinder\boost\include;..\..\Cinder\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <PrecompiledHeader>
@@ -104,14 +104,46 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\FieldKitApp.cpp" />
+    <ClCompile Include="..\src\fieldkit\math\AABB.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Behavioural.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviours\Attractor.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviours\Boundary.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviours\Flocking.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviours\Force.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Emitter.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Particle.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Physics.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Space.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\spaces\OctTree.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Spatial.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Spring.cpp" />
+    <ClCompile Include="..\src\test\physics\FlockingParticlesApp.cpp" />
+    <ClCompile Include="..\src\test\physics\HelloParticlesApp.cpp" />
+    <ClCompile Include="..\src\test\physics\IterationTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\fieldkit\FieldKit.h" />
+    <ClInclude Include="..\include\fieldkit\math\AABB.h" />
+    <ClInclude Include="..\include\fieldkit\math\BoundingVolume.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Behaviour.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Behavioural.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviours\Attractor.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviours\Boundary.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviours\Flocking.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviours\Force.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Constraint.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Emitter.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Particle.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Physics.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Space.h" />
+    <ClInclude Include="..\include\fieldkit\physics\spaces\OctTree.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Spatial.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Spring.h" />
     <ClInclude Include="..\include\Resources.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc" />
-  </ItemGroup>  
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

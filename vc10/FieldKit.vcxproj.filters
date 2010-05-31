@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -13,20 +13,152 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Source Files\fieldkit">
+      <UniqueIdentifier>{63d77b70-f2d6-4e71-938c-3f0e371b093e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\test">
+      <UniqueIdentifier>{2aa0adcc-e246-47bc-bbb3-ffd225f5abc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fieldkit\physics">
+      <UniqueIdentifier>{d93bd9f6-e726-4eba-9f91-6596c5d8aa06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fieldkit\physics\behaviours">
+      <UniqueIdentifier>{80f37c74-2726-439b-84a0-ec641aac9127}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\test\physics">
+      <UniqueIdentifier>{279e3a1c-1c31-4196-8e1a-f47152614879}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fieldkit\physics\space">
+      <UniqueIdentifier>{1cfa3478-3579-4452-bdbe-11abe54db558}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fieldkit\math">
+      <UniqueIdentifier>{a79f7d7c-93f3-4de0-bf01-7642ec6a43ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\fieldkit">
+      <UniqueIdentifier>{ddc28b02-43af-472f-9c33-d720c3acf8cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\fieldkit\math">
+      <UniqueIdentifier>{9274205a-3a1c-4452-ad11-48f198cea01f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\fieldkit\physics">
+      <UniqueIdentifier>{328bdfa0-e18a-45aa-b7a1-9010d365cd2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\fieldkit\physics\behaviours">
+      <UniqueIdentifier>{4671d4f4-c2b6-4f8d-b436-cf7dcce3d7f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\fieldkit\physics\spaces">
+      <UniqueIdentifier>{30b5444b-8628-4789-abd5-cfe954232940}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\FieldKitApp.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\src\fieldkit\math\AABB.cpp">
+      <Filter>Source Files\fieldkit\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\Spring.cpp">
+      <Filter>Source Files\fieldkit\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\Behavioural.cpp">
+      <Filter>Source Files\fieldkit\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\Emitter.cpp">
+      <Filter>Source Files\fieldkit\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\Particle.cpp">
+      <Filter>Source Files\fieldkit\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\Physics.cpp">
+      <Filter>Source Files\fieldkit\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\Space.cpp">
+      <Filter>Source Files\fieldkit\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\Spatial.cpp">
+      <Filter>Source Files\fieldkit\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\behaviours\Flocking.cpp">
+      <Filter>Source Files\fieldkit\physics\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\behaviours\Attractor.cpp">
+      <Filter>Source Files\fieldkit\physics\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\behaviours\Force.cpp">
+      <Filter>Source Files\fieldkit\physics\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\spaces\OctTree.cpp">
+      <Filter>Source Files\fieldkit\physics\space</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\behaviours\Boundary.cpp">
+      <Filter>Source Files\fieldkit\physics\behaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\test\physics\FlockingParticlesApp.cpp">
+      <Filter>Source Files\test\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\test\physics\IterationTest.cpp">
+      <Filter>Source Files\test\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\test\physics\HelloParticlesApp.cpp">
+      <Filter>Source Files\test\physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>  
+    <ClInclude Include="..\include\fieldkit\math\AABB.h">
+      <Filter>Header Files\fieldkit\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\math\BoundingVolume.h">
+      <Filter>Header Files\fieldkit\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\FieldKit.h">
+      <Filter>Header Files\fieldkit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\Behaviour.h">
+      <Filter>Header Files\fieldkit\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\Behavioural.h">
+      <Filter>Header Files\fieldkit\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\Constraint.h">
+      <Filter>Header Files\fieldkit\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\Emitter.h">
+      <Filter>Header Files\fieldkit\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\Particle.h">
+      <Filter>Header Files\fieldkit\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\Physics.h">
+      <Filter>Header Files\fieldkit\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\Space.h">
+      <Filter>Header Files\fieldkit\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\Spatial.h">
+      <Filter>Header Files\fieldkit\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\Spring.h">
+      <Filter>Header Files\fieldkit\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\behaviours\Boundary.h">
+      <Filter>Header Files\fieldkit\physics\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\behaviours\Flocking.h">
+      <Filter>Header Files\fieldkit\physics\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\behaviours\Force.h">
+      <Filter>Header Files\fieldkit\physics\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\behaviours\Attractor.h">
+      <Filter>Header Files\fieldkit\physics\behaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\spaces\OctTree.h">
+      <Filter>Header Files\fieldkit\physics\spaces</Filter>
+    </ClInclude>
+  </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resources.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
-  </ItemGroup>  
+  </ItemGroup>
 </Project>
