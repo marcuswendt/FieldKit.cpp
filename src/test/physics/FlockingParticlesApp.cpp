@@ -54,9 +54,9 @@ public:
 	RandomEmitter(Space* space) : Behaviour(space) {};
 	
 	void apply(ParticlePtr p) {
-		p->x = Rand::randFloat(space->min.x, space->max.x);
-		p->y = Rand::randFloat(space->min.y, space->max.y);
-		p->z = Rand::randFloat(space->min.z, space->max.z);
+		p->position.x = Rand::randFloat(space->min.x, space->max.x);
+		p->position.y = Rand::randFloat(space->min.y, space->max.y);
+		p->position.z = Rand::randFloat(space->min.z, space->max.z);
 		
 		p->lifeTime = Rand::randFloat(10, 100);
 		//printf("random emit: %f %f %f\n", p->x, p->y, p->z);
@@ -130,7 +130,7 @@ void FlockingParticlesApp::update() {
 	gl::VboMesh::VertexIter iter = vboParticles.mapVertexBuffer();
 	for(ParticlePtr p = physics->particles.begin(); p != physics->particles.end(); p++) {
 		if(!p->isAlive) continue;
-		iter.setPosition(p->x, p->y, p->z);
+		iter.setPosition(p->position.x, p->position.y, p->position.z);
 		++iter;
 	}
 }

@@ -18,7 +18,7 @@
 
 namespace fk { namespace physics {
 	
-	class Particle : public Vec3f, Spatial {
+	class Particle : public Spatial {
 	public:
 		list<void *> neighbours;
 		BoundingVolume *neighbourBound;
@@ -42,6 +42,8 @@ namespace fk { namespace physics {
 		// wether this particle can be affected by behaviours
 		bool isLocked;
 		
+		Vec3f position;
+
 		// previous position in the simulation space
 		Vec3f prev;
 		
@@ -60,7 +62,7 @@ namespace fk { namespace physics {
 		
 		virtual void updateState(float dt);
 		virtual void updatePosition();
-		Vec3f *getSpatialPosition(){ return this; };
+		Vec3f *getSpatialPosition(){ return &position; };
 
 		// verlet integration
 		void lock();

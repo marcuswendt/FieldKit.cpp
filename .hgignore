@@ -13,3 +13,4 @@ xcode/build/*
 glob:vc10/Debug
 glob:vc9/Debug
 glob:*.sdf
+glob:vc10/Release*

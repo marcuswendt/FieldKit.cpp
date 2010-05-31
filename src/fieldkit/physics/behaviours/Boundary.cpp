@@ -16,36 +16,36 @@ void BoxWrap::apply(ParticlePtr p) {
 	
 	bool wrapped = false;
 	
-	if(p->x < min.x) {
-		p->prev.x += max.x - p->x;
-		p->x = max.x;
+	if(p->position.x < min.x) {
+		p->prev.x += max.x - p->position.x;
+		p->position.x = max.x;
 		wrapped = true;
 		
-	} else if(p->x > max.x) {
-		p->prev.x += min.x - p->x;
-		p->x = min.x;
+	} else if(p->position.x > max.x) {
+		p->prev.x += min.x - p->position.x;
+		p->position.x = min.x;
 		wrapped = true;
 	}
 	
-	if(p->y < min.y) {
-		p->prev.y += max.y - p->y;
-		p->y = max.y;
+	if(p->position.y < min.y) {
+		p->prev.y += max.y - p->position.y;
+		p->position.y = max.y;
 		wrapped = true;
 		
-	} else if(p->y > max.y) {
-		p->prev.y += min.y - p->y;
-		p->y = min.y;
+	} else if(p->position.y > max.y) {
+		p->prev.y += min.y - p->position.y;
+		p->position.y = min.y;
 		wrapped = true;
 	}
 	
-	if(p->z < min.z) {
-		p->prev.z += max.z - p->z;
-		p->z = max.z;
+	if(p->position.z < min.z) {
+		p->prev.z += max.z - p->position.z;
+		p->position.z = max.z;
 		wrapped = true;
 		
-	} else if(p->z > max.z) {
-		p->prev.z += min.z - p->z;
-		p->z = min.z;
+	} else if(p->position.z > max.z) {
+		p->prev.z += min.z - p->position.z;
+		p->position.z = min.z;
 		wrapped = true;
 	}
 	

@@ -93,12 +93,6 @@
     <ClCompile Include="..\src\test\physics\FlockingParticlesApp.cpp">
       <Filter>Source Files\test\physics</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\test\physics\IterationTest.cpp">
-      <Filter>Source Files\test\physics</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\test\physics\HelloParticlesApp.cpp">
-      <Filter>Source Files\test\physics</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Resources.h">

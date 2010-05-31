@@ -18,7 +18,7 @@ namespace fk { namespace physics {
 	}
 	
 	void Particle::init(Vec3f location) {
-		set(location);
+		position.set(location);
 		clearVelocity();
 		
 		// set defaults
@@ -52,11 +52,11 @@ namespace fk { namespace physics {
 	void Particle::updatePosition() {
 		if(isLocked) return;
 		
-		tmp.set(*this);
+		tmp.set(position);
 		
-		x += (x - prev.x) + force.x;
-		y += (y - prev.y) + force.y;
-		z += (z - prev.z) + force.z;
+		position.x += (position.x - prev.x) + force.x;
+		position.y += (position.y - prev.y) + force.y;
+		position.z += (position.z - prev.z) + force.z;
 		
 //		printf("pos: %f %f %f prev %f %f %f force %f %f %f\n", 
 //			   x, y, z, 
@@ -78,11 +78,11 @@ namespace fk { namespace physics {
 	}
 	
 	void Particle::clearVelocity() {
-		prev.set(*this);
+		prev.set(position);
 	}
 	
 	void Particle::scaleVelocity(float s) {
-		prev = prev.lerp(s, *this);
+		prev = prev.lerp(s, position);
 	}
 	
 	// -- getters & setters ----------------------------------------------------
