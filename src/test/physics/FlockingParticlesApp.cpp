@@ -66,7 +66,7 @@ void FlockingParticlesApp::setup() {
 	emitter->setPosition(space->getCenter());
 	emitter->setInterval(0.01);
 	emitter->setRate(1000);
-	emitter->setMax(50 * 1000);
+	emitter->setMax(1 * 1000);
 	
 	emitter->addBehaviour(new BoxRandom(*space));
 	physics->addBehaviour(new Gravity());
@@ -83,14 +83,17 @@ void FlockingParticlesApp::setup() {
 	physics->addBehaviour(attractor);
 	
 	// flocking
-//	FlockAlign* align = new FlockAlign();
-//	physics->addBehaviour(align);
-//	
-//	FlockAttract* attract = new FlockAttract();
-//	physics->addBehaviour(attract);
-//	
-//	FlockRepel* repel = new FlockRepel();
-//	physics->addBehaviour(repel);
+	FlockAlign* align = new FlockAlign(space);
+	align->setRange(0.25);
+	physics->addBehaviour(align);
+	
+	FlockAttract* attract = new FlockAttract(space);
+	attract->setRange(0.25);
+	physics->addBehaviour(attract);
+	
+	FlockRepel* repel = new FlockRepel(space);
+	repel->setRange(0.25);
+	physics->addBehaviour(repel);
 	
 	// init graphics
 	gl::VboMesh::Layout layout;

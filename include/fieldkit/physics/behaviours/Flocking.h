@@ -17,18 +17,35 @@
 namespace fk { 
 namespace physics {
 	
-	class FlockAlign : public WeightedBehaviour {
+	class FlockBaseBehaviour: public WeightedBehaviour{
 	public:
+		FlockBaseBehaviour(Space* space) : WeightedBehaviour(space) {
+			setRange(0.1);
+		};
+		void setRange(float value) { range = value; }
+		float getRange() { return range; }
+		void prepare(float dt);
+	protected:
+		float range;
+		float rangeAbs;
+		float rangeAbsSq;
+	};
+
+	class FlockAlign : public FlockBaseBehaviour {
+	public:
+		FlockAlign(Space* space) : FlockBaseBehaviour(space){};
 		void apply(ParticlePtr Particle);
 	};
 	
-	class FlockAttract : public WeightedBehaviour{
+	class FlockAttract : public FlockBaseBehaviour{
 	public:
+		FlockAttract(Space* space) : FlockBaseBehaviour(space){};
 		void apply(ParticlePtr Particle);
 	};
 	
-	class FlockRepel : public WeightedBehaviour {
+	class FlockRepel : public FlockBaseBehaviour {
 	public:
+		FlockRepel(Space* space) : FlockBaseBehaviour(space){};
 		void apply(ParticlePtr Particle);
 	};
 }

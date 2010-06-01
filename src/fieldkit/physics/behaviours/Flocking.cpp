@@ -10,6 +10,17 @@
 #include "fieldkit/physics/behaviours/Flocking.h"
 using namespace fk::physics;
 
+// -- Flocking base class --------------------------------------------
+
+
+
+void FlockBaseBehaviour::prepare(float dt) 
+{
+	rangeAbs = space->toAbsolute(range);
+	rangeAbsSq = rangeAbs * rangeAbs;
+}
+
+
 // -- Align --------------------------------------------------------------------
 
 //  calc average force and move towards it (use velocity if available)..
@@ -18,13 +29,19 @@ void FlockAlign::apply(ParticlePtr p)
 	Vec3f average(0.0f,0.0f,0.0f);
 	Particle *q;
 	int n;
-	
+	Vec3f delta;
+	float distSq;
 	n = p->neighbours.size();
 	list<void *>::iterator it = p->neighbours.begin();
 	while( it != p->neighbours.end()) 
 	{ 
 		q = (Particle *) *it;				
-		average += q->force;
+		delta = q->position - p->position ; 
+		distSq = delta.lengthSquared();
+		if(distSq < rangeAbsSq) 
+		{
+			average += q->force;
+		}
 	}
 	if(n > 0) average /= (float)n;
 
@@ -44,10 +61,17 @@ void FlockAttract::apply(ParticlePtr p)
 	int n = p->neighbours.size();
 	list<void *>::iterator it = p->neighbours.begin();
 	Particle *q;
+	Vec3f delta;
+	float distSq;
 	while( it != p->neighbours.end()) 
 	{ 
 		q = (Particle *) *it;				
-		center += q->position;	
+		delta = q->position - p->position ; 
+		distSq = delta.lengthSquared();
+		if(distSq < rangeAbsSq) 
+		{
+			center += q->position;	
+		}
 	}
 	if(n >0) center /= (float)n;
 	
