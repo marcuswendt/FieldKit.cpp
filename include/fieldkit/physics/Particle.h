@@ -24,6 +24,7 @@ namespace fk { namespace physics {
 		BoundingVolume *neighbourBound;
 		
 		int state;
+		
 		float age;
 		float lifeTime;
 		

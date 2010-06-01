@@ -18,8 +18,6 @@ Physics::Physics(Space* space) {
 }
 
 Physics::~Physics() {
-	// TODO delete particles here?
-	// TODO delete springs?
 	particles.clear();
 	springs.clear();
 }

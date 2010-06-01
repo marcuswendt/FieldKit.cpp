@@ -16,9 +16,6 @@
 #include "fieldkit/physics/Space.h"
 #include "fieldkit/physics/Spring.h"
 
-#include <vector>
-using std::vector;
-
 namespace fk { namespace physics {
 		
 	class Physics : public Behavioural {

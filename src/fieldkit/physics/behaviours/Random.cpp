@@ -4,24 +4,19 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *	 Created by Marcus Wendt on 20/05/2010.
+ *	 Created by Marcus Wendt on 27/05/2010.
  */
-#pragma once
 
-#include <list>
-#include <vector>
-#include <string>
+#include "fieldkit/physics/behaviours/Random.h"
 
-#include <boost/foreach.hpp>
-#include <boost/format.hpp> 
+#include "cinder/Rand.h"
 
-#include "cinder/Cinder.h"
-#include "cinder/Vector.h"
-
-using boost::format;
-using boost::io::group;
-
-using namespace std;
 using namespace ci;
+using namespace fk::physics;
 
-//using std::vector;
+void BoxRandom::apply(ParticlePtr p) {
+	p->position.x = Rand::randFloat(min.x, max.x);
+	p->position.y = Rand::randFloat(min.y, max.y);
+	p->position.z = Rand::randFloat(min.z, max.z);
+	p->clearVelocity();
+}

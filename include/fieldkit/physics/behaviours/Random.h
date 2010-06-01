@@ -15,39 +15,14 @@
 
 namespace fk { namespace physics {
 	
-	class Force : public WeightedBehaviour {
+	class BoxRandom : public Behaviour, AABB {
 	public:
+		BoxRandom() {}
 		
-		Force() : WeightedBehaviour() {
-			direction.set(0,0,0);
-		};
+		BoxRandom(AABB box) {
+			set(box);
+		}
 		
-		void setDirection(Vec3f value);
-		Vec3f getDirection();
-		
-		void prepare(float dt);
 		void apply(ParticlePtr p);
-		
-	protected:
-		Vec3f direction;
-		Vec3f force;
-	};
-	
-	// -- Gravity --------------------------------------------------------------
-	class Gravity : public Force {
-	public:
-		Gravity() : Force() {
-			direction.set(0, 1, 0);
-			setWeight(0.01);
-		}
-	};
-
-	// -- Wind -----------------------------------------------------------------
-	class Wind : public Force {
-	public:
-		Wind() : Force() {
-			direction.set(1, 0, 0);
-			setWeight(0.02);
-		}
 	};
 } } // namespace fk::physics

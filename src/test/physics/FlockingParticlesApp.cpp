@@ -13,6 +13,7 @@
 #include <list>
 
 #include "fieldkit/physics/Physics.h"
+#include "fieldkit/physics/behaviours/Random.h"
 #include "fieldkit/physics/behaviours/Attractor.h"
 #include "fieldkit/physics/behaviours/Boundary.h"
 #include "fieldkit/physics/behaviours/Force.h"
@@ -35,6 +36,8 @@ public:
 	void mouseDrag(MouseEvent event);
 	void keyDown(KeyEvent event);
 	
+	void testParticleCreation();
+	
 	Timer* timer;
 	Physics* physics;
 	AttractorPoint* attractor;
@@ -48,22 +51,7 @@ void FlockingParticlesApp::prepareSettings(Settings *settings){
 	
 };
 
-// -- Loop ---------------------------------------------------------------------
-class RandomEmitter : public Behaviour {
-public:
-	RandomEmitter(Space* space) : Behaviour(space) {};
-	
-	void apply(ParticlePtr p) {
-		p->position.x = Rand::randFloat(space->min.x, space->max.x);
-		p->position.y = Rand::randFloat(space->min.y, space->max.y);
-		p->position.z = Rand::randFloat(space->min.z, space->max.z);
-		
-		p->lifeTime = Rand::randFloat(10, 100);
-		//printf("random emit: %f %f %f\n", p->x, p->y, p->z);
-		p->clearVelocity();
-	}		
-};
-
+// -- Init ---------------------------------------------------------------------
 void FlockingParticlesApp::setup() {
 	timer = new Timer();
 	
@@ -80,7 +68,7 @@ void FlockingParticlesApp::setup() {
 	emitter->setRate(1000);
 	emitter->setMax(50 * 1000);
 	
-	emitter->addBehaviour(new RandomEmitter(space));
+	emitter->addBehaviour(new BoxRandom(*space));
 	physics->addBehaviour(new Gravity());
 	
 	// wrap
@@ -95,14 +83,14 @@ void FlockingParticlesApp::setup() {
 	physics->addBehaviour(attractor);
 	
 	// flocking
-	FlockAlign* align = new FlockAlign();
-	physics->addBehaviour(align);
-	
-	FlockAttract* attract = new FlockAttract();
-	physics->addBehaviour(attract);
-	
-	FlockRepel* repel = new FlockRepel();
-	physics->addBehaviour(repel);
+//	FlockAlign* align = new FlockAlign();
+//	physics->addBehaviour(align);
+//	
+//	FlockAttract* attract = new FlockAttract();
+//	physics->addBehaviour(attract);
+//	
+//	FlockRepel* repel = new FlockRepel();
+//	physics->addBehaviour(repel);
 	
 	// init graphics
 	gl::VboMesh::Layout layout;
@@ -111,6 +99,34 @@ void FlockingParticlesApp::setup() {
 	layout.setStaticTexCoords2d();
 	
 	vboParticles = gl::VboMesh(emitter->getMax(), 0, layout, GL_POINTS);
+	
+	//testParticleCreation();
+}
+
+void FlockingParticlesApp::testParticleCreation() {
+	
+	printf("running testParticleCreation\n");
+	timer->stop();
+	timer->start();
+	
+	Space* space = new Space(getWindowWidth(), getWindowHeight(), 0);
+	Physics* physics = new Physics(space);
+	
+	Emitter* emitter = new Emitter(physics);
+	physics->emitter = emitter;
+	emitter->setPosition(space->getCenter());
+	emitter->setInterval(0.0001);
+	emitter->setRate(50000);
+	emitter->setMax(50 * 1000);
+	
+	int numIterations = 10;
+	for(int i=0; i<numIterations; i++) {
+		physics->update(0.016f);
+		//physics->createParticle();
+	}
+	
+	timer->stop();
+	printf("%f s \n", timer->getSeconds());
 }
 
 void FlockingParticlesApp::update() {
