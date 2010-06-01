@@ -15,7 +15,7 @@
 
 namespace fk { namespace physics {
 	
-	class BoxRandom : public Behaviour, AABB {
+	class BoxRandom : public Behaviour, public AABB {
 	public:
 		BoxRandom() {}
 		

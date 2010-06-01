@@ -169,6 +169,12 @@
 		2CC1C97811AABF2D0052C0B3 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CC1C97711AABF2D0052C0B3 /* AABB.cpp */; };
 		2CD0787911AE79530088280C /* Spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0787811AE79530088280C /* Spring.cpp */; };
 		2CD0789111AE85370088280C /* Attractor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0789011AE85370088280C /* Attractor.cpp */; };
+		2CE95B2F11B5A08100499918 /* Tweak.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE95B2E11B5A08100499918 /* Tweak.h */; };
+		2CE95B4611B5A1E300499918 /* Tweak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CE95B4511B5A1E300499918 /* Tweak.cpp */; };
+		2CE95B4711B5A1E300499918 /* Tweak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CE95B4511B5A1E300499918 /* Tweak.cpp */; };
+		2CE95B8811B5AA9B00499918 /* Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CE95B8711B5AA9B00499918 /* Model.h */; };
+		2CE95B8A11B5AAAF00499918 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CE95B8911B5AAAF00499918 /* Model.cpp */; };
+		2CE95B8B11B5AAAF00499918 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CE95B8911B5AAAF00499918 /* Model.cpp */; };
 		2CEFC56111A91881002362A9 /* Space.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CEFC56011A91881002362A9 /* Space.cpp */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
@@ -264,6 +270,10 @@
 		2CD0789011AE85370088280C /* Attractor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Attractor.cpp; sourceTree = "<group>"; };
 		2CD0789211AE85530088280C /* Attractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Attractor.h; path = ../../../../include/fieldkit/physics/behaviours/Attractor.h; sourceTree = "<group>"; };
 		2CD0789311AE862D0088280C /* Force.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Force.h; path = ../include/fieldkit/physics/behaviours/Force.h; sourceTree = SOURCE_ROOT; };
+		2CE95B2E11B5A08100499918 /* Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweak.h; path = tweak/Tweak.h; sourceTree = "<group>"; };
+		2CE95B4511B5A1E300499918 /* Tweak.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Tweak.cpp; path = tweak/Tweak.cpp; sourceTree = "<group>"; };
+		2CE95B8711B5AA9B00499918 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = tweak/Model.h; sourceTree = "<group>"; };
+		2CE95B8911B5AAAF00499918 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = tweak/Model.cpp; sourceTree = "<group>"; };
 		2CEFC56011A91881002362A9 /* Space.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Space.cpp; sourceTree = "<group>"; };
 		2CEFC56B11A91B3B002362A9 /* BoundingVolume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundingVolume.h; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* FieldKit_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldKit_Prefix.pch; sourceTree = "<group>"; };
@@ -531,6 +541,8 @@
 			isa = PBXGroup;
 			children = (
 				2C535B2211B3FDAA00699592 /* TweakManager.h */,
+				2CE95B2E11B5A08100499918 /* Tweak.h */,
+				2CE95B8711B5AA9B00499918 /* Model.h */,
 			);
 			name = tweak;
 			sourceTree = "<group>";
@@ -539,6 +551,8 @@
 			isa = PBXGroup;
 			children = (
 				2C535B2411B3FDC400699592 /* TweakManager.cpp */,
+				2CE95B4511B5A1E300499918 /* Tweak.cpp */,
+				2CE95B8911B5AAAF00499918 /* Model.cpp */,
 			);
 			name = tweak;
 			sourceTree = "<group>";
@@ -658,6 +672,8 @@
 				2C0F90D711B11E9300AD264D /* Boundary.h in Headers */,
 				2C535B2311B3FDAA00699592 /* TweakManager.h in Headers */,
 				2C535B9811B402B700699592 /* Random.h in Headers */,
+				2CE95B2F11B5A08100499918 /* Tweak.h in Headers */,
+				2CE95B8811B5AA9B00499918 /* Model.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,6 +902,8 @@
 				2C535B4F11B400EF00699592 /* Flocking.cpp in Sources */,
 				2C535B9D11B402EA00699592 /* Random.cpp in Sources */,
 				2C535BC111B42BAF00699592 /* TweakManager.cpp in Sources */,
+				2CE95B4711B5A1E300499918 /* Tweak.cpp in Sources */,
+				2CE95B8B11B5AAAF00499918 /* Model.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,6 +926,8 @@
 				2C0F929C11B1494B00AD264D /* Force.cpp in Sources */,
 				2C535B2511B3FDC400699592 /* TweakManager.cpp in Sources */,
 				2C535B9A11B402EA00699592 /* Random.cpp in Sources */,
+				2CE95B4611B5A1E300499918 /* Tweak.cpp in Sources */,
+				2CE95B8A11B5AAAF00499918 /* Model.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
