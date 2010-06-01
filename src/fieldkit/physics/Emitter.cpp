@@ -21,6 +21,7 @@ Emitter::Emitter(Physics* physics)
 	interval = 0.1;
 	max = 100;
 	isEnabled = true;
+	time = 0;
 }
 
 void Emitter::setMax(int value) {

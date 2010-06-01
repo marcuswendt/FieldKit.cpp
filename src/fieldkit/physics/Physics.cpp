@@ -14,11 +14,14 @@ using namespace fk::physics;
 Physics::Physics(Space* space) {
 	this->space = space;
 	emitter = NULL;
+	numParticles = 0;
 }
 
 Physics::~Physics() {
 	// TODO delete particles here?
 	// TODO delete springs?
+	particles.clear();
+	springs.clear();
 }
 
 void Physics::update(float dt) {
@@ -46,9 +49,11 @@ ParticlePtr Physics::createParticle() {
 // allocates a bunch of new particles
 void Physics::allocParticles(int count) {
 	particles.reserve(count);
-	while(particles.size() < count) {
-		particles.push_back(Particle());
+	//while(particles.size() < count) {
+	for(int i =0; i< count ;i++){
+		particles.push_back( Particle());
 	}
+	//}
 }
 
 // updates all particles by applying all behaviours and constraints
