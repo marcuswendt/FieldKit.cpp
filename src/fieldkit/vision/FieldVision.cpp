@@ -6,16 +6,17 @@
 \*                                                                            */
 /* created October 27, 2009 */
 
-#include "FieldVision.h"
+#include "fieldkit/vision/FieldVision.h"
 
-#include "CVBlobDetector.h"
-#include "OpenCVCamera.h"
-#include "PTGreyBumblebee2.h"
-#include "PortVideoCamera.h"
+#include "fieldkit/vision/vision/processors/CVBlobDetector.h"
+#include "fieldkit/vision/camera/implementations/OpenCVCamera.h"
+#include "fieldkit/vision/camera/implementations/CinderCamera.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+namespace fk { namespace vision {
 
 // -- Globals ------------------------------------------------------------------
 struct VisionData blobdata;
@@ -37,14 +38,14 @@ int fvCreate() {
 	visionData->size = VISION_DATA_SIZE;
 	visionData->isLittleEndian = isLittleEndian();
 	visionData->buffer = new int[visionData->size];
-	return SUCCESS;
+	return VISION_SUCCESS;
 }
 	
 // -- Destroy ------------------------------------------------------------------
 int fvDestroy() {
 	if(!vision) return fvError(ERR_NOT_CREATED);
 	delete vision;
-	return SUCCESS;
+	return VISION_SUCCESS;
 }
 
 // -- Start --------------------------------------------------------------------
@@ -110,9 +111,9 @@ int fvUpdate() {
 //		for(int i=0; i < visionData->index; i++)
 //			printf("c>> %i: %i \n", i, visionData->buffer[i]);
 		
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}
-	return ERROR;
+	return VISION_ERROR;
 }
 
 	
@@ -120,7 +121,7 @@ int fvUpdate() {
 int fvSet(int property, float value) {
 	if(!vision) return fvError(ERR_NOT_CREATED);
 	vision->getProcessor()->set(property, value);
-	return SUCCESS;
+	return VISION_SUCCESS;
 }
 	
 int fvSetCamera(int name) {
@@ -149,12 +150,8 @@ int fvSetCamera(int name) {
 			camera = new OpenCVCamera(3);
 			break;
 			
-		case CAMERA_PTGREY_BUMBLEBEE:
-			camera = new PTGreyBumblebee2();
-			break;
-			
-		case CAMERA_PORT_VIDEO:
-			camera = new PortVideoCamera();
+		case CAMERA_CINDER:
+			camera = new CinderCamera();
 			break;
 			
 		default:
@@ -163,36 +160,36 @@ int fvSetCamera(int name) {
 	
 	vision->setCamera(camera);
 	
-	return SUCCESS;
+	return VISION_SUCCESS;
 }
 
 int fvSetSize(int width, int height) {
 	if(!vision) return fvError(ERR_NOT_CREATED);
 	vision->setSize(width, height);
-	return SUCCESS;
+	return VISION_SUCCESS;
 }
 
 int fvSetFramerate(int fps) {
 	if(!vision) return fvError(ERR_NOT_CREATED);	
 	vision->setFramerate(fps);
-	return SUCCESS;
+	return VISION_SUCCESS;
 }
 
 int fvSetStageEnabled(int stage, bool enabled) {
 	if(!vision) return fvError(ERR_NOT_CREATED);	
 	vision->getProcessor()->setStageEnabled(enabled, stage);
-	return SUCCESS;
+	return VISION_SUCCESS;
 }
 
 int fvSetWarp(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
 	if(!vision) return fvError(ERR_NOT_CREATED);	
 	vision->getProcessor()->setWarp(x1, y1, x2, y2, x3, y3, x4, y4);
-	return SUCCESS;
+	return VISION_SUCCESS;
 }
 	
 int fvSetUseContours(bool isEnabled) {
 	useContours = isEnabled;
-	return SUCCESS;
+	return VISION_SUCCESS;
 }
 	
 // -- Getters ------------------------------------------------------------------
@@ -255,9 +252,11 @@ int fvError(int err) {
 		msg = "Unknown error";
 	}
 	fprintf(stderr, "FieldVision: %s!\n", msg);
-	return ERROR;
+	return VISION_ERROR;
 }
 	
 #ifdef __cplusplus
 }
 #endif
+
+}} // namespace fk::vision

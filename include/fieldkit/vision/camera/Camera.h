@@ -38,6 +38,9 @@ namespace fk { namespace vision {
 		
 		virtual IplImage* getImage(int channel = 0);
 		
+		bool initialized(){return isInitialized;};
+		bool running(){return isStarted;};
+
 	protected:
 		bool isInitialized;
 		bool isStarted;

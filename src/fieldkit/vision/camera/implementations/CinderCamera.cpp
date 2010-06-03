@@ -7,8 +7,7 @@
  *
  */
 
-#include "fieldkit/vision/camera/implementations/PortVideoCamera.h"
-#include "fieldkit/vision/camera/implementations/portvideo/CinderCamera.h"
+#include "fieldkit/vision/camera/implementations/CinderCamera.h"
 #include "cinder/ip/grayscale.h"
 
 namespace fk { namespace vision 
@@ -16,7 +15,7 @@ namespace fk { namespace vision
 	// -------------------------------------------------------------------------
 	// INIT
 	// -------------------------------------------------------------------------
-	int PortVideoCamera::init()
+	int CinderCamera::init()
 	{
 		if(isStarted) {
 			LOG_ERR("PortVideoCamera: Cannot initialize, since camera is already started.");
@@ -26,33 +25,42 @@ namespace fk { namespace vision
 		// TODO black&white mode gives strange artifacts, so force color mode
 		color = true;
 		
-		capture = new CinderCamera();
-		capture->findCamera();
-		capture->initCamera(width, height, color);
-		capture->startCamera();
-		
+		try {
+			mCapture = ci::Capture( width, height );
+			mCapture.start();
+		}
+		catch( ... ) {
+			//console() << "[PortVideoCamera::init] Failed to initialize capture" << std::endl;
+		}
 		int channels = color ? 3 : 1;
 		image = cvCreateImage(cvSize(width, height), IPL_DEPTH_8U, channels);
 		
 		return super::init();
 	}
 	
+
+	int CinderCamera::stop()
+	{
+		mCapture.stop();
+		return super::stop();
+	}
+
 	// -------------------------------------------------------------------------
 	// CLOSE
 	// -------------------------------------------------------------------------
-	int PortVideoCamera::close()
+	int CinderCamera::close()
 	{
-		capture->closeCamera();
+		mCapture.stop();
 		return super::close();
 	}
 	
 	// -------------------------------------------------------------------------
 	// UPDATE
 	// -------------------------------------------------------------------------
-	int PortVideoCamera::update()
+	int CinderCamera::update()
 	{
 		int stride = color ? width * 3: width;
-		cvSetData(image, capture->getFrame(), stride);
+		cvSetData(image, mCapture.getSurface().getData(), stride);
 		return VISION_SUCCESS;
 	}
 	
@@ -60,7 +68,7 @@ namespace fk { namespace vision
 	// HELPERS
 	// -------------------------------------------------------------------------
 #pragma mark -- Helpers --
-	IplImage* PortVideoCamera::getImage(int channel)
+	IplImage* CinderCamera::getImage(int channel)
 	{
 		return image;
 	}

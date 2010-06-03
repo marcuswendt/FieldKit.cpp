@@ -16,6 +16,8 @@ namespace fk { namespace vision
 		width = VISION_DEFAULT_WIDTH;
 		height = VISION_DEFAULT_HEIGHT;
 		fps = VISION_DEFAULT_FPS;
+		processor = 0;
+		camera = 0;
 	}
 	
 	Vision::~Vision()
@@ -69,7 +71,7 @@ namespace fk { namespace vision
 	int Vision::init()
 	{
 		// initialize camera
-		if(camera == NULL) {
+		if(camera == 0) {
 			LOG_ERR("Vision: Cannot initialize, since there is no camera set yet.");
 			return VISION_ERROR;
 		}
@@ -81,7 +83,7 @@ namespace fk { namespace vision
 		if(err != VISION_SUCCESS) return err;
 
 		// initialize frame processor
-		if(processor == NULL) {
+		if(processor == 0) {
 			LOG_ERR("Vision: Cannot initialize, since there is no frame processor set yet.");
 			return VISION_ERROR;
 		}

@@ -9,7 +9,7 @@
 #ifndef FIELD_VISION_H
 #define FIELD_VISION_H
 
-#include "Vision.h"
+#include "fieldkit/vision/vision/Vision.h"
 
 //
 // Defines a C function interface to the C++ vision and camera classes

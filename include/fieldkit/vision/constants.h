@@ -30,7 +30,7 @@ namespace fk { namespace vision {
 	consti CAMERA_OPENCV_THIRD =		3;
 	consti CAMERA_OPENCV_FOURTH	=		4;
 	consti CAMERA_PTGREY_BUMBLEBEE =	10;
-	consti CAMERA_PORT_VIDEO =			11;
+	consti CAMERA_CINDER =			11;
 	
 	// frame processor properties
 	consti PROC_BACKGROUND =			0;
@@ -43,8 +43,8 @@ namespace fk { namespace vision {
 	consti PROC_TRACK_RANGE =			7;
 
 	// defaults
-	consti VISION_DEFAULT_WIDTH = 320;
-	consti VISION_DEFAULT_HEIGHT = 240;
+	consti VISION_DEFAULT_WIDTH = 640;
+	consti VISION_DEFAULT_HEIGHT = 480;
 	consti VISION_DEFAULT_FPS = 30;
 	consti VISION_BLOB_COUNT = 30;
 	

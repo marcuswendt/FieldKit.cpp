@@ -11,8 +11,9 @@
 #define PORT_VIDEO_CAMERA_H
 
 #include "fieldkit/vision/camera/Camera.h"
-#include "fieldkit/vision/camera/implementations/portvideo/cameraEngine.h"
 #include "fieldkit/vision/opencv.h"
+#include "cinder/gl/Texture.h"
+#include "cinder/Capture.h"
 
 namespace fk { namespace vision 
 {
@@ -20,21 +21,23 @@ namespace fk { namespace vision
 	// integrates the camera capture components from the port video project
 	// http://portvideo.sourceforge.net
 	//
-	class PortVideoCamera : public Camera
+	class CinderCamera : public Camera
 	{
 	public:
-		PortVideoCamera() {};
-		~PortVideoCamera() {};
+		CinderCamera() {};
+		~CinderCamera() {};
 		
 		int init();
 		int update();
 		int close();
+		int stop();
 		IplImage* getImage(int channel=0);
 		
+		ci::Capture *getCapture(){return &mCapture;};
 	private:
 		typedef Camera super;
-		cameraEngine* capture;
 		IplImage* image;
+		ci::Capture	mCapture;
 	};
 } } // namespace fk::vision
 
