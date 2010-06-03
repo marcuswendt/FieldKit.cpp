@@ -78,7 +78,7 @@ namespace fk { namespace vision
 		contourStorage = cvCreateMemStorage(0);
 		
 		// stages
-		return SUCCESS;
+		return VISION_SUCCESS;
 	};
 	
 	int CVBlobDetector::update(Camera *camera)
@@ -209,7 +209,7 @@ namespace fk { namespace vision
 		trackBlobs();
 		drawBlobs(STAGE_TRACKING, trackedBlobs);
 		
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}
 
 	

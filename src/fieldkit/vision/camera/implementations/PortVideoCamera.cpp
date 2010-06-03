@@ -9,6 +9,7 @@
 
 #include "fieldkit/vision/camera/implementations/PortVideoCamera.h"
 #include "fieldkit/vision/camera/implementations/portvideo/CinderCamera.h"
+#include "cinder/ip/grayscale.h"
 
 namespace fk { namespace vision 
 {
@@ -19,7 +20,7 @@ namespace fk { namespace vision
 	{
 		if(isStarted) {
 			LOG_ERR("PortVideoCamera: Cannot initialize, since camera is already started.");
-			return ERROR;
+			return VISION_ERROR;
 		}
 		
 		// TODO black&white mode gives strange artifacts, so force color mode
@@ -52,7 +53,7 @@ namespace fk { namespace vision
 	{
 		int stride = color ? width * 3: width;
 		cvSetData(image, capture->getFrame(), stride);
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}
 	
 	// -------------------------------------------------------------------------

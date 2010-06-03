@@ -21,14 +21,14 @@ namespace fk { namespace vision
 	{
 		if(isStarted) {
 			LOG_ERR("OpenCVCamera: Cannot initialize, since camera is already started.");
-			return ERROR;
+			return VISION_ERROR;
 		}
 				
 		capture = cvCreateCameraCapture(cameraIndex);
 		
 		if(!capture) {
 			LOG_ERR("OpenCVCamera: Couldnt create camera capture.");
-			return ERROR;
+			return VISION_ERROR;
 		}
 		
 		//printf("OpenCVCamera: requested %i x %i\n", width, height);
@@ -63,8 +63,8 @@ namespace fk { namespace vision
 	// -------------------------------------------------------------------------
 	int OpenCVCamera::update()
 	{
-		if(cvGrabFrame(capture)) return SUCCESS;
-		return ERROR;
+		if(cvGrabFrame(capture)) return VISION_SUCCESS;
+		return VISION_ERROR;
 	}
 	
 	// -------------------------------------------------------------------------

@@ -71,19 +71,19 @@ namespace fk { namespace vision
 		// initialize camera
 		if(camera == NULL) {
 			LOG_ERR("Vision: Cannot initialize, since there is no camera set yet.");
-			return ERROR;
+			return VISION_ERROR;
 		}
 		camera->setSize(width, height);
 		camera->setFramerate(fps);
 
 		int err;
 		err = camera->init();
-		if(err != SUCCESS) return err;
+		if(err != VISION_SUCCESS) return err;
 
 		// initialize frame processor
 		if(processor == NULL) {
 			LOG_ERR("Vision: Cannot initialize, since there is no frame processor set yet.");
-			return ERROR;
+			return VISION_ERROR;
 		}
 
 		processor->setSize(width, height);
@@ -91,7 +91,7 @@ namespace fk { namespace vision
 		
 		err = processor->init();
 		
-		if(err == SUCCESS) isInitialized = true;
+		if(err == VISION_SUCCESS) isInitialized = true;
 		
 		return err;
 	}
@@ -105,13 +105,13 @@ namespace fk { namespace vision
 		if(!isInitialized) {
 			//LOG("need to initialize");
 			err = this->init();
-			if(err != SUCCESS) return err;
+			if(err != VISION_SUCCESS) return err;
 		}
 		
 		// all good, begin grabbing frames
 		err = camera->start();
 		
-		if(err == SUCCESS) isStarted = true;
+		if(err == VISION_SUCCESS) isStarted = true;
 		return err;
 	}
 
@@ -120,11 +120,11 @@ namespace fk { namespace vision
 	// -------------------------------------------------------------------------
 	int Vision::stop()
 	{
-		if(!isStarted) return ERROR;
+		if(!isStarted) return VISION_ERROR;
 
 		err = camera->stop();
 		
-		if(err == SUCCESS) isStarted = false;
+		if(err == VISION_SUCCESS) isStarted = false;
 		return err;
 	}
 	
@@ -135,16 +135,16 @@ namespace fk { namespace vision
 	{
 		if(!isStarted) {
 			LOG_ERR("Vision: Cannot update, since vision is not started yet.");
-			return SUCCESS;
+			return VISION_SUCCESS;
 		}
 		
 		err = camera->update();
-		if(err != SUCCESS) return err;
+		if(err != VISION_SUCCESS) return err;
 		
 		err = processor->update(camera);
-		if(err != SUCCESS) return err;
+		if(err != VISION_SUCCESS) return err;
 		
-		return SUCCESS;
+		return VISION_SUCCESS;
 	};
 
 }} // namespace fk::vision

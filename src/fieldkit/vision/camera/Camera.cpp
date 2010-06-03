@@ -51,7 +51,7 @@ namespace fk { namespace vision
 	// -------------------------------------------------------------------------
 	int Camera::init() {
 		isInitialized = true;
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}
 	
 	// -------------------------------------------------------------------------
@@ -61,19 +61,19 @@ namespace fk { namespace vision
 		// check if we need to initialize first
 		if(!isInitialized) {
 			err = this->init();
-			if(err != SUCCESS) return err;
+			if(err != VISION_SUCCESS) return err;
 		}
 		
 		isStarted = true;
 		
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}
 	
 	// -------------------------------------------------------------------------
 	// UPDATE
 	// -------------------------------------------------------------------------
 	int Camera::update() {
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}
 	
 	// -------------------------------------------------------------------------
@@ -81,7 +81,7 @@ namespace fk { namespace vision
 	// -------------------------------------------------------------------------
 	int Camera::stop() {
 		isStarted = false;
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}
 	
 	// -------------------------------------------------------------------------
@@ -92,7 +92,7 @@ namespace fk { namespace vision
 			this->stop();
 			
 		isInitialized = false;
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}
 
 	// -------------------------------------------------------------------------

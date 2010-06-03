@@ -27,6 +27,7 @@ bool CinderCamera::findCamera()
 bool CinderCamera::initCamera(int width, int height, bool colour) 
 {
 	if(cameraID < 0) return false;
+	this->colour = colour;
 	mCapture = ci::Capture( width, height );
 	return true;
 }

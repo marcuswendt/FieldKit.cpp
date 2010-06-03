@@ -42,7 +42,7 @@ namespace fk { namespace vision
 		left->init();
 		right->init();
 		
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}	
 	
 	int CVStereoBlobDetector::update(Camera *camera)
@@ -55,7 +55,7 @@ namespace fk { namespace vision
 		
 		drawFingerPoints();
 		
-		return SUCCESS;
+		return VISION_SUCCESS;
 	}
 
 	

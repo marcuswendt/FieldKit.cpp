@@ -15,8 +15,8 @@ namespace fk { namespace vision {
 	#define consti const static int
 	
 	// error codes
-	consti ERROR	= 0;
-	consti SUCCESS	= 1;
+	consti VISION_ERROR	= 0;
+	consti VISION_SUCCESS	= 1;
 		
 	consti ERR_INVALID_ARGUMENT =		-10;
 		
