@@ -8,8 +8,7 @@
  */
 
 #include "fieldkit/vision/camera/implementations/PortVideoCamera.h"
-
-#include "fieldkit/vision/camera/implementations/portvideo/macsgCamera.h"
+#include "fieldkit/vision/camera/implementations/portvideo/CinderCamera.h"
 
 namespace fk { namespace vision 
 {
@@ -26,7 +25,7 @@ namespace fk { namespace vision
 		// TODO black&white mode gives strange artifacts, so force color mode
 		color = true;
 		
-		capture = new macsgCamera();
+		capture = new CinderCamera();
 		capture->findCamera();
 		capture->initCamera(width, height, color);
 		capture->startCamera();
