@@ -41,8 +41,8 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\include\fieldkit;..\include;..\..\..\Libraries\cinder_0.8.0_mac\include;..\..\..\Libraries\cinder_0.8.0_mac\boost"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
+				AdditionalIncludeDirectories="..\..\..\Libraries\OpenCV\include;..\include\fieldkit;..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NOMINMAX"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -64,7 +64,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="cinder_d.lib"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\..\Libraries\cinder_0.8.0_mac\lib;..\..\..\Libraries\cinder_0.8.0_mac\lib\msw"
+				AdditionalLibraryDirectories="..\..\..\Libraries\OpenCV\lib;..\..\..\Libraries\cinder\lib;..\..\..\Libraries\cinder\lib\msw"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				RandomizedBaseAddress="1"
@@ -178,10 +178,6 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
-			<File
-				RelativePath="..\src\HelloParticlesApp.cpp"
-				>
-			</File>
 			<Filter
 				Name="fieldkit"
 				>
@@ -192,6 +188,14 @@
 						RelativePath="..\src\fieldkit\math\AABB.cpp"
 						>
 					</File>
+					<Filter
+						Name="behaviours"
+						>
+						<File
+							RelativePath="..\src\fieldkit\math\behaviours\FlockBehaviour.cpp"
+							>
+						</File>
+					</Filter>
 				</Filter>
 				<Filter
 					Name="physics"
@@ -220,29 +224,33 @@
 						RelativePath="..\src\fieldkit\physics\Spatial.cpp"
 						>
 					</File>
+					<File
+						RelativePath="..\src\fieldkit\physics\Spring.cpp"
+						>
+					</File>
 					<Filter
 						Name="behaviours"
 						>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\FlockAlign.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviours\Attractor.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\FlockAttract.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviours\Boundary.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\FlockBehaviour.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviours\Flocking.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\FlockRepel.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviours\Force.cpp"
 							>
 						</File>
-					</Filter>
-					<Filter
-						Name="constraints"
-						>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\Random.cpp"
+							>
+						</File>
 					</Filter>
 					<Filter
 						Name="spaces"
@@ -252,6 +260,34 @@
 							>
 						</File>
 					</Filter>
+				</Filter>
+				<Filter
+					Name="tweak"
+					>
+					<File
+						RelativePath="..\src\fieldkit\tweak\Model.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\src\fieldkit\tweak\Tweak.cpp"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="test"
+				>
+				<Filter
+					Name="physcis"
+					>
+					<File
+						RelativePath="..\src\test\physics\FlockingParticlesApp.cpp"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="tweak"
+					>
 				</Filter>
 			</Filter>
 		</Filter>
@@ -307,10 +343,6 @@
 						>
 					</File>
 					<File
-						RelativePath="..\include\Resources.h"
-						>
-					</File>
-					<File
 						RelativePath="..\include\fieldkit\physics\Space.h"
 						>
 					</File>
@@ -318,23 +350,31 @@
 						RelativePath="..\include\fieldkit\physics\Spatial.h"
 						>
 					</File>
+					<File
+						RelativePath="..\include\fieldkit\physics\Spring.h"
+						>
+					</File>
 					<Filter
 						Name="behaviours"
 						>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\FlockAlign.h"
+							RelativePath="..\include\fieldkit\physics\behaviours\Attractor.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\FlockAttract.h"
+							RelativePath="..\include\fieldkit\physics\behaviours\Boundary.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\FlockBehaviour.h"
+							RelativePath="..\include\fieldkit\physics\behaviours\Flocking.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\FlockRepel.h"
+							RelativePath="..\include\fieldkit\physics\behaviours\Force.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\Random.h"
 							>
 						</File>
 					</Filter>
@@ -347,6 +387,18 @@
 						</File>
 					</Filter>
 				</Filter>
+				<Filter
+					Name="tweak"
+					>
+					<File
+						RelativePath="..\include\fieldkit\tweak\Model.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\fieldkit\tweak\Tweak.h"
+						>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -354,10 +406,6 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
-			<File
-				RelativePath=".\Resources.rc"
-				>
-			</File>
 		</Filter>
 	</Files>
 	<Globals>
