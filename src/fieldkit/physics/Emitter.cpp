@@ -26,6 +26,7 @@ Emitter::Emitter(Physics* physics)
 
 void Emitter::setMax(int value) {
 	max = value;
+	physics->allocParticles(value);
 }
 
 void Emitter::update(float dt) {

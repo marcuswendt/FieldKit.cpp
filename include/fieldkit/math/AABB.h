@@ -20,6 +20,7 @@ namespace fk { namespace math {
 		
 		AABB();
 		AABB(float w, float h, float d);
+		AABB(Vec3f min, Vec3f max);
 		
 		bool contains(Vec3f p);
 

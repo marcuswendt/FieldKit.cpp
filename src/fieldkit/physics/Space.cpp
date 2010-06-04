@@ -13,10 +13,6 @@
 using namespace fk::math;
 using namespace fk::physics;
 
-Space::Space() : AABB() {}
-
-Space::Space(float w, float h, float d) : AABB(w, h, d) {};
-
 void Space::clear() 
 {
 	spatials.clear();

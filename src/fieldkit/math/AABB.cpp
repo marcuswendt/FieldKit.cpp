@@ -12,7 +12,7 @@
 using namespace fk::math;
 
 // initialise to normalised box within [0,1] range
-AABB::AABB() {
+AABB::AABB() : BoundingVolume() {
 	position = Vec3f(0.5, 0.5, 0.5);
 	setDimension(1, 1, 1);
 }
@@ -21,7 +21,14 @@ AABB::AABB(float w, float h, float d) : BoundingVolume() {
 	position = Vec3f(w/2.0f, h/2.0f, d/2.0f);
 	setDimension(w, h, d);
 }
-	
+
+AABB::AABB(Vec3f min, Vec3f max) : BoundingVolume() {
+	this->min = min;
+	this->max = max;
+	this->extent = (max - min) / 2.0f;
+	position = min + extent;
+}
+
 void AABB::set(AABB box) {
 	this->min = box.min;
 	this->max = box.max;

@@ -24,8 +24,9 @@ class Space : public AABB
 public:
 	list<Spatial *>spatials;
 		
-	Space();
-	Space(float w, float h, float d);
+	Space() {}
+	Space(float w, float h, float d) : AABB(w, h, d) {};
+	Space(Vec3f min, Vec3f max) : AABB(min, max) {};
 		
 	virtual void clear();
 	virtual void insert(Spatial* s);
