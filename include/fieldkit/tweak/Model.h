@@ -16,8 +16,6 @@
 
 namespace fk { namespace tweak {
 
-	class Tweak;
-	
 	class Model {
 	public:
 		Model() {
@@ -35,19 +33,26 @@ namespace fk { namespace tweak {
 			}	
 		}
 		
-		void add(Model* m) { children.push_back(m); }
+		void addChild(Model* m);
 		void add(Tweak* c) { tweaks.push_back(c); }
+		
+		Model* getChild(const string &name);
+//		void set(const string &name, void value) {};
 		
 		// Getters & Setters
 		void setName(const string &name) { this->name = name; }
 		string getName() { return this->name; }
 
+		void setParent(Model* parent) { this->parent = parent; }
+		Model* getParent() { return parent; }
+		
 		// Serialization
 		virtual void fromXML(TiXmlElement* element);
 		virtual TiXmlElement* toXML();
 		
 	protected:
 		string name;
+		Model* parent;
 		
 		vector<Model*> children;
 		vector<Tweak*> tweaks;

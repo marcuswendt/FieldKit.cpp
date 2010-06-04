@@ -11,6 +11,20 @@
 
 using namespace fk::tweak;
 
+void Model::addChild(Model* child) {
+	child->setParent(this);
+	children.push_back(child);
+}
+
+Model* Model::getChild(const string &name) {
+	BOOST_FOREACH(Model* m, children) {	
+		if(m->getName().compare(name))
+			return m;
+	}
+	return NULL;
+}
+
+// -- Serialization ------------------------------------------------------------
 void Model::fromXML(TiXmlElement* element) {
 	
 }

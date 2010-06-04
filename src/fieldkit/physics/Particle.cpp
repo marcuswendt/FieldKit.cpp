@@ -12,14 +12,9 @@
 
 namespace fk { namespace physics {
 
-	Particle::Particle() {
-		isAlive = false;
-		isLocked = false;
-
-		state = 0;
-		age = 0.0f;
-		lifeTime = 1000.0f;
-
+	Particle::Particle() : 
+		isAlive(false), isLocked(false),
+		state(0), age(0.0f), lifeTime(1000.0f) {
 	}
 	
 	void Particle::init(Vec3f location) {
