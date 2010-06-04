@@ -107,7 +107,7 @@ namespace fk { namespace vision
 			inputImage = cache->getTmp(IMAGE_INPUT, cvSize(camera->getWidth(), camera->getHeight()));
 			cvCvtColor(sourceImage, inputImage, CV_BGR2GRAY);
 		}
-		
+
 		// resize inputImage if necessary
 		IplImage* inputImageResized = cache->getTmp(IMAGE_INPUT_RESIZED, size);
 		if(camera->getWidth() != size.width || camera->getHeight() != size.height) {

@@ -26,6 +26,17 @@ namespace fk { namespace vision {
 		// ---------------------------------------------------------------------------------------
 		// Constants
 		// ---------------------------------------------------------------------------------------
+		enum Slider {		
+			SLIDER_BACKGROUND,
+			SLIDER_THRESHOLD,
+			SLIDER_DILATE,
+			SLIDER_ERODE,
+			SLIDER_CONTOUR_MIN,
+			SLIDER_CONTOUR_MAX,
+			SLIDER_CONTOUR_REDUCE,
+			SLIDER_TRACK_RANGE
+		};
+		
 		enum Image {
 			IMAGE_INPUT,
 			IMAGE_INPUT_RESIZED,

@@ -62,7 +62,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="cinder_d.lib"
+				AdditionalDependencies="cinder_d.lib cv210d.lib cvaux210d.lib cxcore210d.lib highgui210d.lib opencv_ffmpeg210d.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\..\Libraries\OpenCV\lib;..\..\..\Libraries\cinder\lib;..\..\..\Libraries\cinder\lib\msw"
 				GenerateDebugInformation="true"
@@ -136,7 +136,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="cinder.lib"
+				AdditionalDependencies="cinder.lib cv210.lib cvaux210.lib cxcore210.lib highgui210.lib ml210.lib opencv_ffmpeg210.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\..\..\Libraries\cinder_0.8.0_mac\lib;..\..\..\Libraries\cinder_0.8.0_mac\lib\msw"
 				GenerateDebugInformation="true"
@@ -273,6 +273,58 @@
 						>
 					</File>
 				</Filter>
+				<Filter
+					Name="vision"
+					>
+					<Filter
+						Name="camera"
+						>
+						<File
+							RelativePath="..\src\fieldkit\vision\camera\Camera.cpp"
+							>
+						</File>
+						<Filter
+							Name="implementations"
+							>
+							<File
+								RelativePath="..\src\fieldkit\vision\camera\implementations\CinderCamera.cpp"
+								>
+							</File>
+							<File
+								RelativePath="..\src\fieldkit\vision\camera\implementations\OpenCVCamera.cpp"
+								>
+							</File>
+						</Filter>
+					</Filter>
+					<Filter
+						Name="vision"
+						>
+						<File
+							RelativePath="..\src\fieldkit\vision\vision\CVFrameProcessor.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\vision\vision\CVImageCache.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\vision\vision\Vision.cpp"
+							>
+						</File>
+						<Filter
+							Name="processors"
+							>
+							<File
+								RelativePath="..\src\fieldkit\vision\vision\processors\CVBlobDetector.cpp"
+								>
+							</File>
+							<File
+								RelativePath="..\src\fieldkit\vision\vision\processors\CVStereoBlobDetector.cpp"
+								>
+							</File>
+						</Filter>
+					</Filter>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="test"
@@ -398,6 +450,74 @@
 						RelativePath="..\include\fieldkit\tweak\Tweak.h"
 						>
 					</File>
+				</Filter>
+				<Filter
+					Name="vision"
+					>
+					<File
+						RelativePath="..\include\fieldkit\vision\constants.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\fieldkit\vision\opencv.h"
+						>
+					</File>
+					<Filter
+						Name="camera"
+						>
+						<File
+							RelativePath="..\include\fieldkit\vision\camera\Camera.h"
+							>
+						</File>
+						<Filter
+							Name="implementations"
+							>
+							<File
+								RelativePath="..\include\fieldkit\vision\camera\implementations\CinderCamera.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\camera\implementations\OpenCVCamera.h"
+								>
+							</File>
+						</Filter>
+					</Filter>
+					<Filter
+						Name="vision"
+						>
+						<File
+							RelativePath="..\include\fieldkit\vision\vision\CVFrameProcessor.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\vision\vision\CVImageCache.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\vision\vision\CVProperty.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\vision\vision\Vision.h"
+							>
+						</File>
+						<Filter
+							Name="processors"
+							>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\Blob.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\CVBlobDetector.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\CVStereoBlobDetector.h"
+								>
+							</File>
+						</Filter>
+					</Filter>
 				</Filter>
 			</Filter>
 		</Filter>
