@@ -19,6 +19,7 @@
 #include "fieldkit/physics/behaviours/Boundary.h"
 #include "fieldkit/physics/behaviours/Force.h"
 #include "fieldkit/physics/behaviours/Flocking.h"
+#include "fieldkit/physics/behaviours/PlaneConstraint.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -90,6 +91,9 @@ void HelloSprings::initPhysics() {
 //	BoxWrap* wrap = new BoxWrap(*space);
 //	wrap->preserveMomentum = false;
 //	physics->addBehaviour(wrap);
+	
+	// floor constraint
+	physics->addConstraint(new PlaneConstraint());
 	
 	// attractor 
 	attractor = new AttractorPoint(space);

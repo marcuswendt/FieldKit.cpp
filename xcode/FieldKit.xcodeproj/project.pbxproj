@@ -162,6 +162,12 @@
 		2C55A3F011B0610F00041C25 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		2C55A3F111B0610F00041C25 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		2C5F946D11BA917D00A83660 /* PlaneConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F946C11BA917D00A83660 /* PlaneConstraint.cpp */; };
+		2C5F946E11BA917D00A83660 /* PlaneConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F946C11BA917D00A83660 /* PlaneConstraint.cpp */; };
+		2C5F946F11BA917D00A83660 /* PlaneConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F946C11BA917D00A83660 /* PlaneConstraint.cpp */; };
+		2C5F947011BA917D00A83660 /* PlaneConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F946C11BA917D00A83660 /* PlaneConstraint.cpp */; };
+		2C5F947111BA917D00A83660 /* PlaneConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F946C11BA917D00A83660 /* PlaneConstraint.cpp */; };
+		2C5F947311BA919F00A83660 /* PlaneConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5F947211BA919F00A83660 /* PlaneConstraint.h */; };
 		2C88901011A6A08B00E716F0 /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900C11A6A08B00E716F0 /* Emitter.cpp */; };
 		2C88901111A6A08B00E716F0 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900E11A6A08B00E716F0 /* Particle.cpp */; };
 		2C88901211A6A08B00E716F0 /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C88900F11A6A08B00E716F0 /* Physics.cpp */; };
@@ -276,7 +282,7 @@
 		2C0F985B11B275A200AD264D /* FlockingParticlesApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlockingParticlesApp.cpp; sourceTree = "<group>"; };
 		2C0F987D11B275C800AD264D /* FlockingParticles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlockingParticles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C16314011BA6171008100D4 /* HelloSprings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloSprings.cpp; sourceTree = "<group>"; };
-		2C16316B11BA617C008100D4 /* FlockingParticles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlockingParticles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C16316B11BA617C008100D4 /* HelloSprings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloSprings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C250C5311B54FF4004E319A /* InstantiationTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InstantiationTest.cpp; sourceTree = "<group>"; };
 		2C250C7B11B550D3004E319A /* IterationTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = IterationTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C3D6A0911AFEC350015757B /* Flocking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flocking.cpp; sourceTree = "<group>"; };
@@ -288,6 +294,8 @@
 		2C535B9711B402B700699592 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Random.h; path = ../include/fieldkit/physics/behaviours/Random.h; sourceTree = SOURCE_ROOT; };
 		2C535B9911B402EA00699592 /* Random.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Random.cpp; sourceTree = "<group>"; };
 		2C55A26211B0608700041C25 /* libFieldKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C5F946C11BA917D00A83660 /* PlaneConstraint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlaneConstraint.cpp; sourceTree = "<group>"; };
+		2C5F947211BA919F00A83660 /* PlaneConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaneConstraint.h; path = ../include/fieldkit/physics/behaviours/PlaneConstraint.h; sourceTree = SOURCE_ROOT; };
 		2C88900311A6A07E00E716F0 /* FieldKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldKit.h; sourceTree = "<group>"; };
 		2C88900511A6A07E00E716F0 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
 		2C88900611A6A07E00E716F0 /* Behavioural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavioural.h; sourceTree = "<group>"; };
@@ -534,7 +542,7 @@
 				2C0F987D11B275C800AD264D /* FlockingParticles.app */,
 				2C535B5E11B400EF00699592 /* HelloTweak.app */,
 				2C250C7B11B550D3004E319A /* IterationTest */,
-				2C16316B11BA617C008100D4 /* FlockingParticles.app */,
+				2C16316B11BA617C008100D4 /* HelloSprings.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -586,6 +594,7 @@
 				2C3D6A0911AFEC350015757B /* Flocking.cpp */,
 				2C0F929B11B1494B00AD264D /* Force.cpp */,
 				2C535B9911B402EA00699592 /* Random.cpp */,
+				2C5F946C11BA917D00A83660 /* PlaneConstraint.cpp */,
 			);
 			path = behaviours;
 			sourceTree = "<group>";
@@ -598,6 +607,7 @@
 				2CD0789311AE862D0088280C /* Force.h */,
 				2C3D6A1411AFEC620015757B /* Flocking.h */,
 				2C535B9711B402B700699592 /* Random.h */,
+				2C5F947211BA919F00A83660 /* PlaneConstraint.h */,
 			);
 			name = behaviours;
 			path = ../src/fieldkit/physics/behaviours;
@@ -872,6 +882,7 @@
 				2CF2077011B95272009CA117 /* CVBlobDetector.h in Headers */,
 				2CF2077111B95272009CA117 /* CVStereoBlobDetector.h in Headers */,
 				2CF2077211B95272009CA117 /* Vision.h in Headers */,
+				2C5F947311BA919F00A83660 /* PlaneConstraint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,7 +922,7 @@
 			name = HelloSprings;
 			productInstallPath = "$(HOME)/Applications";
 			productName = FieldKit;
-			productReference = 2C16316B11BA617C008100D4 /* FlockingParticles.app */;
+			productReference = 2C16316B11BA617C008100D4 /* HelloSprings.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2C250C6A11B550D3004E319A /* InstantiationTest */ = {
@@ -1096,6 +1107,7 @@
 				2C0F986D11B275C800AD264D /* Force.cpp in Sources */,
 				2C0F986E11B275C800AD264D /* Flocking.cpp in Sources */,
 				2C535B9C11B402EA00699592 /* Random.cpp in Sources */,
+				2C5F946D11BA917D00A83660 /* PlaneConstraint.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,6 +1130,7 @@
 				2C16315A11BA617C008100D4 /* Force.cpp in Sources */,
 				2C16315B11BA617C008100D4 /* Flocking.cpp in Sources */,
 				2C16315C11BA617C008100D4 /* Random.cpp in Sources */,
+				2C5F947011BA917D00A83660 /* PlaneConstraint.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1150,6 +1163,7 @@
 				2C535B9D11B402EA00699592 /* Random.cpp in Sources */,
 				2CE95B4711B5A1E300499918 /* Tweak.cpp in Sources */,
 				2CE95B8B11B5AAAF00499918 /* Model.cpp in Sources */,
+				2C5F946F11BA917D00A83660 /* PlaneConstraint.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,6 +1195,7 @@
 				2CF2078711B9528F009CA117 /* CVBlobDetector.cpp in Sources */,
 				2CF2078811B9528F009CA117 /* CVStereoBlobDetector.cpp in Sources */,
 				2CF2078911B9528F009CA117 /* Vision.cpp in Sources */,
+				2C5F946E11BA917D00A83660 /* PlaneConstraint.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1219,6 +1234,7 @@
 				2C0F929D11B1494B00AD264D /* Force.cpp in Sources */,
 				2C0F985C11B275AF00AD264D /* Flocking.cpp in Sources */,
 				2C535B9B11B402EA00699592 /* Random.cpp in Sources */,
+				2C5F947111BA917D00A83660 /* PlaneConstraint.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1367,7 +1383,7 @@
 					"$(CINDER_PATH)/lib/libcinder.a",
 					"-lcurl",
 				);
-				PRODUCT_NAME = FlockingParticles;
+				PRODUCT_NAME = HelloSprings;
 				STRIP_INSTALLED_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
