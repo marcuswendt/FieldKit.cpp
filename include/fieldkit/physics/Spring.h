@@ -4,7 +4,6 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Spring.h
  *	 Created by Marcus Wendt on 27/05/2010.
  */
 

@@ -4,17 +4,12 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Behavioural.h
  *	 Created by Marcus Wendt on 20/05/2010.
  */
 
 #include "fieldkit/physics/Behavioural.h"
 
-namespace fk { 
-namespace physics {
-	
-Behavioural::Behavioural() {}
-Behavioural::~Behavioural() {}
+using namespace fk::physics;
 	
 void Behavioural::addBehaviour(Behaviour* b) {
 	behaviours.push_back(b);
@@ -31,7 +26,3 @@ void Behavioural::addConstraint(Constraint* c) {
 void Behavioural::removeConstraint(Constraint* c) {
 	constraints.remove(c);
 }
-	
-} 
-} // fk::physics
-

@@ -4,7 +4,6 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Particle.h
  *	 Created by Marcus Wendt on 20/05/2010.
  */
 #pragma once
@@ -71,7 +70,7 @@ namespace fk { namespace physics {
 		void clearVelocity();
 		void scaleVelocity(float s);
 		
-		// getters & setters
+		// accessors
 		void setWeight(float value);
 		inline float getWeight() { return this->weight; };
 		inline float getInvWeight() { return this->invWeight; };

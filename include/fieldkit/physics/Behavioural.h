@@ -4,9 +4,9 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Behavioural.h
  *	 Created by Marcus Wendt on 20/05/2010.
  */
+
 #pragma once
 
 #include "fieldkit/physics/Behaviour.h"
@@ -23,8 +23,8 @@ namespace fk { namespace physics {
 		list<Constraint*> constraints;
 	
 	public:
-		Behavioural();
-		~Behavioural();
+		Behavioural() {};
+		~Behavioural() {};
 
 		// Behaviours
 		void addBehaviour(Behaviour* b);
