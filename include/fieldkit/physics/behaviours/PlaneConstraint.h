@@ -15,11 +15,11 @@
 
 namespace fk { namespace physics {
 	
+	enum Axis { AXIS_X = 0, AXIS_Y = 1, AXIS_Z = 2};
+	
 	//! Constrains a particle's movement by locking one of its axes.
 	class PlaneConstraint : public Constraint {
 	public:
-		enum Axis { AXIS_X = 0, AXIS_Y = 1, AXIS_Z = 2};
-		
 		Axis axis;
 		float constraint;
 		
@@ -30,6 +30,18 @@ namespace fk { namespace physics {
 			this->axis = axis;
 			this->constraint = constraint;
 		}
+		
+		void apply(ParticlePtr p);
+	};
+	
+	//! Makes sure a particle never moves below a certain minimum floor height
+	class FloorConstraint : public Constraint {
+	public:
+		Axis axis;
+		float height;
+		
+		FloorConstraint() : axis(AXIS_Y), height(0.0f) {}
+		~FloorConstraint() {}
 		
 		void apply(ParticlePtr p);
 	};

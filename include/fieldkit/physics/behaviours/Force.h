@@ -18,9 +18,10 @@ namespace fk { namespace physics {
 	class Force : public WeightedBehaviour {
 	public:
 		
-		Force() : WeightedBehaviour() {
-			direction.set(0,0,0);
-		};
+		Force() : WeightedBehaviour(), direction(Vec3f(0,0,0)) {};
+		
+		Force(Vec3f dir, float weight) : 
+			WeightedBehaviour(weight), direction(dir) {};
 		
 		void setDirection(Vec3f value);
 		Vec3f getDirection();
@@ -36,8 +37,12 @@ namespace fk { namespace physics {
 	// -- Gravity --------------------------------------------------------------
 	class Gravity : public Force {
 	public:
-		Gravity() : Force() {
-			direction.set(0, 1, 0);
+		Gravity(bool upIsPositive) : Force() {
+			if(upIsPositive)
+				direction.set(0, 1, 0);
+			else
+				direction.set(0, -1, 0);
+
 			setWeight(0.01);
 		}
 	};

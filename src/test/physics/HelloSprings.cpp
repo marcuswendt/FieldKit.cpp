@@ -93,7 +93,7 @@ void HelloSprings::initPhysics() {
 //	physics->addBehaviour(wrap);
 	
 	// floor constraint
-	physics->addConstraint(new PlaneConstraint());
+	physics->addConstraint(new FloorConstraint());
 	
 	// attractor 
 	attractor = new AttractorPoint(space);

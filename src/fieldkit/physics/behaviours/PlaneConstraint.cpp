@@ -14,3 +14,8 @@ using namespace fk::physics;
 void PlaneConstraint::apply(ParticlePtr p) {
 	p->position[axis] = constraint;
 }
+
+void FloorConstraint::apply(ParticlePtr p) {
+	if(p->position[axis] < height)
+		p->position[axis] = height;
+}
