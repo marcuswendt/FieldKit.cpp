@@ -45,4 +45,5 @@ namespace fk { namespace physics {
 		
 		void apply(ParticlePtr p);
 	};
+	
 } } // namespace fk::physics

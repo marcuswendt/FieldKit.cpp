@@ -22,6 +22,10 @@ using boost::format;
 using boost::io::group;
 
 using namespace std;
-using namespace ci;
 
+// uses from Cinder
+using ci::Vec3f;
+using ci::EPSILON_VALUE;
+
+//using namespace ci;
 //using std::vector;
