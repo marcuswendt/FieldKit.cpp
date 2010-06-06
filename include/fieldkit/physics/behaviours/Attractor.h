@@ -30,6 +30,8 @@ namespace fk { namespace physics {
 		void setRange(float value) { range = value; }
 		float getRange() { return range; }
 		
+		float getRangeAbs() { return rangeAbs; }
+		
 	protected:
 		Vec3f position;
 		float range;
