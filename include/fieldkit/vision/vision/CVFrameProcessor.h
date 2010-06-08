@@ -15,6 +15,8 @@
 #include "fieldkit/vision/vision/CVProperty.h"
 #include "fieldkit/vision/vision/CVImageCache.h"
 
+using namespace std;
+
 namespace fk { namespace vision { 
 
 	class Stage
@@ -58,7 +60,7 @@ namespace fk { namespace vision {
 		int getStageNum();
 			
 		// sliders
-		void addProperty(int key, float min=0, float max=1);
+		void addProperty(int key, string name, float min=0, float max=1);
 		CVProperty* getProperty(int key);
 		void set(int key, float value);
 		float get(int key);
@@ -66,6 +68,7 @@ namespace fk { namespace vision {
 		// warp
 		virtual void setWarp(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {};
 		
+		std::map<int, CVProperty*>* getProperties();
 	protected:
 		CvSize size;
 		CvRect roi;

@@ -14,3 +14,6 @@ glob:vc10/Debug
 glob:vc9/Debug
 glob:*.sdf
 glob:vc10/Release*
+glob:vc9/FieldKit.ncb
+glob:vc9/FieldKit.suo
+glob:vc9/FieldKit.vcproj.David-PC.David.user

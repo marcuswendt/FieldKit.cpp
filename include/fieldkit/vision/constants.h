@@ -60,8 +60,8 @@ namespace fk { namespace vision {
 	
 	inline float pt64fDistanceSquared(CvPoint2D64f a, CvPoint2D64f b)
 	{
-		double dx = a.x - b.x;
-		double dy = a.y - b.y;	
+		float dx = a.x - b.x;
+		float dy = a.y - b.y;	
 		return dx*dx + dy*dy;
 	}
 	

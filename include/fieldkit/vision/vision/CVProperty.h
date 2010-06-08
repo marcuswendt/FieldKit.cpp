@@ -9,16 +9,20 @@
 #ifndef CV_PROPERTY_H
 #define CV_PROPERTY_H
 
+using namespace std;
+
 namespace fk { namespace vision {
 
 	class CVProperty
 	{
 	public:
-		CVProperty (float min, float max) { init(min, max); };
+		CVProperty (string name, float min, float max) { init(name, min, max); };
 		~CVProperty();
 		
-		void init (float min, float max) {
+		void init (string name, float min, float max) {
+			this->name = name;
 			this->min = min;
+			this->max = max;
 			this->scale = max - min;
 			this->value = 0;
 		};
@@ -29,14 +33,21 @@ namespace fk { namespace vision {
 			value = v;
 		};
 		
+		void setName(string s){name = s;};
+		string getName(){return name;};
+	
 		float getValue() { return value;};
-		
 		float get() { return (value*scale) + min;};
+		float getMin(){return min;};
+		float getMax(){return max;};
 		
 	private:
+		string name;
 		float value;
 		float scale;
 		float min;
+		float max;
+
 	};
 } } // namespace fk::vision
 

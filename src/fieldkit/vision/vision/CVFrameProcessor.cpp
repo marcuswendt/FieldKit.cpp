@@ -114,6 +114,10 @@ namespace fk { namespace vision
 		return stages.size();
 	}
 	
+	std::map<int, CVProperty*>* CVFrameProcessor::getProperties()
+	{
+		return &properties;
+	}
 	
 	// ---------------------------------------------------------------------------------
 	//#pragma mark -- Sliders --
@@ -131,9 +135,9 @@ namespace fk { namespace vision
 		return (p==NULL) ? 0 : p->get();
 	};
 	
-	void CVFrameProcessor::addProperty(int key, float min, float max)
+	void CVFrameProcessor::addProperty(int key, string name, float min, float max)
 	{
-		CVProperty* p = new CVProperty(min, max);
+		CVProperty* p = new CVProperty(name, min, max);
 		properties.insert(std::make_pair(key, p)); 
 	}
 	

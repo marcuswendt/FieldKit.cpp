@@ -35,14 +35,14 @@ namespace fk { namespace vision
 	int CVBlobDetector::init()
 	{
 		// properties
-		addProperty(PROC_BACKGROUND);
-		addProperty(PROC_THRESHOLD, 0, 255);
-		addProperty(PROC_DILATE, 0, 35);
-		addProperty(PROC_ERODE, 0, 35);
-		addProperty(PROC_CONTOUR_MIN);
-		addProperty(PROC_CONTOUR_MAX);
-		addProperty(PROC_CONTOUR_REDUCE, 0, 10);
-		addProperty(PROC_TRACK_RANGE);
+		addProperty(PROC_BACKGROUND, "background");
+		addProperty(PROC_THRESHOLD, "theshold", 0, 255);
+		addProperty(PROC_DILATE, "dilate", 0, 35);
+		addProperty(PROC_ERODE, "erode", 0, 35);
+		addProperty(PROC_CONTOUR_MIN, "contour min");
+		addProperty(PROC_CONTOUR_MAX, "contour max");
+		addProperty(PROC_CONTOUR_REDUCE, "contour reduce", 0, 10);
+		addProperty(PROC_TRACK_RANGE, "track range");
 
 		// property defaults
 		set(PROC_BACKGROUND, 0.1f);
@@ -475,4 +475,5 @@ namespace fk { namespace vision
 	{
 		return trackedBlobs;
 	}
+
 } } // namespace fk::vision
