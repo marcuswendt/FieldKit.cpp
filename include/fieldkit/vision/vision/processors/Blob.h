@@ -20,7 +20,7 @@ namespace fk { namespace vision {
 			int id;
 			bool isActive;
 			bool isAssigned;
-
+			
 			CvPoint position;
 			CvPoint2D64f position64f;
 		

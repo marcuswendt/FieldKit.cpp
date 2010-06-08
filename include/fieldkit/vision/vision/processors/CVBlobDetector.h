@@ -12,6 +12,7 @@
 #include "fieldkit/vision/opencv.h"
 //#include <OpenCV/cvcompat.h>
 #include "fieldkit/vision/vision/CVFrameProcessor.h"
+#include "fieldkit/vision/vision/processors/BlobEventDispatcher.h"
 #include "Blob.h"
 
 namespace fk { namespace vision {
@@ -19,7 +20,7 @@ namespace fk { namespace vision {
 	//
 	// OpenCV Blob Detector
 	//
-	class CVBlobDetector : public CVFrameProcessor
+	class CVBlobDetector : public CVFrameProcessor, public BlobEventDispatcher
 	{
 	//#pragma mark -- public --
 	public:

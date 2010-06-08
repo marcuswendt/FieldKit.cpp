@@ -292,7 +292,9 @@ namespace fk { namespace vision
 		}
 	}
 	
-	void CVBlobDetector::trackBlobs()
+
+	// TODO : check this, need to add dispatchEventActive somewhere
+	void CVBlobDetector::trackBlobs() 
 	{
 		Blob *found, *tracked, *match;
 		float dist, distClosest;
@@ -319,14 +321,15 @@ namespace fk { namespace vision
 				}
 			}
 			
-			if(match == NULL) {
+			if(match == NULL) {  // sets newly active blobs to inactive ??
 				tracked->isActive = false;
-				
+				dispatchEventInActive(tracked);
 			} else {
 				//printf("found %i => %i \n", tracked->id, match->id);
 				tracked->isActive = true;
 				tracked->set(match);
 				match->isAssigned = true;
+				dispatchEventUpdate(tracked);
 			}
 		}
 		
