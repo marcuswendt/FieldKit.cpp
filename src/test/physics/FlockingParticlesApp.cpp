@@ -69,7 +69,7 @@ void FlockingParticlesApp::setup() {
 	emitter->setMax(1 * 1000);
 	
 	emitter->addBehaviour(new BoxRandom(*space));
-	physics->addBehaviour(new Gravity());
+	physics->addBehaviour(new Gravity(true));
 	
 	// wrap
 	BoxWrap* wrap = new BoxWrap(*space);

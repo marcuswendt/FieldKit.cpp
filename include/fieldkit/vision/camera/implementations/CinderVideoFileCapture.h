@@ -5,34 +5,51 @@
 **        /_/        /____/ /____/ /_____/     http://www.field.io            **
 \*                                                                            */
 
-#ifndef CINDER_CAMERA_H
-#define CINDER_CAMERA_H
+#ifndef CINDER_VIDEO_FILE_CAPTURE_H
+#define CINDER_VIDEO_FILE_CAPTURE_H
 
 #include "fieldkit/vision/camera/Camera.h"
 #include "fieldkit/vision/opencv.h"
+#include "cinder/Utilities.h"
 #include "cinder/gl/Texture.h"
-#include "cinder/Capture.h"
+#include "cinder/qtime/QuickTime.h"
+#include "cinder/app/App.h"
+
+using namespace ci;
+using namespace ci::app;
+using namespace ci::qtime;
+using namespace std;
 
 namespace fk { namespace vision 
 {
-	
-	class CinderCamera : public Camera
+
+	class CinderVideoFileCapture : public Camera
 	{
 	public:
-		CinderCamera() {};
-		~CinderCamera() {};
+		CinderVideoFileCapture(string filepath);
+		CinderVideoFileCapture();
+		~CinderVideoFileCapture() {};
+		// set before init
+		void setVideoPath(string filepath);
+		void setVideoPathFromFileWindow();
 		
 		int init();
-		int update();
-		int close();
+		int start();
 		int stop();
+		int close();
+		int update();
+		
 		IplImage* getImage(int channel=0);
 		
-		ci::Capture *getCapture(){return &mCapture;};
 	private:
-		typedef Camera super;
-		IplImage* image;
-		ci::Capture	mCapture;
+		void loadVideo();
+
+		IplImage*		image;
+		string			filepath;
+		bool			ready;
+		bool			filepathSet;
+		bool			moviesurfaceCreated;
+		MovieSurface	moviesurface;
 	};
 } } // namespace fk::vision
 

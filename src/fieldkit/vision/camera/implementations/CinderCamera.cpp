@@ -9,7 +9,7 @@
 
 #include "fieldkit/vision/camera/implementations/CinderCamera.h"
 #include "cinder/ip/grayscale.h"
-
+#include "cinder/app/App.h"
 namespace fk { namespace vision 
 {
 	// -------------------------------------------------------------------------
@@ -26,12 +26,15 @@ namespace fk { namespace vision
 		color = true;
 		
 		try {
+			width = 640;
+			height = 480;
 			mCapture = ci::Capture( width, height );
 			mCapture.start();
 		}
 		catch( ... ) {
-			//console() << "[PortVideoCamera::init] Failed to initialize capture" << std::endl;
+			cinder::app::App::get()->console() << "[CinderCamera::init] Failed to initialize capture" << std::endl;
 		}
+		cinder::app::App::get()->console() << "[CinderCamera::init] success" << std::endl;
 		int channels = color ? 3 : 1;
 		image = cvCreateImage(cvSize(width, height), IPL_DEPTH_8U, channels);
 		
