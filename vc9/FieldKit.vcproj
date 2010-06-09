@@ -20,7 +20,7 @@
 			Name="Debug|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="4"
 			CharacterSet="1"
 			>
 			<Tool
@@ -43,7 +43,7 @@
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\..\Libraries\OpenCV\include;..\include\fieldkit;..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NOMINMAX"
-				MinimalRebuild="true"
+				MinimalRebuild="false"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
@@ -61,21 +61,13 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLinkerTool"
-				AdditionalDependencies="cinder_d.lib cv210d.lib cvaux210d.lib cxcore210d.lib highgui210d.lib opencv_ffmpeg210d.lib"
-				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\..\Libraries\OpenCV\lib;..\..\..\Libraries\cinder\lib;..\..\..\Libraries\cinder\lib\msw"
-				GenerateDebugInformation="true"
-				SubSystem="2"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
-				TargetMachine="1"
+				Name="VCLibrarianTool"
+				OutputFile="..\lib\FieldKit_d.lib"
+				IgnoreAllDefaultLibraries="true"
+				IgnoreDefaultLibraryNames=""
 			/>
 			<Tool
 				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCManifestTool"
 			/>
 			<Tool
 				Name="VCXDCMakeTool"
@@ -87,19 +79,17 @@
 				Name="VCFxCopTool"
 			/>
 			<Tool
-				Name="VCAppVerifierTool"
-			/>
-			<Tool
 				Name="VCPostBuildEventTool"
 			/>
 		</Configuration>
+		
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
-			ConfigurationType="1"
+			ConfigurationType="4"
 			CharacterSet="1"
-			WholeProgramOptimization="1"
+			WholeProgramOptimization="0"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -118,12 +108,27 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\include;..\..\..\Libraries\cinder_0.8.0_mac\include;..\..\..\Libraries\cinder_0.8.0_mac\boost"
-				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
+				
+				AdditionalOptions="/MP"
+				InlineFunctionExpansion="0"
+				EnableIntrinsicFunctions="true"
+				WholeProgramOptimization="false"
+				
+				AdditionalIncludeDirectories="..\..\..\Libraries\OpenCV\include;..\include\fieldkit;..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost"
+				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NOMINMAX"
+				
+				MinimalRebuild="false"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
+				Detect64BitPortabilityProblems="false"
 				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="..\lib\FieldKit.lib"
+				IgnoreAllDefaultLibraries="true"
+				IgnoreDefaultLibraryNames=""
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -136,16 +141,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="cinder.lib cv210.lib cvaux210.lib cxcore210.lib highgui210.lib ml210.lib opencv_ffmpeg210.lib"
-				LinkIncremental="1"
-				AdditionalLibraryDirectories="..\..\..\Libraries\cinder_0.8.0_mac\lib;..\..\..\Libraries\cinder_0.8.0_mac\lib\msw"
-				GenerateDebugInformation="true"
-				SubSystem="2"
-				OptimizeReferences="2"
-				EnableCOMDATFolding="2"
-				RandomizedBaseAddress="1"
-				DataExecutionPrevention="0"
-				TargetMachine="1"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -324,22 +319,6 @@
 							</File>
 						</Filter>
 					</Filter>
-				</Filter>
-			</Filter>
-			<Filter
-				Name="test"
-				>
-				<Filter
-					Name="physcis"
-					>
-					<File
-						RelativePath="..\src\test\physics\FlockingParticlesApp.cpp"
-						>
-					</File>
-				</Filter>
-				<Filter
-					Name="tweak"
-					>
 				</Filter>
 			</Filter>
 		</Filter>

@@ -17,3 +17,4 @@ glob:vc10/Release*
 glob:vc9/FieldKit.ncb
 glob:vc9/FieldKit.suo
 glob:vc9/FieldKit.vcproj.David-PC.David.user
+glob:vc9/Release

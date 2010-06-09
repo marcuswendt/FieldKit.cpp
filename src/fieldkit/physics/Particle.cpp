@@ -30,7 +30,7 @@ void Particle::init(Vec3f location) {
 	isLocked = false;
 	
 	setWeight(1.0);		
-	drag = 0.03;
+	drag = 0.03f;
 	force = Vec3f(0,0,0);
 }
 
@@ -85,6 +85,6 @@ void Particle::scaleVelocity(float s) {
 // -- Accessors ----------------------------------------------------------------
 void Particle::setWeight(float value) {
 	this->weight = value;
-	this->invWeight = 1.0 / value;
+	this->invWeight = 1.0f / value;
 }
 

@@ -18,7 +18,7 @@ namespace fk { namespace physics {
 	class AttractorPoint : public WeightedBehaviour {
 	public:
 		AttractorPoint(Space* space) : WeightedBehaviour(space) {
-			setRange(0.1);
+			setRange(0.1f);
 		};
 		
 		void prepare(float dt);

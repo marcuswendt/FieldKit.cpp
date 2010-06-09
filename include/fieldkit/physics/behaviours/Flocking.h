@@ -20,7 +20,7 @@ namespace physics {
 	class FlockBaseBehaviour: public WeightedBehaviour{
 	public:
 		FlockBaseBehaviour(Space* space) : WeightedBehaviour(space) {
-			setRange(0.1);
+			setRange(0.1f);
 		};
 		void setRange(float value) { range = value; }
 		float getRange() { return range; }

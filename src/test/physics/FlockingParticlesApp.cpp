@@ -139,8 +139,8 @@ void FlockingParticlesApp::update() {
 	double dt = timer->getSeconds();
 	timer->start();
 	
-	float mouseX = getMousePos().x;
-	float mouseY = getMousePos().y;
+	float mouseX = (float)getMousePos().x;
+	float mouseY = (float)getMousePos().y;
 	attractor->setPosition(Vec3f(mouseX, mouseY, 0));
 	
 	physics->update(dt);

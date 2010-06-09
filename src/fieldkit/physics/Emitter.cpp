@@ -18,7 +18,7 @@ Emitter::Emitter(Physics* physics)
 {
 	this->physics = physics;		
 	rate = 1;
-	interval = 0.1;
+	interval = 0.1f;
 	max = 100;
 	isEnabled = true;
 	time = 0;
