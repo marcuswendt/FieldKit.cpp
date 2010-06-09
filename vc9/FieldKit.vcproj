@@ -63,6 +63,7 @@
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="..\lib\FieldKit_d.lib"
+				AdditionalLibraryDirectories=""
 				IgnoreAllDefaultLibraries="true"
 				IgnoreDefaultLibraryNames=""
 			/>
@@ -111,14 +112,13 @@
 				InlineFunctionExpansion="0"
 				EnableIntrinsicFunctions="true"
 				WholeProgramOptimization="false"
-				AdditionalIncludeDirectories="..\..\..\Libraries\OpenCV\include;..\include\fieldkit;..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost"
-				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NOMINMAX"
+				AdditionalIncludeDirectories="..\include\fieldkit;..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost;..\..\..\Libraries\OpenCV\include"
+				PreprocessorDefinitions="WIN32;_WINDOWS;NOMINMAX"
 				MinimalRebuild="false"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="false"
-				DebugInformationFormat="3"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -132,6 +132,7 @@
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="..\lib\FieldKit.lib"
+				AdditionalLibraryDirectories=""
 				IgnoreAllDefaultLibraries="true"
 				IgnoreDefaultLibraryNames=""
 			/>
