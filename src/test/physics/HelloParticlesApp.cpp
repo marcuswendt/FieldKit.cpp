@@ -43,7 +43,6 @@ class HelloParticlesApp : public AppBasic {
 void HelloParticlesApp::prepareSettings(Settings *settings){
     settings->setWindowSize(1280, 720);
     settings->setFrameRate(60.0f);
-	
 };
 
 // -- Loop ---------------------------------------------------------------------
@@ -76,7 +75,7 @@ void HelloParticlesApp::setup() {
 	emitter->setPosition(space->getCenter());
 	emitter->setInterval(0.01);
 	emitter->setRate(1000);
-	emitter->setMax(50 * 1000);
+	emitter->setMax(5000);
 	
 	emitter->addBehaviour(new RandomEmitter(space));
 	physics->addBehaviour(new Gravity());
@@ -97,7 +96,7 @@ void HelloParticlesApp::setup() {
 	layout.setStaticIndices();
 	layout.setDynamicPositions();
 	layout.setStaticTexCoords2d();
-	
+
 	vboParticles = gl::VboMesh(emitter->getMax(), 0, layout, GL_POINTS);
 }
 
@@ -113,14 +112,6 @@ void HelloParticlesApp::update() {
 	attractor->setPosition(Vec3f(mouseX, mouseY, 0));
 	
 	physics->update(dt);
-
-	// copy particle positions into vbo
-	gl::VboMesh::VertexIter iter = vboParticles.mapVertexBuffer();
-	for(ParticlePtr p = physics->particles.begin(); p != physics->particles.end(); p++) {
-		if(!p->isAlive) continue;
-		iter.setPosition(p->position.x, p->position.y, p->position.z);
-		++iter;
-	}
 }
 
 void HelloParticlesApp::draw() {
@@ -129,8 +120,23 @@ void HelloParticlesApp::draw() {
 	glColor3f(1,1,1);
 	glPointSize(3);
 	
-	// draw all particles at once using vbo
-	drawArrays(vboParticles, 0, physics->getNumParticles());
+	// copy particle positions into vbo
+	//gl::VboMesh::VertexIter iter = vboParticles.mapVertexBuffer();
+	//for(ParticlePtr p = physics->particles.begin(); p != physics->particles.end(); p++) {
+	//	if(!p->isAlive) continue;
+	//	iter.setPosition(p->position.x, p->position.y, p->position.z);
+	//	++iter;
+	//}
+
+	//// draw all particles at once using vbo
+	//drawArrays(vboParticles, 0, physics->getNumParticles());
+
+	glColor3f(1,1,0);
+	glBegin(GL_POINTS);
+	for(ParticlePtr p = physics->particles.begin(); p != physics->particles.end(); p++) {
+		glVertex3f(p->position.x, p->position.y, p->position.z);
+	}
+	glEnd();
 }
 
 

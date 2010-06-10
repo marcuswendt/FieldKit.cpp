@@ -10,13 +10,11 @@ xcode/build/*
 *.pbxuser
 *.perspectivev3
 *.mode1v3
-glob:vc10/Debug
-glob:vc9/Debug
 glob:*.sdf
-glob:vc10/Release*
 glob:vc9/FieldKit.ncb
 glob:vc9/FieldKit.suo
 glob:vc9/FieldKit.vcproj.David-PC.David.user
-glob:vc9/Release
-glob:vc9/*.user
 glob:*.orig
+glob:*/Debug/*
+glob:*/Release/*
+glob:*.user

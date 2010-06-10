@@ -37,7 +37,7 @@ namespace fk { namespace physics {
 	// -- Gravity --------------------------------------------------------------
 	class Gravity : public Force {
 	public:
-		Gravity(bool upIsPositive) : Force() {
+		Gravity(bool upIsPositive=true) : Force() {
 			if(upIsPositive)
 				direction.set(0, 1, 0);
 			else
