@@ -25,7 +25,7 @@ isALocked(false), isBLocked(false) {
 
 void Spring::update() {
 	Vec3f delta = b->position - a->position;
-	float dist = delta.length() + EPSILON_VALUE;
+	float dist = delta.length() + (float)EPSILON_VALUE;
 	float normDistStrength = (dist - restLength) / (dist * (a->invWeight + b->invWeight)) * strength;
 	
 	if(!a->isLocked && !isALocked) {

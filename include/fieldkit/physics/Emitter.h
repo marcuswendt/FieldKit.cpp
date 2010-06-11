@@ -24,7 +24,7 @@ namespace fk { namespace physics {
 		~Emitter() {};
 		
 		void update(float dt);
-		void emit(Vec3f location);
+		ParticlePtr emit(Vec3f location);
 		
 		void setPosition(Vec3f location) { position.set(location); }
 		Vec3f getPosition() { return position; }

@@ -425,16 +425,19 @@ namespace fk { namespace vision
 								 float sx3, float sy3,
 								 float sx4, float sy4)
 	{
+		float w = size.width;
+		float h = size.height;
+
 		// init source matrix
 		CvMat* src = cvCreateMat(4, 2, CV_32FC1);
-		src->data.fl[0]=sx1;
-		src->data.fl[1]=sy1;
-		src->data.fl[2]=sx2;
-		src->data.fl[3]=sy2;
-		src->data.fl[4]=sx3;
-		src->data.fl[5]=sy3;
-		src->data.fl[6]=sx4;
-		src->data.fl[7]=sy4;
+		src->data.fl[0]=sx1*w;
+		src->data.fl[1]=sy1*h;
+		src->data.fl[2]=sx2*w;
+		src->data.fl[3]=sy2*h;
+		src->data.fl[4]=sx3*w;
+		src->data.fl[5]=sy3*h;
+		src->data.fl[6]=sx4*w;
+		src->data.fl[7]=sy4*h;
 		
 		// init destination matrix
 		CvMat* dst = cvCreateMat(4, 2, CV_32FC1);

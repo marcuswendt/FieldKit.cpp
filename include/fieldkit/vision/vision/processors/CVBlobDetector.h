@@ -114,7 +114,7 @@ namespace fk { namespace vision {
 		bool warpEnabled;
 		
 		// flags
-		bool doResetBackground;;
+		bool doResetBackground;
 		bool useAdaptiveTresholding;
 		
 		// blobs, contours & finger

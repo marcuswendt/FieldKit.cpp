@@ -47,7 +47,7 @@ void Emitter::update(float dt) {
 }
 
 // emits a single particle and applies the emitter behaviours
-void Emitter::emit(Vec3f location) {
+ParticlePtr Emitter::emit(Vec3f location) {
 	ParticlePtr p = physics->createParticle();
 	
 	// set particle to start at the emitters position
@@ -60,4 +60,5 @@ void Emitter::emit(Vec3f location) {
 	BOOST_FOREACH(Constraint* c, constraints) {
 		c->apply(p);
 	}
+	return p;
 }
