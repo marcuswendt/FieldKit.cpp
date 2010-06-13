@@ -5,10 +5,12 @@
 **        /_/        /____/ /____/ /_____/     http://www.field.io            **
 \*                                                                            */
 
+// None of this works in 64 bit on the mac or Windows. We'll need to move to QTKit on the mac.
+#if ! defined( __LP64__ )
+
 #include "fieldkit/vision/camera/implementations/CinderVideoFileCapture.h"
 
-namespace fk { namespace vision 
-{
+using namespace fk::vision;
 
 CinderVideoFileCapture::CinderVideoFileCapture()
 {
@@ -101,4 +103,4 @@ IplImage* CinderVideoFileCapture::getImage(int channel)
 	return image;
 }
 
-} } // namespace fk::vision
+#endif

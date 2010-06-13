@@ -5,8 +5,10 @@
 **        /_/        /____/ /____/ /_____/     http://www.field.io            **
 \*                                                                            */
 
-#ifndef CINDER_VIDEO_FILE_CAPTURE_H
-#define CINDER_VIDEO_FILE_CAPTURE_H
+// None of this works in 64 bit on the mac or Windows. We'll need to move to QTKit on the mac.
+#if ! defined( __LP64__ )
+
+#pragma once
 
 #include "fieldkit/vision/camera/Camera.h"
 #include "fieldkit/vision/opencv.h"
