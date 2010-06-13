@@ -313,6 +313,10 @@
 								RelativePath="..\src\fieldkit\vision\vision\processors\CVStereoBlobDetector.cpp"
 								>
 							</File>
+							<File
+								RelativePath="..\src\fieldkit\vision\vision\processors\GestureTracker.cpp"
+								>
+							</File>
 						</Filter>
 					</Filter>
 				</Filter>
@@ -500,11 +504,43 @@
 								>
 							</File>
 							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\BlobEvent.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\BlobEventDispatcher.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\BlobEventListener.h"
+								>
+							</File>
+							<File
 								RelativePath="..\include\fieldkit\vision\vision\processors\CVBlobDetector.h"
 								>
 							</File>
 							<File
 								RelativePath="..\include\fieldkit\vision\vision\processors\CVStereoBlobDetector.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\Gesture.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\GestureEvent.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\GestureEventDispatcher.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\GestureEventListener.h"
+								>
+							</File>
+							<File
+								RelativePath="..\include\fieldkit\vision\vision\processors\GestureTracker.h"
 								>
 							</File>
 						</Filter>

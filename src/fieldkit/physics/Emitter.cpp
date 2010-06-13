@@ -52,6 +52,7 @@ ParticlePtr Emitter::emit(Vec3f location) {
 	
 	// set particle to start at the emitters position
 	p->init(location);
+	p->lifeTime = 2;
 	
 	// apply emitter behaviours
 	BOOST_FOREACH(Behaviour* b, behaviours) {

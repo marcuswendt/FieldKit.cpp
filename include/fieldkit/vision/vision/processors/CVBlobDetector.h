@@ -14,6 +14,7 @@
 #include "fieldkit/vision/vision/CVFrameProcessor.h"
 #include "fieldkit/vision/vision/processors/BlobEventDispatcher.h"
 #include "Blob.h"
+#include "fieldkit/vision/vision/processors/GestureTracker.h"
 
 namespace fk { namespace vision {
 
@@ -45,6 +46,10 @@ namespace fk { namespace vision {
 			IMAGE_DST32F,
 			IMAGE_SRC8U,
 			IMAGE_DST8U,
+			IMAGE_PREV,
+			IMAGE_SMOOTHCUR,
+			IMAGE_VELX,
+			IMAGE_VELY,
 			IMAGE_BG
 		};
 		
@@ -58,6 +63,8 @@ namespace fk { namespace vision {
 						 STAGE_CONTOUR,
 						 STAGE_DETECTION, 
 						 STAGE_TRACKING, 
+						 STAGE_HULLPOINTS,
+						 STAGE_OPTICALFLOW,
 						 STAGE_MAX 
 		};
 		
@@ -74,11 +81,12 @@ namespace fk { namespace vision {
 		int init();
 		int update(Camera *camera);
 		int deinit();
-		
+
+		void resetBackground();
 		// getters
 		Blob** getBlobs();
 		int getBlobCount() { return blobCount; };
-		
+		GestureTracker *getGestureTracker(){return &gesturetracker;};
 		// setters
 		void setCameraSource(int source) { cameraSource = source; };
 		void setWarp(float sx1, float sy1,
@@ -92,7 +100,7 @@ namespace fk { namespace vision {
 		// Fields
 		// ---------------------------------------------------------------------------------------
 		int cameraSource;
-
+	
 		// only used for drawing the blobs
 		CvFont font;
 		
@@ -100,6 +108,7 @@ namespace fk { namespace vision {
 		// depends on the image mode
 		IplImage* srcImage;
 		IplImage* dstImage;
+		IplImage* prevImage; // previous frame
 
 		IplImage* srcImage8U;
 		IplImage* dstImage8U;
@@ -124,6 +133,9 @@ namespace fk { namespace vision {
 		Blob **foundBlobs;
 		Blob **trackedBlobs;
 		int blobCount;
+		
+		// gestures
+		GestureTracker gesturetracker;
 
 		// ---------------------------------------------------------------------------------------
 		// Helper & Utiltiy Methods
@@ -137,12 +149,21 @@ namespace fk { namespace vision {
 		void trackBlobs();
 		void drawBlobs(int stage, Blob* blobs[]);
 		
+		//hul points
+		void findAllConvexHullPoints();
+		void findConvexHullPointsForContour(CvSeq* contours);
+
+		// optical flow
+		void doOpticalFlow(IplImage *cur, IplImage *prev);
+
 		// helpers
 		void setMode(Mode mode); // sets the image format during the analysis process
 		void swap();
 		
 	//#pragma mark -- private --
 	private:
+		Blob *getFreeTrackedBlob();
+
 		int err;	
 	};
 } } // namespace fk::vision

@@ -41,10 +41,12 @@ namespace fk { namespace vision {
 	consti PROC_CONTOUR_MAX =			5;
 	consti PROC_CONTOUR_REDUCE =		6;
 	consti PROC_TRACK_RANGE =			7;
+	consti PROC_HULL_MINDEPTH =			8;
+	consti PROC_GESTURE_RANGE =			9;
 
 	// defaults
-	consti VISION_DEFAULT_WIDTH = 640;
-	consti VISION_DEFAULT_HEIGHT = 480;
+	consti VISION_DEFAULT_WIDTH = 320;
+	consti VISION_DEFAULT_HEIGHT = 240;
 	consti VISION_DEFAULT_FPS = 30;
 	consti VISION_BLOB_COUNT = 30;
 	

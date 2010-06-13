@@ -16,7 +16,7 @@ namespace fk { namespace vision
 	CVBlobDetector::CVBlobDetector()
 	{
 		initStages(STAGE_MAX);
-		cvInitFont(&font,CV_FONT_HERSHEY_SIMPLEX, 0.5, 0.5, 0, 1);
+		cvInitFont(&font,CV_FONT_HERSHEY_SIMPLEX, 1, 1, 0, 2);
 		useAdaptiveTresholding = false;
 	}
 
@@ -43,24 +43,27 @@ namespace fk { namespace vision
 		addProperty(PROC_CONTOUR_MAX, "contour max");
 		addProperty(PROC_CONTOUR_REDUCE, "contour reduce", 0, 10);
 		addProperty(PROC_TRACK_RANGE, "track range");
+		addProperty(PROC_HULL_MINDEPTH, "hull min depth",0.0f,30.0f);
+		addProperty(PROC_GESTURE_RANGE, "gesttrack range",0.0f,1.0f);
 
 		// property defaults
-		set(PROC_BACKGROUND, 0.1f);
+		set(PROC_BACKGROUND, 0.0f);
 		set(PROC_THRESHOLD, 0.1f);
-		set(PROC_DILATE, 0.2f);
+		set(PROC_DILATE, 0.05f);
 		set(PROC_ERODE, 0.05f);
 		set(PROC_CONTOUR_MIN, 0.005f);
 		set(PROC_CONTOUR_MAX, 1.0f);
-		set(PROC_CONTOUR_REDUCE, 0.1f);
+		set(PROC_CONTOUR_REDUCE, 0.3f);
 		set(PROC_TRACK_RANGE, 0.5f);
-		
+		set(PROC_HULL_MINDEPTH, 0.2f);
+		set(PROC_GESTURE_RANGE, 0.2f);
 		// warp
 		warpMatrix = cvCreateMat(3, 3, CV_32FC1);
 
 		setWarp(0, 0,
-				size.width, 0,
-				size.width, size.height,
-				0, size.height);
+				1, 0,
+				1, 1,
+				0, 1);
 
 		// blobs
 		blobCount = VISION_BLOB_COUNT;
@@ -71,11 +74,15 @@ namespace fk { namespace vision
 			trackedBlobs[i] = new Blob(i);
 		}
 		
+		// gestures
+		gesturetracker.init();
+
 		// background
 		doResetBackground = true;
 		
 		// contours ------------------------------------------------------------
 		contourStorage = cvCreateMemStorage(0);
+		
 		
 		// stages
 		return VISION_SUCCESS;
@@ -88,6 +95,7 @@ namespace fk { namespace vision
 		dstImage32F = cache->getTmp(IMAGE_DST32F, roiSize, IPL_DEPTH_32F, 1);
 		srcImage8U = cache->getTmp(IMAGE_SRC8U, roiSize, IPL_DEPTH_8U, 1);
 		dstImage8U = cache->getTmp(IMAGE_DST8U, roiSize, IPL_DEPTH_8U, 1);
+		prevImage = cache->getTmp(IMAGE_PREV, roiSize, IPL_DEPTH_8U, 1);
 		
 		// input ---------------------------------------------------------------
 		IplImage* sourceImage = camera->getImage(cameraSource);
@@ -135,6 +143,10 @@ namespace fk { namespace vision
 			swap();
 		}
 		
+		// optical flow -------------
+		//doOpticalFlow(srcImage, prevImage);
+		
+
 		// background ----------------------------------------------------------
 		setMode(MODE_32F);
 		float bgValue = doResetBackground ? 1.0 : get(PROC_BACKGROUND);
@@ -195,6 +207,7 @@ namespace fk { namespace vision
 			copyStage(STAGE_ERODE, dstImage);	
 			swap();
 		}
+
 		
 		// contours ------------------------------------------------------------
 		setMode(MODE_8U);
@@ -209,8 +222,273 @@ namespace fk { namespace vision
 		trackBlobs();
 		drawBlobs(STAGE_TRACKING, trackedBlobs);
 		
+		//-------------------------------------------------------------------------
+		// find convex hull points -> concave points 
+		cvZero(dstImage);
+		findAllConvexHullPoints();
+		copyStage(STAGE_HULLPOINTS, dstImage);	
+		swap();
+		
+		
+		
+
 		return VISION_SUCCESS;
 	}
+
+	//////////// opitcal flow, 
+	
+	void CVBlobDetector::doOpticalFlow(IplImage *cur, IplImage *prev)
+	{
+		if(!cur) return;
+		if(!prev) return;
+
+		IplImage *smoothcur = cache->getTmp(IMAGE_SMOOTHCUR, roiSize, IPL_DEPTH_8U, 1);
+		
+		cvSmooth(cur, smoothcur, 2, 3);  
+		int w = cur->width;
+		int h = cur->height;
+		CvSize size, winsize;
+		size.width=w;
+		size.height= h;
+		winsize.width = 7; winsize.height =7;
+		IplImage* velx;
+		IplImage* vely;
+		
+		velx = cache->getTmp(IMAGE_VELX, size, IPL_DEPTH_32F, 1);
+		vely = cache->getTmp(IMAGE_VELY, size, IPL_DEPTH_32F, 1);
+		//cvSetZero(velx);
+		//cvSetZero(vely);
+		cvCalcOpticalFlowLK( prev, smoothcur, winsize, velx, vely );
+		
+		/// do seomthing with it
+		cvZero(dstImage);
+		float dx, dy;
+		CvPoint p1;
+		CvPoint p2;
+		int blocksize = 15;
+		float f = 1.0f/(float)(blocksize*blocksize);
+		
+		int i,j,p,q;
+		for(i =0; i< w;i+=blocksize)
+		{
+			for(j =0; j< h;j+=blocksize)
+			{
+				
+				int sumdx = 0;
+				int sumdy= 0;
+
+				for(p =0; p< blocksize;p++)
+				{	
+					for(q =0; q< blocksize;q++)
+					{
+						if(j+p < h && i+q < w)
+						{
+							dx = (int)cvGetReal2D( velx, j+p, i+q );
+							dy = (int)cvGetReal2D( vely, j+p, i+q );
+							sumdx += dx;
+							sumdy += dy;
+						}
+					}
+				}
+				sumdx *= f;
+				sumdy *= f;
+
+				p1.x = i + blocksize/2;
+				p1.y = j + blocksize/2;
+				p2.x = p1.x + sumdx*0.1;
+				p2.y = p1.y + sumdy*0.1;
+				cvLine(dstImage, p1, p2,CV_RGB(0,0,255),1, CV_AA, 0 );
+			}
+		}
+		
+		//cvReleaseImage(&velx);
+		//cvReleaseImage(&vely);
+
+		copyStage(STAGE_OPTICALFLOW, dstImage);	
+		//copyStage(STAGE_OPTICALFLOW, dstImage);	
+		cvCopyImage(smoothcur,prevImage);
+		
+	}
+
+
+	////////////// gesture points, concave points
+
+
+	void CVBlobDetector::findAllConvexHullPoints()
+	{
+		gesturetracker.setTrackingRange(get(PROC_GESTURE_RANGE));
+		gesturetracker.setFrameSize(0,0,size.width, size.height);
+		gesturetracker.beginUpdate();
+
+		if(contourFirst != NULL) {
+			CvSeq* contour = contourFirst;
+			CvSeq *approxContour;
+			for( ; contour != 0; contour = contour->h_next ) {
+				findConvexHullPointsForContour(contour);
+			}
+		}
+
+		gesturetracker.endUpdate();
+		
+		// draw gesture track points, and history tails if any
+		for(int i=0;i< gesturetracker.MAX_GESTURES;i++)
+		{
+			Gesture *gesture = gesturetracker.getTrackedGesture(i);
+			if(!gesture->isActive) continue;
+			CvPoint p;
+			p.x = gesture->position.x*size.width; p.y = gesture->position.y*size.height;
+			
+			if(gesture->nhistory == 0)
+				cvCircle( dstImage, p, 10, CV_RGB(255,255,255), -1, 8,0);
+			else{
+
+				cvCircle( dstImage, p, 6, CV_RGB(255,255,255), -1, 8,0);
+				CvPoint prevp;
+				prevp.x = p.x;
+				prevp.y = p.y;
+				for(int j =gesture->nhistory -1; j> 0;j--)
+				{
+					p.x = gesture->positionHistory[j].x*(float)size.width;
+					p.y = gesture->positionHistory[j].y*(float)size.height;
+					cvLine(dstImage, p, prevp,CV_RGB(255,255,255),2, CV_AA, 0);
+					prevp.x = p.x;
+					prevp.y = p.y;
+				}
+			}
+		}
+	}
+
+	void CVBlobDetector::findConvexHullPointsForContour(CvSeq* contours)
+	{
+		int i;
+		CvSeq* seqhull  =0 ;
+		CvSeq* defects =0 ;
+		int* hull =0 ;
+		int count ;
+		int hullsize;
+		CvPoint* PointArray =0 ;
+		CvConvexityDefect* defectArray =0 ;	
+		CvMemStorage* stor03;
+
+		stor03 = cvCreateMemStorage(0);
+
+		count = contours->total; 
+   
+		// Alloc memory for contour point set.    
+        PointArray = (CvPoint*)malloc( count*sizeof(CvPoint) );
+       
+		// Alloc memory for indices of convex hull vertices.
+        hull = (int*)malloc(sizeof(int)*count);
+
+		// Get contour point set.
+		cvCvtSeqToArray(contours, PointArray, CV_WHOLE_SEQ);
+        
+		// Find convex hull for curent contour.
+	    cvConvexHull( PointArray,
+                      count,
+                      NULL,
+                      CV_COUNTER_CLOCKWISE,
+                      hull,
+                      &hullsize);
+
+		// Find convex hull for current contour.
+        // This required for cvConvexityDefects().
+		//fprintf(stderr,"cvConvexHull2\n");
+        seqhull = cvConvexHull2( contours,0,
+                             CV_COUNTER_CLOCKWISE,
+                             0);
+		
+		// This required for cvConvexityDefects().
+        // Otherwise cvConvexityDefects() falled.
+        if( hullsize < 4 )
+            return;
+
+		 //fprintf(stderr,"cvConvexityDefects\n");
+        defects = cvConvexityDefects( contours,
+                            seqhull,
+                            stor03);
+        int j=0;
+
+
+		 // This cycle marks all defects of convexity of current contours.
+        for(;defects;defects = defects->h_next)
+        {
+			int nomdef = defects->total; // defect amount
+			//outlet_float( m_nomdef, nomdef );
+            
+            if(nomdef == 0)
+                continue;
+             
+            // Alloc memory for defect set.   
+			//fprintf(stderr,"malloc\n");
+            defectArray = (CvConvexityDefect*)malloc(sizeof(CvConvexityDefect)*nomdef);
+            
+            // Get defect set.
+			//fprintf(stderr,"cvCvtSeqToArray\n");
+            cvCvtSeqToArray(defects,defectArray, CV_WHOLE_SEQ);
+         
+
+			// Draw marks for  defects.
+            for(i=0; i<nomdef; i++)
+            {
+                cvLine(dstImage, *(defectArray[i].start), *(defectArray[i].depth_point),CV_RGB(0,0,255),1, CV_AA, 0 );
+                //cvCircle( dstImage, *(defectArray[i].depth_point), 5, CV_RGB(255,255,255), 3, 8,0);
+                if(defectArray[i].depth > get(PROC_HULL_MINDEPTH))
+				{
+					float x = defectArray[i].start->x;
+					float y = defectArray[i].start->y;
+					Gesture *gesture = gesturetracker.addFoundPoint(x,y);	
+					CvPoint p;
+					p.x = x; p.y = y;
+					cvCircle( dstImage, p, 3, CV_RGB(255,255,255), -1, 8,0);
+
+				}
+				cvLine(dstImage, *(defectArray[i].depth_point), *(defectArray[i].end),CV_RGB(0,0,255),1, CV_AA, 0 );
+				
+				/*
+				t_atom rlist[7];
+				SETFLOAT(&rlist[0], i);
+				SETFLOAT(&rlist[1], defectArray[i].start->x);
+				SETFLOAT(&rlist[2], defectArray[i].start->y);
+				SETFLOAT(&rlist[3], defectArray[i].depth_point->x);
+				SETFLOAT(&rlist[4], defectArray[i].depth_point->y);
+				SETFLOAT(&rlist[5], defectArray[i].end->x);
+				SETFLOAT(&rlist[6], defectArray[i].end->y);
+				outlet_list( m_dataout, 0, 7, rlist );
+				*/
+            }
+
+			j++;
+            // Free memory.       
+            free(defectArray);
+		}
+
+		// Draw current contour.
+        //cvDrawContours( dstImage, contours, CV_RGB(255,0,0), CV_RGB(0,255,0), 2, 2, CV_AA, cvPoint(0,0)  );
+
+		 // Draw convex hull for current contour.        
+        /*
+		for(i=0; i<hullsize-1; i++)
+        {
+            cvLine(dstImage, PointArray[hull[i]],  PointArray[hull[i+1]],CV_RGB(255,255,255),1, CV_AA, 0 );
+        }
+        cvLine(dstImage, PointArray[hull[hullsize-1]], PointArray[hull[0]],CV_RGB(255,255,255),1, CV_AA, 0 );
+        */
+
+		 // Free memory.          
+        free(PointArray);
+        free(hull);
+            /* replace CV_FILLED with 1 to see the outlines */
+            //cvDrawContours( x->cnt_img, contours, CV_RGB(255,0,0), CV_RGB(0,255,0), x->levels, 3, CV_AA, cvPoint(0,0)  );
+			//cvConvexityDefects( contours, cvConvexHull2( contours, 0, CV_CLOCKWISE, 0 ), stor022 );
+		cvReleaseMemStorage( &stor03 );
+		if (defects) cvClearSeq(defects);
+		if (seqhull) cvClearSeq(seqhull);
+
+	}
+
+
+
 
 	
 	// -------------------------------------------------------------------------
@@ -292,7 +570,6 @@ namespace fk { namespace vision
 		}
 	}
 	
-
 	// TODO : check this, need to add dispatchEventActive somewhere
 	void CVBlobDetector::trackBlobs() 
 	{
@@ -302,16 +579,16 @@ namespace fk { namespace vision
 		int imageArea = size.width * size.height;
 		float distMax = get(PROC_TRACK_RANGE) * imageArea;
 		distMax *= distMax;
-		
+		int i,j;
 		// loop through tracked blobs
-		for (int i=0; i<VISION_BLOB_COUNT; i++) {
+		for (i=0; i<VISION_BLOB_COUNT; i++) {
 			tracked = trackedBlobs[i];
-			//if(!tracked->isActive()) continue;
+			if(!tracked->isActive) continue;
 			match = NULL;
 			distClosest = distMax;
 			
 			// try to find a match among the new found blobs within the slider range
-			for (int j=0; j<VISION_BLOB_COUNT; j++) {
+			for (j=0; j<VISION_BLOB_COUNT; j++) {
 				found = foundBlobs[j];
 				if(!found->isActive || found->isAssigned) continue;
 				dist = ptDistanceSquared(found->position, tracked->position);
@@ -321,10 +598,10 @@ namespace fk { namespace vision
 				}
 			}
 			
-			if(match == NULL) {  // sets newly active blobs to inactive ??
+			if(match == NULL) {  // no match found
 				tracked->isActive = false;
 				dispatchEventInActive(tracked);
-			} else {
+			} else { // match found, continue updating this
 				//printf("found %i => %i \n", tracked->id, match->id);
 				tracked->isActive = true;
 				tracked->set(match);
@@ -334,6 +611,36 @@ namespace fk { namespace vision
 		}
 		
 		
+		Blob *newtracked;
+		// for each new found blob not assigned, add the tracking list and dispatch active event
+		for(i = 0 ; i < VISION_BLOB_COUNT;i++)
+		{
+			found = foundBlobs[i];
+			if(found->isActive && !found->isAssigned)
+			{
+				found->isAssigned  = true;
+				newtracked = getFreeTrackedBlob();
+				newtracked->set(found);
+				newtracked->isAssigned = true;
+				newtracked->isActive = true;
+				dispatchEventActive(newtracked);
+			}
+		}
+
+	}
+
+	Blob *CVBlobDetector::getFreeTrackedBlob()
+	{
+		Blob *b;
+		for(int i = 0;i<VISION_BLOB_COUNT;i++)
+		{
+			b = trackedBlobs[i];
+			if(!b->isActive)
+			{
+				return b;
+			}
+		}
+		return 0;
 	}
 	
 	void CVBlobDetector::drawBlobs(int stage, Blob* blobs[])
@@ -351,7 +658,7 @@ namespace fk { namespace vision
 				//CvScalar c = cvScalarAll(255 - i * (255/ blobNum) );
 				CvScalar c = cvScalarAll(i * (255/ blobCount) );
 				CvRect br = b->bounds;
-				cvRectangle(dstImage, cvPoint(br.x, br.y), cvPoint(br.x + br.width, br.y + br.height), cWhite);
+				cvRectangle(dstImage, cvPoint(br.x, br.y), cvPoint(br.x + br.width, br.y + br.height), cWhite,4);
 				//cvCircle(dstImage, b->position, 2, cWhite, 2, CV_AA );
 				
 				sprintf(label, "%i", i);
@@ -415,7 +722,11 @@ namespace fk { namespace vision
 		this->mode = mode;
 	}
 	
-	
+	void CVBlobDetector::resetBackground()
+	{
+		doResetBackground = true;
+	}
+
 	// -------------------------------------------------------------------------
 	// SETTERS
 	// -------------------------------------------------------------------------

@@ -64,7 +64,10 @@ int CinderVideoFileCapture::init()
 
 int CinderVideoFileCapture::start()
 {
-	if(moviesurfaceCreated) moviesurface.play();
+	if(moviesurfaceCreated){
+		moviesurface.play();
+		moviesurface.setLoop(true);
+	}
 	return Camera::start();
 }
 
