@@ -330,6 +330,7 @@ namespace fk { namespace vision
 
 		gesturetracker.endUpdate();
 		
+		if(!getStage(STAGE_HULLPOINTS)->isEnabled) return;
 		// draw gesture track points, and history tails if any
 		for(int i=0;i< gesturetracker.MAX_GESTURES;i++)
 		{
@@ -440,10 +441,9 @@ namespace fk { namespace vision
 					Gesture *gesture = gesturetracker.addFoundPoint(x,y);	
 					CvPoint p;
 					p.x = x; p.y = y;
-					cvCircle( dstImage, p, 3, CV_RGB(255,255,255), -1, 8,0);
-
+					//cvCircle( dstImage, p, 3, CV_RGB(255,255,255), -1, 8,0);
 				}
-				cvLine(dstImage, *(defectArray[i].depth_point), *(defectArray[i].end),CV_RGB(0,0,255),1, CV_AA, 0 );
+				if(getStage(STAGE_HULLPOINTS)->isEnabled) cvLine(dstImage, *(defectArray[i].depth_point), *(defectArray[i].end),CV_RGB(0,0,255),1, CV_AA, 0 );
 				
 				/*
 				t_atom rlist[7];

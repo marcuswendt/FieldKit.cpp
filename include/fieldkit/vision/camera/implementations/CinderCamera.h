@@ -30,6 +30,7 @@ namespace fk { namespace vision
 		
 		ci::Capture *getCapture(){return &mCapture;};
 	private:
+		bool initialised;
 		typedef Camera super;
 		IplImage* image;
 		ci::Capture	mCapture;

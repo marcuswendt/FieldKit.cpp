@@ -12,13 +12,15 @@
 #include "cinder/app/App.h"
 namespace fk { namespace vision 
 {
+	
+
 	// -------------------------------------------------------------------------
 	// INIT
 	// -------------------------------------------------------------------------
 	int CinderCamera::init()
 	{
 		if(isStarted) {
-			LOG_ERR("PortVideoCamera: Cannot initialize, since camera is already started.");
+			//LOG_ERR("PortVideoCamera: Cannot initialize, since camera is already started.");
 			return VISION_ERROR;
 		}
 		
@@ -30,15 +32,18 @@ namespace fk { namespace vision
 			height = 480;
 			mCapture = ci::Capture( width, height );
 			mCapture.start();
+			isInitialized = true;
 		}
 		catch( ... ) {
 			cinder::app::App::get()->console() << "[CinderCamera::init] Failed to initialize capture" << std::endl;
+			isInitialized = false;		
 		}
+
 		cinder::app::App::get()->console() << "[CinderCamera::init] success" << std::endl;
 		int channels = color ? 3 : 1;
 		image = cvCreateImage(cvSize(width, height), IPL_DEPTH_8U, channels);
 		
-		return super::init();
+		return isInitialized;
 	}
 	
 
@@ -62,6 +67,7 @@ namespace fk { namespace vision
 	// -------------------------------------------------------------------------
 	int CinderCamera::update()
 	{
+		if(!isInitialized) return 0;
 		int stride = color ? width * 3: width;
 		cvSetData(image, mCapture.getSurface().getData(), stride);
 		return VISION_SUCCESS;
