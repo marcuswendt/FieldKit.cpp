@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
+# Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FieldKit", "FieldKit.vcproj", "{9DA00FEA-5218-413E-B762-35D91045B3B4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloParticles", "..\HelloParticles\HelloParticles.vcproj", "{57CA199E-15B9-48D5-96BA-112E23D15AFC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloParticles", "HelloParticles.vcproj", "{57CA199E-15B9-48D5-96BA-112E23D15AFC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9DA00FEA-5218-413E-B762-35D91045B3B4} = {9DA00FEA-5218-413E-B762-35D91045B3B4}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
