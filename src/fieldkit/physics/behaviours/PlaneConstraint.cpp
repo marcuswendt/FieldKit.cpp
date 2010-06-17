@@ -28,5 +28,4 @@ void FloorConstraint::apply(ParticlePtr p) {
 void fk::physics::FloorConstraint::setBouncyness(float value)
 {
 	bouncyness = value;
-	invBouncyness = 1.0f - value;
 }
