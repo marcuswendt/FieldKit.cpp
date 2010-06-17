@@ -74,7 +74,9 @@ namespace fk { namespace physics {
 		void setWeight(float value);
 		inline float getWeight() { return this->weight; };
 		inline float getInvWeight() { return this->invWeight; };
-	
+		Vec3f getVelocity();
+		float getSpeed();
+
 	protected:
 		Vec3f tmp;
 	};

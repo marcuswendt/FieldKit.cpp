@@ -39,11 +39,19 @@ namespace fk { namespace physics {
 	public:
 		Axis axis;
 		float height;
-		
-		FloorConstraint() : axis(AXIS_Y), height(0.0f) {}
+
+		FloorConstraint() : axis(AXIS_Y), height(0.0f) {
+			setBouncyness(1.0f);
+		}
 		~FloorConstraint() {}
 		
 		void apply(ParticlePtr p);
+
+		void setBouncyness(float value);
+		float getBouncyness() { return bouncyness; };
+
+	protected:
+		float bouncyness;
 	};
 	
 } } // namespace fk::physics

@@ -15,7 +15,18 @@ void PlaneConstraint::apply(ParticlePtr p) {
 	p->position[axis] = constraint;
 }
 
+
 void FloorConstraint::apply(ParticlePtr p) {
-	if(p->position[axis] < height)
+	if(p->position[axis] < height) {
+		float speed = p->getSpeed();
 		p->position[axis] = height;
+		p->clearVelocity();
+		p->prev[axis] = -speed * bouncyness;
+	}
+}
+
+void fk::physics::FloorConstraint::setBouncyness(float value)
+{
+	bouncyness = value;
+	invBouncyness = 1.0f - value;
 }
