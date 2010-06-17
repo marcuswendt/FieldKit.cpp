@@ -57,6 +57,7 @@ void Physics::allocParticles(int count) {
 // updates all particles by applying all behaviours and constraints
 void Physics::updateParticles(float dt) {
 	// prepare behaviours & constraints
+
 	BOOST_FOREACH(Behaviour* b, behaviours) {
 		b->prepare(dt);
 	}
@@ -116,10 +117,11 @@ void Physics::updateSprings() {
 
 // -- Neighbours -----------------------------------------------------------
 void Physics::updateNeighbours() {
+	/* 
 	BOOST_FOREACH(Particle p, particles) {
 		if(p.neighbourBound) {
 			p.neighbours.clear();
 			space->findSpatialsInVolume(&p.neighbours, p.neighbourBound);
 		}
-	}
+	}*/
 }

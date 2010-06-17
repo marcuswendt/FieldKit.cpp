@@ -84,7 +84,7 @@ void GestureTracker::endUpdate()
 			// match found, continue updating this
 			//printf("found %i => %i \n", tracked->id, match->id);
 			t->isActive = true;
-			t->pushCurrentPositionToHistory();
+			//t->pushCurrentPositionToHistory();
 			t->set(match); // update position 
 			match->isAssigned = true;
 			dispatchEventUpdate(t);
@@ -106,7 +106,7 @@ void GestureTracker::endUpdate()
 				newtracked->set(f);
 				newtracked->isAssigned = true;
 				newtracked->isActive = true;
-				newtracked->resetHistory();
+				//newtracked->resetHistory();
 				
 				dispatchEventActive(newtracked);
 			}
