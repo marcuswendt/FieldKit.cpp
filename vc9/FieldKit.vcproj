@@ -55,7 +55,7 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\Libraries\cinder_0.8.0_mac\include"
+				AdditionalIncludeDirectories="..\..\..\Libraries\cinder\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -125,6 +125,7 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				AdditionalIncludeDirectories="..\..\..\Libraries\cinder\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -390,6 +391,10 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
+		<File
+			RelativePath="..\README.txt"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

@@ -55,7 +55,7 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="..\..\..\Libraries\cinder_0.8.0_mac\include"
+				AdditionalIncludeDirectories="..\..\..\Libraries\cinder\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -125,6 +125,7 @@
 			/>
 			<Tool
 				Name="VCResourceCompilerTool"
+				AdditionalIncludeDirectories="..\..\..\Libraries\cinder\include"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
