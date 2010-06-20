@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\..\Libraries\OpenCV\include;..\include\fieldkit;..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost"
+				AdditionalIncludeDirectories="..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;NOMINMAX"
 				MinimalRebuild="false"
 				BasicRuntimeChecks="3"
@@ -112,7 +112,7 @@
 				InlineFunctionExpansion="0"
 				EnableIntrinsicFunctions="true"
 				WholeProgramOptimization="false"
-				AdditionalIncludeDirectories="..\include\fieldkit;..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost;..\..\..\Libraries\OpenCV\include"
+				AdditionalIncludeDirectories="..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NOMINMAX"
 				MinimalRebuild="false"
 				RuntimeLibrary="0"
@@ -260,66 +260,6 @@
 						>
 					</File>
 				</Filter>
-				<Filter
-					Name="vision"
-					>
-					<Filter
-						Name="camera"
-						>
-						<File
-							RelativePath="..\src\fieldkit\vision\camera\Camera.cpp"
-							>
-						</File>
-						<Filter
-							Name="implementations"
-							>
-							<File
-								RelativePath="..\src\fieldkit\vision\camera\implementations\CinderCamera.cpp"
-								>
-							</File>
-							<File
-								RelativePath="..\src\fieldkit\vision\camera\implementations\CinderVideoFileCapture.cpp"
-								>
-							</File>
-							<File
-								RelativePath="..\src\fieldkit\vision\camera\implementations\OpenCVCamera.cpp"
-								>
-							</File>
-						</Filter>
-					</Filter>
-					<Filter
-						Name="vision"
-						>
-						<File
-							RelativePath="..\src\fieldkit\vision\vision\CVFrameProcessor.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\src\fieldkit\vision\vision\CVImageCache.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\src\fieldkit\vision\vision\Vision.cpp"
-							>
-						</File>
-						<Filter
-							Name="processors"
-							>
-							<File
-								RelativePath="..\src\fieldkit\vision\vision\processors\CVBlobDetector.cpp"
-								>
-							</File>
-							<File
-								RelativePath="..\src\fieldkit\vision\vision\processors\CVStereoBlobDetector.cpp"
-								>
-							</File>
-							<File
-								RelativePath="..\src\fieldkit\vision\vision\processors\GestureTracker.cpp"
-								>
-							</File>
-						</Filter>
-					</Filter>
-				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -441,110 +381,6 @@
 						RelativePath="..\include\fieldkit\tweak\Tweak.h"
 						>
 					</File>
-				</Filter>
-				<Filter
-					Name="vision"
-					>
-					<File
-						RelativePath="..\include\fieldkit\vision\constants.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\vision\opencv.h"
-						>
-					</File>
-					<Filter
-						Name="camera"
-						>
-						<File
-							RelativePath="..\include\fieldkit\vision\camera\Camera.h"
-							>
-						</File>
-						<Filter
-							Name="implementations"
-							>
-							<File
-								RelativePath="..\include\fieldkit\vision\camera\implementations\CinderCamera.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\camera\implementations\CinderVideoFileCapture.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\camera\implementations\OpenCVCamera.h"
-								>
-							</File>
-						</Filter>
-					</Filter>
-					<Filter
-						Name="vision"
-						>
-						<File
-							RelativePath="..\include\fieldkit\vision\vision\CVFrameProcessor.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\vision\vision\CVImageCache.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\vision\vision\CVProperty.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\vision\vision\Vision.h"
-							>
-						</File>
-						<Filter
-							Name="processors"
-							>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\Blob.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\BlobEvent.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\BlobEventDispatcher.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\BlobEventListener.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\CVBlobDetector.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\CVStereoBlobDetector.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\Gesture.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\GestureEvent.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\GestureEventDispatcher.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\GestureEventListener.h"
-								>
-							</File>
-							<File
-								RelativePath="..\include\fieldkit\vision\vision\processors\GestureTracker.h"
-								>
-							</File>
-						</Filter>
-					</Filter>
 				</Filter>
 			</Filter>
 		</Filter>
