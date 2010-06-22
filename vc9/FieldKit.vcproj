@@ -319,11 +319,7 @@
 						>
 					</File>
 					<File
-						RelativePath="..\include\fieldkit\physics\Space.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\physics\Spatial.h"
+						RelativePath="..\include\fieldkit\physics\PhysicsKit.h"
 						>
 					</File>
 					<File
@@ -331,7 +327,7 @@
 						>
 					</File>
 					<Filter
-						Name="behaviours"
+						Name="behaviour"
 						>
 						<File
 							RelativePath="..\include\fieldkit\physics\behaviours\Attractor.h"
@@ -363,10 +359,18 @@
 						</File>
 					</Filter>
 					<Filter
-						Name="spaces"
+						Name="space"
 						>
 						<File
 							RelativePath="..\include\fieldkit\physics\spaces\OctTree.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\Space.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\Spatial.h"
 							>
 						</File>
 					</Filter>

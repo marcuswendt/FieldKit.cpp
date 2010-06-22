@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "fieldkit/fbx/FBX.h"
+#include "fieldkit/fbx/FBXKit.h"
 
 #include <cinder/Vector.h>
 

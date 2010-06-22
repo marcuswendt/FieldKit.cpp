@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "fieldkit/fbx/FBX.h"
+#include "fieldkit/fbx/FBXKit.h"
 
 //! Interfaces for renderer delegates that draw the FBX data to the screen
 namespace fk { namespace fbx {

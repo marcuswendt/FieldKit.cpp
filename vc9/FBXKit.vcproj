@@ -211,7 +211,7 @@
 						>
 					</File>
 					<File
-						RelativePath="..\include\fieldkit\fbx\FBX.h"
+						RelativePath="..\include\fieldkit\fbx\FBXKit.h"
 						>
 					</File>
 					<File

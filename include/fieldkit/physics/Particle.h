@@ -8,18 +8,15 @@
  */
 #pragma once
 
+#include "fieldkit/FieldKit.h"
 #include "fieldkit/physics/Spatial.h"
 #include "fieldkit/math/BoundingVolume.h"
-#include "fieldkit/FieldKit.h"
-
-#include <list>
-#include <vector>
 
 namespace fk { namespace physics {
 	
 	class Particle : public Spatial {
 	public:
-		list<void *> neighbours;
+		list<Spatial*> neighbours;
 		BoundingVolume *neighbourBound;
 		
 		int state;

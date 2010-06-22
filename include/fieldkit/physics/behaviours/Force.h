@@ -6,12 +6,9 @@
  *   
  *	 Created by Marcus Wendt on 27/05/2010.
  */
-
 #pragma once
 
-#include "fieldkit/FieldKit.h"
-#include "fieldkit/physics/Particle.h"
-#include "fieldkit/physics/Behaviour.h"
+#include "fieldkit/physics/PhysicsKit.h"
 
 namespace fk { namespace physics {
 	

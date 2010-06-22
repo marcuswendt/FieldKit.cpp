@@ -8,12 +8,10 @@
  */
 
 #include "fieldkit/physics/behaviours/Flocking.h"
+
 using namespace fk::physics;
 
 // -- Flocking base class --------------------------------------------
-
-
-
 void FlockBaseBehaviour::prepare(float dt) 
 {
 	rangeAbs = space->toAbsolute(range);
@@ -32,7 +30,7 @@ void FlockAlign::apply(ParticlePtr p)
 	Vec3f delta;
 	float distSq;
 	n = p->neighbours.size();
-	list<void *>::iterator it = p->neighbours.begin();
+	list<Spatial*>::iterator it = p->neighbours.begin();
 	while( it != p->neighbours.end()) 
 	{ 
 		q = (Particle *) *it;				
@@ -59,7 +57,7 @@ void FlockAttract::apply(ParticlePtr p)
 {
 	Vec3f center(0.0f,0.0f,0.0f);
 	int n = p->neighbours.size();
-	list<void *>::iterator it = p->neighbours.begin();
+	list<Spatial*>::iterator it = p->neighbours.begin();
 	Particle *q;
 	Vec3f delta;
 	float distSq;
@@ -90,7 +88,7 @@ void FlockRepel::apply(ParticlePtr p)
 	float distSq, radius, radiusSq, dist;
 	Vec3f tmp;
 	
-	list<void *>::iterator it = p->neighbours.begin();
+	list<Spatial*>::iterator it = p->neighbours.begin();
 	Particle* q;
 	while(it != p->neighbours.end()) 
 	{ 

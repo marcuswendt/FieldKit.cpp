@@ -7,15 +7,11 @@
  *   
  *	 Created by David Hoe on 26/05/2010.
  */
-
 #pragma once
 
-#include "fieldkit/Fieldkit.h"
-#include "fieldkit/physics/Behaviour.h"
-#include "fieldkit/physics/Particle.h"
+#include "fieldkit/physics/PhysicsKit.h"
 
-namespace fk { 
-namespace physics {
+namespace fk { namespace physics {
 	
 	class FlockBaseBehaviour: public WeightedBehaviour{
 	public:
@@ -48,6 +44,5 @@ namespace physics {
 		FlockRepel(Space* space) : FlockBaseBehaviour(space){};
 		void apply(ParticlePtr Particle);
 	};
-}
 
-} // namespace fk::physics
+} } // namespace fk::physics
