@@ -9,12 +9,15 @@
 
 #pragma once
 
+// FieldKit
+#include "fieldkit/FieldKit.h"
+
+// Autodesk FBX SDK
 #include <fbxsdk.h>
 #include <fbxfilesdk/kfbxplugins/kfbxtexture.h>
 #include <fbxfilesdk/kfbxio/kfbxiosettings.h>
 
-#include "fieldkit/FieldKit.h"
-
+// Core FBX Kit classes
 #include "fieldkit/fbx/Common.h"
 #include "fieldkit/fbx/Texture.h"
 #include "fieldkit/fbx/Scene.h"
@@ -22,6 +25,3 @@
 #include "fieldkit/fbx/SceneImporter.h"
 #include "fieldkit/fbx/RendererDelegates.h"
 #include "fieldkit/fbx/Renderer.h"
-
-#include <cinder/app/AppBasic.h>
-using namespace ci::app;

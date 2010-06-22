@@ -23,6 +23,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		2C0E69B311D16DC00035A10C /* FBXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B211D16DC00035A10C /* FBXKit.h */; };
+		2C0E69B511D16DCF0035A10C /* PhysicsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B411D16DCF0035A10C /* PhysicsKit.h */; };
 		2C240DA311CFC11600856329 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2C240DA411CFC11600856329 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
 		2C240DA511CFC11600856329 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -77,7 +79,6 @@
 		2C240EA611CFC26B00856329 /* Tweak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E3411CFC1DF00856329 /* Tweak.cpp */; };
 		2C240EA711CFC28C00856329 /* CinderRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD611CFC1CD00856329 /* CinderRenderer.h */; };
 		2C240EA811CFC28C00856329 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD711CFC1CD00856329 /* Common.h */; };
-		2C240EA911CFC28C00856329 /* FBX.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD811CFC1CD00856329 /* FBX.h */; };
 		2C240EAA11CFC28C00856329 /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD911CFC1CD00856329 /* Renderer.h */; };
 		2C240EAB11CFC28C00856329 /* RendererDelegates.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDA11CFC1CD00856329 /* RendererDelegates.h */; };
 		2C240EAC11CFC28C00856329 /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDB11CFC1CD00856329 /* Scene.h */; };
@@ -154,14 +155,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2C2BEBC411CFB45C00868B71 /* FBXKit */;
+			remoteGlobalIDString = 2C2BEBC411CFB45C00868B71;
 			remoteInfo = FBXKit;
 		};
 		2C240EE711CFC4F600856329 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2C240D6F11CFC11600856329 /* VisionKit */;
+			remoteGlobalIDString = 2C240D6F11CFC11600856329;
 			remoteInfo = VisionKit;
 		};
 /* End PBXContainerItemProxy section */
@@ -178,10 +179,11 @@
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		2C0E69B211D16DC00035A10C /* FBXKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBXKit.h; path = ../../FieldKit.cpp/include/fieldkit/fbx/FBXKit.h; sourceTree = SOURCE_ROOT; };
+		2C0E69B411D16DCF0035A10C /* PhysicsKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsKit.h; path = ../../FieldKit.cpp/include/fieldkit/physics/PhysicsKit.h; sourceTree = SOURCE_ROOT; };
 		2C240DB011CFC11600856329 /* libVisionKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C240DD611CFC1CD00856329 /* CinderRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderRenderer.h; sourceTree = "<group>"; };
 		2C240DD711CFC1CD00856329 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		2C240DD811CFC1CD00856329 /* FBX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBX.h; sourceTree = "<group>"; };
 		2C240DD911CFC1CD00856329 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		2C240DDA11CFC1CD00856329 /* RendererDelegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RendererDelegates.h; sourceTree = "<group>"; };
 		2C240DDB11CFC1CD00856329 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
@@ -429,9 +431,9 @@
 		2C240DD511CFC1CD00856329 /* fbx */ = {
 			isa = PBXGroup;
 			children = (
+				2C0E69B211D16DC00035A10C /* FBXKit.h */,
 				2C240DD611CFC1CD00856329 /* CinderRenderer.h */,
 				2C240DD711CFC1CD00856329 /* Common.h */,
-				2C240DD811CFC1CD00856329 /* FBX.h */,
 				2C240DD911CFC1CD00856329 /* Renderer.h */,
 				2C240DDA11CFC1CD00856329 /* RendererDelegates.h */,
 				2C240DDB11CFC1CD00856329 /* Scene.h */,
@@ -455,6 +457,7 @@
 		2C240DE511CFC1CD00856329 /* physics */ = {
 			isa = PBXGroup;
 			children = (
+				2C0E69B411D16DCF0035A10C /* PhysicsKit.h */,
 				2C240DE611CFC1CD00856329 /* Behaviour.h */,
 				2C240DE711CFC1CD00856329 /* Behavioural.h */,
 				2C240DE811CFC1CD00856329 /* behaviours */,
@@ -728,13 +731,13 @@
 			files = (
 				2C240EA711CFC28C00856329 /* CinderRenderer.h in Headers */,
 				2C240EA811CFC28C00856329 /* Common.h in Headers */,
-				2C240EA911CFC28C00856329 /* FBX.h in Headers */,
 				2C240EAA11CFC28C00856329 /* Renderer.h in Headers */,
 				2C240EAB11CFC28C00856329 /* RendererDelegates.h in Headers */,
 				2C240EAC11CFC28C00856329 /* Scene.h in Headers */,
 				2C240EAD11CFC28C00856329 /* SceneController.h in Headers */,
 				2C240EAE11CFC28C00856329 /* SceneImporter.h in Headers */,
 				2C240EAF11CFC28C00856329 /* Texture.h in Headers */,
+				2C0E69B311D16DC00035A10C /* FBXKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,6 +768,7 @@
 				2C240E9111CFC25400856329 /* SphereConstraint.h in Headers */,
 				2C240E9211CFC25400856329 /* Spring.h in Headers */,
 				2C240E9311CFC25400856329 /* Tweak.h in Headers */,
+				2C0E69B511D16DCF0035A10C /* PhysicsKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
