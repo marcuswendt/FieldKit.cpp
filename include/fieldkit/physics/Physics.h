@@ -16,7 +16,7 @@
 #include "fieldkit/physics/Space.h"
 #include "fieldkit/physics/Spring.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 		
 	class Physics : public Behavioural {
 	public:
@@ -52,4 +52,4 @@ namespace fk { namespace physics {
 	};
 
 } 
-} // namespace fk::physics
+} // namespace fieldkit::physics

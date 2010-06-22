@@ -9,7 +9,7 @@
 
 #include "fieldkit/fbx/Renderer.h"
 
-using namespace fk::fbx;
+using namespace fieldkit::fbx;
 
 
 void fk::fbx::Renderer::clearDelegates()

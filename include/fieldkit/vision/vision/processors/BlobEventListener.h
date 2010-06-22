@@ -10,10 +10,10 @@
 
 #include "fieldkit/vision/vision/processors/Blob.h"
 #include "fieldkit/vision/vision/processors/BlobEvent.h"
-using namespace fk;
-using namespace fk::vision;
+using namespace fieldkit;
+using namespace fieldkit::vision;
 
-namespace fk { namespace vision { 
+namespace fieldkit { namespace vision { 
 
 class BlobEventListener
 {
@@ -24,5 +24,5 @@ public:
 	virtual void onBlobUpdate(BlobEvent &blobevent){};
 };
 
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

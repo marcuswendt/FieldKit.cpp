@@ -11,7 +11,7 @@
 #include "fieldkit/FieldKit.h"
 #include "fieldkit/math/BoundingVolume.h"
 
-namespace fk { namespace math {
+namespace fieldkit { namespace math {
 	class AABB : public BoundingVolume {
 	public:
 		Vec3f min;
@@ -41,4 +41,4 @@ namespace fk { namespace math {
 	protected:
 		void updateBounds();
 	};
-} } // namespace fk::math
+} } // namespace fieldkit::math

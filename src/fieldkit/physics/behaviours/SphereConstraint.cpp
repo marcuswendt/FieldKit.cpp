@@ -9,7 +9,7 @@
 
 #include "fieldkit/physics/behaviours/SphereConstraint.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 void SphereConstraint::apply(ParticlePtr p) {
 	bool isInside = contains(p->position);

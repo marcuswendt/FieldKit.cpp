@@ -12,7 +12,7 @@
 #include "fieldkit/FieldKit.h"
 #include "fieldkit/physics/Particle.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	class Spring {
 	public:
 		ParticlePtr a;
@@ -34,4 +34,4 @@ namespace fk { namespace physics {
 		virtual void update();
 		
 	};
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

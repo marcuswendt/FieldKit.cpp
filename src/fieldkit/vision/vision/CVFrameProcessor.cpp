@@ -8,7 +8,7 @@
 
 #include "fieldkit/vision/vision/CVFrameProcessor.h"
 
-namespace fk { namespace vision
+namespace fieldkit { namespace vision
 {	
 	// ---------------------------------------------------------------------------------
 	//#pragma mark -- Constructor --
@@ -164,4 +164,4 @@ namespace fk { namespace vision
 		size = cvSize(width, height);
 		//printf("CVFrameProcessor: setting size to %ix%i\n", width, height);
 	}
-} } // namespace fk::vision
+} } // namespace fieldkit::vision

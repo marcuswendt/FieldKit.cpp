@@ -10,7 +10,7 @@
 
 #include "fieldkit/physics/spaces/OctTree.h"
 
-namespace fk{ namespace physics{
+namespace fieldkit{ namespace physics{
 
 //OctTree
 	//TODO

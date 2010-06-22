@@ -14,7 +14,7 @@
 
 #include "tinyxml/tinyxml.h"
 
-namespace fk { namespace tweak {
+namespace fieldkit { namespace tweak {
 
 	class Model {
 	public:
@@ -59,4 +59,4 @@ namespace fk { namespace tweak {
 
 		virtual void setup() = 0;
 	};
-} } // namespace fk::tweak
+} } // namespace fieldkit::tweak

@@ -9,7 +9,7 @@
 
 #include "fieldkit/physics/behaviours/Force.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 // -- Force --------------------------------------------------------------------
 void Force::setDirection(Vec3f value) { 

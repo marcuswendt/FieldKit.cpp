@@ -10,7 +10,7 @@
 
 #include "fieldkit/physics/PhysicsKit.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	class BoxRandom : public Behaviour, public AABB {
 	public:
@@ -22,4 +22,4 @@ namespace fk { namespace physics {
 		
 		void apply(ParticlePtr p);
 	};
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

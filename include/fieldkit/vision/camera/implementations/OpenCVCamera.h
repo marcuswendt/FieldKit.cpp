@@ -12,7 +12,7 @@
 #include "fieldkit/vision/opencv.h"
 #include "fieldkit/vision/camera/Camera.h"
 
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 	//
 	// integrates the capture components from opencv
@@ -35,6 +35,6 @@ namespace fk { namespace vision
 		int cameraIndex;
 		CvCapture* capture;
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 
 #endif

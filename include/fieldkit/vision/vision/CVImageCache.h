@@ -13,7 +13,7 @@
 #include "fieldkit/vision/opencv.h"
 
 
-namespace fk { namespace vision {
+namespace fieldkit { namespace vision {
 
 	class CVImageCache
 	{
@@ -38,5 +38,5 @@ namespace fk { namespace vision {
 	private:
 		std::map<int, IplImage*> map;
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

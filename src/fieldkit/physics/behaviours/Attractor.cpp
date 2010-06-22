@@ -9,7 +9,7 @@
 
 #include "fieldkit/physics/behaviours/Attractor.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 // -- Point --------------------------------------------------------------------
 void AttractorPoint::prepare(float dt) {

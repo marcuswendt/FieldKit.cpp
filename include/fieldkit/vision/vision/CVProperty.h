@@ -11,7 +11,7 @@
 
 using namespace std;
 
-namespace fk { namespace vision {
+namespace fieldkit { namespace vision {
 
 	class CVProperty
 	{
@@ -49,6 +49,6 @@ namespace fk { namespace vision {
 		float max;
 
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 
 #endif

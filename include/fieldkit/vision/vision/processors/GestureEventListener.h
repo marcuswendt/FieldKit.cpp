@@ -10,10 +10,10 @@
 
 #include "fieldkit/vision/vision/processors/Gesture.h"
 #include "fieldkit/vision/vision/processors/GestureEvent.h"
-using namespace fk;
-using namespace fk::vision;
+using namespace fieldkit;
+using namespace fieldkit::vision;
 
-namespace fk { namespace vision { 
+namespace fieldkit { namespace vision { 
 
 class GestureEventListener
 {
@@ -24,5 +24,5 @@ public:
 	virtual void onGestureUpdate(GestureEvent evt){};
 };
 
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

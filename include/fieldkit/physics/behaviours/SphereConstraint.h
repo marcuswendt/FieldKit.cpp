@@ -11,7 +11,7 @@
 #include "fieldkit/physics/PhysicsKit.h"
 #include "fieldkit/math/Sphere.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	//! Constrains the particle to the inside or outside of a sphere
 	class SphereConstraint : public Constraint, public fk::math::Sphere {
@@ -26,4 +26,4 @@ namespace fk { namespace physics {
 		void apply(ParticlePtr p);
 	};
 	
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

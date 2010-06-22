@@ -10,7 +10,7 @@
 #include "fieldkit/vision/camera/implementations/CinderCamera.h"
 #include "cinder/ip/grayscale.h"
 #include "cinder/app/App.h"
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 	
 
@@ -81,4 +81,4 @@ namespace fk { namespace vision
 	{
 		return image;
 	}
-} } // namespace fk::vision
+} } // namespace fieldkit::vision

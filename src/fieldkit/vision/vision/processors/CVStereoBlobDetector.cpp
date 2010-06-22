@@ -8,7 +8,7 @@
 
 #include "fieldkit/vision/vision/processors/CVStereoBlobDetector.h"
 
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 	// ---------------------------------------------------------------------------------
 	//#pragma mark -- Lifecycle --
@@ -213,4 +213,4 @@ namespace fk { namespace vision
 	{
 		return blobNum;
 	}
-} } // namespace fk::vision
+} } // namespace fieldkit::vision

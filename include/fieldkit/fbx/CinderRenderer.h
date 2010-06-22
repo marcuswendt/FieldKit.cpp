@@ -11,7 +11,7 @@
 
 #include "fieldkit/fbx/FBXKit.h"
 
-namespace fk { namespace fbx {
+namespace fieldkit { namespace fbx {
 
 	//! Renders a FBX scene using the cinder library's opengl methods
 	class CinderRenderer : 
@@ -71,4 +71,4 @@ namespace fk { namespace fbx {
 		void drawNull(KFbxXMatrix& position);
 
 	};
-} } // namespace fk::fbx
+} } // namespace fieldkit::fbx

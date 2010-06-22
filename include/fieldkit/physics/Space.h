@@ -14,9 +14,9 @@
 #include "fieldkit/physics/Spatial.h"
 #include <list>
 
-using namespace fk::math;
+using namespace fieldkit::math;
 
-namespace fk { 
+namespace fieldkit { 
 namespace physics {
 
 class Space : public AABB 
@@ -40,4 +40,4 @@ public:
 };
 
 } 
-} // namespace fk::physics
+} // namespace fieldkit::physics

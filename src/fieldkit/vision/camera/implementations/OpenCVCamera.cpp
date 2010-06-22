@@ -8,7 +8,7 @@
 
 #include "fieldkit/vision/camera/implementations/OpenCVCamera.h"
 
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 	OpenCVCamera::OpenCVCamera(int cameraIndex) {
 		this->cameraIndex = cameraIndex;
@@ -75,4 +75,4 @@ namespace fk { namespace vision
 	{
 		return cvRetrieveFrame(capture);
 	}
-} } // namespace fk::vision
+} } // namespace fieldkit::vision

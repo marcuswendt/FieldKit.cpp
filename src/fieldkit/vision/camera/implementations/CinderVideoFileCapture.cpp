@@ -10,7 +10,7 @@
 
 #include "fieldkit/vision/camera/implementations/CinderVideoFileCapture.h"
 
-using namespace fk::vision;
+using namespace fieldkit::vision;
 
 CinderVideoFileCapture::CinderVideoFileCapture()
 {

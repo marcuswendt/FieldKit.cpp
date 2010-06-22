@@ -9,7 +9,7 @@
 
 #include "fieldkit/fbx/SceneController.h"
 
-using namespace fk::fbx;
+using namespace fieldkit::fbx;
 
 SceneController::SceneController()
 {

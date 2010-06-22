@@ -8,7 +8,7 @@
 
 #include "fieldkit/vision/vision/processors/CVBlobDetector.h"
 
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 	// -------------------------------------------------------------------------
 	//#pragma mark -- Constructor --
@@ -793,4 +793,4 @@ namespace fk { namespace vision
 		return trackedBlobs;
 	}
 
-} } // namespace fk::vision
+} } // namespace fieldkit::vision

@@ -8,7 +8,7 @@
 
 #include "fieldkit/vision/vision/CVImageCache.h"
 
-namespace fk { namespace vision
+namespace fieldkit { namespace vision
 {
 	CVImageCache::CVImageCache() 
 	{
@@ -76,4 +76,4 @@ namespace fk { namespace vision
 	{
 		return get(IMAGE_STAGE + key, size, depth, channels);		
 	}
-} } // namespace fk::vision
+} } // namespace fieldkit::vision

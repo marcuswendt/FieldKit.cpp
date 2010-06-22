@@ -11,7 +11,7 @@
 
 #include "fieldkit/vision/constants.h"
 
-namespace fk { namespace vision {
+namespace fieldkit { namespace vision {
 	//
 	// base class for all camera types
 	//
@@ -50,5 +50,5 @@ namespace fk { namespace vision {
 	private:
 		int err;
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

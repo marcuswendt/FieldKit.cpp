@@ -16,7 +16,7 @@
 #include "Blob.h"
 #include "fieldkit/vision/vision/processors/GestureTracker.h"
 
-namespace fk { namespace vision {
+namespace fieldkit { namespace vision {
 
 	//
 	// OpenCV Blob Detector
@@ -166,5 +166,5 @@ namespace fk { namespace vision {
 
 		int err;	
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

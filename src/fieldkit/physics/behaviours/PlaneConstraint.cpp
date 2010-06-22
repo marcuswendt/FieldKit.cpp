@@ -9,7 +9,7 @@
 
 #include "fieldkit/physics/behaviours/PlaneConstraint.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 void PlaneConstraint::apply(ParticlePtr p) {
 	p->position[axis] = constraint;

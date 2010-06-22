@@ -13,7 +13,7 @@
 #include "cinder/gl/Texture.h"
 #include "cinder/Capture.h"
 
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 	
 	class CinderCamera : public Camera
@@ -35,6 +35,6 @@ namespace fk { namespace vision
 		IplImage* image;
 		ci::Capture	mCapture;
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 
 #endif

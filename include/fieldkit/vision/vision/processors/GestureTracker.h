@@ -12,10 +12,10 @@
 #include "fieldkit/vision/vision/processors/GestureEventDispatcher.h"
 #include "fieldkit/vision/constants.h"
 
-using namespace fk;
-using namespace fk::vision;
+using namespace fieldkit;
+using namespace fieldkit::vision;
 
-namespace fk { namespace vision { 
+namespace fieldkit { namespace vision { 
 
 class GestureTracker : public GestureEventDispatcher
 {
@@ -42,5 +42,5 @@ protected:
 	float oneOverFrameh, oneOverFramew;
 };
 
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

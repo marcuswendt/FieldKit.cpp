@@ -12,7 +12,7 @@
 #include "fieldkit/fbx/FBXKit.h"
 
 //! Interfaces for renderer delegates that draw the FBX data to the screen
-namespace fk { namespace fbx {
+namespace fieldkit { namespace fbx {
 	
 	class MarkerRenderer {
 	public:
@@ -64,4 +64,4 @@ namespace fk { namespace fbx {
 						KFbxVector4& eye, KFbxVector4& center, KFbxVector4& up
 					) = 0;
 	};
-} } // namespace fk::fbx
+} } // namespace fieldkit::fbx

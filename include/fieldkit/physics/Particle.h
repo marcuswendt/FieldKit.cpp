@@ -12,7 +12,7 @@
 #include "fieldkit/physics/Spatial.h"
 #include "fieldkit/math/BoundingVolume.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	class Particle : public Spatial {
 	public:
@@ -80,4 +80,4 @@ namespace fk { namespace physics {
 	
 	typedef vector<Particle>::iterator ParticlePtr;
 	
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

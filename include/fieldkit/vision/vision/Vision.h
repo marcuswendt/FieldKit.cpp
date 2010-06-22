@@ -12,7 +12,7 @@
 #include "fieldkit/vision/camera/Camera.h"
 #include "fieldkit/vision/vision/CVFrameProcessor.h"
 
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 	class Vision
 	{
@@ -49,5 +49,5 @@ namespace fk { namespace vision
 	private:
 		int err;
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

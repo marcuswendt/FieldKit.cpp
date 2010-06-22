@@ -10,7 +10,7 @@
 
 #include "fieldkit/physics/PhysicsKit.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	class AttractorPoint : public WeightedBehaviour {
 	public:
@@ -37,4 +37,4 @@ namespace fk { namespace physics {
 		float rangeAbsSq;
 	};
 	
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

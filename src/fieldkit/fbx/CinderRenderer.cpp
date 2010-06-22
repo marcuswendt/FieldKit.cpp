@@ -12,7 +12,7 @@
 #include "cinder/Camera.h"
 
 using namespace ci;
-using namespace fk::fbx;
+using namespace fieldkit::fbx;
 
 fk::fbx::CinderRenderer::CinderRenderer()
 {

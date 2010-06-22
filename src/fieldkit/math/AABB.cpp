@@ -9,7 +9,7 @@
 
 #include "fieldkit/math/AABB.h"
 
-using namespace fk::math;
+using namespace fieldkit::math;
 
 // initialise to normalised box within [0,1] range
 AABB::AABB() : BoundingVolume() {

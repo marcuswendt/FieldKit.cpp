@@ -9,7 +9,7 @@
 
 #include "fieldkit/physics/Particle.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 Particle::Particle() : 
 	isAlive(false), isLocked(false),

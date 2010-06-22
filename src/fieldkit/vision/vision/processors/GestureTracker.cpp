@@ -6,7 +6,7 @@
 \*                                                                            */
 
 #include "fieldkit/vision/vision/processors/GestureTracker.h"
-using namespace fk::vision;
+using namespace fieldkit::vision;
 
 GestureTracker::GestureTracker()
 {

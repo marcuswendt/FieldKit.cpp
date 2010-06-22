@@ -11,7 +11,7 @@
 #include "fieldkit/FieldKit.h"
 #include "fieldkit/math/BoundingVolume.h"
 
-namespace fk { namespace math {
+namespace fieldkit { namespace math {
 	class Sphere : public BoundingVolume {
 	public:
 		Vec3f center;
@@ -33,4 +33,4 @@ namespace fk { namespace math {
 		void setRadius(float value) { radius = value; };
 		float getRadius() { return radius; };
 	};
-} } // namespace fk::math
+} } // namespace fieldkit::math

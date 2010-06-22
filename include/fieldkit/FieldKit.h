@@ -29,3 +29,10 @@ using ci::EPSILON_VALUE;
 
 //using namespace ci;
 //using std::vector;
+
+namespace fieldkit {
+	// fieldkit globals
+};
+
+// Create a namepace alias as shorthand for fieldkit::
+namespace fk = fieldkit;

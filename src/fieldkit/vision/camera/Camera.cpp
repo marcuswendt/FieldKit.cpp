@@ -8,7 +8,7 @@
 
 #include "fieldkit/vision/camera/Camera.h"
 
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 	// -------------------------------------------------------------------------
 	// CON- & DESTRUCTORS
@@ -101,4 +101,4 @@ namespace fk { namespace vision
 	IplImage* Camera::getImage(int channel) {
 		return NULL;
 	}
-} } // namespace fk::vision
+} } // namespace fieldkit::vision

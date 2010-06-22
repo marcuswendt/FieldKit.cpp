@@ -9,7 +9,7 @@
 
 #include "fieldkit/physics/behaviours/Boundary.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 	
 // -- BoxWrap ------------------------------------------------------------------
 void BoxWrap::apply(ParticlePtr p) {

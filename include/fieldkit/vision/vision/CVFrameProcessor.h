@@ -17,7 +17,7 @@
 
 using namespace std;
 
-namespace fk { namespace vision { 
+namespace fieldkit { namespace vision { 
 
 	class Stage
 	{
@@ -88,6 +88,6 @@ namespace fk { namespace vision {
 		inline int max(int a, int b) { return a > b ? a : b; };
 		inline int min(int a, int b) { return a > b ? b : a; };
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 
 #endif

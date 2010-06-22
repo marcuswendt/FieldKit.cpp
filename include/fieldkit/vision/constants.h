@@ -11,7 +11,7 @@
 
 #include "fieldkit/vision/opencv.h"
 
-namespace fk { namespace vision {
+namespace fieldkit { namespace vision {
 	#define consti const static int
 	
 	// error codes
@@ -111,5 +111,5 @@ namespace fk { namespace vision {
 		fprintf(stderr, "\n"); \
 		exit(-1);
 
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

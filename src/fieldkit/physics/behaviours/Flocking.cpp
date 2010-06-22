@@ -9,7 +9,7 @@
 
 #include "fieldkit/physics/behaviours/Flocking.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 // -- Flocking base class --------------------------------------------
 void FlockBaseBehaviour::prepare(float dt) 

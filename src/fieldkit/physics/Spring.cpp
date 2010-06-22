@@ -9,7 +9,7 @@
 
 #include "fieldkit/physics/Spring.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 	
 Spring::Spring() : 
 restLength(0), strength(0), isALocked(false), isBLocked(false) {

@@ -10,10 +10,10 @@
 #pragma once
 
 #include "fieldkit/math/BoundingVolume.h"
-using namespace fk::math;
+using namespace fieldkit::math;
 #include "fieldkit/FieldKit.h"
 
-namespace fk { 
+namespace fieldkit { 
 namespace physics {
 
 enum SPATIAL_TYPE{
@@ -29,4 +29,4 @@ public:
 };
 
 } 
-} // namespace fk::physics
+} // namespace fieldkit::physics

@@ -9,7 +9,7 @@
 
 #include "fieldkit/fbx/SceneImporter.h"
 
-using namespace fk::fbx;
+using namespace fieldkit::fbx;
 
 Scene* SceneImporter::load(const string &fileName_)
 {

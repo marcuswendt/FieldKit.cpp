@@ -12,7 +12,7 @@
 #include "fieldkit/vision/vision/CVFrameProcessor.h"
 #include "fieldkit/vision/vision/processors/CVBlobDetector.h"
 
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 	//
 	// OpenCV Stereo Blob Detector
@@ -65,5 +65,5 @@ namespace fk { namespace vision
 	private:
 		int err;
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

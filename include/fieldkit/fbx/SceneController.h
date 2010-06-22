@@ -11,7 +11,7 @@
 
 #include "fieldkit/fbx/FBXKit.h"
 
-namespace fk { namespace fbx {
+namespace fieldkit { namespace fbx {
 
 	class Scene;
 

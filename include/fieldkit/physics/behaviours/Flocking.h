@@ -11,7 +11,7 @@
 
 #include "fieldkit/physics/PhysicsKit.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	class FlockBaseBehaviour: public WeightedBehaviour{
 	public:
@@ -45,4 +45,4 @@ namespace fk { namespace physics {
 		void apply(ParticlePtr Particle);
 	};
 
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

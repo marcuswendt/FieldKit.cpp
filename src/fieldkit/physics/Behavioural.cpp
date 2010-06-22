@@ -9,7 +9,7 @@
 
 #include "fieldkit/physics/Behavioural.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 	
 void Behavioural::addBehaviour(Behaviour* b) {
 	behaviours.push_back(b);

@@ -11,7 +11,7 @@
 
 #include "fieldkit/fbx/FBXKit.h"
 
-namespace fk { namespace fbx {
+namespace fieldkit { namespace fbx {
 	class Renderer {
 	public:
 		// Con/Destructors
@@ -86,4 +86,4 @@ namespace fk { namespace fbx {
 		void drawLight(Scene* scene, KFbxNode* node, KFbxXMatrix& globalPosition);
 		void drawNull(KFbxXMatrix& globalPosition);
 	};
-} } // namespace fk::fbx
+} } // namespace fieldkit::fbx

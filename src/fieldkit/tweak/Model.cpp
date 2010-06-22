@@ -9,7 +9,7 @@
 
 #include "fieldkit/tweak/Model.h"
 
-using namespace fk::tweak;
+using namespace fieldkit::tweak;
 
 void Model::addChild(Model* child) {
 	child->setParent(this);

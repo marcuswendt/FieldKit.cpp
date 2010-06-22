@@ -11,7 +11,7 @@
 
 #include "fieldkit/FieldKit.h"
 
-namespace fk { namespace math {
+namespace fieldkit { namespace math {
 
 class BoundingVolume {
 	public:
@@ -19,4 +19,4 @@ class BoundingVolume {
 		virtual bool contains(Vec3f p) = 0;
 };
 
-} } // namespace fk::math
+} } // namespace fieldkit::math

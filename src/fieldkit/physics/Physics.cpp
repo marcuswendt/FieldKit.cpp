@@ -9,7 +9,7 @@
  */
 #include "fieldkit/physics/Physics.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 Physics::Physics(Space* space) {
 	this->space = space;

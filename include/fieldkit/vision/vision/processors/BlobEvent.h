@@ -9,10 +9,10 @@
 #define BLOBEVENT_H
 
 #include "fieldkit/vision/vision/processors/Blob.h"
-using namespace fk;
-using namespace fk::vision;
+using namespace fieldkit;
+using namespace fieldkit::vision;
 
-namespace fk { namespace vision { 
+namespace fieldkit { namespace vision { 
 
 class BlobEvent
 {
@@ -49,5 +49,5 @@ protected:
 	Blob *blob;
 };
 
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

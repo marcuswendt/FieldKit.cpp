@@ -13,7 +13,7 @@
 #include "fieldkit/physics/Space.h"
 #include "fieldkit/physics/Particle.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 
 	// Base class for all physics behaviours
 	class Behaviour {
@@ -44,4 +44,4 @@ namespace fk { namespace physics {
 		float weight;
 	};
 	
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

@@ -12,7 +12,7 @@
 #include "cinder/Rand.h"
 
 using namespace ci;
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 void BoxRandom::apply(ParticlePtr p) {
 	p->position.x = Rand::randFloat(min.x, max.x);

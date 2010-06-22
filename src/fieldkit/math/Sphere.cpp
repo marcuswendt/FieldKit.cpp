@@ -9,7 +9,7 @@
 
 #include "fieldkit/math/Sphere.h"
 
-using namespace fk::math;
+using namespace fieldkit::math;
 
 void Sphere::set(Sphere s) {
 	center = s.center;

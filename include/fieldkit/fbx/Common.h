@@ -14,7 +14,7 @@
 #include <cinder/Vector.h>
 
 //! Utility functions & classes used throughout the fbx library
-namespace fk { namespace fbx {
+namespace fieldkit { namespace fbx {
 
 	//! Scale all the elements of a matrix.
 	inline void MatrixScale(KFbxXMatrix& matrix, double value) {

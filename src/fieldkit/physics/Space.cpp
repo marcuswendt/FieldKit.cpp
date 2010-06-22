@@ -10,8 +10,8 @@
 #include "fieldkit/FieldKit.h"
 #include "fieldkit/physics/Space.h"
 
-using namespace fk::math;
-using namespace fk::physics;
+using namespace fieldkit::math;
+using namespace fieldkit::physics;
 
 void Space::clear() 
 {

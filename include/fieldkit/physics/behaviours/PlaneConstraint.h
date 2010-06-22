@@ -10,7 +10,7 @@
 
 #include "fieldkit/physics/PhysicsKit.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	enum Axis { AXIS_X = 0, AXIS_Y = 1, AXIS_Z = 2};
 	
@@ -51,4 +51,4 @@ namespace fk { namespace physics {
 		float bouncyness;
 	};
 	
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

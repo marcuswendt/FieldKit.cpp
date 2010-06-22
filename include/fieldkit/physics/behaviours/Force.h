@@ -10,7 +10,7 @@
 
 #include "fieldkit/physics/PhysicsKit.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	class Force : public WeightedBehaviour {
 	public:
@@ -52,4 +52,4 @@ namespace fk { namespace physics {
 			setWeight(0.02f);
 		}
 	};
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

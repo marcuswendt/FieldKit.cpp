@@ -12,7 +12,7 @@
 #include "fieldkit/physics/Emitter.h"
 #include "fieldkit/physics/Physics.h"
 
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 Emitter::Emitter(Physics* physics) 
 {

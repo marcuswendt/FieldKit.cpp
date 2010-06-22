@@ -12,7 +12,7 @@
 #include "fieldkit/FieldKit.h"
 #include "fieldkit/physics/Behavioural.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	class Physics;
 	
@@ -51,4 +51,4 @@ namespace fk { namespace physics {
 		bool isEnabled;
 	};
 	
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

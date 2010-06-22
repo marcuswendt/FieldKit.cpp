@@ -9,10 +9,10 @@
 #define GESTUREEVENT_H
 
 #include "fieldkit/vision/vision/processors/Gesture.h"
-using namespace fk;
-using namespace fk::vision;
+using namespace fieldkit;
+using namespace fieldkit::vision;
 
-namespace fk { namespace vision { 
+namespace fieldkit { namespace vision { 
 
 class GestureEvent
 {
@@ -49,5 +49,5 @@ protected:
 	Gesture *gesture;
 };
 
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

@@ -11,7 +11,7 @@
 
 #include "fieldkit/fbx/FBXKit.h"
 
-namespace fk { namespace fbx {
+namespace fieldkit { namespace fbx {
 	class Scene {
 	public:
 		friend class SceneController;
@@ -57,4 +57,4 @@ namespace fk { namespace fbx {
 
 		KTime period, start, stop, currentTime;
 	};
-} } // namespace fk::fbx
+} } // namespace fieldkit::fbx

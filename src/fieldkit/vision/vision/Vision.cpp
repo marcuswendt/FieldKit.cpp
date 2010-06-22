@@ -8,7 +8,7 @@
 
 #include "fieldkit/vision/vision/Vision.h"
 
-namespace fk { namespace vision
+namespace fieldkit { namespace vision
 {
 	Vision::Vision() {
 		isInitialized = false;
@@ -149,4 +149,4 @@ namespace fk { namespace vision
 		return VISION_SUCCESS;
 	};
 
-}} // namespace fk::vision
+}} // namespace fieldkit::vision

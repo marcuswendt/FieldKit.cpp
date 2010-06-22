@@ -11,7 +11,7 @@
 #include "fieldkit/physics/Space.h"
 #include "fieldkit/FieldKit.h"
 
-namespace fk{ namespace physics{
+namespace fieldkit{ namespace physics{
 
 class OctTree : public Space
 {

@@ -11,7 +11,7 @@
 
 #include "fieldkit/fbx/FBXKit.h"
 
-namespace fk { namespace fbx {
+namespace fieldkit { namespace fbx {
 	class Texture {
 	public:
 		Texture() {};
@@ -20,4 +20,4 @@ namespace fk { namespace fbx {
 		//gl::Texture glTexture;
 		KFbxTexture* refTexture;
 	};
-} } // namespace fk::fbx
+} } // namespace fieldkit::fbx

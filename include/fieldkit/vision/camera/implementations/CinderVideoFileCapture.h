@@ -22,7 +22,7 @@ using namespace ci::app;
 using namespace ci::qtime;
 using namespace std;
 
-namespace fk { namespace vision 
+namespace fieldkit { namespace vision 
 {
 
 	class CinderVideoFileCapture : public Camera
@@ -53,6 +53,6 @@ namespace fk { namespace vision
 		bool			moviesurfaceCreated;
 		MovieSurface	moviesurface;
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 
 #endif

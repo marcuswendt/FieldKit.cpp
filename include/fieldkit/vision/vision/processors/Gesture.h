@@ -13,7 +13,7 @@
 using namespace std;
 #include "cinder/Vector.h"
 
-namespace fk { namespace vision { 
+namespace fieldkit { namespace vision { 
 
 	//
 	// represents a single detected element in the scene
@@ -89,5 +89,5 @@ namespace fk { namespace vision {
 		
 		protected:
 	};
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

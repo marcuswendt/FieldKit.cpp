@@ -9,7 +9,7 @@
 
 #include "fieldkit/fbx/Scene.h"
 
-using namespace fk::fbx;
+using namespace fieldkit::fbx;
 
 // -- Constructor --------------------------------------------------------------
 Scene::Scene() {}

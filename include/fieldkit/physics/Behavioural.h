@@ -13,7 +13,7 @@
 #include "fieldkit/physics/Behaviour.h"
 #include "fieldkit/physics/Constraint.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	class Behavioural {
 	protected:
@@ -33,4 +33,4 @@ namespace fk { namespace physics {
 		void removeConstraint(Constraint* c);
 	};
 
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

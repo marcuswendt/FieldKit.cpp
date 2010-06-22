@@ -11,9 +11,9 @@
 
 #include "fieldkit/physics/Behaviour.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 
 class Constraint : public Behaviour {
 };
 	
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

@@ -10,7 +10,7 @@
 
 #include "fieldkit/physics/PhysicsKit.h"
 
-namespace fk { namespace physics {
+namespace fieldkit { namespace physics {
 	
 	// Keeps a particle inside the given AABB volume by wrapping it around its edges without loosing velocity.
 	class BoxWrap : public Behaviour, AABB {
@@ -31,4 +31,4 @@ namespace fk { namespace physics {
 		void apply(ParticlePtr p);
 	};
 	
-} } // namespace fk::physics
+} } // namespace fieldkit::physics

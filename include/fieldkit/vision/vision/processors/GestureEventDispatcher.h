@@ -15,10 +15,10 @@
 #include <boost/foreach.hpp>
 
 using namespace std;
-using namespace fk;
-using namespace fk::vision;
+using namespace fieldkit;
+using namespace fieldkit::vision;
 
-namespace fk { namespace vision { 
+namespace fieldkit { namespace vision { 
 
 class GestureEventDispatcher
 {
@@ -59,5 +59,5 @@ protected:
 	vector<GestureEventListener *> listeners;
 };
 
-} } // namespace fk::vision
+} } // namespace fieldkit::vision
 #endif

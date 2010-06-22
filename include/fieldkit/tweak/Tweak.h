@@ -12,7 +12,7 @@
 #include "fieldkit/FieldKit.h"
 //#include "tinyxml/tinyxml.h"
 
-namespace fk { namespace tweak {
+namespace fieldkit { namespace tweak {
 
 //	template<typename T>
 	class KeyFrame {
@@ -100,4 +100,4 @@ namespace fk { namespace tweak {
 			
 		};
 	};
-} } // namespace fk::tweak
+} } // namespace fieldkit::tweak
