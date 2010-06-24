@@ -70,7 +70,7 @@ namespace fieldkit { namespace vision
 	// -------------------------------------------------------------------------
 	// HELPERS
 	// -------------------------------------------------------------------------
-	#pragma mark -- Helpers --
+	//#pragma mark -- Helpers --
 	IplImage* OpenCVCamera::getImage(int channel)
 	{
 		return cvRetrieveFrame(capture);

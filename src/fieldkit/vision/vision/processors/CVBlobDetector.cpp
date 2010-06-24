@@ -149,7 +149,7 @@ namespace fieldkit { namespace vision
 
 		// background ----------------------------------------------------------
 		setMode(MODE_32F);
-		float bgValue = doResetBackground ? 1.0 : get(PROC_BACKGROUND);
+		float bgValue = doResetBackground ? 1.0f : get(PROC_BACKGROUND);
 		IplImage *bgImage = cache->getTmp(IMAGE_BG, roiSize, IPL_DEPTH_32F, 1);
 		//IplImage *bgImage = cache->getTmp(IMAGE_BG, srcImage);
 
@@ -194,7 +194,7 @@ namespace fieldkit { namespace vision
 		float dilate = get(PROC_DILATE);
 		if(dilate > 0) {
 			setMode(MODE_8U);
-			cvDilate(srcImage, dstImage, NULL, dilate);
+			cvDilate(srcImage, dstImage, NULL,(int) dilate);
 			copyStage(STAGE_DILATE, dstImage);	
 			swap();
 		}
@@ -203,7 +203,7 @@ namespace fieldkit { namespace vision
 		float erode = get(PROC_ERODE);
 		if(erode > 0) {
 			setMode(MODE_8U);
-			cvErode(srcImage, dstImage, NULL, erode);
+			cvErode(srcImage, dstImage, NULL, (int)erode);
 			copyStage(STAGE_ERODE, dstImage);	
 			swap();
 		}
@@ -274,8 +274,8 @@ namespace fieldkit { namespace vision
 			for(j =0; j< h;j+=blocksize)
 			{
 				
-				int sumdx = 0;
-				int sumdy= 0;
+				float sumdx = 0;
+				float sumdy= 0;
 
 				for(p =0; p< blocksize;p++)
 				{	
@@ -283,8 +283,8 @@ namespace fieldkit { namespace vision
 					{
 						if(j+p < h && i+q < w)
 						{
-							dx = (int)cvGetReal2D( velx, j+p, i+q );
-							dy = (int)cvGetReal2D( vely, j+p, i+q );
+							dx = (float)cvGetReal2D( velx, j+p, i+q );
+							dy = (float)cvGetReal2D( vely, j+p, i+q );
 							sumdx += dx;
 							sumdy += dy;
 						}
@@ -295,8 +295,8 @@ namespace fieldkit { namespace vision
 
 				p1.x = i + blocksize/2;
 				p1.y = j + blocksize/2;
-				p2.x = p1.x + sumdx*0.1;
-				p2.y = p1.y + sumdy*0.1;
+				p2.x =int( p1.x + sumdx*0.1f);
+				p2.y =int(p1.y + sumdy*0.1f);
 				cvLine(dstImage, p1, p2,CV_RGB(0,0,255),1, CV_AA, 0 );
 			}
 		}
@@ -317,12 +317,12 @@ namespace fieldkit { namespace vision
 	void CVBlobDetector::findAllConvexHullPoints()
 	{
 		gesturetracker.setTrackingRange(get(PROC_GESTURE_RANGE));
-		gesturetracker.setFrameSize(0,0,size.width, size.height);
+		gesturetracker.setFrameSize(0.0f,0.0f,(float)size.width, (float)size.height);
 		gesturetracker.beginUpdate();
 
 		if(contourFirst != NULL) {
 			CvSeq* contour = contourFirst;
-			CvSeq *approxContour;
+			//CvSeq *approxContour;
 			for( ; contour != 0; contour = contour->h_next ) {
 				findConvexHullPointsForContour(contour);
 			}
@@ -337,7 +337,7 @@ namespace fieldkit { namespace vision
 			Gesture *gesture = gesturetracker.getTrackedGesture(i);
 			if(!gesture->isActive) continue;
 			CvPoint p;
-			p.x = gesture->position.x*size.width; p.y = gesture->position.y*size.height;
+			p.x = int(gesture->position.x*size.width); p.y = int(gesture->position.y*size.height);
 			
 			if(gesture->nhistory == 0)
 				cvCircle( dstImage, p, 10, CV_RGB(255,255,255), -1, 8,0);
@@ -349,8 +349,8 @@ namespace fieldkit { namespace vision
 				prevp.y = p.y;
 				for(int j =gesture->nhistory -1; j> 0;j--)
 				{
-					p.x = gesture->positionHistory[j].x*(float)size.width;
-					p.y = gesture->positionHistory[j].y*(float)size.height;
+					p.x =int( gesture->positionHistory[j].x*(float)size.width);
+					p.y =int( gesture->positionHistory[j].y*(float)size.height);
 					cvLine(dstImage, p, prevp,CV_RGB(255,255,255),2, CV_AA, 0);
 					prevp.x = p.x;
 					prevp.y = p.y;
@@ -436,11 +436,11 @@ namespace fieldkit { namespace vision
                 //cvCircle( dstImage, *(defectArray[i].depth_point), 5, CV_RGB(255,255,255), 3, 8,0);
                 if(defectArray[i].depth > get(PROC_HULL_MINDEPTH))
 				{
-					float x = defectArray[i].start->x;
-					float y = defectArray[i].start->y;
+					float x = (float)defectArray[i].start->x;
+					float y = (float)defectArray[i].start->y;
 					Gesture *gesture = gesturetracker.addFoundPoint(x,y);	
 					CvPoint p;
-					p.x = x; p.y = y;
+					p.x = (int)x; p.y =(int) y;
 					//cvCircle( dstImage, p, 3, CV_RGB(255,255,255), -1, 8,0);
 				}
 				if(getStage(STAGE_HULLPOINTS)->isEnabled) cvLine(dstImage, *(defectArray[i].depth_point), *(defectArray[i].end),CV_RGB(0,0,255),1, CV_AA, 0 );
@@ -537,8 +537,8 @@ namespace fieldkit { namespace vision
 		if(contourFirst == NULL) return;
 
 		int imageArea = (size.width * size.height) / 2;
-		int minArea = get(PROC_CONTOUR_MIN) * imageArea;
-		int maxArea = get(PROC_CONTOUR_MAX) * imageArea;
+		int minArea = (int)get(PROC_CONTOUR_MIN) * imageArea;
+		int maxArea = (int)get(PROC_CONTOUR_MAX) * imageArea;
 		
 		CvSeq *approxContour;	
 		CvMoments moments;
@@ -549,7 +549,7 @@ namespace fieldkit { namespace vision
 		CvSeq* contour = contourFirst;
 		for( ; contour != 0; contour = contour->h_next ) {
 			approxContour = cvApproxPoly(contour, sizeof(CvContour), contourStorage, CV_POLY_APPROX_DP, get(PROC_CONTOUR_REDUCE));
-			float area = fabs(cvContourArea(approxContour));
+			float area = (float) fabs(cvContourArea(approxContour));
 			
 			if (area > minArea && area < maxArea) {
 				if(foundBlobCount >= VISION_BLOB_COUNT) {
@@ -562,7 +562,7 @@ namespace fieldkit { namespace vision
 				// update blob
 				Blob *b = foundBlobs[foundBlobCount++];
 				b->isActive = true;
-				b->position = cvPoint(moments.m10/moments.m00, moments.m01/moments.m00);				
+				b->position = cvPoint((int) (moments.m10/moments.m00),(int) (moments.m01/moments.m00));				
 				b->position64f = cvPoint2D64f(moments.m10/moments.m00, moments.m01/moments.m00);
 				b->bounds = cvBoundingRect(approxContour, 0);
 				b->contour = approxContour;
@@ -591,7 +591,7 @@ namespace fieldkit { namespace vision
 			for (j=0; j<VISION_BLOB_COUNT; j++) {
 				found = foundBlobs[j];
 				if(!found->isActive || found->isAssigned) continue;
-				dist = ptDistanceSquared(found->position, tracked->position);
+				dist =(float) ptDistanceSquared(found->position, tracked->position);
 				if(dist < distClosest) {
 					distClosest = dist;
 					match = found;
@@ -736,8 +736,8 @@ namespace fieldkit { namespace vision
 								 float sx3, float sy3,
 								 float sx4, float sy4)
 	{
-		float w = size.width;
-		float h = size.height;
+		float w = (float)size.width;
+		float h = (float)size.height;
 
 		// init source matrix
 		CvMat* src = cvCreateMat(4, 2, CV_32FC1);
@@ -754,12 +754,12 @@ namespace fieldkit { namespace vision
 		CvMat* dst = cvCreateMat(4, 2, CV_32FC1);
 		dst->data.fl[0]=0;
 		dst->data.fl[1]=0;
-		dst->data.fl[2]=size.width;
+		dst->data.fl[2]=(float)size.width;
 		dst->data.fl[3]=0;
-		dst->data.fl[4]=size.width;
-		dst->data.fl[5]=size.height;
+		dst->data.fl[4]=(float)size.width;
+		dst->data.fl[5]=(float)size.height;
 		dst->data.fl[6]=0;
-		dst->data.fl[7]=size.height;
+		dst->data.fl[7]=(float)size.height;
 
 		// check if warp is necessary
 		if (src->data.fl[0] == dst->data.fl[0] && 

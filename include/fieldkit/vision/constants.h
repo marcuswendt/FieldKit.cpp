@@ -64,7 +64,7 @@ namespace fieldkit { namespace vision {
 	{
 		double dx = a.x - b.x;
 		double dy = a.y - b.y;	
-		return (float) dx*dx + dy*dy;
+		return (float) (dx*dx + dy*dy);
 	}
 	
 	inline int iDistanceSquared(int x1, int y1, int x2, int y2)
@@ -78,7 +78,7 @@ namespace fieldkit { namespace vision {
 	{
 		double dx = x1 - x2;
 		double dy = y1 - y2;	
-		return(float) dx*dx + dy*dy;
+		return(float)( dx*dx + dy*dy);
 	}
 	
 	inline double dSqr(double a)
