@@ -163,7 +163,7 @@ void CinderRenderer::drawMesh(Scene* scene, KFbxXMatrix& globalPosition, KFbxMes
 	// Find the texture data
 	if (drawMode == DRAW_MODE_TEXTURED) {
 		KFbxTexture* currentTexture           = NULL;
-		KFbxLayerElementTexture* textureLayer = NULL;
+		//KFbxLayerElementTexture* textureLayer = NULL;
 		KFbxSurfaceMaterial* surfaceMaterial= KFbxCast <KFbxSurfaceMaterial>(mesh->GetNode()->GetSrcObject(KFbxSurfaceMaterial::ClassId, 0));
 
 		if(surfaceMaterial) {

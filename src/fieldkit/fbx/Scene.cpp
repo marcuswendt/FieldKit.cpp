@@ -9,6 +9,8 @@
 
 #include "fieldkit/fbx/Scene.h"
 
+#include "cinder/app/AppBasic.h"
+
 using namespace fieldkit::fbx;
 
 // -- Constructor --------------------------------------------------------------
@@ -59,7 +61,7 @@ void Scene::init() {
 		sdkManager->LoadPluginsDirectory(lPath.Buffer(), lExtension.Buffer());
 	
 	#elif defined(KARCH_ENV_MACOSX)
-		char* lPath = (char*)App::get()->getAppPath().c_str();
+		char* lPath = (char*)ci::app::getAppPath().c_str();
 		sdkManager->LoadPluginsDirectory(lPath, lExtension.Buffer());
 	
 	#endif	

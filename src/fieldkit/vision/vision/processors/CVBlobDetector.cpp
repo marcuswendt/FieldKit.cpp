@@ -438,7 +438,7 @@ namespace fieldkit { namespace vision
 				{
 					float x = (float)defectArray[i].start->x;
 					float y = (float)defectArray[i].start->y;
-					Gesture *gesture = gesturetracker.addFoundPoint(x,y);	
+					//Gesture *gesture = gesturetracker.addFoundPoint(x,y);	
 					CvPoint p;
 					p.x = (int)x; p.y =(int) y;
 					//cvCircle( dstImage, p, 3, CV_RGB(255,255,255), -1, 8,0);
