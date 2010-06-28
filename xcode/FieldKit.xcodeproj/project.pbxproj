@@ -141,6 +141,8 @@
 		2C55A3F011B0610F00041C25 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		2C55A3F111B0610F00041C25 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		2CDD7F4E11D73C7F00711333 /* Initializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CDD7F4D11D73C7F00711333 /* Initializer.h */; };
+		2CDD7F6211D7409C00711333 /* Initializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD7F6011D7409C00711333 /* Initializer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,6 +272,8 @@
 		2C240E4311CFC1DF00856329 /* Vision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vision.cpp; sourceTree = "<group>"; };
 		2C2BEC0511CFB45C00868B71 /* libFBXKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C55A26211B0608700041C25 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CDD7F4D11D73C7F00711333 /* Initializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Initializer.h; path = ../../FieldKit.cpp/include/fieldkit/physics/behaviours/Initializer.h; sourceTree = SOURCE_ROOT; };
+		2CDD7F6011D7409C00711333 /* Initializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Initializer.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/behaviours/Initializer.cpp; sourceTree = SOURCE_ROOT; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		53E3CDFB0E86099300238D2B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -457,16 +461,16 @@
 		2C240DE511CFC1CD00856329 /* physics */ = {
 			isa = PBXGroup;
 			children = (
+				2C240DE811CFC1CD00856329 /* behaviours */,
+				2C240DF511CFC1CD00856329 /* spaces */,
 				2C0E69B411D16DCF0035A10C /* PhysicsKit.h */,
 				2C240DE611CFC1CD00856329 /* Behaviour.h */,
 				2C240DE711CFC1CD00856329 /* Behavioural.h */,
-				2C240DE811CFC1CD00856329 /* behaviours */,
 				2C240DF011CFC1CD00856329 /* Constraint.h */,
 				2C240DF111CFC1CD00856329 /* Emitter.h */,
 				2C240DF211CFC1CD00856329 /* Particle.h */,
 				2C240DF311CFC1CD00856329 /* Physics.h */,
 				2C240DF411CFC1CD00856329 /* Space.h */,
-				2C240DF511CFC1CD00856329 /* spaces */,
 				2C240DF711CFC1CD00856329 /* Spatial.h */,
 				2C240DF811CFC1CD00856329 /* Spring.h */,
 			);
@@ -483,6 +487,7 @@
 				2C240DED11CFC1CD00856329 /* PlaneConstraint.h */,
 				2C240DEE11CFC1CD00856329 /* Random.h */,
 				2C240DEF11CFC1CD00856329 /* SphereConstraint.h */,
+				2CDD7F4D11D73C7F00711333 /* Initializer.h */,
 			);
 			path = behaviours;
 			sourceTree = "<group>";
@@ -601,13 +606,13 @@
 		2C240E2011CFC1DF00856329 /* physics */ = {
 			isa = PBXGroup;
 			children = (
-				2C240E2111CFC1DF00856329 /* Behavioural.cpp */,
+				2C240E2E11CFC1DF00856329 /* spaces */,
 				2C240E2211CFC1DF00856329 /* behaviours */,
+				2C240E2111CFC1DF00856329 /* Behavioural.cpp */,
 				2C240E2A11CFC1DF00856329 /* Emitter.cpp */,
 				2C240E2B11CFC1DF00856329 /* Particle.cpp */,
 				2C240E2C11CFC1DF00856329 /* Physics.cpp */,
 				2C240E2D11CFC1DF00856329 /* Space.cpp */,
-				2C240E2E11CFC1DF00856329 /* spaces */,
 				2C240E3011CFC1DF00856329 /* Spatial.cpp */,
 				2C240E3111CFC1DF00856329 /* Spring.cpp */,
 			);
@@ -624,6 +629,7 @@
 				2C240E2711CFC1DF00856329 /* PlaneConstraint.cpp */,
 				2C240E2811CFC1DF00856329 /* Random.cpp */,
 				2C240E2911CFC1DF00856329 /* SphereConstraint.cpp */,
+				2CDD7F6011D7409C00711333 /* Initializer.cpp */,
 			);
 			path = behaviours;
 			sourceTree = "<group>";
@@ -769,6 +775,7 @@
 				2C240E9211CFC25400856329 /* Spring.h in Headers */,
 				2C240E9311CFC25400856329 /* Tweak.h in Headers */,
 				2C0E69B511D16DCF0035A10C /* PhysicsKit.h in Headers */,
+				2CDD7F4E11D73C7F00711333 /* Initializer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,6 +906,7 @@
 				2C240EA411CFC26B00856329 /* SphereConstraint.cpp in Sources */,
 				2C240EA511CFC26B00856329 /* Spring.cpp in Sources */,
 				2C240EA611CFC26B00856329 /* Tweak.cpp in Sources */,
+				2CDD7F6211D7409C00711333 /* Initializer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

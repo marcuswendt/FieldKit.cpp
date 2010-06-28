@@ -55,11 +55,6 @@ void Particle::updatePosition() {
 	position.y += (position.y - prev.y) + force.y;
 	position.z += (position.z - prev.z) + force.z;
 	
-//		printf("pos: %f %f %f prev %f %f %f force %f %f %f\n", 
-//			   x, y, z, 
-//			   prev.x, prev.y, prev.z, 
-//			   force.x, force.y, force.z);
-	
 	prev.set(tmp);
 	
 	scaleVelocity(drag);
