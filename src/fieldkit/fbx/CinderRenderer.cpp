@@ -10,11 +10,12 @@
 #include "fieldkit/fbx/CinderRenderer.h"
 
 #include "cinder/Camera.h"
+#include "cinder/app/App.h"
 
 using namespace ci;
 using namespace fieldkit::fbx;
 
-fk::fbx::CinderRenderer::CinderRenderer()
+CinderRenderer::CinderRenderer()
 {
 	markerSize = 2.0f;
 	markerColor = ColorA(1,1,1,1);
@@ -37,7 +38,7 @@ void CinderRenderer::setCameraPerspective(double fovY, double aspect,
 										  double nearPlane, double farPlane, 
 										  KFbxVector4& eye, KFbxVector4& center, KFbxVector4& up)
 {
-	CameraPersp	cam = CameraPersp(app::getWindowWidth(), app::getWindowHeight(), (float)fovY);
+	CameraPersp	cam = CameraPersp(ci::app::getWindowWidth(), ci::app::getWindowHeight(), (float)fovY);
 
 	cam.setNearClip((float)nearPlane);
 	cam.setFarClip((float)farPlane);
@@ -74,7 +75,7 @@ void CinderRenderer::setCameraOrthogonal(double leftPlane, double rightPlane,
 
 
 // -- Marker --------------------------------------------------------------------
-void fk::fbx::CinderRenderer::drawMarker(KFbxXMatrix& position)
+void CinderRenderer::drawMarker(KFbxXMatrix& position)
 {
 	gl::color(markerColor);
 	glLineWidth(markerWidth);
@@ -87,7 +88,7 @@ void fk::fbx::CinderRenderer::drawMarker(KFbxXMatrix& position)
 
 
 // -- Skeleton -------------------------------------------------------------------
-void fk::fbx::CinderRenderer::drawLimb(KFbxXMatrix& parentGlobalPosition, KFbxXMatrix& globalPosition)
+void CinderRenderer::drawLimb(KFbxXMatrix& parentGlobalPosition, KFbxXMatrix& globalPosition)
 {
 	gl::color(skeletonColor);
 	glLineWidth(skeletonWidth);
@@ -100,7 +101,7 @@ void fk::fbx::CinderRenderer::drawLimb(KFbxXMatrix& parentGlobalPosition, KFbxXM
 
 
 // -- Lights --------------------------------------------------------------------
-void fk::fbx::CinderRenderer::drawSpotLight(KFbxColor& color, KFbxXMatrix& position, double coneAngle)
+void CinderRenderer::drawSpotLight(KFbxColor& color, KFbxXMatrix& position, double coneAngle)
 {
 	glPushMatrix();
 	glMultMatrixd((double*) position);
@@ -115,7 +116,7 @@ void fk::fbx::CinderRenderer::drawSpotLight(KFbxColor& color, KFbxXMatrix& posit
 	glPopMatrix();
 }
 
-void fk::fbx::CinderRenderer::drawLight(KFbxColor& color, KFbxXMatrix& position)
+void CinderRenderer::drawLight(KFbxColor& color, KFbxXMatrix& position)
 {
 	glPushMatrix();
 	glMultMatrixd((double*) position);
@@ -125,7 +126,7 @@ void fk::fbx::CinderRenderer::drawLight(KFbxColor& color, KFbxXMatrix& position)
 }
 
 // -- NULL ----------------------------------------------------------------------
-void fk::fbx::CinderRenderer::drawNull(KFbxXMatrix& position)
+void CinderRenderer::drawNull(KFbxXMatrix& position)
 {
 	float s = nullSize * 0.5f;
 	glPushMatrix();
@@ -138,12 +139,12 @@ void fk::fbx::CinderRenderer::drawNull(KFbxXMatrix& position)
 }
 
 // -- Camera -------------------------------------------------------------------
-void fk::fbx::CinderRenderer::drawCamera(KFbxXMatrix& position, double roll)
+void CinderRenderer::drawCamera(KFbxXMatrix& position, double roll)
 {
 	// TODO
 }
 
-void fk::fbx::CinderRenderer::drawMesh(Scene* scene, KFbxXMatrix& globalPosition, KFbxMesh* mesh, KFbxVector4* vertexArray)
+void CinderRenderer::drawMesh(Scene* scene, KFbxXMatrix& globalPosition, KFbxMesh* mesh, KFbxVector4* vertexArray)
 {
 	int drawMode = 
 		(meshDrawMode == DRAW_MODE_TEXTURED && 
@@ -205,7 +206,7 @@ void fk::fbx::CinderRenderer::drawMesh(Scene* scene, KFbxXMatrix& globalPosition
 		glTexEnvi( GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE, GL_REPLACE);
 
 		// TODO
-		console() << "Warning! CinderRenderer::drawMesh DRAW_MODE_TEXTURED not properly implemented yet \n";
+		logger() << "Warning! CinderRenderer::drawMesh DRAW_MODE_TEXTURED not properly implemented yet \n";
 //		glTexImage2D(GL_TEXTURE_2D, 0,  3, lTexture->mW, lTexture->mH, 0,  GL_BGR_EXT,  GL_UNSIGNED_BYTE,  lTexture->mImageData);
 
 	} else if(drawMode == DRAW_MODE_WIREFRAME) {

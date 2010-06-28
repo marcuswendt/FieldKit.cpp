@@ -16,11 +16,10 @@ namespace fieldkit { namespace physics {
 	
 	class Particle : public Spatial {
 	public:
-		list<Spatial*> neighbours;
-		BoundingVolume *neighbourBound;
-		
+		//! Lifetime set to infinite
+		const static int LIFETIME_PERPETUAL = -1;
+
 		int state;
-		
 		float age;
 		float lifeTime;
 		
@@ -50,6 +49,10 @@ namespace fieldkit { namespace physics {
 		//! force accumulator applied to this particle (set to zero after each update)
 		Vec3f force;
 		
+		//! list of neighbours this particle is aware of
+		list<Spatial*> neighbours;
+		BoundingVolume *neighbourBound;
+
 		Particle();
 		~Particle() {};
 		

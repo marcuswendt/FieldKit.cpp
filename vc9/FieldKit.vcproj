@@ -165,11 +165,19 @@
 			<Filter
 				Name="fieldkit"
 				>
+				<File
+					RelativePath="..\src\fieldkit\Logger.cpp"
+					>
+				</File>
 				<Filter
 					Name="math"
 					>
 					<File
 						RelativePath="..\src\fieldkit\math\AABB.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\src\fieldkit\math\MathKit.cpp"
 						>
 					</File>
 					<File
@@ -228,6 +236,10 @@
 							>
 						</File>
 						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\Initializer.cpp"
+							>
+						</File>
+						<File
 							RelativePath="..\src\fieldkit\physics\behaviours\PlaneConstraint.cpp"
 							>
 						</File>
@@ -275,6 +287,10 @@
 					RelativePath="..\include\fieldkit\FieldKit.h"
 					>
 				</File>
+				<File
+					RelativePath="..\include\fieldkit\Logger.h"
+					>
+				</File>
 				<Filter
 					Name="math"
 					>
@@ -284,6 +300,10 @@
 					</File>
 					<File
 						RelativePath="..\include\fieldkit\math\BoundingVolume.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\fieldkit\math\MathKit.h"
 						>
 					</File>
 					<File
@@ -343,6 +363,10 @@
 						</File>
 						<File
 							RelativePath="..\include\fieldkit\physics\behaviours\Force.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\Initializer.h"
 							>
 						</File>
 						<File

@@ -21,6 +21,9 @@ namespace fieldkit { namespace physics {
 		
 		void apply(ParticlePtr p);
 		
+		void setPerpetual(bool value);
+		bool isPerpetiual();
+		
 		// Accessors
 		void setState(int value) { state = value; }
 		int getState() { return state; }
@@ -56,10 +59,10 @@ namespace fieldkit { namespace physics {
 		Vec3f getForceVariance() { return forceVariance; }
 		
 		void setLock(bool value) { lock = value; }
-		Vec3f getLock() { return lock; }
+		bool getLock() { return lock; }
 		
-		void setLockVariance(float value) { lockVariance = value; }
-		float getLockVariance() { return lockVariance; }
+		void setLockChance(float value) { lockChance = value; }
+		float getLockChance() { return lockChance; }
 		
 	protected:
 		int state;
@@ -80,7 +83,9 @@ namespace fieldkit { namespace physics {
 		Vec3f forceVariance;
 		
 		bool lock;
-		float lockVariance;
+		float lockChance;
+
+		float getVariant(float value, float variance);
 	};
 	
 } } // namespace fieldkit::physics

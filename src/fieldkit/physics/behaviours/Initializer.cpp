@@ -8,7 +8,9 @@
  */
 
 #include "fieldkit/physics/behaviours/Initializer.h"
+#include "fieldkit/math/MathKit.h"
 
+using namespace fieldkit::math;
 using namespace fieldkit::physics;
 
 Initializer::Initializer() {
@@ -30,8 +32,47 @@ Initializer::Initializer() {
 	forceVariance = Vec3f();
 	
 	lock = false;
-	lockVariance = 0.0f;
+	lockChance = 0.0f;
 }
 
+
 void Initializer::apply(ParticlePtr p) {
+	p->lifeTime = getVariant(lifeTime, lifeTimeVariance);
+	p->size = getVariant(size, sizeVariance);
+	p->setWeight( getVariant(weight, weightVariance) );
+	p->drag = getVariant(drag, dragVariance);
+
+	p->force.x = getVariant(force.x, forceVariance.x);
+	p->force.y = getVariant(force.y, forceVariance.y);
+	p->force.z = getVariant(force.z, forceVariance.z);
+
+	if(lock)
+		p->isLocked = flipCoin(lockChance);
 }
+
+
+// -- Helpers -----------------------------------------------------------------
+float Initializer::getVariant( float value, float variance )
+{
+	float invariant = value * (1.0f - variance);
+	float variant = value * variance * randFloat();
+	return invariant + variant;
+}
+
+
+bool Initializer::isPerpetiual()
+{
+	return lifeTime == Particle::LIFETIME_PERPETUAL;
+}
+
+
+void Initializer::setPerpetual( bool value )
+{
+	if(value) {
+		lifeTime = Particle::LIFETIME_PERPETUAL;
+		lifeTimeVariance = 0.0f;
+	} else {
+		lifeTime = 1000.0f;
+	}
+}
+

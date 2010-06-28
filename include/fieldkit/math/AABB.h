@@ -6,12 +6,15 @@
  *   
  *	 Created by Marcus Wendt on 24/05/2010.
  */
+
 #pragma once
 
 #include "fieldkit/FieldKit.h"
 #include "fieldkit/math/BoundingVolume.h"
 
 namespace fieldkit { namespace math {
+
+	//! An axis aligned bounding box
 	class AABB : public BoundingVolume {
 	public:
 		Vec3f min;
@@ -41,4 +44,5 @@ namespace fieldkit { namespace math {
 	protected:
 		void updateBounds();
 	};
+
 } } // namespace fieldkit::math

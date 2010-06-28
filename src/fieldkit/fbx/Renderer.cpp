@@ -11,8 +11,7 @@
 
 using namespace fieldkit::fbx;
 
-
-void fk::fbx::Renderer::clearDelegates()
+void Renderer::clearDelegates()
 {
 	markerRenderer = NULL;
 	skeletonRenderer = NULL;
@@ -24,7 +23,7 @@ void fk::fbx::Renderer::clearDelegates()
 }
 
 // -- Perspective ------------------------------------------------------------
-void fk::fbx::Renderer::drawPerspective(Scene* scene, double orthoCameraScale)
+void Renderer::drawPerspective(Scene* scene, double orthoCameraScale)
 {
 	// check if renderer is set
 	if(perspectiveRenderer == NULL) return;
@@ -162,7 +161,7 @@ void fk::fbx::Renderer::drawPerspective(Scene* scene, double orthoCameraScale)
 
 
 // -- Scene --------------------------------------------------------------------
-void fk::fbx::Renderer::drawScene(Scene* scene)
+void Renderer::drawScene(Scene* scene)
 {
 	KFbxScene* fbxScene = scene->fbxScene;
 	KFbxXMatrix lDummyGlobalPosition;
@@ -173,7 +172,7 @@ void fk::fbx::Renderer::drawScene(Scene* scene)
 	}
 }
 
-void fk::fbx::Renderer::drawNodeRecursive(Scene* scene, KFbxNode* node, KFbxXMatrix& parentGlobalPosition) 
+void Renderer::drawNodeRecursive(Scene* scene, KFbxNode* node, KFbxXMatrix& parentGlobalPosition) 
 {
 	// Compute the node's global position.
 	KFbxXMatrix lGlobalPosition = scene->getGlobalPosition(node, scene->currentTime, &parentGlobalPosition);
@@ -192,7 +191,7 @@ void fk::fbx::Renderer::drawNodeRecursive(Scene* scene, KFbxNode* node, KFbxXMat
 	}
 }
 
-void fk::fbx::Renderer::drawNode(Scene* scene, KFbxNode* node, 
+void Renderer::drawNode(Scene* scene, KFbxNode* node, 
 								 KFbxXMatrix& parentGlobalPosition, KFbxXMatrix globalOffPosition,
 								 KFbxPose* pose)
 {
@@ -232,7 +231,7 @@ void fk::fbx::Renderer::drawNode(Scene* scene, KFbxNode* node,
 
 
 // -- Marker --------------------------------------------------------------------
-void fk::fbx::Renderer::drawMarker(KFbxXMatrix& globalPosition)
+void Renderer::drawMarker(KFbxXMatrix& globalPosition)
 {
 	if(markerRenderer == NULL) return;
 	markerRenderer->drawMarker(globalPosition);
@@ -240,7 +239,7 @@ void fk::fbx::Renderer::drawMarker(KFbxXMatrix& globalPosition)
 
 
 // -- Skeleton -------------------------------------------------------------------
-void fk::fbx::Renderer::drawSkeleton(KFbxNode* node, KFbxXMatrix& parentGlobalPosition, KFbxXMatrix& globalPosition)
+void Renderer::drawSkeleton(KFbxNode* node, KFbxXMatrix& parentGlobalPosition, KFbxXMatrix& globalPosition)
 {
 	if(skeletonRenderer == NULL) return;
 
@@ -258,7 +257,7 @@ void fk::fbx::Renderer::drawSkeleton(KFbxNode* node, KFbxXMatrix& parentGlobalPo
 }
 
 // -- Mesh ----------------------------------------------------------------------
-void fk::fbx::Renderer::drawMesh(Scene* scene, KFbxNode* node, KFbxXMatrix& globalPosition, KFbxPose* pose)
+void Renderer::drawMesh(Scene* scene, KFbxNode* node, KFbxXMatrix& globalPosition, KFbxPose* pose)
 {
 	if(meshRenderer == NULL) return;
 
@@ -304,7 +303,7 @@ void fk::fbx::Renderer::drawMesh(Scene* scene, KFbxNode* node, KFbxXMatrix& glob
 	delete [] vertexArray;
 }
 
-void fk::fbx::Renderer::readVertexCacheData(KFbxMesh* mesh, KTime& time, KFbxVector4* vertexArray)
+void Renderer::readVertexCacheData(KFbxMesh* mesh, KTime& time, KFbxVector4* vertexArray)
 {
 	KFbxVertexCacheDeformer* deformer     = static_cast<KFbxVertexCacheDeformer*>(mesh->GetDeformer(0, KFbxDeformer::eVERTEX_CACHE));
 	KFbxCache*               cache        = deformer->GetCache();
@@ -338,7 +337,7 @@ void fk::fbx::Renderer::readVertexCacheData(KFbxMesh* mesh, KTime& time, KFbxVec
 	delete [] readBuf;
 }
 
-void fk::fbx::Renderer::computeClusterDeformation(Scene* scene,
+void Renderer::computeClusterDeformation(Scene* scene,
 												  KFbxXMatrix& globalPosition, 
 												  KFbxMesh* mesh, 
 												  KFbxVector4* vertexArray,
@@ -479,7 +478,7 @@ void fk::fbx::Renderer::computeClusterDeformation(Scene* scene,
 	delete [] clusterWeight;
 }
 
-void fk::fbx::Renderer::computeShapeDeformation(Scene* scene, KFbxNode* node, KFbxMesh* mesh, KFbxVector4* vertexArray)
+void Renderer::computeShapeDeformation(Scene* scene, KFbxNode* node, KFbxMesh* mesh, KFbxVector4* vertexArray)
 {
 	int i, j;
 	int shapeCount = mesh->GetShapeCount();
@@ -510,7 +509,7 @@ void fk::fbx::Renderer::computeShapeDeformation(Scene* scene, KFbxNode* node, KF
 
 
 // -- Light ---------------------------------------------------------------------
-void fk::fbx::Renderer::drawLight(Scene* scene, KFbxNode* node, KFbxXMatrix& globalPosition)
+void Renderer::drawLight(Scene* scene, KFbxNode* node, KFbxXMatrix& globalPosition)
 {
 	if(lightRenderer == NULL) return;
 	
@@ -554,7 +553,7 @@ void fk::fbx::Renderer::drawLight(Scene* scene, KFbxNode* node, KFbxXMatrix& glo
 
 
 // -- Camera ---------------------------------------------------------------------
-void fk::fbx::Renderer::drawCamera(Scene* scene, KFbxNode* node, KFbxXMatrix& globalPosition)
+void Renderer::drawCamera(Scene* scene, KFbxNode* node, KFbxXMatrix& globalPosition)
 {
 	if(cameraRenderer == NULL) return;
 
@@ -603,7 +602,7 @@ void fk::fbx::Renderer::drawCamera(Scene* scene, KFbxNode* node, KFbxXMatrix& gl
 
 
 // -- NULL ---------------------------------------------------------------------
-void fk::fbx::Renderer::drawNull(KFbxXMatrix& globalPosition)
+void Renderer::drawNull(KFbxXMatrix& globalPosition)
 {
 	if(nullRenderer == NULL) return;
 	nullRenderer->drawNull(globalPosition);

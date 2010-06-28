@@ -6,12 +6,15 @@
  *   
  *	 Created by Marcus Wendt on 06/06/2010.
  */
+
 #pragma once
 
 #include "fieldkit/FieldKit.h"
 #include "fieldkit/math/BoundingVolume.h"
 
 namespace fieldkit { namespace math {
+
+	//! A Sphere that can be used as bounding volume
 	class Sphere : public BoundingVolume {
 	public:
 		Vec3f center;
@@ -33,4 +36,5 @@ namespace fieldkit { namespace math {
 		void setRadius(float value) { radius = value; };
 		float getRadius() { return radius; };
 	};
+
 } } // namespace fieldkit::math

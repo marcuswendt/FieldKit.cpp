@@ -10,6 +10,7 @@
 #pragma once
 
 #include "fieldkit/fbx/FBXKit.h"
+#include "cinder/Color.h"
 
 namespace fieldkit { namespace fbx {
 

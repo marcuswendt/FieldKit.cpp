@@ -43,7 +43,7 @@ void Particle::update(float dt) {
 // update lifecycle
 void Particle::updateState(float dt) {
 	age += dt;
-	if(age > lifeTime)
+	if(lifeTime != LIFETIME_PERPETUAL && age > lifeTime)
 		isAlive = false;	
 }
 

@@ -39,7 +39,7 @@ void SceneController::nextAnimation()
 
 void SceneController::setCamera(int index)
 {
-	console() << "SceneController::setCamera("<< index <<")"<< std::endl;
+	logger() << "SceneController::setCamera("<< index <<")"<< std::endl;
 
 	cameraIndex = index;
 	KFbxGlobalSettings& settings = scene->fbxScene->GetGlobalSettings();
@@ -70,12 +70,12 @@ void SceneController::update() {
 	}
 }
 
-void fk::fbx::SceneController::setSpeed( float ms )
+void SceneController::setSpeed( float ms )
 {
 	scene->period.SetMilliSeconds( (long) ms );
 }
 
-float fk::fbx::SceneController::getSpeed()
+float SceneController::getSpeed()
 {
 	return (float)scene->period.GetMilliSeconds();
 }

@@ -4,20 +4,25 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   BoundingVolume.h
- *	 Created by Marcus Wendt on 23/05/2010.
+ *	 Created by Marcus Wendt on 28/06/2010.
  */
 
 #pragma once
 
 #include "fieldkit/FieldKit.h"
 
+// Global math helper methods
 namespace fieldkit { namespace math {
 
-class BoundingVolume {
-	public:
-		Vec3f position;
-		virtual bool contains(Vec3f p) = 0;
-};
+	const float randFloat();
+	const float randFloat(float range);
+	const float randFloat(float from, float to);
+	const bool flipCoin(float chance);
 
 } } // namespace fieldkit::math
+
+
+// Bounding Volumes
+#include "fieldkit/math/BoundingVolume.h"
+#include "fieldkit/math/AABB.h"
+#include "fieldkit/math/Sphere.h"

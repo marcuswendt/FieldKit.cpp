@@ -8,15 +8,14 @@
  */
 
 #include "fieldkit/physics/behaviours/Random.h"
+#include "fieldkit/math/MathKit.h"
 
-#include "cinder/Rand.h"
-
-using namespace ci;
+using namespace fieldkit::math;
 using namespace fieldkit::physics;
 
 void BoxRandom::apply(ParticlePtr p) {
-	p->position.x = Rand::randFloat(min.x, max.x);
-	p->position.y = Rand::randFloat(min.y, max.y);
-	p->position.z = Rand::randFloat(min.z, max.z);
+	p->position.x = randFloat(min.x, max.x);
+	p->position.y = randFloat(min.y, max.y);
+	p->position.z = randFloat(min.z, max.z);
 	p->clearVelocity();
 }

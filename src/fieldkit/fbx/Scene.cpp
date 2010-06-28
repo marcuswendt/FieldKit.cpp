@@ -37,7 +37,7 @@ void Scene::init() {
     sdkManager = KFbxSdkManager::Create();
 	
     if (!sdkManager) {
-		console() << ("Unable to create the FBX SDK manager\n");
+		logger() << ("Unable to create the FBX SDK manager\n");
         exit(-1000);
     }
 	
@@ -72,7 +72,7 @@ void Scene::init() {
 // -- Actions ----------------------------------------------------------------
 void Scene::setAnimation(int index)
 {
-	console() << "Scene::setAnimation("<< index <<")"<< std::endl;
+	logger() << "Scene::setAnimation("<< index <<")"<< std::endl;
 
 	int numAnimStacks = animationNames.GetCount();
 	if (!numAnimStacks || index >= numAnimStacks) {
@@ -83,7 +83,7 @@ void Scene::setAnimation(int index)
 	KFbxAnimStack* currentAnimationStack = fbxScene->FindMember(FBX_TYPE(KFbxAnimStack), animationNames[index]->Buffer());
 	if (currentAnimationStack == NULL) {
 		// this is a problem. The anim stack should be found in the scene!
-		console() << "The anim stack should be found in the scene!\n";
+		logger() << "The anim stack should be found in the scene!\n";
 		return;
 	}
 

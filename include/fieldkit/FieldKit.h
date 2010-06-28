@@ -9,30 +9,32 @@
 
 #pragma once
 
+//! FieldKit globals
+namespace fieldkit {};
+// Create a namepace alias as shorthand for fieldkit::
+namespace fk = fieldkit;
+
+#include "fieldkit/Logger.h"
+
+// -- STL ---------------------------------------------------------------------
 #include <list>
 #include <vector>
 #include <string>
 
+using namespace std;
+
+
+// -- Boost ------------------------------------------------------------------
 #include <boost/foreach.hpp>
 #include <boost/format.hpp> 
-
-#include "cinder/Cinder.h"
-#include "cinder/Vector.h"
-#include "cinder/app/AppBasic.h"
 
 using boost::format;
 using boost::io::group;
 
-using namespace std;
 
-// uses from Cinder
+// -- Cinder -----------------------------------------------------------------
+#include "cinder/Cinder.h"
+#include "cinder/Vector.h"
+
 using ci::Vec3f;
 using ci::EPSILON_VALUE;
-using namespace ci::app;
-
-namespace fieldkit {
-	// fieldkit globals
-};
-
-// Create a namepace alias as shorthand for fieldkit::
-namespace fk = fieldkit;
