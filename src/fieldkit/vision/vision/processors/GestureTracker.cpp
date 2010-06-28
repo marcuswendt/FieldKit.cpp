@@ -10,7 +10,7 @@ using namespace fieldkit::vision;
 
 GestureTracker::GestureTracker()
 {
-	trackingRange = 0.1;
+	trackingRange = 0.1f;
 	setFrameSize(0,0,320,240);
 }
 

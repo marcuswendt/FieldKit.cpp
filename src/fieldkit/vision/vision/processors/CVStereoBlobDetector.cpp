@@ -86,7 +86,7 @@ namespace fieldkit { namespace vision
 //				pointFinger.x = pointLeft.x;
 //				pointFinger.y = pointLeft.y;
 				
-				blob->position = cvPoint(pointFinger.x, pointFinger.y);
+				blob->position = cvPoint((int)pointFinger.x, (int)pointFinger.y);
 				blob->position64f = pointFinger;
 			}
 		}

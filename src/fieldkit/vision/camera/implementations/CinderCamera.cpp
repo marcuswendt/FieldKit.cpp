@@ -76,7 +76,6 @@ namespace fieldkit { namespace vision
 	// -------------------------------------------------------------------------
 	// HELPERS
 	// -------------------------------------------------------------------------
-#pragma mark -- Helpers --
 	IplImage* CinderCamera::getImage(int channel)
 	{
 		return image;
