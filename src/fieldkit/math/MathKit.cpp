@@ -11,8 +11,13 @@
 
 #include "cinder/Rand.h"
 
+const  bool fieldkit::math::flipCoin( float chance )
+{
+	return randFloat() > chance;
+}
 
-// -- Random Number Generators ---------------------------------------------
+
+// -- Random Float ----------------------------------------------------------
 const float fieldkit::math::randFloat() 
 {
 	return ci::Rand::randFloat();
@@ -28,7 +33,24 @@ const float fieldkit::math::randFloat( float from, float to )
 	return ci::Rand::randFloat(from, to);
 }
 
-const  bool fieldkit::math::flipCoin( float chance )
+
+// -- Random Vec3 -----------------------------------------------------------
+const Vec3f fieldkit::math::randVec3f()
 {
-	return randFloat() > chance;
+	return Vec3f(randFloat(), randFloat(), randFloat());
+}
+
+const Vec3f fieldkit::math::randVec3f( float range )
+{
+	return Vec3f(randFloat(range), randFloat(range), randFloat(range));
+}
+
+const Vec3f fieldkit::math::randVec3f( float from, float to )
+{
+	return Vec3f(randFloat(from, to), randFloat(from, to), randFloat(from, to));
+}
+
+const Vec3f fieldkit::math::randNormal()
+{
+	return randVec3f(-1.0f, 1.0f);
 }
