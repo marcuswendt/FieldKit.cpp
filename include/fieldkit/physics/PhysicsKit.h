@@ -23,6 +23,7 @@
 #include "fieldkit/physics/behaviours/Boundary.h"
 #include "fieldkit/physics/behaviours/Flocking.h"
 #include "fieldkit/physics/behaviours/Force.h"
+#include "fieldkit/physics/behaviours/Initializer.h"
 #include "fieldkit/physics/behaviours/PlaneConstraint.h"
 #include "fieldkit/physics/behaviours/Random.h"
 #include "fieldkit/physics/behaviours/SphereConstraint.h"
