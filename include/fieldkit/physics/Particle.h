@@ -51,6 +51,8 @@ namespace fieldkit { namespace physics {
 		
 		//! list of neighbours this particle is aware of
 		list<Spatial*> neighbours;
+		
+		//! the bounding volume used to detect collisions between neighbours
 		BoundingVolume *neighbourBound;
 
 		Particle();
@@ -62,7 +64,6 @@ namespace fieldkit { namespace physics {
 		
 		virtual void updateState(float dt);
 		virtual void updatePosition();
-		Vec3f *getSpatialPosition(){ return &position; };
 
 		// verlet integration
 		void lock();
@@ -76,11 +77,13 @@ namespace fieldkit { namespace physics {
 		inline float getInvWeight() { return this->invWeight; };
 		Vec3f getVelocity();
 		float getSpeed();
-
+		Vec3f *getSpatialPosition(){ return &position; };
+		
 	protected:
 		Vec3f tmp;
 	};
 	
-	typedef vector<Particle>::iterator ParticlePtr;
+	//typedef vector<Particle>::iterator ParticlePtr;
+	typedef Particle* ParticlePtr;
 	
 } } // namespace fieldkit::physics

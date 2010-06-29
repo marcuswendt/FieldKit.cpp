@@ -11,18 +11,21 @@
 
 using namespace fieldkit::physics;
 
-Physics::Physics(Space* space) {
+Physics::Physics(Space* space) 
+{
 	this->space = space;
 	emitter = NULL;
 	numParticles = 0;
 }
 
-Physics::~Physics() {
+Physics::~Physics() 
+{
 	particles.clear();
 	springs.clear();
 }
 
-void Physics::update(float dt) {
+void Physics::update(float dt)
+{
 	if(emitter != NULL)
 		emitter->update(dt);
 	
@@ -33,31 +36,38 @@ void Physics::update(float dt) {
 
 // -- Particles ------------------------------------------------------------
 // check if we still have a dead particle that we can reuse, otherwise create a new one
-ParticlePtr Physics::createParticle() {
+ParticlePtr Physics::createParticle() 
+{
 	numParticles++;
-	for(ParticlePtr pIt = particles.begin(); pIt != particles.end();) {
-		if(!pIt->isAlive) return pIt;
-		pIt++;
+	//for(ParticlePtr pIt = particles.begin(); pIt != particles.end();) {
+	BOOST_FOREACH(ParticlePtr p, particles) {
+		if(!p->isAlive) return p;
 	}
-	printf("WARNING: running out of particles\n");
+	
+	logger() << "WARNING: running out of particles" << std::endl;
 	// FIXME
-	return particles.begin();
+	return particles[0];
 }
 
 // allocates a bunch of new particles
-void Physics::allocParticles(int count) {
+void Physics::allocParticles(int count) 
+{
 	particles.reserve(count);
-	//while(particles.size() < count) {
-	for(int i =0; i< count ;i++){
-		particles.push_back( Particle());
+	for(int i=0; i<count; i++){
+		particles.push_back( allocParticle() );
 	}
-	//}
+}
+
+// allocates a single particle, override this method to create custom Particle types
+ParticlePtr Physics::allocParticle()
+{
+	return new Particle();
 }
 
 // updates all particles by applying all behaviours and constraints
-void Physics::updateParticles(float dt) {
+void Physics::updateParticles(float dt) 
+{
 	// prepare behaviours & constraints
-
 	BOOST_FOREACH(Behaviour* b, behaviours) {
 		b->prepare(dt);
 	}
@@ -67,7 +77,8 @@ void Physics::updateParticles(float dt) {
 	}
 	
 	// update all particles
-	for(ParticlePtr p = particles.begin(); p != particles.end(); p++) {
+	//for(ParticlePtr p = particles.begin(); p != particles.end(); p++) {
+	BOOST_FOREACH(ParticlePtr p, particles) {
 		if(!p->isAlive) continue;
 		
 		// apply behaviours
@@ -92,17 +103,20 @@ void Physics::updateParticles(float dt) {
 
 
 // -- Springs --------------------------------------------------------------
-void Physics::addSpring(Spring* spring) {
+void Physics::addSpring(Spring* spring) 
+{
 	springs.push_back(spring);
 }
 
-void Physics::removeSpring(Spring* spring) {
+void Physics::removeSpring(Spring* spring)
+{
 	// TODO
 //	springs.erase(spring);
 }
 
 // updates all spring connections based on new particle positions
-void Physics::updateSprings() {
+void Physics::updateSprings() 
+{
 	// update all springs
 	BOOST_FOREACH(Spring* s, springs) {
 		s->update();
@@ -116,7 +130,8 @@ void Physics::updateSprings() {
 }
 
 // -- Neighbours -----------------------------------------------------------
-void Physics::updateNeighbours() {
+void Physics::updateNeighbours()
+{
 	/* 
 	BOOST_FOREACH(Particle p, particles) {
 		if(p.neighbourBound) {

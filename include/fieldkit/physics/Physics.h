@@ -29,7 +29,7 @@ namespace fieldkit { namespace physics {
 		virtual void update(float dt);
 	
 		// -- Particles --------------------------------------------------------
-		vector<Particle> particles;
+		vector<Particle*> particles;
 			
 		ParticlePtr createParticle();	
 		void allocParticles(int count);
@@ -49,6 +49,8 @@ namespace fieldkit { namespace physics {
 		virtual void updateParticles(float dt);
 		virtual void updateSprings();
 		virtual void updateNeighbours();
+		
+		virtual ParticlePtr allocParticle();
 	};
 
 } 

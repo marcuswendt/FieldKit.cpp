@@ -47,7 +47,7 @@ void Particle::updateState(float dt) {
 		isAlive = false;	
 }
 
-// -- verlet integration ---------------------------------------------------
+// -- Verlet Integration -------------------------------------------------------
 void Particle::updatePosition() {
 	tmp.set(position);
 	
@@ -82,7 +82,6 @@ void Particle::setWeight(float value) {
 	this->weight = value;
 	this->invWeight = 1.0f / value;
 }
-
 
 Vec3f fk::physics::Particle::getVelocity()
 {
