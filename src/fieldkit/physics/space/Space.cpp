@@ -4,19 +4,21 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *	 Created by David Hoe on 27/05/2010.
+ *	 Created by Marcus Wendt on 23/05/2010.
  */
-#pragma once
 
-#include "fieldkit/physics/Space.h"
-#include "fieldkit/FieldKit.h"
+#include "fieldkit/physics/space/Space.h"
 
-namespace fieldkit{ namespace physics{
+using namespace fieldkit::physics;
 
-class OctTree : public Space
-{
-public:
-	//TODO
-};
+Vec3f Space::getCenter() {
+	return this->position;
+}
 
-}} //fk::physics
+float Space::toAbsolute(float value) {
+	return value * getWidth();
+}
+
+float Space::toRelative(float value) {
+	return value / getWidth();
+}

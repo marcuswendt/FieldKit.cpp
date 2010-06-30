@@ -6,11 +6,10 @@
  *   
  *	 Created by Marcus Wendt on 20/05/2010.
  */
+
 #pragma once
 
-#include "fieldkit/FieldKit.h"
-#include "fieldkit/physics/Spatial.h"
-#include "fieldkit/math/BoundingVolume.h"
+#include "fieldkit/physics/PhysicsKit.h"
 
 namespace fieldkit { namespace physics {
 	
@@ -53,7 +52,7 @@ namespace fieldkit { namespace physics {
 		list<Spatial*> neighbours;
 		
 		//! the bounding volume used to detect collisions between neighbours
-		BoundingVolume *neighbourBound;
+		BoundingVolume* bounds;
 
 		Particle();
 		~Particle() {};
@@ -77,13 +76,11 @@ namespace fieldkit { namespace physics {
 		inline float getInvWeight() { return this->invWeight; };
 		Vec3f getVelocity();
 		float getSpeed();
-		Vec3f *getSpatialPosition(){ return &position; };
+
+		Vec3f getSpatialPosition() { return position; };
 		
 	protected:
 		Vec3f tmp;
 	};
-	
-	//typedef vector<Particle>::iterator ParticlePtr;
-	typedef Particle* ParticlePtr;
 	
 } } // namespace fieldkit::physics

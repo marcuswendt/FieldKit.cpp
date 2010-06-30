@@ -7,12 +7,12 @@
  *	 Created by Marcus Wendt on 29/05/2010.
  */
 
-#include "fieldkit/physics/behaviours/Boundary.h"
+#include "fieldkit/physics/behaviour/Boundary.h"
 
 using namespace fieldkit::physics;
 	
 // -- BoxWrap ------------------------------------------------------------------
-void BoxWrap::apply(ParticlePtr p) {
+void BoxWrap::apply(Particle* p) {
 	
 	bool wrapped = false;
 	

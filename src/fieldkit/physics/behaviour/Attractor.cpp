@@ -7,7 +7,7 @@
  *	 Created by Marcus Wendt on 27/05/2010.
  */
 
-#include "fieldkit/physics/behaviours/Attractor.h"
+#include "fieldkit/physics/behaviour/Attractor.h"
 
 using namespace fieldkit::physics;
 
@@ -17,7 +17,7 @@ void AttractorPoint::prepare(float dt) {
 	rangeAbsSq = rangeAbs * rangeAbs;
 }
 
-void AttractorPoint::apply(ParticlePtr p) {
+void AttractorPoint::apply(Particle* p) {
 
 	Vec3f delta = position - p->position;
 	float distSq = delta.lengthSquared();

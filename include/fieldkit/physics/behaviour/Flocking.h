@@ -31,19 +31,19 @@ namespace fieldkit { namespace physics {
 	class FlockAlign : public FlockBaseBehaviour {
 	public:
 		FlockAlign(Space* space) : FlockBaseBehaviour(space){};
-		void apply(ParticlePtr Particle);
+		void apply(Particle* Particle);
 	};
 	
 	class FlockAttract : public FlockBaseBehaviour{
 	public:
 		FlockAttract(Space* space) : FlockBaseBehaviour(space){};
-		void apply(ParticlePtr Particle);
+		void apply(Particle* Particle);
 	};
 	
 	class FlockRepel : public FlockBaseBehaviour {
 	public:
 		FlockRepel(Space* space) : FlockBaseBehaviour(space){};
-		void apply(ParticlePtr Particle);
+		void apply(Particle* Particle);
 	};
 
 } } // namespace fieldkit::physics

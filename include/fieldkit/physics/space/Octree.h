@@ -4,22 +4,22 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *	 Created by Marcus Wendt on 20/05/2010.
+ *	 Created by Marcus Wendt on 30/06/2010.
  */
 
 #pragma once
 
-#include "fieldkit/physics/Behaviour.h"
+#include "fieldkit/physics/PhysicsKit.h"
 
 namespace fieldkit { namespace physics {
 
-	class Constraint : public Behaviour {
-	//class Constraint {
-	//	Constraint() {};
-	//	~Constraint() {};
+	class Octree : public Space {
+	public:
+		Octree() {};
+		~Octree() {};
 
-	//	virtual void prepare(float dt) {};
-	//	virtual void apply(Particle* p) = 0;
+		// override from space
+		void select(BoundingVolume* volume, list<Spatial*> result);
 	};
-	
+
 } } // namespace fieldkit::physics

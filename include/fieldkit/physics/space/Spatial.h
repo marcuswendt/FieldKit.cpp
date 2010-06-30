@@ -4,29 +4,24 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Spatial.h
  *	 Created by Marcus Wendt on 24/05/2010.
  */
+
 #pragma once
 
-#include "fieldkit/math/BoundingVolume.h"
-using namespace fieldkit::math;
-#include "fieldkit/FieldKit.h"
+//#include "fieldkit/FieldKit.h"
+#include "fieldkit/physics/PhysicsKit.h"
 
-namespace fieldkit { 
-namespace physics {
+namespace fieldkit { namespace physics {
 
-enum SPATIAL_TYPE{
-	SPATIAL_TYPE_PARTICLE
-};
+	//! interface for all types of elements that can be put into a space
+	class Spatial {
+	public:
+		Spatial() {};
+		~Spatial() {};
 
-class Spatial
-{
-public:
-	
-	Spatial(){};
-	virtual Vec3f *getSpatialPosition(){ return 0; };
-};
+		virtual Vec3f getSpatialPosition() = 0;
+		//virtual BoundingVolume getSpatialBounds() = 0;
+	};
 
-} 
-} // namespace fieldkit::physics
+} } // namespace fieldkit::physics

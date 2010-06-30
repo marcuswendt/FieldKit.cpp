@@ -36,11 +36,11 @@ void Physics::update(float dt)
 
 // -- Particles ------------------------------------------------------------
 // check if we still have a dead particle that we can reuse, otherwise create a new one
-ParticlePtr Physics::createParticle() 
+Particle* Physics::createParticle() 
 {
 	numParticles++;
-	//for(ParticlePtr pIt = particles.begin(); pIt != particles.end();) {
-	BOOST_FOREACH(ParticlePtr p, particles) {
+	//for(Particle* pIt = particles.begin(); pIt != particles.end();) {
+	BOOST_FOREACH(Particle* p, particles) {
 		if(!p->isAlive) return p;
 	}
 	
@@ -59,7 +59,7 @@ void Physics::allocParticles(int count)
 }
 
 // allocates a single particle, override this method to create custom Particle types
-ParticlePtr Physics::allocParticle()
+Particle* Physics::allocParticle()
 {
 	return new Particle();
 }
@@ -77,8 +77,8 @@ void Physics::updateParticles(float dt)
 	}
 	
 	// update all particles
-	//for(ParticlePtr p = particles.begin(); p != particles.end(); p++) {
-	BOOST_FOREACH(ParticlePtr p, particles) {
+	//for(Particle* p = particles.begin(); p != particles.end(); p++) {
+	BOOST_FOREACH(Particle* p, particles) {
 		if(!p->isAlive) continue;
 		
 		// apply behaviours

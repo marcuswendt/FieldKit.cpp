@@ -29,7 +29,7 @@ namespace fieldkit { namespace physics {
 			this->constraint = constraint;
 		}
 		
-		void apply(ParticlePtr p);
+		void apply(Particle* p);
 	};
 	
 	//! Makes sure a particle never moves below a certain minimum floor height
@@ -43,7 +43,7 @@ namespace fieldkit { namespace physics {
 		}
 		~FloorConstraint() {}
 		
-		void apply(ParticlePtr p);
+		void apply(Particle* p);
 
 		void setBouncyness(float value);
 		float getBouncyness() { return bouncyness; };

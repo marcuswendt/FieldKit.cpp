@@ -17,8 +17,8 @@ namespace fieldkit { namespace physics {
 	
 	class Behavioural {
 	protected:
-		std::list<Behaviour*> behaviours;
-		std::list<Constraint*> constraints;
+		list<Behaviour*> behaviours;
+		list<Constraint*> constraints;
 	
 	public:
 		Behavioural() {};

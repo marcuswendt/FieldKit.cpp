@@ -4,16 +4,15 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Behaviour.h
  *	 Created by Marcus Wendt on 20/05/2010.
  */
+
 #pragma once
 
-#include "fieldkit/FieldKit.h"
-#include "fieldkit/physics/Space.h"
-#include "fieldkit/physics/Particle.h"
-
 namespace fieldkit { namespace physics {
+
+	class Space;
+	class Particle;
 
 	// Base class for all physics behaviours
 	class Behaviour {
@@ -21,13 +20,14 @@ namespace fieldkit { namespace physics {
 		Space* space;
 		
 		Behaviour() {};
+		~Behaviour() {};
 		
 		Behaviour(Space* space) {
 			this->space = space;
 		};
 		
 		virtual void prepare(float dt) {};
-		virtual void apply(ParticlePtr p) = 0;
+		virtual void apply(Particle* p) = 0;
 	};
 	
 	// A behaviour with a weight field

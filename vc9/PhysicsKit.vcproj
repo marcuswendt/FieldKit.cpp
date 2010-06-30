@@ -187,58 +187,58 @@
 						>
 					</File>
 					<File
-						RelativePath="..\src\fieldkit\physics\Space.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\src\fieldkit\physics\Spatial.cpp"
-						>
-					</File>
-					<File
 						RelativePath="..\src\fieldkit\physics\Spring.cpp"
 						>
 					</File>
 					<Filter
-						Name="behaviours"
+						Name="behaviour"
 						>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Attractor.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviour\Attractor.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Boundary.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviour\Boundary.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Flocking.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviour\Flocking.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Force.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviour\Force.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Initializer.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviour\Initializer.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\PlaneConstraint.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviour\PlaneConstraint.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Random.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviour\Random.cpp"
 							>
 						</File>
 						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\SphereConstraint.cpp"
+							RelativePath="..\src\fieldkit\physics\behaviour\SphereConstraint.cpp"
 							>
 						</File>
 					</Filter>
 					<Filter
-						Name="spaces"
+						Name="space"
 						>
 						<File
-							RelativePath="..\src\fieldkit\physics\spaces\OctTree.cpp"
+							RelativePath="..\src\fieldkit\physics\space\BasicSpace.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\space\Octree.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\space\Space.cpp"
 							>
 						</File>
 					</Filter>
@@ -292,35 +292,35 @@
 						Name="behaviour"
 						>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Attractor.h"
+							RelativePath="..\include\fieldkit\physics\behaviour\Attractor.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Boundary.h"
+							RelativePath="..\include\fieldkit\physics\behaviour\Boundary.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Flocking.h"
+							RelativePath="..\include\fieldkit\physics\behaviour\Flocking.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Force.h"
+							RelativePath="..\include\fieldkit\physics\behaviour\Force.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Initializer.h"
+							RelativePath="..\include\fieldkit\physics\behaviour\Initializer.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\PlaneConstraint.h"
+							RelativePath="..\include\fieldkit\physics\behaviour\PlaneConstraint.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Random.h"
+							RelativePath="..\include\fieldkit\physics\behaviour\Random.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\SphereConstraint.h"
+							RelativePath="..\include\fieldkit\physics\behaviour\SphereConstraint.h"
 							>
 						</File>
 					</Filter>
@@ -328,15 +328,19 @@
 						Name="space"
 						>
 						<File
-							RelativePath="..\include\fieldkit\physics\spaces\OctTree.h"
+							RelativePath="..\include\fieldkit\physics\space\BasicSpace.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\Space.h"
+							RelativePath="..\include\fieldkit\physics\space\Octree.h"
 							>
 						</File>
 						<File
-							RelativePath="..\include\fieldkit\physics\Spatial.h"
+							RelativePath="..\include\fieldkit\physics\space\Space.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\space\Spatial.h"
 							>
 						</File>
 					</Filter>

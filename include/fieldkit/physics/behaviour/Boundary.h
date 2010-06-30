@@ -29,7 +29,7 @@ namespace fieldkit { namespace physics {
 			preserveMomentum = false;
 		}
 		
-		void apply(ParticlePtr p);
+		void apply(Particle* p);
 	};
 	
 } } // namespace fieldkit::physics

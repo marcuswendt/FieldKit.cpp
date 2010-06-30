@@ -7,7 +7,7 @@
  *	 Created by Marcus Wendt on 27/06/2010.
  */
 
-#include "fieldkit/physics/behaviours/Initializer.h"
+#include "fieldkit/physics/behaviour/Initializer.h"
 #include "fieldkit/math/MathKit.h"
 
 using namespace fieldkit::math;
@@ -36,7 +36,7 @@ Initializer::Initializer() {
 }
 
 
-void Initializer::apply(ParticlePtr p) {
+void Initializer::apply(Particle* p) {
 	p->lifeTime = getVariant(lifeTime, lifeTimeVariance);
 	p->size = getVariant(size, sizeVariance);
 	p->setWeight( getVariant(weight, weightVariance) );

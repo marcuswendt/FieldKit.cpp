@@ -7,17 +7,17 @@
  *   Physics.h
  *	 Created by Marcus Wendt on 20/05/2010.
  */
+
 #pragma once
 
-#include "fieldkit/FieldKit.h"
-#include "fieldkit/physics/Behavioural.h"
-#include "fieldkit/physics/Particle.h"
-#include "fieldkit/physics/Emitter.h"
-#include "fieldkit/physics/Space.h"
-#include "fieldkit/physics/Spring.h"
+#include "fieldkit/physics/PhysicsKit.h"
 
 namespace fieldkit { namespace physics {
-		
+
+	class Space;
+	class Emitter;
+	class Spring;
+
 	class Physics : public Behavioural {
 	public:
 		Emitter* emitter;
@@ -31,7 +31,7 @@ namespace fieldkit { namespace physics {
 		// -- Particles --------------------------------------------------------
 		vector<Particle*> particles;
 			
-		ParticlePtr createParticle();	
+		Particle* createParticle();	
 		void allocParticles(int count);
 			
 		int getNumParticles() { return numParticles; }
@@ -50,8 +50,7 @@ namespace fieldkit { namespace physics {
 		virtual void updateSprings();
 		virtual void updateNeighbours();
 		
-		virtual ParticlePtr allocParticle();
+		virtual Particle* allocParticle();
 	};
 
-} 
-} // namespace fieldkit::physics
+} } // namespace fieldkit::physics

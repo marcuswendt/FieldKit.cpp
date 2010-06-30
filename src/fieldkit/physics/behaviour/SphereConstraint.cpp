@@ -7,11 +7,11 @@
  *	 Created by Marcus Wendt on 06/06/2010.
  */
 
-#include "fieldkit/physics/behaviours/SphereConstraint.h"
+#include "fieldkit/physics/behaviour/SphereConstraint.h"
 
 using namespace fieldkit::physics;
 
-void SphereConstraint::apply(ParticlePtr p) {
+void SphereConstraint::apply(Particle* p) {
 	bool isInside = contains(p->position);
 	if((isBoundingSphere && !isInside) || (!isBoundingSphere && isInside)) {
 		p->position.set(

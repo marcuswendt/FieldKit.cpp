@@ -8,7 +8,6 @@
  *	 Created by Marcus Wendt on 20/05/2010.
  */
 
-#include "fieldkit/FieldKit.h"
 #include "fieldkit/physics/Emitter.h"
 #include "fieldkit/physics/Physics.h"
 
@@ -47,8 +46,8 @@ void Emitter::update(float dt) {
 }
 
 // emits a single particle and applies the emitter behaviours
-ParticlePtr Emitter::emit(Vec3f location) {
-	ParticlePtr p = physics->createParticle();
+Particle* Emitter::emit(Vec3f location) {
+	Particle* p = physics->createParticle();
 	
 	// set particle to start at the emitters position
 	p->init(location);

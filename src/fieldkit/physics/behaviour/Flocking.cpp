@@ -7,7 +7,7 @@
  *	 Created by David Hoe on 27/05/2010.
  */
 
-#include "fieldkit/physics/behaviours/Flocking.h"
+#include "fieldkit/physics/behaviour/Flocking.h"
 
 using namespace fieldkit::physics;
 
@@ -22,7 +22,7 @@ void FlockBaseBehaviour::prepare(float dt)
 // -- Align --------------------------------------------------------------------
 
 //  calc average force and move towards it (use velocity if available)..
-void FlockAlign::apply(ParticlePtr p)
+void FlockAlign::apply(Particle* p)
 {
 	Vec3f average(0.0f,0.0f,0.0f);
 	Particle *q;
@@ -53,7 +53,7 @@ void FlockAlign::apply(ParticlePtr p)
 // -- Attract ------------------------------------------------------------------
 
 // calculate center of neighbours and move towards it
-void FlockAttract::apply(ParticlePtr p)
+void FlockAttract::apply(Particle* p)
 {
 	Vec3f center(0.0f,0.0f,0.0f);
 	int n = p->neighbours.size();
@@ -83,7 +83,7 @@ void FlockAttract::apply(ParticlePtr p)
 
 // -- Repel --------------------------------------------------------------------
 
-void FlockRepel::apply(ParticlePtr p)
+void FlockRepel::apply(Particle* p)
 {
 	float distSq, radius, radiusSq, dist;
 	Vec3f tmp;

@@ -7,23 +7,25 @@
  *	 Created by Marcus Wendt on 27/05/2010.
  */
 
-#include "fieldkit/physics/behaviours/Force.h"
+#include "fieldkit/physics/behaviour/PlaneConstraint.h"
 
 using namespace fieldkit::physics;
 
-// -- Force --------------------------------------------------------------------
-void Force::setDirection(Vec3f value) { 
-	direction.set(value.normalized());
+void PlaneConstraint::apply(Particle* p) {
+	p->position[axis] = constraint;
 }
 
-Vec3f Force::getDirection() { 
-	return direction; 
+
+void FloorConstraint::apply(Particle* p) {
+	if(p->position[axis] < height) {
+		float speed = p->getSpeed();
+		p->position[axis] = height;
+		p->clearVelocity();
+		p->prev[axis] = -speed * bouncyness;
+	}
 }
 
-void Force::prepare(float dt) {
-	force = direction * weight;
-}
-
-void Force::apply(ParticlePtr p) {
-	p->force += force;
+void fk::physics::FloorConstraint::setBouncyness(float value)
+{
+	bouncyness = value;
 }

@@ -7,13 +7,13 @@
  *	 Created by Marcus Wendt on 27/05/2010.
  */
 
-#include "fieldkit/physics/behaviours/Random.h"
+#include "fieldkit/physics/behaviour/Random.h"
 #include "fieldkit/math/MathKit.h"
 
 using namespace fieldkit::math;
 using namespace fieldkit::physics;
 
-void BoxRandom::apply(ParticlePtr p) {
+void BoxRandom::apply(Particle* p) {
 	p->position.x = randFloat(min.x, max.x);
 	p->position.y = randFloat(min.y, max.y);
 	p->position.z = randFloat(min.z, max.z);

@@ -25,7 +25,7 @@ namespace fieldkit { namespace physics {
 		Vec3f getDirection();
 		
 		void prepare(float dt);
-		void apply(ParticlePtr p);
+		void apply(Particle* p);
 		
 	protected:
 		Vec3f direction;

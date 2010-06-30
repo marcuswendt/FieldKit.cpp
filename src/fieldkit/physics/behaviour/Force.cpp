@@ -7,20 +7,23 @@
  *	 Created by Marcus Wendt on 27/05/2010.
  */
 
-#pragma once
+#include "fieldkit/physics/behaviour/Force.h"
 
-#include "fieldkit/physics/PhysicsKit.h"
+using namespace fieldkit::physics;
 
-namespace fieldkit { namespace physics {
-	
-	class BoxRandom : public Behaviour, public AABB {
-	public:
-		BoxRandom() {}
-		
-		BoxRandom(AABB box) {
-			set(box);
-		}
-		
-		void apply(ParticlePtr p);
-	};
-} } // namespace fieldkit::physics
+// -- Force --------------------------------------------------------------------
+void Force::setDirection(Vec3f value) { 
+	direction.set(value.normalized());
+}
+
+Vec3f Force::getDirection() { 
+	return direction; 
+}
+
+void Force::prepare(float dt) {
+	force = direction * weight;
+}
+
+void Force::apply(Particle* p) {
+	p->force += force;
+}

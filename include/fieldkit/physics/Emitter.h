@@ -15,7 +15,7 @@
 namespace fieldkit { namespace physics {
 	
 	class Physics;
-	
+
 	class Emitter : public Behavioural {
 	public:
 		Physics* physics;
@@ -24,7 +24,7 @@ namespace fieldkit { namespace physics {
 		~Emitter() {};
 		
 		void update(float dt);
-		ParticlePtr emit(Vec3f location);
+		Particle* emit(Vec3f location);
 		
 		void setPosition(Vec3f location) { position.set(location); }
 		Vec3f getPosition() { return position; }
