@@ -15,7 +15,6 @@
 #include <cinder/Vector.h>
 #include <cinder/Color.h>
 
-#include <cinder/app/App.h>
 #include <cinder/DataSource.h>
 #include <cinder/gl/Vbo.h>
 #include <cinder/gl/GlslProg.h>
@@ -24,6 +23,5 @@ using namespace ci;
 using namespace ci::gl;
 
 // default includes
-#include "fieldkit/gl/Resources.h"
 #include "fieldkit/gl/PointCloud.h"
 #include "fieldkit/gl/PointDataFormat.h"

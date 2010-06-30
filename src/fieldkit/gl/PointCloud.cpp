@@ -34,13 +34,15 @@ void PointCloud::init(PointDataFormat* format, int capacity,
 	vbo->bufferData(bytesTotal, data, GL_DYNAMIC_DRAW); // or GL_STREAM_DRAW
 	vbo->unbind();
 
-	if(!vertexShader)
-		vertexShader = app::loadResource(POINTCLOUD_VS);
-	
-	if(!fragmentShader)
-		fragmentShader = app::loadResource(POINTCLOUD_FS);
-	
-	shader = new GlslProg(vertexShader, fragmentShader);
+	// when vertex and fragment shaders are given, try to load them
+	if(vertexShader && fragmentShader) {
+		shader = new GlslProg(vertexShader, fragmentShader);
+
+	// load default shaders
+	} else {
+		logger() << "PointCloud::init using default shaders" << std::endl;
+		shader = new GlslProg(POINTCLOUD_DEFAULT_VS, POINTCLOUD_DEFAULT_FS);
+	}
 }
 
 void PointCloud::clear() 
