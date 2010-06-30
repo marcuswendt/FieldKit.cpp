@@ -13,6 +13,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FBXKit", "FBXKit.vcproj", "
 		{9DA00FEA-5218-413E-B762-35D91045B3B4} = {9DA00FEA-5218-413E-B762-35D91045B3B4}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLKit", "GLKit.vcproj", "{163E470E-0BB3-4402-9E07-747E42AA9718}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9DA00FEA-5218-413E-B762-35D91045B3B4} = {9DA00FEA-5218-413E-B762-35D91045B3B4}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +36,10 @@ Global
 		{DE20FCA5-721F-4FD9-A2C8-5C2F691A2436}.Debug|Win32.Build.0 = Debug|Win32
 		{DE20FCA5-721F-4FD9-A2C8-5C2F691A2436}.Release|Win32.ActiveCfg = Release|Win32
 		{DE20FCA5-721F-4FD9-A2C8-5C2F691A2436}.Release|Win32.Build.0 = Release|Win32
+		{163E470E-0BB3-4402-9E07-747E42AA9718}.Debug|Win32.ActiveCfg = Debug|Win32
+		{163E470E-0BB3-4402-9E07-747E42AA9718}.Debug|Win32.Build.0 = Debug|Win32
+		{163E470E-0BB3-4402-9E07-747E42AA9718}.Release|Win32.ActiveCfg = Release|Win32
+		{163E470E-0BB3-4402-9E07-747E42AA9718}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,13 @@
+/*                                                                           
+ *      _____  __  _____  __     ____                                   
+ *     / ___/ / / /____/ / /    /    \   Flow
+ *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
+ *   /_/        /____/ /____/ /_____/    http://www.field.io           
+ *   
+ *	 Created by Marcus Wendt on 29/06/2010.
+ */
+ 
+#include "../include/fieldkit/gl/Resources.h"
+
+POINTCLOUD_VS
+POINTCLOUD_FS

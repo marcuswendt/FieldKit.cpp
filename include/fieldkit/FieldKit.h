@@ -36,5 +36,6 @@ using boost::io::group;
 #include "cinder/Cinder.h"
 #include "cinder/Vector.h"
 
+using ci::Vec2f;
 using ci::Vec3f;
 using ci::EPSILON_VALUE;
