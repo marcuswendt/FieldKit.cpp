@@ -2,9 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="GLKit"
-	ProjectGUID="{163E470E-0BB3-4402-9E07-747E42AA9718}"
-	RootNamespace="GLKit"
+	Name="PhysicsKit"
+	ProjectGUID="{FD7C08E4-317D-4B03-AFCD-6F3BC88EB168}"
+	RootNamespace="PhysicsKit"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="131072"
 	>
@@ -22,7 +22,7 @@
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
-			BuildLogFile="$(IntDir)\GLKit-BuildLog.htm"
+			BuildLogFile="$(IntDir)\PhysicsKit-BuildLog.htm"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -63,7 +63,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\lib\GLKit_d.lib"
+				OutputFile="..\lib\PhysicsKit_d.lib"
 				AdditionalLibraryDirectories=""
 				IgnoreAllDefaultLibraries="true"
 				IgnoreDefaultLibraryNames=""
@@ -91,7 +91,7 @@
 			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="0"
-			BuildLogFile="$(IntDir)\GLKit-BuildLog.htm"
+			BuildLogFile="$(IntDir)\PhysicsKit-BuildLog.htm"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -134,7 +134,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="..\lib\GLKit.lib"
+				OutputFile="..\lib\PhysicsKit.lib"
 				AdditionalLibraryDirectories=""
 				IgnoreAllDefaultLibraries="true"
 				IgnoreDefaultLibraryNames=""
@@ -168,16 +168,80 @@
 				Name="fieldkit"
 				>
 				<Filter
-					Name="gl"
+					Name="physics"
 					>
 					<File
-						RelativePath="..\src\fieldkit\gl\PointCloud.cpp"
+						RelativePath="..\src\fieldkit\physics\Behavioural.cpp"
 						>
 					</File>
 					<File
-						RelativePath="..\src\fieldkit\gl\PointDataFormat.cpp"
+						RelativePath="..\src\fieldkit\physics\Emitter.cpp"
 						>
 					</File>
+					<File
+						RelativePath="..\src\fieldkit\physics\Particle.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\src\fieldkit\physics\Physics.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\src\fieldkit\physics\Space.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\src\fieldkit\physics\Spatial.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\src\fieldkit\physics\Spring.cpp"
+						>
+					</File>
+					<Filter
+						Name="behaviours"
+						>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\Attractor.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\Boundary.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\Flocking.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\Force.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\Initializer.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\PlaneConstraint.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\Random.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\behaviours\SphereConstraint.cpp"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="spaces"
+						>
+						<File
+							RelativePath="..\src\fieldkit\physics\spaces\OctTree.cpp"
+							>
+						</File>
+					</Filter>
 				</Filter>
 			</Filter>
 		</Filter>
@@ -190,24 +254,92 @@
 				Name="fieldkit"
 				>
 				<Filter
-					Name="gl"
+					Name="physics"
 					>
 					<File
-						RelativePath="..\include\fieldkit\gl\GLKit.h"
+						RelativePath="..\include\fieldkit\physics\Behaviour.h"
 						>
 					</File>
 					<File
-						RelativePath="..\include\fieldkit\gl\PointCloud.h"
+						RelativePath="..\include\fieldkit\physics\Behavioural.h"
 						>
 					</File>
 					<File
-						RelativePath="..\include\fieldkit\gl\PointDataFormat.h"
+						RelativePath="..\include\fieldkit\physics\Constraint.h"
 						>
 					</File>
 					<File
-						RelativePath="..\include\fieldkit\gl\Resources.h"
+						RelativePath="..\include\fieldkit\physics\Emitter.h"
 						>
 					</File>
+					<File
+						RelativePath="..\include\fieldkit\physics\Particle.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\fieldkit\physics\Physics.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\fieldkit\physics\PhysicsKit.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\fieldkit\physics\Spring.h"
+						>
+					</File>
+					<Filter
+						Name="behaviour"
+						>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\Attractor.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\Boundary.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\Flocking.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\Force.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\Initializer.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\PlaneConstraint.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\Random.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\behaviours\SphereConstraint.h"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="space"
+						>
+						<File
+							RelativePath="..\include\fieldkit\physics\spaces\OctTree.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\Space.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\Spatial.h"
+							>
+						</File>
+					</Filter>
 				</Filter>
 			</Filter>
 		</Filter>
@@ -216,10 +348,6 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
-			<File
-				RelativePath="..\resources\glkit\GLKit.rc"
-				>
-			</File>
 		</Filter>
 	</Files>
 	<Globals>

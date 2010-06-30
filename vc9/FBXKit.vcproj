@@ -22,6 +22,7 @@
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
+			BuildLogFile="$(IntDir)\FBXKit-BuildLog.htm"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -90,6 +91,7 @@
 			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="0"
+			BuildLogFile="$(IntDir)\FBXKit-BuildLog.htm"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"

@@ -22,6 +22,7 @@
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
+			BuildLogFile="$(IntDir)\FieldKit-BuildLog.htm"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -90,6 +91,7 @@
 			ConfigurationType="4"
 			CharacterSet="1"
 			WholeProgramOptimization="0"
+			BuildLogFile="$(IntDir)\FieldKit-BuildLog.htm"
 			>
 			<Tool
 				Name="VCPreBuildEventTool"
@@ -186,82 +188,6 @@
 					</File>
 				</Filter>
 				<Filter
-					Name="physics"
-					>
-					<File
-						RelativePath="..\src\fieldkit\physics\Behavioural.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\src\fieldkit\physics\Emitter.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\src\fieldkit\physics\Particle.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\src\fieldkit\physics\Physics.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\src\fieldkit\physics\Space.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\src\fieldkit\physics\Spatial.cpp"
-						>
-					</File>
-					<File
-						RelativePath="..\src\fieldkit\physics\Spring.cpp"
-						>
-					</File>
-					<Filter
-						Name="behaviours"
-						>
-						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Attractor.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Boundary.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Flocking.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Force.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Initializer.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\PlaneConstraint.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\Random.cpp"
-							>
-						</File>
-						<File
-							RelativePath="..\src\fieldkit\physics\behaviours\SphereConstraint.cpp"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="spaces"
-						>
-						<File
-							RelativePath="..\src\fieldkit\physics\spaces\OctTree.cpp"
-							>
-						</File>
-					</Filter>
-				</Filter>
-				<Filter
 					Name="tweak"
 					>
 					<File
@@ -310,94 +236,6 @@
 						RelativePath="..\include\fieldkit\math\Sphere.h"
 						>
 					</File>
-				</Filter>
-				<Filter
-					Name="physics"
-					>
-					<File
-						RelativePath="..\include\fieldkit\physics\Behaviour.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\physics\Behavioural.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\physics\Constraint.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\physics\Emitter.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\physics\Particle.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\physics\Physics.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\physics\PhysicsKit.h"
-						>
-					</File>
-					<File
-						RelativePath="..\include\fieldkit\physics\Spring.h"
-						>
-					</File>
-					<Filter
-						Name="behaviour"
-						>
-						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Attractor.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Boundary.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Flocking.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Force.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Initializer.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\PlaneConstraint.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\Random.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\physics\behaviours\SphereConstraint.h"
-							>
-						</File>
-					</Filter>
-					<Filter
-						Name="space"
-						>
-						<File
-							RelativePath="..\include\fieldkit\physics\spaces\OctTree.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\physics\Space.h"
-							>
-						</File>
-						<File
-							RelativePath="..\include\fieldkit\physics\Spatial.h"
-							>
-						</File>
-					</Filter>
 				</Filter>
 				<Filter
 					Name="tweak"
