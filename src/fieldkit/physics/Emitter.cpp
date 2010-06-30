@@ -55,9 +55,13 @@ Particle* Emitter::emit(Vec3f location) {
 	
 	// apply emitter behaviours
 	BOOST_FOREACH(Behaviour* b, behaviours) {
+		b->prepare();
 		b->apply(p);
 	}
+
+	// apply emitter constraints
 	BOOST_FOREACH(Constraint* c, constraints) {
+		c->prepare();
 		c->apply(p);
 	}
 	return p;
