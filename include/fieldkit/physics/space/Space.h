@@ -11,13 +11,12 @@
 
 #include "fieldkit/FieldKit.h"
 #include "fieldkit/math/MathKit.h"
-
 using namespace fieldkit::math;
 
 namespace fieldkit { namespace physics {
 
 	class Spatial;
-
+	
 	class Space : public AABB {
 	public:			
 		Space() {};

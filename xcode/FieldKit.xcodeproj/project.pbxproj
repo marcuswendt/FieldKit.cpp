@@ -14,6 +14,8 @@
 			);
 			dependencies = (
 				2C0F900411B1164200AD264D /* PBXTargetDependency */,
+				2CA8347311DBBE8E00D5B37B /* PBXTargetDependency */,
+				2CA8347111DBBE8E00D5B37B /* PBXTargetDependency */,
 				2C240EE611CFC4F400856329 /* PBXTargetDependency */,
 				2C240EE811CFC4F600856329 /* PBXTargetDependency */,
 			);
@@ -24,7 +26,6 @@
 
 /* Begin PBXBuildFile section */
 		2C0E69B311D16DC00035A10C /* FBXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B211D16DC00035A10C /* FBXKit.h */; };
-		2C0E69B511D16DCF0035A10C /* PhysicsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B411D16DCF0035A10C /* PhysicsKit.h */; };
 		2C16CBDB11D944B10038C163 /* MathKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C16CBDA11D944B10038C163 /* MathKit.h */; };
 		2C16CBDD11D944BD0038C163 /* MathKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C16CBDC11D944BD0038C163 /* MathKit.cpp */; };
 		2C16CBE111D944D70038C163 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C16CBE011D944D70038C163 /* Logger.cpp */; };
@@ -40,46 +41,14 @@
 		2C240DAB11CFC11600856329 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C240DAC11CFC11600856329 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		2C240E7D11CFC25400856329 /* AABB.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE211CFC1CD00856329 /* AABB.h */; };
-		2C240E7E11CFC25400856329 /* Attractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE911CFC1CD00856329 /* Attractor.h */; };
-		2C240E7F11CFC25400856329 /* Behaviour.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE611CFC1CD00856329 /* Behaviour.h */; };
-		2C240E8011CFC25400856329 /* Behavioural.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE711CFC1CD00856329 /* Behavioural.h */; };
-		2C240E8111CFC25400856329 /* Boundary.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DEA11CFC1CD00856329 /* Boundary.h */; };
 		2C240E8211CFC25400856329 /* BoundingVolume.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE311CFC1CD00856329 /* BoundingVolume.h */; };
-		2C240E8311CFC25400856329 /* Constraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DF011CFC1CD00856329 /* Constraint.h */; };
-		2C240E8411CFC25400856329 /* Emitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DF111CFC1CD00856329 /* Emitter.h */; };
 		2C240E8511CFC25400856329 /* FieldKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDF11CFC1CD00856329 /* FieldKit.h */; };
-		2C240E8611CFC25400856329 /* Flocking.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DEB11CFC1CD00856329 /* Flocking.h */; };
-		2C240E8711CFC25400856329 /* Force.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DEC11CFC1CD00856329 /* Force.h */; };
 		2C240E8811CFC25400856329 /* Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DFA11CFC1CD00856329 /* Model.h */; };
-		2C240E8911CFC25400856329 /* OctTree.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DF611CFC1CD00856329 /* OctTree.h */; };
-		2C240E8A11CFC25400856329 /* Particle.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DF211CFC1CD00856329 /* Particle.h */; };
-		2C240E8B11CFC25400856329 /* Physics.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DF311CFC1CD00856329 /* Physics.h */; };
-		2C240E8C11CFC25400856329 /* PlaneConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DED11CFC1CD00856329 /* PlaneConstraint.h */; };
-		2C240E8D11CFC25400856329 /* Random.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DEE11CFC1CD00856329 /* Random.h */; };
-		2C240E8E11CFC25400856329 /* Space.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DF411CFC1CD00856329 /* Space.h */; };
-		2C240E8F11CFC25400856329 /* Spatial.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DF711CFC1CD00856329 /* Spatial.h */; };
 		2C240E9011CFC25400856329 /* Sphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE411CFC1CD00856329 /* Sphere.h */; };
-		2C240E9111CFC25400856329 /* SphereConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DEF11CFC1CD00856329 /* SphereConstraint.h */; };
-		2C240E9211CFC25400856329 /* Spring.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DF811CFC1CD00856329 /* Spring.h */; };
 		2C240E9311CFC25400856329 /* Tweak.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DFB11CFC1CD00856329 /* Tweak.h */; };
 		2C240E9411CFC26B00856329 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1E11CFC1DF00856329 /* AABB.cpp */; };
-		2C240E9511CFC26B00856329 /* Attractor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2311CFC1DF00856329 /* Attractor.cpp */; };
-		2C240E9611CFC26B00856329 /* Behavioural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2111CFC1DF00856329 /* Behavioural.cpp */; };
-		2C240E9711CFC26B00856329 /* Boundary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2411CFC1DF00856329 /* Boundary.cpp */; };
-		2C240E9811CFC26B00856329 /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2A11CFC1DF00856329 /* Emitter.cpp */; };
-		2C240E9911CFC26B00856329 /* Flocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2511CFC1DF00856329 /* Flocking.cpp */; };
-		2C240E9A11CFC26B00856329 /* Force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2611CFC1DF00856329 /* Force.cpp */; };
 		2C240E9B11CFC26B00856329 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E3311CFC1DF00856329 /* Model.cpp */; };
-		2C240E9C11CFC26B00856329 /* OctTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2F11CFC1DF00856329 /* OctTree.cpp */; };
-		2C240E9D11CFC26B00856329 /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2B11CFC1DF00856329 /* Particle.cpp */; };
-		2C240E9E11CFC26B00856329 /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2C11CFC1DF00856329 /* Physics.cpp */; };
-		2C240E9F11CFC26B00856329 /* PlaneConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2711CFC1DF00856329 /* PlaneConstraint.cpp */; };
-		2C240EA011CFC26B00856329 /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2811CFC1DF00856329 /* Random.cpp */; };
-		2C240EA111CFC26B00856329 /* Space.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2D11CFC1DF00856329 /* Space.cpp */; };
-		2C240EA211CFC26B00856329 /* Spatial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E3011CFC1DF00856329 /* Spatial.cpp */; };
 		2C240EA311CFC26B00856329 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1F11CFC1DF00856329 /* Sphere.cpp */; };
-		2C240EA411CFC26B00856329 /* SphereConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E2911CFC1DF00856329 /* SphereConstraint.cpp */; };
-		2C240EA511CFC26B00856329 /* Spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E3111CFC1DF00856329 /* Spring.cpp */; };
 		2C240EA611CFC26B00856329 /* Tweak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E3411CFC1DF00856329 /* Tweak.cpp */; };
 		2C240EA711CFC28C00856329 /* CinderRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD611CFC1CD00856329 /* CinderRenderer.h */; };
 		2C240EA811CFC28C00856329 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD711CFC1CD00856329 /* Common.h */; };
@@ -145,8 +114,95 @@
 		2C55A3F011B0610F00041C25 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		2C55A3F111B0610F00041C25 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		2CDD7F4E11D73C7F00711333 /* Initializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CDD7F4D11D73C7F00711333 /* Initializer.h */; };
-		2CDD7F6211D7409C00711333 /* Initializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CDD7F6011D7409C00711333 /* Initializer.cpp */; };
+		2CA833C911DB99EE00D5B37B /* CinderRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD611CFC1CD00856329 /* CinderRenderer.h */; };
+		2CA833CA11DB99EE00D5B37B /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD711CFC1CD00856329 /* Common.h */; };
+		2CA833CB11DB99EE00D5B37B /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD911CFC1CD00856329 /* Renderer.h */; };
+		2CA833CC11DB99EE00D5B37B /* RendererDelegates.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDA11CFC1CD00856329 /* RendererDelegates.h */; };
+		2CA833CD11DB99EE00D5B37B /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDB11CFC1CD00856329 /* Scene.h */; };
+		2CA833CE11DB99EE00D5B37B /* SceneController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDC11CFC1CD00856329 /* SceneController.h */; };
+		2CA833CF11DB99EE00D5B37B /* SceneImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDD11CFC1CD00856329 /* SceneImporter.h */; };
+		2CA833D011DB99EE00D5B37B /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDE11CFC1CD00856329 /* Texture.h */; };
+		2CA833D111DB99EE00D5B37B /* FBXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B211D16DC00035A10C /* FBXKit.h */; };
+		2CA833D311DB99EE00D5B37B /* CinderRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1811CFC1DF00856329 /* CinderRenderer.cpp */; };
+		2CA833D411DB99EE00D5B37B /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1911CFC1DF00856329 /* Renderer.cpp */; };
+		2CA833D511DB99EE00D5B37B /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1A11CFC1DF00856329 /* Scene.cpp */; };
+		2CA833D611DB99EE00D5B37B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1B11CFC1DF00856329 /* SceneController.cpp */; };
+		2CA833D711DB99EE00D5B37B /* SceneImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1C11CFC1DF00856329 /* SceneImporter.cpp */; };
+		2CA833D911DB99EE00D5B37B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		2CA833DA11DB99EE00D5B37B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		2CA833DB11DB99EE00D5B37B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
+		2CA833DC11DB99EE00D5B37B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		2CA833DD11DB99EE00D5B37B /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		2CA833DE11DB99EE00D5B37B /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0097E3E40F3E9819005A4392 /* QuickTime.framework */; };
+		2CA833DF11DB99EE00D5B37B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		2CA833E011DB99EE00D5B37B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		2CA833E111DB99EE00D5B37B /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		2CA833E211DB99EE00D5B37B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		2CA833E911DB99F100D5B37B /* CinderRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD611CFC1CD00856329 /* CinderRenderer.h */; };
+		2CA833EA11DB99F100D5B37B /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD711CFC1CD00856329 /* Common.h */; };
+		2CA833EB11DB99F100D5B37B /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD911CFC1CD00856329 /* Renderer.h */; };
+		2CA833EC11DB99F100D5B37B /* RendererDelegates.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDA11CFC1CD00856329 /* RendererDelegates.h */; };
+		2CA833ED11DB99F100D5B37B /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDB11CFC1CD00856329 /* Scene.h */; };
+		2CA833EE11DB99F100D5B37B /* SceneController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDC11CFC1CD00856329 /* SceneController.h */; };
+		2CA833EF11DB99F100D5B37B /* SceneImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDD11CFC1CD00856329 /* SceneImporter.h */; };
+		2CA833F011DB99F100D5B37B /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDE11CFC1CD00856329 /* Texture.h */; };
+		2CA833F111DB99F100D5B37B /* FBXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B211D16DC00035A10C /* FBXKit.h */; };
+		2CA833F311DB99F100D5B37B /* CinderRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1811CFC1DF00856329 /* CinderRenderer.cpp */; };
+		2CA833F411DB99F100D5B37B /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1911CFC1DF00856329 /* Renderer.cpp */; };
+		2CA833F511DB99F100D5B37B /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1A11CFC1DF00856329 /* Scene.cpp */; };
+		2CA833F611DB99F100D5B37B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1B11CFC1DF00856329 /* SceneController.cpp */; };
+		2CA833F711DB99F100D5B37B /* SceneImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1C11CFC1DF00856329 /* SceneImporter.cpp */; };
+		2CA833F911DB99F100D5B37B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		2CA833FA11DB99F100D5B37B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		2CA833FB11DB99F100D5B37B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
+		2CA833FC11DB99F100D5B37B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		2CA833FD11DB99F100D5B37B /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		2CA833FE11DB99F100D5B37B /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0097E3E40F3E9819005A4392 /* QuickTime.framework */; };
+		2CA833FF11DB99F100D5B37B /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		2CA8340011DB99F100D5B37B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		2CA8340111DB99F100D5B37B /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		2CA8340211DB99F100D5B37B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		2CA8341111DBBDA400D5B37B /* GLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8340E11DBBDA400D5B37B /* GLKit.h */; };
+		2CA8341211DBBDA400D5B37B /* PointCloud.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8340F11DBBDA400D5B37B /* PointCloud.h */; };
+		2CA8341311DBBDA400D5B37B /* PointDataFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8341011DBBDA400D5B37B /* PointDataFormat.h */; };
+		2CA8341811DBBDC200D5B37B /* PointCloud.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8341611DBBDC200D5B37B /* PointCloud.cpp */; };
+		2CA8341911DBBDC200D5B37B /* PointDataFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8341711DBBDC200D5B37B /* PointDataFormat.cpp */; };
+		2CA8342311DBBE0D00D5B37B /* Behavioural.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8341E11DBBE0D00D5B37B /* Behavioural.cpp */; };
+		2CA8342411DBBE0D00D5B37B /* Emitter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8341F11DBBE0D00D5B37B /* Emitter.cpp */; };
+		2CA8342511DBBE0D00D5B37B /* Particle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8342011DBBE0D00D5B37B /* Particle.cpp */; };
+		2CA8342611DBBE0D00D5B37B /* Physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8342111DBBE0D00D5B37B /* Physics.cpp */; };
+		2CA8342711DBBE0D00D5B37B /* Spring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8342211DBBE0D00D5B37B /* Spring.cpp */; };
+		2CA8343711DBBE3A00D5B37B /* Attractor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8342F11DBBE3A00D5B37B /* Attractor.cpp */; };
+		2CA8343811DBBE3A00D5B37B /* Boundary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8343011DBBE3A00D5B37B /* Boundary.cpp */; };
+		2CA8343911DBBE3A00D5B37B /* Flocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8343111DBBE3A00D5B37B /* Flocking.cpp */; };
+		2CA8343A11DBBE3A00D5B37B /* Force.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8343211DBBE3A00D5B37B /* Force.cpp */; };
+		2CA8343B11DBBE3A00D5B37B /* Initializer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8343311DBBE3A00D5B37B /* Initializer.cpp */; };
+		2CA8343C11DBBE3A00D5B37B /* PlaneConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8343411DBBE3A00D5B37B /* PlaneConstraint.cpp */; };
+		2CA8343D11DBBE3A00D5B37B /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8343511DBBE3A00D5B37B /* Random.cpp */; };
+		2CA8343E11DBBE3A00D5B37B /* SphereConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8343611DBBE3A00D5B37B /* SphereConstraint.cpp */; };
+		2CA8344311DBBE4A00D5B37B /* BasicSpace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8344011DBBE4A00D5B37B /* BasicSpace.cpp */; };
+		2CA8344411DBBE4A00D5B37B /* Octree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8344111DBBE4A00D5B37B /* Octree.cpp */; };
+		2CA8344511DBBE4A00D5B37B /* Space.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8344211DBBE4A00D5B37B /* Space.cpp */; };
+		2CA8344F11DBBE5E00D5B37B /* Attractor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8344711DBBE5E00D5B37B /* Attractor.h */; };
+		2CA8345011DBBE5E00D5B37B /* Boundary.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8344811DBBE5E00D5B37B /* Boundary.h */; };
+		2CA8345111DBBE5E00D5B37B /* Flocking.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8344911DBBE5E00D5B37B /* Flocking.h */; };
+		2CA8345211DBBE5E00D5B37B /* Force.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8344A11DBBE5E00D5B37B /* Force.h */; };
+		2CA8345311DBBE5E00D5B37B /* Initializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8344B11DBBE5E00D5B37B /* Initializer.h */; };
+		2CA8345411DBBE5E00D5B37B /* PlaneConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8344C11DBBE5E00D5B37B /* PlaneConstraint.h */; };
+		2CA8345511DBBE5E00D5B37B /* Random.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8344D11DBBE5E00D5B37B /* Random.h */; };
+		2CA8345611DBBE5E00D5B37B /* SphereConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8344E11DBBE5E00D5B37B /* SphereConstraint.h */; };
+		2CA8345C11DBBE6400D5B37B /* BasicSpace.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8345811DBBE6400D5B37B /* BasicSpace.h */; };
+		2CA8345D11DBBE6400D5B37B /* Octree.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8345911DBBE6400D5B37B /* Octree.h */; };
+		2CA8345E11DBBE6400D5B37B /* Space.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8345A11DBBE6400D5B37B /* Space.h */; };
+		2CA8345F11DBBE6400D5B37B /* Spatial.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8345B11DBBE6400D5B37B /* Spatial.h */; };
+		2CA8346811DBBE6D00D5B37B /* Behaviour.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346011DBBE6D00D5B37B /* Behaviour.h */; };
+		2CA8346911DBBE6D00D5B37B /* Behavioural.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346111DBBE6D00D5B37B /* Behavioural.h */; };
+		2CA8346A11DBBE6D00D5B37B /* Constraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346211DBBE6D00D5B37B /* Constraint.h */; };
+		2CA8346B11DBBE6D00D5B37B /* Emitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346311DBBE6D00D5B37B /* Emitter.h */; };
+		2CA8346C11DBBE6D00D5B37B /* Particle.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346411DBBE6D00D5B37B /* Particle.h */; };
+		2CA8346D11DBBE6D00D5B37B /* Physics.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346511DBBE6D00D5B37B /* Physics.h */; };
+		2CA8346E11DBBE6D00D5B37B /* PhysicsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346611DBBE6D00D5B37B /* PhysicsKit.h */; };
+		2CA8346F11DBBE6D00D5B37B /* Spring.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346711DBBE6D00D5B37B /* Spring.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +227,20 @@
 			remoteGlobalIDString = 2C240D6F11CFC11600856329;
 			remoteInfo = VisionKit;
 		};
+		2CA8347011DBBE8E00D5B37B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA833E711DB99F100D5B37B;
+			remoteInfo = PhysicsKit;
+		};
+		2CA8347211DBBE8E00D5B37B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2CA833C711DB99EE00D5B37B;
+			remoteInfo = GLKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -186,7 +256,6 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2C0E69B211D16DC00035A10C /* FBXKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBXKit.h; path = ../../FieldKit.cpp/include/fieldkit/fbx/FBXKit.h; sourceTree = SOURCE_ROOT; };
-		2C0E69B411D16DCF0035A10C /* PhysicsKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsKit.h; path = ../../FieldKit.cpp/include/fieldkit/physics/PhysicsKit.h; sourceTree = SOURCE_ROOT; };
 		2C16CBDA11D944B10038C163 /* MathKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MathKit.h; path = ../../FieldKit.cpp/include/fieldkit/math/MathKit.h; sourceTree = SOURCE_ROOT; };
 		2C16CBDC11D944BD0038C163 /* MathKit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MathKit.cpp; path = ../../FieldKit.cpp/src/fieldkit/math/MathKit.cpp; sourceTree = SOURCE_ROOT; };
 		2C16CBE011D944D70038C163 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = ../../FieldKit.cpp/src/fieldkit/Logger.cpp; sourceTree = SOURCE_ROOT; };
@@ -204,23 +273,6 @@
 		2C240DE211CFC1CD00856329 /* AABB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABB.h; sourceTree = "<group>"; };
 		2C240DE311CFC1CD00856329 /* BoundingVolume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundingVolume.h; sourceTree = "<group>"; };
 		2C240DE411CFC1CD00856329 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
-		2C240DE611CFC1CD00856329 /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behaviour.h; sourceTree = "<group>"; };
-		2C240DE711CFC1CD00856329 /* Behavioural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Behavioural.h; sourceTree = "<group>"; };
-		2C240DE911CFC1CD00856329 /* Attractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attractor.h; sourceTree = "<group>"; };
-		2C240DEA11CFC1CD00856329 /* Boundary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boundary.h; sourceTree = "<group>"; };
-		2C240DEB11CFC1CD00856329 /* Flocking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flocking.h; sourceTree = "<group>"; };
-		2C240DEC11CFC1CD00856329 /* Force.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Force.h; sourceTree = "<group>"; };
-		2C240DED11CFC1CD00856329 /* PlaneConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaneConstraint.h; sourceTree = "<group>"; };
-		2C240DEE11CFC1CD00856329 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
-		2C240DEF11CFC1CD00856329 /* SphereConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereConstraint.h; sourceTree = "<group>"; };
-		2C240DF011CFC1CD00856329 /* Constraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constraint.h; sourceTree = "<group>"; };
-		2C240DF111CFC1CD00856329 /* Emitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emitter.h; sourceTree = "<group>"; };
-		2C240DF211CFC1CD00856329 /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particle.h; sourceTree = "<group>"; };
-		2C240DF311CFC1CD00856329 /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Physics.h; sourceTree = "<group>"; };
-		2C240DF411CFC1CD00856329 /* Space.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Space.h; sourceTree = "<group>"; };
-		2C240DF611CFC1CD00856329 /* OctTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OctTree.h; sourceTree = "<group>"; };
-		2C240DF711CFC1CD00856329 /* Spatial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spatial.h; sourceTree = "<group>"; };
-		2C240DF811CFC1CD00856329 /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spring.h; sourceTree = "<group>"; };
 		2C240DFA11CFC1CD00856329 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		2C240DFB11CFC1CD00856329 /* Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweak.h; sourceTree = "<group>"; };
 		2C240DFE11CFC1CD00856329 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -251,21 +303,6 @@
 		2C240E1C11CFC1DF00856329 /* SceneImporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneImporter.cpp; sourceTree = "<group>"; };
 		2C240E1E11CFC1DF00856329 /* AABB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AABB.cpp; sourceTree = "<group>"; };
 		2C240E1F11CFC1DF00856329 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
-		2C240E2111CFC1DF00856329 /* Behavioural.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Behavioural.cpp; sourceTree = "<group>"; };
-		2C240E2311CFC1DF00856329 /* Attractor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Attractor.cpp; sourceTree = "<group>"; };
-		2C240E2411CFC1DF00856329 /* Boundary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boundary.cpp; sourceTree = "<group>"; };
-		2C240E2511CFC1DF00856329 /* Flocking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flocking.cpp; sourceTree = "<group>"; };
-		2C240E2611CFC1DF00856329 /* Force.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Force.cpp; sourceTree = "<group>"; };
-		2C240E2711CFC1DF00856329 /* PlaneConstraint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlaneConstraint.cpp; sourceTree = "<group>"; };
-		2C240E2811CFC1DF00856329 /* Random.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Random.cpp; sourceTree = "<group>"; };
-		2C240E2911CFC1DF00856329 /* SphereConstraint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SphereConstraint.cpp; sourceTree = "<group>"; };
-		2C240E2A11CFC1DF00856329 /* Emitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Emitter.cpp; sourceTree = "<group>"; };
-		2C240E2B11CFC1DF00856329 /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particle.cpp; sourceTree = "<group>"; };
-		2C240E2C11CFC1DF00856329 /* Physics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Physics.cpp; sourceTree = "<group>"; };
-		2C240E2D11CFC1DF00856329 /* Space.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Space.cpp; sourceTree = "<group>"; };
-		2C240E2F11CFC1DF00856329 /* OctTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OctTree.cpp; sourceTree = "<group>"; };
-		2C240E3011CFC1DF00856329 /* Spatial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spatial.cpp; sourceTree = "<group>"; };
-		2C240E3111CFC1DF00856329 /* Spring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spring.cpp; sourceTree = "<group>"; };
 		2C240E3311CFC1DF00856329 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		2C240E3411CFC1DF00856329 /* Tweak.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tweak.cpp; sourceTree = "<group>"; };
 		2C240E3711CFC1DF00856329 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
@@ -280,8 +317,49 @@
 		2C240E4311CFC1DF00856329 /* Vision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vision.cpp; sourceTree = "<group>"; };
 		2C2BEC0511CFB45C00868B71 /* libFBXKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C55A26211B0608700041C25 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CDD7F4D11D73C7F00711333 /* Initializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Initializer.h; path = ../../FieldKit.cpp/include/fieldkit/physics/behaviours/Initializer.h; sourceTree = SOURCE_ROOT; };
-		2CDD7F6011D7409C00711333 /* Initializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Initializer.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/behaviours/Initializer.cpp; sourceTree = SOURCE_ROOT; };
+		2CA833E611DB99EE00D5B37B /* libGLKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhysicsKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA8340E11DBBDA400D5B37B /* GLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLKit.h; path = ../../FieldKit.cpp/include/fieldkit/gl/GLKit.h; sourceTree = SOURCE_ROOT; };
+		2CA8340F11DBBDA400D5B37B /* PointCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointCloud.h; path = ../../FieldKit.cpp/include/fieldkit/gl/PointCloud.h; sourceTree = SOURCE_ROOT; };
+		2CA8341011DBBDA400D5B37B /* PointDataFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointDataFormat.h; path = ../../FieldKit.cpp/include/fieldkit/gl/PointDataFormat.h; sourceTree = SOURCE_ROOT; };
+		2CA8341611DBBDC200D5B37B /* PointCloud.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PointCloud.cpp; path = ../../FieldKit.cpp/src/fieldkit/gl/PointCloud.cpp; sourceTree = SOURCE_ROOT; };
+		2CA8341711DBBDC200D5B37B /* PointDataFormat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PointDataFormat.cpp; path = ../../FieldKit.cpp/src/fieldkit/gl/PointDataFormat.cpp; sourceTree = SOURCE_ROOT; };
+		2CA8341E11DBBE0D00D5B37B /* Behavioural.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Behavioural.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/Behavioural.cpp; sourceTree = SOURCE_ROOT; };
+		2CA8341F11DBBE0D00D5B37B /* Emitter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Emitter.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/Emitter.cpp; sourceTree = SOURCE_ROOT; };
+		2CA8342011DBBE0D00D5B37B /* Particle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Particle.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/Particle.cpp; sourceTree = SOURCE_ROOT; };
+		2CA8342111DBBE0D00D5B37B /* Physics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Physics.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/Physics.cpp; sourceTree = SOURCE_ROOT; };
+		2CA8342211DBBE0D00D5B37B /* Spring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Spring.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/Spring.cpp; sourceTree = SOURCE_ROOT; };
+		2CA8342F11DBBE3A00D5B37B /* Attractor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Attractor.cpp; sourceTree = "<group>"; };
+		2CA8343011DBBE3A00D5B37B /* Boundary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boundary.cpp; sourceTree = "<group>"; };
+		2CA8343111DBBE3A00D5B37B /* Flocking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flocking.cpp; sourceTree = "<group>"; };
+		2CA8343211DBBE3A00D5B37B /* Force.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Force.cpp; sourceTree = "<group>"; };
+		2CA8343311DBBE3A00D5B37B /* Initializer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Initializer.cpp; sourceTree = "<group>"; };
+		2CA8343411DBBE3A00D5B37B /* PlaneConstraint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlaneConstraint.cpp; sourceTree = "<group>"; };
+		2CA8343511DBBE3A00D5B37B /* Random.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Random.cpp; sourceTree = "<group>"; };
+		2CA8343611DBBE3A00D5B37B /* SphereConstraint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SphereConstraint.cpp; sourceTree = "<group>"; };
+		2CA8344011DBBE4A00D5B37B /* BasicSpace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicSpace.cpp; sourceTree = "<group>"; };
+		2CA8344111DBBE4A00D5B37B /* Octree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Octree.cpp; sourceTree = "<group>"; };
+		2CA8344211DBBE4A00D5B37B /* Space.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Space.cpp; sourceTree = "<group>"; };
+		2CA8344711DBBE5E00D5B37B /* Attractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attractor.h; sourceTree = "<group>"; };
+		2CA8344811DBBE5E00D5B37B /* Boundary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boundary.h; sourceTree = "<group>"; };
+		2CA8344911DBBE5E00D5B37B /* Flocking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flocking.h; sourceTree = "<group>"; };
+		2CA8344A11DBBE5E00D5B37B /* Force.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Force.h; sourceTree = "<group>"; };
+		2CA8344B11DBBE5E00D5B37B /* Initializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Initializer.h; sourceTree = "<group>"; };
+		2CA8344C11DBBE5E00D5B37B /* PlaneConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaneConstraint.h; sourceTree = "<group>"; };
+		2CA8344D11DBBE5E00D5B37B /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
+		2CA8344E11DBBE5E00D5B37B /* SphereConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereConstraint.h; sourceTree = "<group>"; };
+		2CA8345811DBBE6400D5B37B /* BasicSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicSpace.h; sourceTree = "<group>"; };
+		2CA8345911DBBE6400D5B37B /* Octree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Octree.h; sourceTree = "<group>"; };
+		2CA8345A11DBBE6400D5B37B /* Space.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Space.h; sourceTree = "<group>"; };
+		2CA8345B11DBBE6400D5B37B /* Spatial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spatial.h; sourceTree = "<group>"; };
+		2CA8346011DBBE6D00D5B37B /* Behaviour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Behaviour.h; path = ../../FieldKit.cpp/include/fieldkit/physics/Behaviour.h; sourceTree = SOURCE_ROOT; };
+		2CA8346111DBBE6D00D5B37B /* Behavioural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Behavioural.h; path = ../../FieldKit.cpp/include/fieldkit/physics/Behavioural.h; sourceTree = SOURCE_ROOT; };
+		2CA8346211DBBE6D00D5B37B /* Constraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constraint.h; path = ../../FieldKit.cpp/include/fieldkit/physics/Constraint.h; sourceTree = SOURCE_ROOT; };
+		2CA8346311DBBE6D00D5B37B /* Emitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Emitter.h; path = ../../FieldKit.cpp/include/fieldkit/physics/Emitter.h; sourceTree = SOURCE_ROOT; };
+		2CA8346411DBBE6D00D5B37B /* Particle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Particle.h; path = ../../FieldKit.cpp/include/fieldkit/physics/Particle.h; sourceTree = SOURCE_ROOT; };
+		2CA8346511DBBE6D00D5B37B /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Physics.h; path = ../../FieldKit.cpp/include/fieldkit/physics/Physics.h; sourceTree = SOURCE_ROOT; };
+		2CA8346611DBBE6D00D5B37B /* PhysicsKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsKit.h; path = ../../FieldKit.cpp/include/fieldkit/physics/PhysicsKit.h; sourceTree = SOURCE_ROOT; };
+		2CA8346711DBBE6D00D5B37B /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spring.h; path = ../../FieldKit.cpp/include/fieldkit/physics/Spring.h; sourceTree = SOURCE_ROOT; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		53E3CDFB0E86099300238D2B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -340,6 +418,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2CA833D811DB99EE00D5B37B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CA833D911DB99EE00D5B37B /* Cocoa.framework in Frameworks */,
+				2CA833DA11DB99EE00D5B37B /* OpenGL.framework in Frameworks */,
+				2CA833DB11DB99EE00D5B37B /* Carbon.framework in Frameworks */,
+				2CA833DC11DB99EE00D5B37B /* CoreVideo.framework in Frameworks */,
+				2CA833DD11DB99EE00D5B37B /* QTKit.framework in Frameworks */,
+				2CA833DE11DB99EE00D5B37B /* QuickTime.framework in Frameworks */,
+				2CA833DF11DB99EE00D5B37B /* Accelerate.framework in Frameworks */,
+				2CA833E011DB99EE00D5B37B /* AudioToolbox.framework in Frameworks */,
+				2CA833E111DB99EE00D5B37B /* AudioUnit.framework in Frameworks */,
+				2CA833E211DB99EE00D5B37B /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CA833F811DB99F100D5B37B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CA833F911DB99F100D5B37B /* Cocoa.framework in Frameworks */,
+				2CA833FA11DB99F100D5B37B /* OpenGL.framework in Frameworks */,
+				2CA833FB11DB99F100D5B37B /* Carbon.framework in Frameworks */,
+				2CA833FC11DB99F100D5B37B /* CoreVideo.framework in Frameworks */,
+				2CA833FD11DB99F100D5B37B /* QTKit.framework in Frameworks */,
+				2CA833FE11DB99F100D5B37B /* QuickTime.framework in Frameworks */,
+				2CA833FF11DB99F100D5B37B /* Accelerate.framework in Frameworks */,
+				2CA8340011DB99F100D5B37B /* AudioToolbox.framework in Frameworks */,
+				2CA8340111DB99F100D5B37B /* AudioUnit.framework in Frameworks */,
+				2CA8340211DB99F100D5B37B /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -384,6 +496,8 @@
 				2C55A26211B0608700041C25 /* libFieldKit_d.a */,
 				2C2BEC0511CFB45C00868B71 /* libFBXKit_d.a */,
 				2C240DB011CFC11600856329 /* libVisionKit_d.a */,
+				2CA833E611DB99EE00D5B37B /* libGLKit_d.a */,
+				2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -432,6 +546,7 @@
 				2C16CBE211D944E30038C163 /* Logger.h */,
 				2C240DDF11CFC1CD00856329 /* FieldKit.h */,
 				2C240DD511CFC1CD00856329 /* fbx */,
+				2CA8340711DBBD8100D5B37B /* gl */,
 				2C240DE111CFC1CD00856329 /* math */,
 				2C240DE511CFC1CD00856329 /* physics */,
 				2C240DF911CFC1CD00856329 /* tweak */,
@@ -471,43 +586,18 @@
 		2C240DE511CFC1CD00856329 /* physics */ = {
 			isa = PBXGroup;
 			children = (
-				2C240DE811CFC1CD00856329 /* behaviours */,
-				2C240DF511CFC1CD00856329 /* spaces */,
-				2C0E69B411D16DCF0035A10C /* PhysicsKit.h */,
-				2C240DE611CFC1CD00856329 /* Behaviour.h */,
-				2C240DE711CFC1CD00856329 /* Behavioural.h */,
-				2C240DF011CFC1CD00856329 /* Constraint.h */,
-				2C240DF111CFC1CD00856329 /* Emitter.h */,
-				2C240DF211CFC1CD00856329 /* Particle.h */,
-				2C240DF311CFC1CD00856329 /* Physics.h */,
-				2C240DF411CFC1CD00856329 /* Space.h */,
-				2C240DF711CFC1CD00856329 /* Spatial.h */,
-				2C240DF811CFC1CD00856329 /* Spring.h */,
+				2CA8345711DBBE6400D5B37B /* space */,
+				2CA8344611DBBE5E00D5B37B /* behaviour */,
+				2CA8346011DBBE6D00D5B37B /* Behaviour.h */,
+				2CA8346111DBBE6D00D5B37B /* Behavioural.h */,
+				2CA8346211DBBE6D00D5B37B /* Constraint.h */,
+				2CA8346311DBBE6D00D5B37B /* Emitter.h */,
+				2CA8346411DBBE6D00D5B37B /* Particle.h */,
+				2CA8346511DBBE6D00D5B37B /* Physics.h */,
+				2CA8346611DBBE6D00D5B37B /* PhysicsKit.h */,
+				2CA8346711DBBE6D00D5B37B /* Spring.h */,
 			);
 			path = physics;
-			sourceTree = "<group>";
-		};
-		2C240DE811CFC1CD00856329 /* behaviours */ = {
-			isa = PBXGroup;
-			children = (
-				2C240DE911CFC1CD00856329 /* Attractor.h */,
-				2C240DEA11CFC1CD00856329 /* Boundary.h */,
-				2C240DEB11CFC1CD00856329 /* Flocking.h */,
-				2C240DEC11CFC1CD00856329 /* Force.h */,
-				2C240DED11CFC1CD00856329 /* PlaneConstraint.h */,
-				2C240DEE11CFC1CD00856329 /* Random.h */,
-				2C240DEF11CFC1CD00856329 /* SphereConstraint.h */,
-				2CDD7F4D11D73C7F00711333 /* Initializer.h */,
-			);
-			path = behaviours;
-			sourceTree = "<group>";
-		};
-		2C240DF511CFC1CD00856329 /* spaces */ = {
-			isa = PBXGroup;
-			children = (
-				2C240DF611CFC1CD00856329 /* OctTree.h */,
-			);
-			path = spaces;
 			sourceTree = "<group>";
 		};
 		2C240DF911CFC1CD00856329 /* tweak */ = {
@@ -584,6 +674,7 @@
 			children = (
 				2C16CBE011D944D70038C163 /* Logger.cpp */,
 				2C240E1711CFC1DF00856329 /* fbx */,
+				2CA8340811DBBD8B00D5B37B /* gl */,
 				2C240E1D11CFC1DF00856329 /* math */,
 				2C240E2011CFC1DF00856329 /* physics */,
 				2C240E3211CFC1DF00856329 /* tweak */,
@@ -618,40 +709,15 @@
 		2C240E2011CFC1DF00856329 /* physics */ = {
 			isa = PBXGroup;
 			children = (
-				2C240E2E11CFC1DF00856329 /* spaces */,
-				2C240E2211CFC1DF00856329 /* behaviours */,
-				2C240E2111CFC1DF00856329 /* Behavioural.cpp */,
-				2C240E2A11CFC1DF00856329 /* Emitter.cpp */,
-				2C240E2B11CFC1DF00856329 /* Particle.cpp */,
-				2C240E2C11CFC1DF00856329 /* Physics.cpp */,
-				2C240E2D11CFC1DF00856329 /* Space.cpp */,
-				2C240E3011CFC1DF00856329 /* Spatial.cpp */,
-				2C240E3111CFC1DF00856329 /* Spring.cpp */,
+				2CA8343F11DBBE4A00D5B37B /* space */,
+				2CA8342E11DBBE3A00D5B37B /* behaviour */,
+				2CA8341E11DBBE0D00D5B37B /* Behavioural.cpp */,
+				2CA8341F11DBBE0D00D5B37B /* Emitter.cpp */,
+				2CA8342011DBBE0D00D5B37B /* Particle.cpp */,
+				2CA8342111DBBE0D00D5B37B /* Physics.cpp */,
+				2CA8342211DBBE0D00D5B37B /* Spring.cpp */,
 			);
 			path = physics;
-			sourceTree = "<group>";
-		};
-		2C240E2211CFC1DF00856329 /* behaviours */ = {
-			isa = PBXGroup;
-			children = (
-				2C240E2311CFC1DF00856329 /* Attractor.cpp */,
-				2C240E2411CFC1DF00856329 /* Boundary.cpp */,
-				2C240E2511CFC1DF00856329 /* Flocking.cpp */,
-				2C240E2611CFC1DF00856329 /* Force.cpp */,
-				2C240E2711CFC1DF00856329 /* PlaneConstraint.cpp */,
-				2C240E2811CFC1DF00856329 /* Random.cpp */,
-				2C240E2911CFC1DF00856329 /* SphereConstraint.cpp */,
-				2CDD7F6011D7409C00711333 /* Initializer.cpp */,
-			);
-			path = behaviours;
-			sourceTree = "<group>";
-		};
-		2C240E2E11CFC1DF00856329 /* spaces */ = {
-			isa = PBXGroup;
-			children = (
-				2C240E2F11CFC1DF00856329 /* OctTree.cpp */,
-			);
-			path = spaces;
 			sourceTree = "<group>";
 		};
 		2C240E3211CFC1DF00856329 /* tweak */ = {
@@ -712,6 +778,80 @@
 			path = processors;
 			sourceTree = "<group>";
 		};
+		2CA8340711DBBD8100D5B37B /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				2CA8340E11DBBDA400D5B37B /* GLKit.h */,
+				2CA8340F11DBBDA400D5B37B /* PointCloud.h */,
+				2CA8341011DBBDA400D5B37B /* PointDataFormat.h */,
+			);
+			name = gl;
+			sourceTree = "<group>";
+		};
+		2CA8340811DBBD8B00D5B37B /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				2CA8341611DBBDC200D5B37B /* PointCloud.cpp */,
+				2CA8341711DBBDC200D5B37B /* PointDataFormat.cpp */,
+			);
+			name = gl;
+			sourceTree = "<group>";
+		};
+		2CA8342E11DBBE3A00D5B37B /* behaviour */ = {
+			isa = PBXGroup;
+			children = (
+				2CA8342F11DBBE3A00D5B37B /* Attractor.cpp */,
+				2CA8343011DBBE3A00D5B37B /* Boundary.cpp */,
+				2CA8343111DBBE3A00D5B37B /* Flocking.cpp */,
+				2CA8343211DBBE3A00D5B37B /* Force.cpp */,
+				2CA8343311DBBE3A00D5B37B /* Initializer.cpp */,
+				2CA8343411DBBE3A00D5B37B /* PlaneConstraint.cpp */,
+				2CA8343511DBBE3A00D5B37B /* Random.cpp */,
+				2CA8343611DBBE3A00D5B37B /* SphereConstraint.cpp */,
+			);
+			name = behaviour;
+			path = ../../FieldKit.cpp/src/fieldkit/physics/behaviour;
+			sourceTree = SOURCE_ROOT;
+		};
+		2CA8343F11DBBE4A00D5B37B /* space */ = {
+			isa = PBXGroup;
+			children = (
+				2CA8344011DBBE4A00D5B37B /* BasicSpace.cpp */,
+				2CA8344111DBBE4A00D5B37B /* Octree.cpp */,
+				2CA8344211DBBE4A00D5B37B /* Space.cpp */,
+			);
+			name = space;
+			path = ../../FieldKit.cpp/src/fieldkit/physics/space;
+			sourceTree = SOURCE_ROOT;
+		};
+		2CA8344611DBBE5E00D5B37B /* behaviour */ = {
+			isa = PBXGroup;
+			children = (
+				2CA8344711DBBE5E00D5B37B /* Attractor.h */,
+				2CA8344811DBBE5E00D5B37B /* Boundary.h */,
+				2CA8344911DBBE5E00D5B37B /* Flocking.h */,
+				2CA8344A11DBBE5E00D5B37B /* Force.h */,
+				2CA8344B11DBBE5E00D5B37B /* Initializer.h */,
+				2CA8344C11DBBE5E00D5B37B /* PlaneConstraint.h */,
+				2CA8344D11DBBE5E00D5B37B /* Random.h */,
+				2CA8344E11DBBE5E00D5B37B /* SphereConstraint.h */,
+			);
+			name = behaviour;
+			path = ../../FieldKit.cpp/include/fieldkit/physics/behaviour;
+			sourceTree = SOURCE_ROOT;
+		};
+		2CA8345711DBBE6400D5B37B /* space */ = {
+			isa = PBXGroup;
+			children = (
+				2CA8345811DBBE6400D5B37B /* BasicSpace.h */,
+				2CA8345911DBBE6400D5B37B /* Octree.h */,
+				2CA8345A11DBBE6400D5B37B /* Space.h */,
+				2CA8345B11DBBE6400D5B37B /* Spatial.h */,
+			);
+			name = space;
+			path = ../../FieldKit.cpp/include/fieldkit/physics/space;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -764,32 +904,68 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C240E7D11CFC25400856329 /* AABB.h in Headers */,
-				2C240E7E11CFC25400856329 /* Attractor.h in Headers */,
-				2C240E7F11CFC25400856329 /* Behaviour.h in Headers */,
-				2C240E8011CFC25400856329 /* Behavioural.h in Headers */,
-				2C240E8111CFC25400856329 /* Boundary.h in Headers */,
 				2C240E8211CFC25400856329 /* BoundingVolume.h in Headers */,
-				2C240E8311CFC25400856329 /* Constraint.h in Headers */,
-				2C240E8411CFC25400856329 /* Emitter.h in Headers */,
 				2C240E8511CFC25400856329 /* FieldKit.h in Headers */,
-				2C240E8611CFC25400856329 /* Flocking.h in Headers */,
-				2C240E8711CFC25400856329 /* Force.h in Headers */,
 				2C240E8811CFC25400856329 /* Model.h in Headers */,
-				2C240E8911CFC25400856329 /* OctTree.h in Headers */,
-				2C240E8A11CFC25400856329 /* Particle.h in Headers */,
-				2C240E8B11CFC25400856329 /* Physics.h in Headers */,
-				2C240E8C11CFC25400856329 /* PlaneConstraint.h in Headers */,
-				2C240E8D11CFC25400856329 /* Random.h in Headers */,
-				2C240E8E11CFC25400856329 /* Space.h in Headers */,
-				2C240E8F11CFC25400856329 /* Spatial.h in Headers */,
 				2C240E9011CFC25400856329 /* Sphere.h in Headers */,
-				2C240E9111CFC25400856329 /* SphereConstraint.h in Headers */,
-				2C240E9211CFC25400856329 /* Spring.h in Headers */,
 				2C240E9311CFC25400856329 /* Tweak.h in Headers */,
-				2C0E69B511D16DCF0035A10C /* PhysicsKit.h in Headers */,
-				2CDD7F4E11D73C7F00711333 /* Initializer.h in Headers */,
 				2C16CBDB11D944B10038C163 /* MathKit.h in Headers */,
 				2C16CBE311D944E30038C163 /* Logger.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CA833C811DB99EE00D5B37B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CA833C911DB99EE00D5B37B /* CinderRenderer.h in Headers */,
+				2CA833CA11DB99EE00D5B37B /* Common.h in Headers */,
+				2CA833CB11DB99EE00D5B37B /* Renderer.h in Headers */,
+				2CA833CC11DB99EE00D5B37B /* RendererDelegates.h in Headers */,
+				2CA833CD11DB99EE00D5B37B /* Scene.h in Headers */,
+				2CA833CE11DB99EE00D5B37B /* SceneController.h in Headers */,
+				2CA833CF11DB99EE00D5B37B /* SceneImporter.h in Headers */,
+				2CA833D011DB99EE00D5B37B /* Texture.h in Headers */,
+				2CA833D111DB99EE00D5B37B /* FBXKit.h in Headers */,
+				2CA8341111DBBDA400D5B37B /* GLKit.h in Headers */,
+				2CA8341211DBBDA400D5B37B /* PointCloud.h in Headers */,
+				2CA8341311DBBDA400D5B37B /* PointDataFormat.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CA833E811DB99F100D5B37B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CA833E911DB99F100D5B37B /* CinderRenderer.h in Headers */,
+				2CA833EA11DB99F100D5B37B /* Common.h in Headers */,
+				2CA833EB11DB99F100D5B37B /* Renderer.h in Headers */,
+				2CA833EC11DB99F100D5B37B /* RendererDelegates.h in Headers */,
+				2CA833ED11DB99F100D5B37B /* Scene.h in Headers */,
+				2CA833EE11DB99F100D5B37B /* SceneController.h in Headers */,
+				2CA833EF11DB99F100D5B37B /* SceneImporter.h in Headers */,
+				2CA833F011DB99F100D5B37B /* Texture.h in Headers */,
+				2CA833F111DB99F100D5B37B /* FBXKit.h in Headers */,
+				2CA8344F11DBBE5E00D5B37B /* Attractor.h in Headers */,
+				2CA8345011DBBE5E00D5B37B /* Boundary.h in Headers */,
+				2CA8345111DBBE5E00D5B37B /* Flocking.h in Headers */,
+				2CA8345211DBBE5E00D5B37B /* Force.h in Headers */,
+				2CA8345311DBBE5E00D5B37B /* Initializer.h in Headers */,
+				2CA8345411DBBE5E00D5B37B /* PlaneConstraint.h in Headers */,
+				2CA8345511DBBE5E00D5B37B /* Random.h in Headers */,
+				2CA8345611DBBE5E00D5B37B /* SphereConstraint.h in Headers */,
+				2CA8345C11DBBE6400D5B37B /* BasicSpace.h in Headers */,
+				2CA8345D11DBBE6400D5B37B /* Octree.h in Headers */,
+				2CA8345E11DBBE6400D5B37B /* Space.h in Headers */,
+				2CA8345F11DBBE6400D5B37B /* Spatial.h in Headers */,
+				2CA8346811DBBE6D00D5B37B /* Behaviour.h in Headers */,
+				2CA8346911DBBE6D00D5B37B /* Behavioural.h in Headers */,
+				2CA8346A11DBBE6D00D5B37B /* Constraint.h in Headers */,
+				2CA8346B11DBBE6D00D5B37B /* Emitter.h in Headers */,
+				2CA8346C11DBBE6D00D5B37B /* Particle.h in Headers */,
+				2CA8346D11DBBE6D00D5B37B /* Physics.h in Headers */,
+				2CA8346E11DBBE6D00D5B37B /* PhysicsKit.h in Headers */,
+				2CA8346F11DBBE6D00D5B37B /* Spring.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,6 +1023,40 @@
 			productReference = 2C55A26211B0608700041C25 /* libFieldKit_d.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		2CA833C711DB99EE00D5B37B /* GLKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CA833E311DB99EE00D5B37B /* Build configuration list for PBXNativeTarget "GLKit" */;
+			buildPhases = (
+				2CA833C811DB99EE00D5B37B /* Headers */,
+				2CA833D211DB99EE00D5B37B /* Sources */,
+				2CA833D811DB99EE00D5B37B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GLKit;
+			productName = FieldKit;
+			productReference = 2CA833E611DB99EE00D5B37B /* libGLKit_d.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		2CA833E711DB99F100D5B37B /* PhysicsKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CA8340311DB99F100D5B37B /* Build configuration list for PBXNativeTarget "PhysicsKit" */;
+			buildPhases = (
+				2CA833E811DB99F100D5B37B /* Headers */,
+				2CA833F211DB99F100D5B37B /* Sources */,
+				2CA833F811DB99F100D5B37B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhysicsKit;
+			productName = FieldKit;
+			productReference = 2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -862,6 +1072,8 @@
 				2C0F8FFE11B1163900AD264D /* All Libraries */,
 				2C55A26111B0608700041C25 /* FieldKit */,
 				2C2BEBC411CFB45C00868B71 /* FBXKit */,
+				2CA833C711DB99EE00D5B37B /* GLKit */,
+				2CA833E711DB99F100D5B37B /* PhysicsKit */,
 				2C240D6F11CFC11600856329 /* VisionKit */,
 			);
 		};
@@ -902,27 +1114,53 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C240E9411CFC26B00856329 /* AABB.cpp in Sources */,
-				2C240E9511CFC26B00856329 /* Attractor.cpp in Sources */,
-				2C240E9611CFC26B00856329 /* Behavioural.cpp in Sources */,
-				2C240E9711CFC26B00856329 /* Boundary.cpp in Sources */,
-				2C240E9811CFC26B00856329 /* Emitter.cpp in Sources */,
-				2C240E9911CFC26B00856329 /* Flocking.cpp in Sources */,
-				2C240E9A11CFC26B00856329 /* Force.cpp in Sources */,
 				2C240E9B11CFC26B00856329 /* Model.cpp in Sources */,
-				2C240E9C11CFC26B00856329 /* OctTree.cpp in Sources */,
-				2C240E9D11CFC26B00856329 /* Particle.cpp in Sources */,
-				2C240E9E11CFC26B00856329 /* Physics.cpp in Sources */,
-				2C240E9F11CFC26B00856329 /* PlaneConstraint.cpp in Sources */,
-				2C240EA011CFC26B00856329 /* Random.cpp in Sources */,
-				2C240EA111CFC26B00856329 /* Space.cpp in Sources */,
-				2C240EA211CFC26B00856329 /* Spatial.cpp in Sources */,
 				2C240EA311CFC26B00856329 /* Sphere.cpp in Sources */,
-				2C240EA411CFC26B00856329 /* SphereConstraint.cpp in Sources */,
-				2C240EA511CFC26B00856329 /* Spring.cpp in Sources */,
 				2C240EA611CFC26B00856329 /* Tweak.cpp in Sources */,
-				2CDD7F6211D7409C00711333 /* Initializer.cpp in Sources */,
 				2C16CBDD11D944BD0038C163 /* MathKit.cpp in Sources */,
 				2C16CBE111D944D70038C163 /* Logger.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CA833D211DB99EE00D5B37B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CA833D311DB99EE00D5B37B /* CinderRenderer.cpp in Sources */,
+				2CA833D411DB99EE00D5B37B /* Renderer.cpp in Sources */,
+				2CA833D511DB99EE00D5B37B /* Scene.cpp in Sources */,
+				2CA833D611DB99EE00D5B37B /* SceneController.cpp in Sources */,
+				2CA833D711DB99EE00D5B37B /* SceneImporter.cpp in Sources */,
+				2CA8341811DBBDC200D5B37B /* PointCloud.cpp in Sources */,
+				2CA8341911DBBDC200D5B37B /* PointDataFormat.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2CA833F211DB99F100D5B37B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CA833F311DB99F100D5B37B /* CinderRenderer.cpp in Sources */,
+				2CA833F411DB99F100D5B37B /* Renderer.cpp in Sources */,
+				2CA833F511DB99F100D5B37B /* Scene.cpp in Sources */,
+				2CA833F611DB99F100D5B37B /* SceneController.cpp in Sources */,
+				2CA833F711DB99F100D5B37B /* SceneImporter.cpp in Sources */,
+				2CA8342311DBBE0D00D5B37B /* Behavioural.cpp in Sources */,
+				2CA8342411DBBE0D00D5B37B /* Emitter.cpp in Sources */,
+				2CA8342511DBBE0D00D5B37B /* Particle.cpp in Sources */,
+				2CA8342611DBBE0D00D5B37B /* Physics.cpp in Sources */,
+				2CA8342711DBBE0D00D5B37B /* Spring.cpp in Sources */,
+				2CA8343711DBBE3A00D5B37B /* Attractor.cpp in Sources */,
+				2CA8343811DBBE3A00D5B37B /* Boundary.cpp in Sources */,
+				2CA8343911DBBE3A00D5B37B /* Flocking.cpp in Sources */,
+				2CA8343A11DBBE3A00D5B37B /* Force.cpp in Sources */,
+				2CA8343B11DBBE3A00D5B37B /* Initializer.cpp in Sources */,
+				2CA8343C11DBBE3A00D5B37B /* PlaneConstraint.cpp in Sources */,
+				2CA8343D11DBBE3A00D5B37B /* Random.cpp in Sources */,
+				2CA8343E11DBBE3A00D5B37B /* SphereConstraint.cpp in Sources */,
+				2CA8344311DBBE4A00D5B37B /* BasicSpace.cpp in Sources */,
+				2CA8344411DBBE4A00D5B37B /* Octree.cpp in Sources */,
+				2CA8344511DBBE4A00D5B37B /* Space.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,6 +1181,16 @@
 			isa = PBXTargetDependency;
 			target = 2C240D6F11CFC11600856329 /* VisionKit */;
 			targetProxy = 2C240EE711CFC4F600856329 /* PBXContainerItemProxy */;
+		};
+		2CA8347111DBBE8E00D5B37B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA833E711DB99F100D5B37B /* PhysicsKit */;
+			targetProxy = 2CA8347011DBBE8E00D5B37B /* PBXContainerItemProxy */;
+		};
+		2CA8347311DBBE8E00D5B37B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2CA833C711DB99EE00D5B37B /* GLKit */;
+			targetProxy = 2CA8347211DBBE8E00D5B37B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1059,6 +1307,68 @@
 			};
 			name = Release;
 		};
+		2CA833E411DB99EE00D5B37B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MACH_O_TYPE = staticlib;
+				PREBINDING = NO;
+				PRODUCT_NAME = GLKit_d;
+				SYMROOT = ../lib;
+			};
+			name = Debug;
+		};
+		2CA833E511DB99EE00D5B37B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				MACH_O_TYPE = staticlib;
+				PREBINDING = NO;
+				PRODUCT_NAME = GLKit;
+				SYMROOT = ../lib;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		2CA8340411DB99F100D5B37B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MACH_O_TYPE = staticlib;
+				PREBINDING = NO;
+				PRODUCT_NAME = PhysicsKit_d;
+				SYMROOT = ../lib;
+			};
+			name = Debug;
+		};
+		2CA8340511DB99F100D5B37B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				MACH_O_TYPE = staticlib;
+				PREBINDING = NO;
+				PRODUCT_NAME = PhysicsKit;
+				SYMROOT = ../lib;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1147,6 +1457,24 @@
 			buildConfigurations = (
 				2C55A26311B0608800041C25 /* Debug */,
 				2C55A26411B0608800041C25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CA833E311DB99EE00D5B37B /* Build configuration list for PBXNativeTarget "GLKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CA833E411DB99EE00D5B37B /* Debug */,
+				2CA833E511DB99EE00D5B37B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CA8340311DB99F100D5B37B /* Build configuration list for PBXNativeTarget "PhysicsKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CA8340411DB99F100D5B37B /* Debug */,
+				2CA8340511DB99F100D5B37B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
