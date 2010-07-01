@@ -17,7 +17,7 @@ void AttractorPoint::prepare(float dt) {
 	rangeAbsSq = rangeAbs * rangeAbs;
 }
 
-void AttractorPoint::apply(Particle* p) {
+void AttractorPoint::apply(ParticlePtr p) {
 
 	Vec3f delta = position - p->position;
 	float distSq = delta.lengthSquared();

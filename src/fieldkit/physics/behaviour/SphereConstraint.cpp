@@ -11,7 +11,7 @@
 
 using namespace fieldkit::physics;
 
-void SphereConstraint::apply(Particle* p) {
+void SphereConstraint::apply(ParticlePtr p) {
 	bool isInside = contains(p->position);
 	if((isBoundingSphere && !isInside) || (!isBoundingSphere && isInside)) {
 		p->position.set(

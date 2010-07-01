@@ -22,7 +22,7 @@ void FlockBaseBehaviour::prepare(float dt)
 // -- Align --------------------------------------------------------------------
 
 //  calc average force and move towards it (use velocity if available)..
-void FlockAlign::apply(Particle* p)
+void FlockAlign::apply(ParticlePtr p)
 {
 	Vec3f average(0.0f,0.0f,0.0f);
 	Particle *q;
@@ -53,7 +53,7 @@ void FlockAlign::apply(Particle* p)
 // -- Attract ------------------------------------------------------------------
 
 // calculate center of neighbours and move towards it
-void FlockAttract::apply(Particle* p)
+void FlockAttract::apply(ParticlePtr p)
 {
 	Vec3f center(0.0f,0.0f,0.0f);
 	int n = p->neighbours.size();
@@ -83,16 +83,16 @@ void FlockAttract::apply(Particle* p)
 
 // -- Repel --------------------------------------------------------------------
 
-void FlockRepel::apply(Particle* p)
+void FlockRepel::apply(ParticlePtr p)
 {
 	float distSq, radius, radiusSq, dist;
 	Vec3f tmp;
 	
 	list<Spatial*>::iterator it = p->neighbours.begin();
-	Particle* q;
+	ParticlePtr q;
 	while(it != p->neighbours.end()) 
 	{ 
-		q = (Particle*) *it;
+		q = (ParticlePtr) *it;
 		if(q->position != p->position) 
 		{
 			tmp = q->position - p->position;

@@ -4,9 +4,9 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Physics.cpp
  *	 Created by Marcus Wendt on 20/05/2010.
  */
+
 #include "fieldkit/physics/Physics.h"
 
 using namespace fieldkit::physics;
@@ -36,11 +36,11 @@ void Physics::update(float dt)
 
 // -- Particles ------------------------------------------------------------
 // check if we still have a dead particle that we can reuse, otherwise create a new one
-Particle* Physics::createParticle() 
+ParticlePtr Physics::createParticle() 
 {
 	numParticles++;
-	//for(Particle* pIt = particles.begin(); pIt != particles.end();) {
-	BOOST_FOREACH(Particle* p, particles) {
+	//for(ParticlePtr pIt = particles.begin(); pIt != particles.end();) {
+	BOOST_FOREACH(ParticlePtr p, particles) {
 		if(!p->isAlive) return p;
 	}
 	
@@ -59,7 +59,7 @@ void Physics::allocParticles(int count)
 }
 
 // allocates a single particle, override this method to create custom Particle types
-Particle* Physics::allocParticle()
+ParticlePtr Physics::allocParticle()
 {
 	return new Particle();
 }
@@ -77,8 +77,8 @@ void Physics::updateParticles(float dt)
 	}
 	
 	// update all particles
-	//for(Particle* p = particles.begin(); p != particles.end(); p++) {
-	BOOST_FOREACH(Particle* p, particles) {
+	//for(ParticlePtr p = particles.begin(); p != particles.end(); p++) {
+	BOOST_FOREACH(ParticlePtr p, particles) {
 		if(!p->isAlive) continue;
 		
 		// apply behaviours
@@ -132,11 +132,9 @@ void Physics::updateSprings()
 // -- Neighbours -----------------------------------------------------------
 void Physics::updateNeighbours()
 {
-	/* 
-	BOOST_FOREACH(Particle p, particles) {
-		if(p.neighbourBound) {
-			p.neighbours.clear();
-			space->findSpatialsInVolume(&p.neighbours, p.neighbourBound);
-		}
-	}*/
+	if(emptySpaceOnUpdate)
+		space->clear();
+
+	BOOST_FOREACH(ParticlePtr p, particles) {
+	}
 }

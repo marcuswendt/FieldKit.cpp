@@ -36,7 +36,7 @@ Initializer::Initializer() {
 }
 
 
-void Initializer::apply(Particle* p) {
+void Initializer::apply(ParticlePtr p) {
 	p->lifeTime = getVariant(lifeTime, lifeTimeVariance);
 	p->size = getVariant(size, sizeVariance);
 	p->setWeight( getVariant(weight, weightVariance) );

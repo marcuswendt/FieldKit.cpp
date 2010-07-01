@@ -13,7 +13,7 @@
 using namespace fieldkit::math;
 using namespace fieldkit::physics;
 
-void BoxRandom::apply(Particle* p) {
+void BoxRandom::apply(ParticlePtr p) {
 	p->position.x = randFloat(min.x, max.x);
 	p->position.y = randFloat(min.y, max.y);
 	p->position.z = randFloat(min.z, max.z);

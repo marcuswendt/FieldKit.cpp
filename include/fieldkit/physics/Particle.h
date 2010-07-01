@@ -9,7 +9,10 @@
 
 #pragma once
 
-#include "fieldkit/physics/PhysicsKit.h"
+#include "fieldkit/physics/space/Spatial.h"
+
+#include "fieldkit/math/MathKit.h"
+using namespace fieldkit::math;
 
 namespace fieldkit { namespace physics {
 	
@@ -61,8 +64,8 @@ namespace fieldkit { namespace physics {
 		virtual void init(Vec3f location);
 		virtual void update(float dt);
 		
-		virtual void updateState(float dt);
-		virtual void updatePosition();
+		void updateState(float dt);
+		void updatePosition();
 
 		// verlet integration
 		void lock();
@@ -83,4 +86,6 @@ namespace fieldkit { namespace physics {
 		Vec3f tmp;
 	};
 	
+	// Define 
+	typedef Particle* ParticlePtr;
 } } // namespace fieldkit::physics

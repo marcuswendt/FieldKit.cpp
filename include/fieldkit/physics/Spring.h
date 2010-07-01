@@ -15,8 +15,8 @@
 namespace fieldkit { namespace physics {
 	class Spring {
 	public:
-		Particle* a;
-		Particle* b;
+		ParticlePtr a;
+		ParticlePtr b;
 		
 		// Spring rest length to which it always wants to return too
 		float restLength;
@@ -29,7 +29,7 @@ namespace fieldkit { namespace physics {
 		bool isBLocked;
 		
 		Spring();
-		Spring(Particle* a, Particle* b, float restLength, float strength);
+		Spring(ParticlePtr a, ParticlePtr b, float restLength, float strength);
 		
 		virtual void update();
 		

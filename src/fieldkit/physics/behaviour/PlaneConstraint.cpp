@@ -11,12 +11,12 @@
 
 using namespace fieldkit::physics;
 
-void PlaneConstraint::apply(Particle* p) {
+void PlaneConstraint::apply(ParticlePtr p) {
 	p->position[axis] = constraint;
 }
 
 
-void FloorConstraint::apply(Particle* p) {
+void FloorConstraint::apply(ParticlePtr p) {
 	if(p->position[axis] < height) {
 		float speed = p->getSpeed();
 		p->position[axis] = height;

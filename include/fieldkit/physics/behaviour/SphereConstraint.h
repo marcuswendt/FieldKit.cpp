@@ -24,7 +24,7 @@ namespace fieldkit { namespace physics {
 			set(sphere_);
 		};
 		
-		void apply(Particle* p);
+		void apply(ParticlePtr p);
 	};
 	
 } } // namespace fieldkit::physics

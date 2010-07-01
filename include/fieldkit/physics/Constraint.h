@@ -19,7 +19,7 @@ namespace fieldkit { namespace physics {
 	//	~Constraint() {};
 
 	//	virtual void prepare(float dt) {};
-	//	virtual void apply(Particle* p) = 0;
+	//	virtual void apply(ParticlePtr p) = 0;
 	};
 	
 } } // namespace fieldkit::physics

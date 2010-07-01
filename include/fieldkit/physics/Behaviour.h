@@ -9,10 +9,11 @@
 
 #pragma once
 
+#include "fieldkit/physics/Particle.h"
+
 namespace fieldkit { namespace physics {
 
 	class Space;
-	class Particle;
 
 	// Base class for all physics behaviours
 	class Behaviour {
@@ -27,7 +28,7 @@ namespace fieldkit { namespace physics {
 		};
 		
 		virtual void prepare(float dt) {};
-		virtual void apply(Particle* p) = 0;
+		virtual void apply(ParticlePtr p) = 0;
 	};
 	
 	// A behaviour with a weight field

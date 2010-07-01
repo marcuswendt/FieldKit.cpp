@@ -54,8 +54,8 @@ void Emitter::update(float dt) {
 }
 
 // emits a single particle and applies the emitter behaviours
-Particle* Emitter::emit(Vec3f location) {
-	Particle* p = physics->createParticle();
+ParticlePtr Emitter::emit(Vec3f location) {
+	ParticlePtr p = physics->createParticle();
 	
 	// set particle to start at the emitters position
 	p->init(location);
