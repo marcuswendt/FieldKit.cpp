@@ -36,7 +36,7 @@ void BasicSpace::select(BoundingVolume* volume, list<Spatial*> result)
 {
 	result.clear();
 	BOOST_FOREACH(Spatial* s, spatials) {
-		if(volume->contains(s->getSpatialPosition())) {
+		if(volume->contains(s->getPosition())) {
 			result.push_back(s);
 		}
 	}

@@ -14,11 +14,27 @@ using namespace fieldkit::physics;
 Particle::Particle() : 
 	isAlive(false), isLocked(false),
 	state(0), age(0.0f), lifeTime(1000.0f) {
+
+	position = Vec3f::zero();
+	prev = Vec3f::zero();
+	force = Vec3f::zero();
+	tmp = Vec3f::zero();
+
+	setSize(1.0f);
 }
 
-void Particle::init(Vec3f location) {
-	position.set(location);
-	clearVelocity();
+Particle::~Particle()
+{
+	// TODO
+}
+
+void Particle::init(Vec3f location) 
+{
+	position = location;
+	prev = location;
+	force = Vec3f::zero();
+
+//	logger() << "Particle::init" << location << std::endl;
 
 	// set defaults
 	state = 0;
@@ -31,54 +47,61 @@ void Particle::init(Vec3f location) {
 	
 	setWeight(1.0);		
 	drag = 0.03f;
-	force = Vec3f(0,0,0);
 }
 
-void Particle::update(float dt) {
+void Particle::update(float dt) 
+{
 	updateState(dt);
 	if(isLocked) return;
 	updatePosition();
 }
 
 // update lifecycle
-void Particle::updateState(float dt) {
+void Particle::updateState(float dt) 
+{
 	age += dt;
 	if(lifeTime != LIFETIME_PERPETUAL && age > lifeTime)
 		isAlive = false;	
 }
 
 // -- Verlet Integration -------------------------------------------------------
-void Particle::updatePosition() {
-	tmp.set(position);
+void Particle::updatePosition() 
+{
+	tmp = position;
 	
-	position.x += (position.x - prev.x) + force.x;
-	position.y += (position.y - prev.y) + force.y;
-	position.z += (position.z - prev.z) + force.z;
+	position.x += ((position.x - prev.x) + force.x);
+	position.y += ((position.y - prev.y) + force.y);
+	position.z += ((position.z - prev.z) + force.z);
 	
-	prev.set(tmp);
+	prev = tmp;
 	
 	scaleVelocity(drag);
-	force = force.zero();
+	force = Vec3f::zero();
 }
 
-void Particle::lock() {
+void Particle::lock() 
+{
 	isLocked = true;
 }
 
-void Particle::unlock() {
+void Particle::unlock() 
+{
 	isLocked = false;
 }
 
-void Particle::clearVelocity() {
+void Particle::clearVelocity()
+{
 	prev.set(position);
 }
 
-void Particle::scaleVelocity(float s) {
+void Particle::scaleVelocity(float s)
+{
 	prev = prev.lerp(s, position);
 }
 
 // -- Accessors ----------------------------------------------------------------
-void Particle::setWeight(float value) {
+void Particle::setWeight(float value)
+{
 	this->weight = value;
 	this->invWeight = 1.0f / value;
 }
@@ -91,4 +114,15 @@ Vec3f fk::physics::Particle::getVelocity()
 float fk::physics::Particle::getSpeed()
 {
 	return getVelocity().length();
+}
+
+void Particle::setSize(float radius)
+{
+	bounds = new Sphere(radius);
+	size = radius;
+}
+
+float Particle::getSize()
+{
+	return size;
 }

@@ -26,7 +26,6 @@ Octree::~Octree()
 	BOOST_FOREACH(Octree* child, children) {
 		delete child;
 	}
-	
 //	delete data;
 //	data = NULL;
 //	
@@ -51,18 +50,17 @@ void Octree::init(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize)
 
 void Octree::clear() 
 {
-	BOOST_FOREACH(Octree* child, children) {
+	BOOST_FOREACH(OctreePtr child, children) {
 		child->clear();
 	}
-	
 	data.clear();
 	children.clear();
 }
 
 void Octree::insert(Spatial* s) 
 {
-	Vec3f p = s->getSpatialPosition();
-	
+	Vec3f p = s->getPosition();
+
 	// check if point is inside box
 	if(!this->contains(p)) return;
 	
@@ -79,7 +77,7 @@ void Octree::insert(Spatial* s)
 			if((octant & 2) != 0) o.y += extent.y;
 			if((octant & 4) != 0) o.z += extent.z;
 				
-			Octree* child = new Octree(this, o, extent * 0.5f, minSize);
+			OctreePtr child = new Octree(this, o, extent * 0.5f, minSize);
 			children[octant] = child;
 			child->insert(s);
 		}
@@ -87,11 +85,11 @@ void Octree::insert(Spatial* s)
 
 }
 
-void Octree::select(BoundingVolume* volume, list<Spatial*> result)
+void Octree::select(BoundingVolume* volume, SpatialList result)
 {
 	result.clear();
-	BOOST_FOREACH(Spatial* s, data) {
-		if(volume->contains(s->getSpatialPosition())) {
+	BOOST_FOREACH(SpatialPtr s, data) {
+		if(volume->contains(s->getPosition())) {
 			result.push_back(s);
 		}
 	}

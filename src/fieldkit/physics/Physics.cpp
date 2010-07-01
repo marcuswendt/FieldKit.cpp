@@ -14,12 +14,22 @@ using namespace fieldkit::physics;
 Physics::Physics(Space* space) 
 {
 	this->space = space;
+
+	doUpdateNeighbours = true;
+	emptySpaceOnUpdate = true;
+
 	emitter = NULL;
 	numParticles = 0;
 }
 
 Physics::~Physics() 
 {
+	BOOST_FOREACH(ParticlePtr p, particles) {
+		delete &p;
+	}
+	BOOST_FOREACH(SpringPtr s, springs) {
+		delete &s;
+	}
 	particles.clear();
 	springs.clear();
 }
@@ -103,12 +113,12 @@ void Physics::updateParticles(float dt)
 
 
 // -- Springs --------------------------------------------------------------
-void Physics::addSpring(Spring* spring) 
+void Physics::addSpring(SpringPtr spring) 
 {
 	springs.push_back(spring);
 }
 
-void Physics::removeSpring(Spring* spring)
+void Physics::removeSpring(SpringPtr spring)
 {
 	// TODO
 //	springs.erase(spring);
@@ -118,7 +128,7 @@ void Physics::removeSpring(Spring* spring)
 void Physics::updateSprings() 
 {
 	// update all springs
-	BOOST_FOREACH(Spring* s, springs) {
+	BOOST_FOREACH(SpringPtr s, springs) {
 		s->update();
 		
 		// apply constraints after spring update
@@ -132,9 +142,18 @@ void Physics::updateSprings()
 // -- Neighbours -----------------------------------------------------------
 void Physics::updateNeighbours()
 {
-	if(emptySpaceOnUpdate)
+	if(!doUpdateNeighbours) return;
+
+	if(emptySpaceOnUpdate) 
 		space->clear();
 
 	BOOST_FOREACH(ParticlePtr p, particles) {
+		if(p->isAlive)
+			space->insert(p);
+	}
+
+	BOOST_FOREACH(ParticlePtr p, particles) {
+		if(p->isAlive)
+			space->select(p->getBounds(), p->getNeighbours());
 	}
 }

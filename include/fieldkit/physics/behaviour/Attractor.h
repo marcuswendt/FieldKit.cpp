@@ -17,6 +17,7 @@ namespace fieldkit { namespace physics {
 	public:
 		AttractorPoint(Space* space) : WeightedBehaviour(space) {
 			setRange(0.1f);
+			position = Vec3f::zero();
 		};
 		
 		void prepare(float dt);

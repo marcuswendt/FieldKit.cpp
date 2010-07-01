@@ -13,6 +13,11 @@
 
 namespace fieldkit { namespace physics {
 
+	// typedefs and
+	class Octree;
+	typedef Octree* OctreePtr;
+	typedef vector<OctreePtr> OctreeList;
+
 	//! Implements a spatial subdivision tree to work efficiently with large numbers
 	//! of 3D spatials (particles or points). 
 	//! This octree can only be used for particle type objects and does NOT 
@@ -27,22 +32,23 @@ namespace fieldkit { namespace physics {
 		void clear();
 		
 		//! Adds a new spatial to the tree structure. All points are stored within leaf nodes only.
-		void insert(Spatial* s);
+		void insert(SpatialPtr s);
 		
 		//! Selects all spatials within the given bounding volume.
-		void select(BoundingVolume* volume, list<Spatial*> result);
+		void select(BoundingVolume* volume, SpatialList result);
 		
 		// Acessors
 		void setOffset(Vec3f offset);
 		Vec3f getOffset() { return offset; };
 		
+		OctreeList getChildren() { return children; }
 	protected:
 		Octree* parent;
 		Vec3f offset;
 		int depth;
 		float minSize;
-		vector<Spatial*> data;
-		vector<Octree*> children;
+		SpatialList data;
+		OctreeList children;
 
 		//! Constructs an octree child node.
 		Octree(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize);

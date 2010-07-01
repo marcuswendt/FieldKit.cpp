@@ -16,7 +16,7 @@ namespace fieldkit { namespace physics {
 	class Force : public WeightedBehaviour {
 	public:
 		
-		Force() : WeightedBehaviour(), direction(Vec3f(0,0,0)) {};
+		Force() : WeightedBehaviour(), direction(Vec3f::zero()) {};
 		
 		Force(Vec3f dir, float weight) : 
 			WeightedBehaviour(weight), direction(dir) {};

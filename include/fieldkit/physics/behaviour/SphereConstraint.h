@@ -10,12 +10,14 @@
 #pragma once
 
 #include "fieldkit/physics/PhysicsKit.h"
-#include "fieldkit/math/Sphere.h"
+#include "fieldkit/math/MathKit.h"
+
+using namespace fieldkit::math;
 
 namespace fieldkit { namespace physics {
 	
 	//! Constrains the particle to the inside or outside of a sphere
-	class SphereConstraint : public Constraint, public fk::math::Sphere {
+	class SphereConstraint : public Constraint, public Sphere {
 	public:
 		bool isBoundingSphere;
 		

@@ -29,9 +29,9 @@ void FlockAlign::apply(ParticlePtr p)
 	int n;
 	Vec3f delta;
 	float distSq;
-	n = p->neighbours.size();
-	list<Spatial*>::iterator it = p->neighbours.begin();
-	while( it != p->neighbours.end()) 
+	n = p->getNeighbours().size();
+	list<Spatial*>::iterator it = p->getNeighbours().begin();
+	while( it != p->getNeighbours().end()) 
 	{ 
 		q = (Particle *) *it;				
 		delta = q->position - p->position ; 
@@ -56,12 +56,12 @@ void FlockAlign::apply(ParticlePtr p)
 void FlockAttract::apply(ParticlePtr p)
 {
 	Vec3f center(0.0f,0.0f,0.0f);
-	int n = p->neighbours.size();
-	list<Spatial*>::iterator it = p->neighbours.begin();
+	int n = p->getNeighbours().size();
+	list<Spatial*>::iterator it = p->getNeighbours().begin();
 	Particle *q;
 	Vec3f delta;
 	float distSq;
-	while( it != p->neighbours.end()) 
+	while( it != p->getNeighbours().end()) 
 	{ 
 		q = (Particle *) *it;				
 		delta = q->position - p->position ; 
@@ -82,22 +82,21 @@ void FlockAttract::apply(ParticlePtr p)
 
 
 // -- Repel --------------------------------------------------------------------
-
 void FlockRepel::apply(ParticlePtr p)
 {
 	float distSq, radius, radiusSq, dist;
 	Vec3f tmp;
 	
-	list<Spatial*>::iterator it = p->neighbours.begin();
+	list<Spatial*>::iterator it = p->getNeighbours().begin();
 	ParticlePtr q;
-	while(it != p->neighbours.end()) 
+	while(it != p->getNeighbours().end()) 
 	{ 
 		q = (ParticlePtr) *it;
 		if(q->position != p->position) 
 		{
 			tmp = q->position - p->position;
 			distSq = tmp.lengthSquared();
-			radius = (p->size + q->size) * 0.51f;
+			radius = (p->getSize() + q->getSize()) * 0.51f;
 			radiusSq = radius * radius;
 			if(distSq < radiusSq) 
 			{

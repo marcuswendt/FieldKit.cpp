@@ -20,7 +20,11 @@ namespace fieldkit { namespace math {
 		Vec3f center;
 		float radius;
 		
-		Sphere(Vec3f center_ = Vec3f(0,0,0), float radius_ = 1.0f) :
+		//! Constructs a new sphere with the given radius
+		Sphere(float radius_) : center(Vec3f::zero()), radius(radius_) {};
+
+		//! Constructs a new sphere at the given position with the given radius
+		Sphere(Vec3f center_ = Vec3f::zero(), float radius_ = 1.0f) :
 			center(center_), radius(radius_) { };
 
 		void set(Sphere sphere);

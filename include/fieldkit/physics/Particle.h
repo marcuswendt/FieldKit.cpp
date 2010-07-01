@@ -28,9 +28,6 @@ namespace fieldkit { namespace physics {
 		//! flag set if particles lifeTime is up
 		bool isAlive;
 		
-		//! physical size in the simulation space
-		float size;
-		
 		//! used by Springs and some Behaviours
 		float weight;
 		
@@ -50,40 +47,50 @@ namespace fieldkit { namespace physics {
 		
 		//! force accumulator applied to this particle (set to zero after each update)
 		Vec3f force;
-		
-		//! list of neighbours this particle is aware of
-		list<Spatial*> neighbours;
-		
-		//! the bounding volume used to detect collisions between neighbours
-		BoundingVolume* bounds;
 
 		Particle();
-		~Particle() {};
+		~Particle();
 		
-		// lifecycle
+		// Lifecycle
 		virtual void init(Vec3f location);
 		virtual void update(float dt);
 		
 		void updateState(float dt);
 		void updatePosition();
 
-		// verlet integration
+		// Verlet integration
 		void lock();
 		void unlock();
 		void clearVelocity();
 		void scaleVelocity(float s);
 		
-		// accessors
+		// Accessors
 		void setWeight(float value);
 		inline float getWeight() { return this->weight; };
 		inline float getInvWeight() { return this->invWeight; };
 		Vec3f getVelocity();
 		float getSpeed();
 
-		Vec3f getSpatialPosition() { return position; };
-		
+		// Spatial
+		Vec3f getPosition() { return position; };
+
+		virtual void setSize(float radius);
+		float getSize();
+
+		SpatialList getNeighbours() { return neighbours; };
+		BoundingVolume* getBounds() { return bounds; };
+
 	protected:
 		Vec3f tmp;
+
+		//! physical size in the simulation space
+		float size;
+
+		//! list of neighbours this particle is aware of
+		SpatialList neighbours;
+
+		//! the bounding volume used to detect collisions between neighbours
+		BoundingVolume* bounds;
 	};
 	
 	// Define 

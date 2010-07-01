@@ -37,19 +37,23 @@ namespace fieldkit { namespace physics {
 		int getNumParticles() { return numParticles; }
 			
 		// Springs
-		vector<Spring*> springs;
+		vector<SpringPtr> springs;
 		
 		int numSprings() { return springs.size(); }
 
-		void addSpring(Spring* spring);
-		void removeSpring(Spring* spring);
+		void addSpring(SpringPtr spring);
+		void removeSpring(SpringPtr spring);
 		
 		// Accessors
 		void setEmptySpaceOnUpdate(bool enabled) { emptySpaceOnUpdate = enabled; };
 		bool getEmptySpaceOnUpdate() { return emptySpaceOnUpdate; };
 
+		void setDoUpdateNeighbours(bool enabled) { doUpdateNeighbours = enabled; };
+		bool getDoUpdateNeighbours() { return doUpdateNeighbours; };
 	protected:	
 		int numParticles;
+
+		bool doUpdateNeighbours;
 		bool emptySpaceOnUpdate;
 
 		virtual void updateParticles(float dt);

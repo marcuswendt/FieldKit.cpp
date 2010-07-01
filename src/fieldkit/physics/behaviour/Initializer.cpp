@@ -28,8 +28,8 @@ Initializer::Initializer() {
 	drag = 0.03f;
 	dragVariance = 0.0f;
 	
-	force = Vec3f();
-	forceVariance = Vec3f();
+	force = Vec3f::zero();
+	forceVariance = Vec3f::zero();
 	
 	lock = false;
 	lockChance = 0.0f;
@@ -38,7 +38,7 @@ Initializer::Initializer() {
 
 void Initializer::apply(ParticlePtr p) {
 	p->lifeTime = getVariant(lifeTime, lifeTimeVariance);
-	p->size = getVariant(size, sizeVariance);
+	p->setSize( getVariant(size, sizeVariance) );
 	p->setWeight( getVariant(weight, weightVariance) );
 	p->drag = getVariant(drag, dragVariance);
 

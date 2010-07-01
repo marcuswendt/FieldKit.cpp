@@ -31,7 +31,8 @@ namespace fieldkit { namespace physics {
 		Spring();
 		Spring(ParticlePtr a, ParticlePtr b, float restLength, float strength);
 		
-		virtual void update();
-		
+		virtual void update();	
 	};
+
+	typedef Spring* SpringPtr;
 } } // namespace fieldkit::physics

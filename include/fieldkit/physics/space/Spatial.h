@@ -19,8 +19,11 @@ namespace fieldkit { namespace physics {
 		Spatial() {};
 		~Spatial() {};
 
-		virtual Vec3f getSpatialPosition() = 0;
+		virtual Vec3f getPosition() = 0;
 		//virtual BoundingVolume getSpatialBounds() = 0;
 	};
+
+	typedef Spatial* SpatialPtr;
+	typedef list<Spatial*> SpatialList;
 
 } } // namespace fieldkit::physics
