@@ -17,7 +17,7 @@ namespace fieldkit { namespace physics {
 	class BasicSpace : public Space {
 	public:
 		BasicSpace();
-		~BasicSpace() {};
+		~BasicSpace();
 
 		//! empties the entire space contents
 		void clear();

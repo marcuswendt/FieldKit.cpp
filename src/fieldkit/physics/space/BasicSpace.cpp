@@ -17,6 +17,11 @@ BasicSpace::BasicSpace() {
 	clear(); 
 };
 
+BasicSpace::~BasicSpace() { 
+	//delete &spatials;
+	//spatials = NULL;
+};
+
 void BasicSpace::clear() 
 {
 	spatials.clear();
