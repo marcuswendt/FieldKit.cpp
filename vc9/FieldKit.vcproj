@@ -233,7 +233,7 @@
 						>
 					</File>
 					<File
-						RelativePath="..\include\fieldkit\math\Sphere.h"
+						RelativePath="..\include\fieldkit\math\SphereBound.h"
 						>
 					</File>
 				</Filter>

@@ -32,4 +32,4 @@ namespace fieldkit { namespace math {
 // Bounding Volumes
 #include "fieldkit/math/BoundingVolume.h"
 #include "fieldkit/math/AABB.h"
-#include "fieldkit/math/Sphere.h"
+#include "fieldkit/math/SphereBound.h"

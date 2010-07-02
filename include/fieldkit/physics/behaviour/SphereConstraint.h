@@ -17,11 +17,11 @@ using namespace fieldkit::math;
 namespace fieldkit { namespace physics {
 	
 	//! Constrains the particle to the inside or outside of a sphere
-	class SphereConstraint : public Constraint, public Sphere {
+	class SphereConstraint : public Constraint, public SphereBound {
 	public:
 		bool isBoundingSphere;
 		
-		SphereConstraint(Sphere sphere_ = Sphere(), bool isBoundingSphere_ = false) :
+		SphereConstraint(SphereBound sphere_ = SphereBound(), bool isBoundingSphere_ = false) :
 			isBoundingSphere(isBoundingSphere_) {
 			set(sphere_);
 		};
