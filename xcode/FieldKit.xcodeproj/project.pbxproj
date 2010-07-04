@@ -44,11 +44,11 @@
 		2C240E8211CFC25400856329 /* BoundingVolume.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE311CFC1CD00856329 /* BoundingVolume.h */; };
 		2C240E8511CFC25400856329 /* FieldKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDF11CFC1CD00856329 /* FieldKit.h */; };
 		2C240E8811CFC25400856329 /* Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DFA11CFC1CD00856329 /* Model.h */; };
-		2C240E9011CFC25400856329 /* Sphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE411CFC1CD00856329 /* Sphere.h */; };
+		2C240E9011CFC25400856329 /* SphereBound.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE411CFC1CD00856329 /* SphereBound.h */; };
 		2C240E9311CFC25400856329 /* Tweak.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DFB11CFC1CD00856329 /* Tweak.h */; };
 		2C240E9411CFC26B00856329 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1E11CFC1DF00856329 /* AABB.cpp */; };
 		2C240E9B11CFC26B00856329 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E3311CFC1DF00856329 /* Model.cpp */; };
-		2C240EA311CFC26B00856329 /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1F11CFC1DF00856329 /* Sphere.cpp */; };
+		2C240EA311CFC26B00856329 /* SphereBound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1F11CFC1DF00856329 /* SphereBound.cpp */; };
 		2C240EA611CFC26B00856329 /* Tweak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E3411CFC1DF00856329 /* Tweak.cpp */; };
 		2C240EA711CFC28C00856329 /* CinderRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD611CFC1CD00856329 /* CinderRenderer.h */; };
 		2C240EA811CFC28C00856329 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD711CFC1CD00856329 /* Common.h */; };
@@ -114,20 +114,6 @@
 		2C55A3F011B0610F00041C25 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		2C55A3F111B0610F00041C25 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		2CA833C911DB99EE00D5B37B /* CinderRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD611CFC1CD00856329 /* CinderRenderer.h */; };
-		2CA833CA11DB99EE00D5B37B /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD711CFC1CD00856329 /* Common.h */; };
-		2CA833CB11DB99EE00D5B37B /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD911CFC1CD00856329 /* Renderer.h */; };
-		2CA833CC11DB99EE00D5B37B /* RendererDelegates.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDA11CFC1CD00856329 /* RendererDelegates.h */; };
-		2CA833CD11DB99EE00D5B37B /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDB11CFC1CD00856329 /* Scene.h */; };
-		2CA833CE11DB99EE00D5B37B /* SceneController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDC11CFC1CD00856329 /* SceneController.h */; };
-		2CA833CF11DB99EE00D5B37B /* SceneImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDD11CFC1CD00856329 /* SceneImporter.h */; };
-		2CA833D011DB99EE00D5B37B /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDE11CFC1CD00856329 /* Texture.h */; };
-		2CA833D111DB99EE00D5B37B /* FBXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B211D16DC00035A10C /* FBXKit.h */; };
-		2CA833D311DB99EE00D5B37B /* CinderRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1811CFC1DF00856329 /* CinderRenderer.cpp */; };
-		2CA833D411DB99EE00D5B37B /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1911CFC1DF00856329 /* Renderer.cpp */; };
-		2CA833D511DB99EE00D5B37B /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1A11CFC1DF00856329 /* Scene.cpp */; };
-		2CA833D611DB99EE00D5B37B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1B11CFC1DF00856329 /* SceneController.cpp */; };
-		2CA833D711DB99EE00D5B37B /* SceneImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1C11CFC1DF00856329 /* SceneImporter.cpp */; };
 		2CA833D911DB99EE00D5B37B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2CA833DA11DB99EE00D5B37B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
 		2CA833DB11DB99EE00D5B37B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -138,20 +124,6 @@
 		2CA833E011DB99EE00D5B37B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		2CA833E111DB99EE00D5B37B /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2CA833E211DB99EE00D5B37B /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		2CA833E911DB99F100D5B37B /* CinderRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD611CFC1CD00856329 /* CinderRenderer.h */; };
-		2CA833EA11DB99F100D5B37B /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD711CFC1CD00856329 /* Common.h */; };
-		2CA833EB11DB99F100D5B37B /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD911CFC1CD00856329 /* Renderer.h */; };
-		2CA833EC11DB99F100D5B37B /* RendererDelegates.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDA11CFC1CD00856329 /* RendererDelegates.h */; };
-		2CA833ED11DB99F100D5B37B /* Scene.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDB11CFC1CD00856329 /* Scene.h */; };
-		2CA833EE11DB99F100D5B37B /* SceneController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDC11CFC1CD00856329 /* SceneController.h */; };
-		2CA833EF11DB99F100D5B37B /* SceneImporter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDD11CFC1CD00856329 /* SceneImporter.h */; };
-		2CA833F011DB99F100D5B37B /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDE11CFC1CD00856329 /* Texture.h */; };
-		2CA833F111DB99F100D5B37B /* FBXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B211D16DC00035A10C /* FBXKit.h */; };
-		2CA833F311DB99F100D5B37B /* CinderRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1811CFC1DF00856329 /* CinderRenderer.cpp */; };
-		2CA833F411DB99F100D5B37B /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1911CFC1DF00856329 /* Renderer.cpp */; };
-		2CA833F511DB99F100D5B37B /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1A11CFC1DF00856329 /* Scene.cpp */; };
-		2CA833F611DB99F100D5B37B /* SceneController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1B11CFC1DF00856329 /* SceneController.cpp */; };
-		2CA833F711DB99F100D5B37B /* SceneImporter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1C11CFC1DF00856329 /* SceneImporter.cpp */; };
 		2CA833F911DB99F100D5B37B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2CA833FA11DB99F100D5B37B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
 		2CA833FB11DB99F100D5B37B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -203,6 +175,7 @@
 		2CA8346D11DBBE6D00D5B37B /* Physics.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346511DBBE6D00D5B37B /* Physics.h */; };
 		2CA8346E11DBBE6D00D5B37B /* PhysicsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346611DBBE6D00D5B37B /* PhysicsKit.h */; };
 		2CA8346F11DBBE6D00D5B37B /* Spring.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA8346711DBBE6D00D5B37B /* Spring.h */; };
+		2CF00B6D11DF227100AD0E7C /* GLKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF00B6C11DF227100AD0E7C /* GLKit.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,7 +245,7 @@
 		2C240DDF11CFC1CD00856329 /* FieldKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldKit.h; sourceTree = "<group>"; };
 		2C240DE211CFC1CD00856329 /* AABB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABB.h; sourceTree = "<group>"; };
 		2C240DE311CFC1CD00856329 /* BoundingVolume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundingVolume.h; sourceTree = "<group>"; };
-		2C240DE411CFC1CD00856329 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		2C240DE411CFC1CD00856329 /* SphereBound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SphereBound.h; path = ../../../../FieldKit.cpp/include/fieldkit/math/SphereBound.h; sourceTree = "<group>"; };
 		2C240DFA11CFC1CD00856329 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		2C240DFB11CFC1CD00856329 /* Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweak.h; sourceTree = "<group>"; };
 		2C240DFE11CFC1CD00856329 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
@@ -302,7 +275,7 @@
 		2C240E1B11CFC1DF00856329 /* SceneController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneController.cpp; sourceTree = "<group>"; };
 		2C240E1C11CFC1DF00856329 /* SceneImporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneImporter.cpp; sourceTree = "<group>"; };
 		2C240E1E11CFC1DF00856329 /* AABB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AABB.cpp; sourceTree = "<group>"; };
-		2C240E1F11CFC1DF00856329 /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
+		2C240E1F11CFC1DF00856329 /* SphereBound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SphereBound.cpp; path = ../../../../FieldKit.cpp/src/fieldkit/math/SphereBound.cpp; sourceTree = "<group>"; };
 		2C240E3311CFC1DF00856329 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
 		2C240E3411CFC1DF00856329 /* Tweak.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tweak.cpp; sourceTree = "<group>"; };
 		2C240E3711CFC1DF00856329 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
@@ -360,6 +333,7 @@
 		2CA8346511DBBE6D00D5B37B /* Physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Physics.h; path = ../../FieldKit.cpp/include/fieldkit/physics/Physics.h; sourceTree = SOURCE_ROOT; };
 		2CA8346611DBBE6D00D5B37B /* PhysicsKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsKit.h; path = ../../FieldKit.cpp/include/fieldkit/physics/PhysicsKit.h; sourceTree = SOURCE_ROOT; };
 		2CA8346711DBBE6D00D5B37B /* Spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spring.h; path = ../../FieldKit.cpp/include/fieldkit/physics/Spring.h; sourceTree = SOURCE_ROOT; };
+		2CF00B6C11DF227100AD0E7C /* GLKit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLKit.cpp; path = ../../FieldKit.cpp/src/fieldkit/gl/GLKit.cpp; sourceTree = SOURCE_ROOT; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		53E3CDFB0E86099300238D2B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -578,7 +552,7 @@
 				2C16CBDA11D944B10038C163 /* MathKit.h */,
 				2C240DE211CFC1CD00856329 /* AABB.h */,
 				2C240DE311CFC1CD00856329 /* BoundingVolume.h */,
-				2C240DE411CFC1CD00856329 /* Sphere.h */,
+				2C240DE411CFC1CD00856329 /* SphereBound.h */,
 			);
 			path = math;
 			sourceTree = "<group>";
@@ -701,7 +675,7 @@
 			children = (
 				2C16CBDC11D944BD0038C163 /* MathKit.cpp */,
 				2C240E1E11CFC1DF00856329 /* AABB.cpp */,
-				2C240E1F11CFC1DF00856329 /* Sphere.cpp */,
+				2C240E1F11CFC1DF00856329 /* SphereBound.cpp */,
 			);
 			path = math;
 			sourceTree = "<group>";
@@ -793,6 +767,7 @@
 			children = (
 				2CA8341611DBBDC200D5B37B /* PointCloud.cpp */,
 				2CA8341711DBBDC200D5B37B /* PointDataFormat.cpp */,
+				2CF00B6C11DF227100AD0E7C /* GLKit.cpp */,
 			);
 			name = gl;
 			sourceTree = "<group>";
@@ -907,7 +882,7 @@
 				2C240E8211CFC25400856329 /* BoundingVolume.h in Headers */,
 				2C240E8511CFC25400856329 /* FieldKit.h in Headers */,
 				2C240E8811CFC25400856329 /* Model.h in Headers */,
-				2C240E9011CFC25400856329 /* Sphere.h in Headers */,
+				2C240E9011CFC25400856329 /* SphereBound.h in Headers */,
 				2C240E9311CFC25400856329 /* Tweak.h in Headers */,
 				2C16CBDB11D944B10038C163 /* MathKit.h in Headers */,
 				2C16CBE311D944E30038C163 /* Logger.h in Headers */,
@@ -918,15 +893,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CA833C911DB99EE00D5B37B /* CinderRenderer.h in Headers */,
-				2CA833CA11DB99EE00D5B37B /* Common.h in Headers */,
-				2CA833CB11DB99EE00D5B37B /* Renderer.h in Headers */,
-				2CA833CC11DB99EE00D5B37B /* RendererDelegates.h in Headers */,
-				2CA833CD11DB99EE00D5B37B /* Scene.h in Headers */,
-				2CA833CE11DB99EE00D5B37B /* SceneController.h in Headers */,
-				2CA833CF11DB99EE00D5B37B /* SceneImporter.h in Headers */,
-				2CA833D011DB99EE00D5B37B /* Texture.h in Headers */,
-				2CA833D111DB99EE00D5B37B /* FBXKit.h in Headers */,
 				2CA8341111DBBDA400D5B37B /* GLKit.h in Headers */,
 				2CA8341211DBBDA400D5B37B /* PointCloud.h in Headers */,
 				2CA8341311DBBDA400D5B37B /* PointDataFormat.h in Headers */,
@@ -937,15 +903,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CA833E911DB99F100D5B37B /* CinderRenderer.h in Headers */,
-				2CA833EA11DB99F100D5B37B /* Common.h in Headers */,
-				2CA833EB11DB99F100D5B37B /* Renderer.h in Headers */,
-				2CA833EC11DB99F100D5B37B /* RendererDelegates.h in Headers */,
-				2CA833ED11DB99F100D5B37B /* Scene.h in Headers */,
-				2CA833EE11DB99F100D5B37B /* SceneController.h in Headers */,
-				2CA833EF11DB99F100D5B37B /* SceneImporter.h in Headers */,
-				2CA833F011DB99F100D5B37B /* Texture.h in Headers */,
-				2CA833F111DB99F100D5B37B /* FBXKit.h in Headers */,
+				2CA8346E11DBBE6D00D5B37B /* PhysicsKit.h in Headers */,
 				2CA8344F11DBBE5E00D5B37B /* Attractor.h in Headers */,
 				2CA8345011DBBE5E00D5B37B /* Boundary.h in Headers */,
 				2CA8345111DBBE5E00D5B37B /* Flocking.h in Headers */,
@@ -964,7 +922,6 @@
 				2CA8346B11DBBE6D00D5B37B /* Emitter.h in Headers */,
 				2CA8346C11DBBE6D00D5B37B /* Particle.h in Headers */,
 				2CA8346D11DBBE6D00D5B37B /* Physics.h in Headers */,
-				2CA8346E11DBBE6D00D5B37B /* PhysicsKit.h in Headers */,
 				2CA8346F11DBBE6D00D5B37B /* Spring.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1115,7 +1072,7 @@
 			files = (
 				2C240E9411CFC26B00856329 /* AABB.cpp in Sources */,
 				2C240E9B11CFC26B00856329 /* Model.cpp in Sources */,
-				2C240EA311CFC26B00856329 /* Sphere.cpp in Sources */,
+				2C240EA311CFC26B00856329 /* SphereBound.cpp in Sources */,
 				2C240EA611CFC26B00856329 /* Tweak.cpp in Sources */,
 				2C16CBDD11D944BD0038C163 /* MathKit.cpp in Sources */,
 				2C16CBE111D944D70038C163 /* Logger.cpp in Sources */,
@@ -1126,11 +1083,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CA833D311DB99EE00D5B37B /* CinderRenderer.cpp in Sources */,
-				2CA833D411DB99EE00D5B37B /* Renderer.cpp in Sources */,
-				2CA833D511DB99EE00D5B37B /* Scene.cpp in Sources */,
-				2CA833D611DB99EE00D5B37B /* SceneController.cpp in Sources */,
-				2CA833D711DB99EE00D5B37B /* SceneImporter.cpp in Sources */,
+				2CF00B6D11DF227100AD0E7C /* GLKit.cpp in Sources */,
 				2CA8341811DBBDC200D5B37B /* PointCloud.cpp in Sources */,
 				2CA8341911DBBDC200D5B37B /* PointDataFormat.cpp in Sources */,
 			);
@@ -1140,11 +1093,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CA833F311DB99F100D5B37B /* CinderRenderer.cpp in Sources */,
-				2CA833F411DB99F100D5B37B /* Renderer.cpp in Sources */,
-				2CA833F511DB99F100D5B37B /* Scene.cpp in Sources */,
-				2CA833F611DB99F100D5B37B /* SceneController.cpp in Sources */,
-				2CA833F711DB99F100D5B37B /* SceneImporter.cpp in Sources */,
 				2CA8342311DBBE0D00D5B37B /* Behavioural.cpp in Sources */,
 				2CA8342411DBBE0D00D5B37B /* Emitter.cpp in Sources */,
 				2CA8342511DBBE0D00D5B37B /* Particle.cpp in Sources */,

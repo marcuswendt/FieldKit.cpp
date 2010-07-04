@@ -25,3 +25,9 @@ using namespace ci::gl;
 // default includes
 #include "fieldkit/gl/PointCloud.h"
 #include "fieldkit/gl/PointDataFormat.h"
+
+namespace fieldkit { namespace gl {
+	
+void drawCube(const Vec3f &center, const Vec3f &size);
+	
+} }

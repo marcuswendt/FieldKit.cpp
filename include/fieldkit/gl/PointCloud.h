@@ -15,26 +15,6 @@ namespace fieldkit { namespace gl {
 
 	class PointDataFormat;
 
-	static const char* POINTCLOUD_DEFAULT_VS = "\
-	attribute vec3 InVertex;\
-	attribute vec4 InColor;\
-	attribute float InSize;\
-	void main() {\
-		vec4 vertex = vec4(InVertex, 1.0);\
-		vec4 position = gl_ProjectionMatrix * gl_ModelViewMatrix * vertex;\
-		gl_Position = position;\
-		gl_PointSize = InSize;\
-		gl_FrontColor = InColor;\
-	}";
-
-	static const char* POINTCLOUD_DEFAULT_FS = "\
-	void main() { \
-		vec2 tc = gl_TexCoord[0].st;\
-		float dist = distance(vec2(0.5, 0.5), tc);\
-		if(dist > 0.5) discard;\
-		gl_FragColor = gl_Color;\
-	}";
-
 	class PointCloud {
 	public:
 		PointCloud() {};
