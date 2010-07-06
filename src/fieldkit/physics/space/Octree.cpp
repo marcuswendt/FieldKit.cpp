@@ -25,12 +25,12 @@ Octree::~Octree()
 {
 	for(int i=0; i<8; i++) {
 		if(children[i])
-			delete children[i];
+			delete &children[i];
 	}
-	delete children;
-	children = NULL;
+	delete &children;
+//	children = NULL;
 	
-//	delete data;
+	delete &data;
 //	data = NULL;
 }
 
@@ -53,16 +53,21 @@ void Octree::init(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize)
 
 void Octree::clear() 
 {
+	// clear all inserted spatials
+	logger() << "clear spatials" << endl;
+	data.clear();
+	
 	// clear all children
+	logger() << "clear children" << endl;
 	for(int i=0; i<8; i++) {
 		if(children[i]) {
+			logger() << "clear child" << i << endl;
 			children[i]->clear();
 		}
+		
+		logger() << "null child" << i << endl;
 		children[i] = 0;
 	}
-
-	// clear all inserted spatials
-	data.clear();
 }
 
 void Octree::insert(Spatial* s) 
