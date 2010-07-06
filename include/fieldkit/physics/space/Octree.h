@@ -9,15 +9,16 @@
 
 #pragma once
 
-#include "fieldkit/physics/PhysicsKit.h"
+#include "fieldkit/physics/space/Spatial.h"
+#include "fieldkit/physics/space/Space.h"
 
 namespace fieldkit { namespace physics {
 
-	// typedefs and
+	// typedefs
 	class Octree;
 	typedef Octree* OctreePtr;
-	typedef vector<OctreePtr> OctreeList;
-
+	typedef Octree** OctreeList;
+	
 	//! Implements a spatial subdivision tree to work efficiently with large numbers
 	//! of 3D spatials (particles or points). 
 	//! This octree can only be used for particle type objects and does NOT 
@@ -25,7 +26,7 @@ namespace fieldkit { namespace physics {
 	class Octree : public Space {
 	public:
 		//! Constructs an octree root node.
-		Octree(Vec3f offset, Vec3f dimension, float minSize=10.0f);
+		Octree(Vec3f offset, Vec3f dimension, float minSize=5.0f);
 		~Octree();
 
 		//! Empties the entire space contents.
@@ -42,6 +43,7 @@ namespace fieldkit { namespace physics {
 		Vec3f getOffset() { return offset; };
 		
 		OctreeList getChildren() { return children; }
+		
 	protected:
 		Octree* parent;
 		Vec3f offset;
@@ -58,7 +60,6 @@ namespace fieldkit { namespace physics {
 
 		//! Computes the local child octant/cube index for the given point.
 		inline int getOctantID(float x, float y, float z);
-
 	};
 
 } } // namespace fieldkit::physics

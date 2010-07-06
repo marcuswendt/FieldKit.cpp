@@ -23,14 +23,15 @@ Octree::Octree(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize)
 
 Octree::~Octree() 
 {
-	BOOST_FOREACH(Octree* child, children) {
-		delete child;
+	for(int i=0; i<8; i++) {
+		if(children[i])
+			delete children[i];
 	}
+	delete children;
+	children = NULL;
+	
 //	delete data;
 //	data = NULL;
-//	
-//	delete children;
-//	children = NULL;
 }
 
 void Octree::init(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize)
@@ -44,17 +45,24 @@ void Octree::init(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize)
 	this->extent = halfSize;
 	updateBounds();
 	
-	depth = 0;
+	depth = 0;	
+	
+	children = new Octree*[8];
 	clear();
 }
 
 void Octree::clear() 
 {
-	BOOST_FOREACH(OctreePtr child, children) {
-		child->clear();
+	// clear all children
+	for(int i=0; i<8; i++) {
+		if(children[i]) {
+			children[i]->clear();
+		}
+		children[i] = 0;
 	}
+
+	// clear all inserted spatials
 	data.clear();
-	children.clear();
 }
 
 void Octree::insert(Spatial* s) 
@@ -70,17 +78,18 @@ void Octree::insert(Spatial* s)
 		
 	} else {
 		int octant = getOctantID(p.x - offset.x, p.y - offset.y, p.z - offset.z);
-		
-		if(!children[octant]) {
+
+		// create new octree at given octant
+		if(children[octant] == 0) {
 			Vec3f o = offset;
 			if((octant & 1) != 0) o.x += extent.x;
 			if((octant & 2) != 0) o.y += extent.y;
-			if((octant & 4) != 0) o.z += extent.z;
-				
-			OctreePtr child = new Octree(this, o, extent * 0.5f, minSize);
-			children[octant] = child;
-			child->insert(s);
+			if((octant & 4) != 0) o.z += extent.z;				
+			children[octant] = new Octree(this, o, extent * 0.5f, minSize);
 		}
+		
+		// insert spatial into child node
+		children[octant]->insert(s);
 	}
 
 }
