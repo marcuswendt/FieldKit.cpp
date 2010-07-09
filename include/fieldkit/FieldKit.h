@@ -27,10 +27,15 @@ using std::endl;
 // -- Boost ------------------------------------------------------------------
 #include <boost/foreach.hpp>
 #include <boost/format.hpp> 
+#include <boost/shared_ptr.hpp>
+#include <boost/shared_array.hpp>
+#include <boost/ptr_container/ptr_vector.hpp>
 
 using boost::format;
 using boost::io::group;
-
+using boost::shared_ptr;
+using boost::shared_array;
+using boost::ptr_vector;
 
 // -- Cinder -----------------------------------------------------------------
 #include "cinder/Cinder.h"

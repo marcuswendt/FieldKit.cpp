@@ -16,8 +16,8 @@ namespace fieldkit { namespace physics {
 
 	// typedefs
 	class Octree;
-	typedef Octree* OctreePtr;
-	typedef Octree** OctreeList;
+	typedef shared_ptr<Octree> OctreePtr;
+	typedef OctreePtr* OctreeList;
 	
 	//! Implements a spatial subdivision tree to work efficiently with large numbers
 	//! of 3D spatials (particles or points). 
@@ -25,7 +25,7 @@ namespace fieldkit { namespace physics {
 	//! support 3D mesh geometry as other forms of Octrees do.
 	class Octree : public Space {
 	public:
-		//! Constructs an octree root node.
+		//! Constructs a new Octree node.
 		Octree(Vec3f offset, Vec3f dimension, float minSize=5.0f);
 		~Octree();
 
@@ -42,21 +42,16 @@ namespace fieldkit { namespace physics {
 		void setOffset(Vec3f offset);
 		Vec3f getOffset() { return offset; };
 		
-		OctreeList getChildren() { return children; }
+		OctreePtr getChild(int i);
+		int getNumChildren();
 		
 	protected:
-		Octree* parent;
+		OctreePtr parent;
 		Vec3f offset;
 		int depth;
 		float minSize;
 		SpatialList data;
 		OctreeList children;
-
-		//! Constructs an octree child node.
-		Octree(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize);
-
-		//! Initializes this octree node.
-		void init(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize);
 
 		//! Computes the local child octant/cube index for the given point.
 		inline int getOctantID(float x, float y, float z);

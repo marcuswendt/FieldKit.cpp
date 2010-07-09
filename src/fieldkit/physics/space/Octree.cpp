@@ -13,60 +13,35 @@ using namespace fieldkit::physics;
 
 Octree::Octree(Vec3f offset, Vec3f dimension, float minSize)
 { 	
-	init(NULL, offset, dimension * 0.5f, minSize);
-}
-
-Octree::Octree(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize)
-{
-	init(parent, offset, halfSize, minSize);	
-}
-
-Octree::~Octree() 
-{
-	for(int i=0; i<8; i++) {
-		if(children[i])
-			delete &children[i];
-	}
-	delete &children;
-//	children = NULL;
-	
-	delete &data;
-//	data = NULL;
-}
-
-void Octree::init(Octree* parent, Vec3f offset, Vec3f halfSize, float minSize)
-{
 	this->parent = parent;
 	this->offset = offset;
 	this->minSize = minSize;
 	
 	// init AABB
+	Vec3f halfSize = dimension * 0.5f;
 	this->position = offset + halfSize;
 	this->extent = halfSize;
 	updateBounds();
 	
-	depth = 0;	
-	
-	children = new Octree*[8];
-	clear();
+	depth = 0;
+	children = new OctreePtr[8];
+}
+
+Octree::~Octree() 
+{
+	data.clear();
+	delete[] children;
 }
 
 void Octree::clear() 
 {
 	// clear all inserted spatials
-	logger() << "clear spatials" << endl;
 	data.clear();
 	
 	// clear all children
-	logger() << "clear children" << endl;
 	for(int i=0; i<8; i++) {
-		if(children[i]) {
-			logger() << "clear child" << i << endl;
-			children[i]->clear();
-		}
-		
-		logger() << "null child" << i << endl;
-		children[i] = 0;
+		if(children[i])
+			children[i].reset();
 	}
 }
 
@@ -90,7 +65,7 @@ void Octree::insert(Spatial* s)
 			if((octant & 1) != 0) o.x += extent.x;
 			if((octant & 2) != 0) o.y += extent.y;
 			if((octant & 4) != 0) o.z += extent.z;				
-			children[octant] = new Octree(this, o, extent * 0.5f, minSize);
+			children[octant] = OctreePtr(new Octree(o, extent, minSize));
 		}
 		
 		// insert spatial into child node
@@ -116,4 +91,13 @@ int Octree::getOctantID(float x, float y, float z)
 	if(y >= extent.y) id += 2;
 	if(z >= extent.z) id += 4;
 	return id;
+}
+
+
+OctreePtr Octree::getChild(int i) { 
+	return children[i]; 
+}
+
+int Octree::getNumChildren() {
+	return 8;
 }
