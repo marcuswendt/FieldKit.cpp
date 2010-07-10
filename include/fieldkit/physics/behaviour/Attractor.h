@@ -15,7 +15,7 @@ namespace fieldkit { namespace physics {
 	
 	class AttractorPoint : public WeightedBehaviour {
 	public:
-		AttractorPoint(Space* space) : WeightedBehaviour(space) {
+		AttractorPoint(SpacePtr space) : WeightedBehaviour(space) {
 			setRange(0.1f);
 			position = Vec3f::zero();
 		};

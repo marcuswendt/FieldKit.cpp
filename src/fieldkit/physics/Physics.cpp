@@ -11,14 +11,11 @@
 
 using namespace fieldkit::physics;
 
-Physics::Physics(Space* space) 
+Physics::Physics(SpacePtr space) 
 {
 	this->space = space;
-
 	doUpdateNeighbours = true;
 	emptySpaceOnUpdate = true;
-
-	emitter = NULL;
 	numParticles = 0;
 }
 
@@ -30,7 +27,7 @@ Physics::~Physics()
 
 void Physics::update(float dt)
 {
-	if(emitter != NULL)
+	if(emitter)
 		emitter->update(dt);
 	
 	updateParticles(dt);
@@ -72,11 +69,11 @@ ParticlePtr Physics::allocParticle()
 void Physics::updateParticles(float dt) 
 {
 	// prepare behaviours & constraints
-	BOOST_FOREACH(Behaviour* b, behaviours) {
+	BOOST_FOREACH(BehaviourPtr b, behaviours) {
 		b->prepare(dt);
 	}
 	
-	BOOST_FOREACH(Constraint* c, constraints) {
+	BOOST_FOREACH(ConstraintPtr c, constraints) {
 		c->prepare(dt);
 	}
 	
@@ -86,12 +83,12 @@ void Physics::updateParticles(float dt)
 		if(!p->isAlive) continue;
 		
 		// apply behaviours
-		BOOST_FOREACH(Behaviour* b, behaviours) {
+		BOOST_FOREACH(BehaviourPtr b, behaviours) {
 			b->apply(p);
 		}
 		
 		// apply constraints
-		BOOST_FOREACH(Constraint* c, constraints) {
+		BOOST_FOREACH(ConstraintPtr c, constraints) {
 			c->apply(p);
 		}
 		
@@ -126,7 +123,7 @@ void Physics::updateSprings()
 		s->update();
 		
 		// apply constraints after spring update
-		BOOST_FOREACH(Constraint* c, constraints) {
+		BOOST_FOREACH(ConstraintPtr c, constraints) {
 			c->apply(s->a);
 			c->apply(s->b);
 		}			

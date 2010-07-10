@@ -16,7 +16,7 @@ using namespace fieldkit::math;
 #include "fieldkit/physics/space/Spatial.h"
 
 namespace fieldkit { namespace physics {
-
+	
 	class Space : public AABB {
 	public:			
 		Space() {};

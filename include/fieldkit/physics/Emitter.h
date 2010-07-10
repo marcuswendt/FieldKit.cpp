@@ -14,13 +14,18 @@
 
 namespace fieldkit { namespace physics {
 	
+	//! typedefs
 	class Physics;
-
+	typedef shared_ptr<Physics> PhysicsPtr;
+	
+	class Emitter;
+	typedef shared_ptr<Emitter> EmitterPtr;
+	
 	class Emitter : public Behavioural {
 	public:
-		Physics* physics;
+		PhysicsPtr physics;
 		
-		Emitter(Physics* physics);
+		Emitter(PhysicsPtr physics);
 		~Emitter() {};
 		
 		void update(float dt);

@@ -14,12 +14,8 @@
 namespace fieldkit { namespace physics {
 
 	class Constraint : public Behaviour {
-	//class Constraint {
-	//	Constraint() {};
-	//	~Constraint() {};
-
-	//	virtual void prepare(float dt) {};
-	//	virtual void apply(ParticlePtr p) = 0;
 	};
+	
+	typedef shared_ptr<Constraint> ConstraintPtr;
 	
 } } // namespace fieldkit::physics

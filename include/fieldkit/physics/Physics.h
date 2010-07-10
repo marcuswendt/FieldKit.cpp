@@ -14,16 +14,13 @@
 
 namespace fieldkit { namespace physics {
 
-	class Space;
-	class Emitter;
-	class Spring;
-
+	//! base class for all types of physics systems
 	class Physics : public Behavioural {
 	public:
-		Emitter* emitter;
-		Space* space;
+		EmitterPtr emitter;
+		SpacePtr space;
 		
-		Physics(Space* space);
+		Physics(SpacePtr space);
 		virtual ~Physics();
 			
 		virtual void update(float dt);
@@ -50,6 +47,7 @@ namespace fieldkit { namespace physics {
 
 		void setDoUpdateNeighbours(bool enabled) { doUpdateNeighbours = enabled; };
 		bool getDoUpdateNeighbours() { return doUpdateNeighbours; };
+		
 	protected:	
 		int numParticles;
 

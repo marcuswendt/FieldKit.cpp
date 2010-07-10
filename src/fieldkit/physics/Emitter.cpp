@@ -13,7 +13,7 @@
 
 using namespace fieldkit::physics;
 
-Emitter::Emitter(Physics* physics) 
+Emitter::Emitter(PhysicsPtr physics) 
 {
 	this->physics = physics;		
 	rate = 1;
@@ -32,10 +32,10 @@ void Emitter::update(float dt) {
 	if(!isEnabled) return;
 	
 	// prepare behaviours & constraints
-	BOOST_FOREACH(Behaviour* b, behaviours) {
+	BOOST_FOREACH(BehaviourPtr b, behaviours) {
 		b->prepare(dt);
 	}
-	BOOST_FOREACH(Constraint* c, constraints) {
+	BOOST_FOREACH(ConstraintPtr c, constraints) {
 		c->prepare(dt);
 	}
 	
@@ -61,12 +61,12 @@ ParticlePtr Emitter::emit(Vec3f location) {
 	p->init(location);
 	
 	// apply emitter behaviours
-	BOOST_FOREACH(Behaviour* b, behaviours) {
+	BOOST_FOREACH(BehaviourPtr b, behaviours) {
 		b->apply(p);
 	}
 
 	// apply emitter constraints
-	BOOST_FOREACH(Constraint* c, constraints) {
+	BOOST_FOREACH(ConstraintPtr c, constraints) {
 		c->apply(p);
 	}
 
