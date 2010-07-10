@@ -171,6 +171,10 @@
 					Name="gl"
 					>
 					<File
+						RelativePath="..\src\fieldkit\gl\GLKit.cpp"
+						>
+					</File>
+					<File
 						RelativePath="..\src\fieldkit\gl\PointCloud.cpp"
 						>
 					</File>
