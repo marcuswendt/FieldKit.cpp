@@ -33,7 +33,7 @@ void BasicSpace::insert(SpatialPtr s)
 void BasicSpace::select(BoundingVolumePtr volume, SpatialList result)
 {
 	result.clear();
-	BOOST_FOREACH(Spatial* s, spatials) {
+	BOOST_FOREACH(SpatialPtr s, spatials) {
 		if(volume->contains(s->getPosition())) {
 			result.push_back(s);
 		}

@@ -24,12 +24,6 @@ Physics::Physics(Space* space)
 
 Physics::~Physics() 
 {
-	BOOST_FOREACH(ParticlePtr p, particles) {
-		delete &p;
-	}
-	BOOST_FOREACH(SpringPtr s, springs) {
-		delete &s;
-	}
 	particles.clear();
 	springs.clear();
 }

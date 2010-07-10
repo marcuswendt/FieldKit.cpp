@@ -118,7 +118,8 @@ float fk::physics::Particle::getSpeed()
 
 void Particle::setSize(float radius)
 {
-	bounds = BoundingVolumePtr(new SphereBound(radius));
+	//bounds = BoundingVolumePtr(new SphereBound(radius));
+	bounds = BoundingVolumePtr(new AABB(radius, radius, radius));
 	size = radius;
 }
 

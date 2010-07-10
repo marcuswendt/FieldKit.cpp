@@ -16,6 +16,12 @@ SphereBound::SphereBound(float radius_) : radius(radius_)
 	type = BoundingVolume::BOUNDING_SPHERE;
 };
 
+SphereBound::SphereBound(Vec3f center, float radius_) : radius(radius_)
+{ 
+	type = BoundingVolume::BOUNDING_SPHERE;
+	position = center;
+}
+
 void SphereBound::set(SphereBound s) {
 	position = s.position;
 	radius = s.radius;

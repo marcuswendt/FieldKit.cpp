@@ -16,35 +16,35 @@ using namespace fieldkit::math;
 
 bool BoundingVolume::intersects(BoundingVolumePtr volume) {
 
-	switch (type) {
+	switch(type) {
 		// AABB interesections
 		case BOUNDING_BOX: {
 			AABB* a = (AABB*)this;
 			
-			switch (volume->type) {
+			switch(volume->type) {
 				// AABB x AABB
 				case BOUNDING_BOX:
-					return intersects(a, (AABB*)volume.get() );
+					return intersectAABBxAABB(a, (AABB*)volume.get() );
 					
 				// AABB x Sphere
 				case BOUNDING_SPHERE:
-					return intersects(a, (SphereBound*)volume.get() );
+					return intersectAABBxSphere(a, (SphereBound*)volume.get() );
 			};
 			break;
 		}
 			
 		// Sphere intersections
 		case BOUNDING_SPHERE: {
-			AABB* a = (AABB*)this;
+			SphereBound* a = (SphereBound*)this;
 			
 			switch (volume->type) {
 				// Sphere x Sphere
 				case BOUNDING_SPHERE:
-					return intersects(a, (SphereBound*)volume.get() );
+					return intersectSpherexSphere(a, (SphereBound*)volume.get() );
 					
 				// AABB x Sphere
 				case BOUNDING_BOX:
-					return intersects( (AABB*)volume.get(), a );
+					return intersectAABBxSphere( (AABB*)volume.get(), a );
 			};
 			break;
 		}
@@ -56,16 +56,16 @@ bool BoundingVolume::intersects(BoundingVolumePtr volume) {
 
 
 // -- Intersection Helpers -----------------------------------------------------
-bool BoundingVolume::intersects(AABB* a, AABB* b)
+bool BoundingVolume::intersectAABBxAABB(AABB* a, AABB* b)
 {
 	Vec3f tmp = a->position - b->position;
 	
 	return	abs(tmp.x) <= (a->extent.x + b->extent.x) &&
-	abs(tmp.y) <= (a->extent.y + b->extent.y) &&
-	abs(tmp.z) <= (a->extent.z + b->extent.z);
+			abs(tmp.y) <= (a->extent.y + b->extent.y) &&
+			abs(tmp.z) <= (a->extent.z + b->extent.z);
 }
 
-bool BoundingVolume::intersects(SphereBound* a, SphereBound* b)
+bool BoundingVolume::intersectSpherexSphere(SphereBound* a, SphereBound* b)
 {
 	Vec3f delta = a->position - b->position;
 	float d = delta.length();
@@ -74,7 +74,7 @@ bool BoundingVolume::intersects(SphereBound* a, SphereBound* b)
 	return d <= r1 + r2 && d >= abs(r1 - r2);
 }
 
-bool BoundingVolume::intersects(AABB* a, SphereBound* b)
+bool BoundingVolume::intersectAABBxSphere(AABB* a, SphereBound* b)
 {
 	Vec3f min = a->min;
 	Vec3f max = a->max;
@@ -108,6 +108,7 @@ bool BoundingVolume::intersects(AABB* a, SphereBound* b)
 	if (center.z < min.z) {
 		s = center.z - min.z;
 		d += s * s;
+		
 	} else if (center.z > max.z) {
 		s = center.z - max.z;
 		d += s * s;

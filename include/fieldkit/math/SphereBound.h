@@ -23,10 +23,7 @@ namespace fieldkit { namespace math {
 		SphereBound(float radius_);
 
 		//! Constructs a new sphere at the given position with the given radius
-		SphereBound(Vec3f center = Vec3f::zero(), float radius_ = 1.0f) : 
-			radius(radius_) { 
-				position = center;
-			};
+		SphereBound(Vec3f center = Vec3f::zero(), float radius = 1.0f);
 
 		void set(SphereBound sphere);
 		

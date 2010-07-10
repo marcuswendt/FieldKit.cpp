@@ -37,9 +37,9 @@ namespace fieldkit { namespace math {
 		
 	protected:
 		// intersection helpers
-		inline bool intersects(AABB* a, AABB* b);
-		inline bool intersects(SphereBound* a, SphereBound* b);
-		inline bool intersects(AABB* a, SphereBound* b);
+		inline bool intersectAABBxAABB(AABB* a, AABB* b);
+		inline bool intersectSpherexSphere(SphereBound* a, SphereBound* b);
+		inline bool intersectAABBxSphere(AABB* a, SphereBound* b);
 	};
 
 } } // namespace fieldkit::math

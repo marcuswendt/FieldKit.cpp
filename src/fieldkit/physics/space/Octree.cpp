@@ -25,6 +25,9 @@ Octree::Octree(Vec3f offset, Vec3f dimension, float minSize)
 	
 	depth = 0;
 	children = new OctreePtr[8];
+	for(int i=0; i<8; i++) {
+		children[i] = OctreePtr();
+	}
 }
 
 Octree::~Octree() 
@@ -45,12 +48,12 @@ void Octree::clear()
 	}
 }
 
-void Octree::insert(Spatial* s) 
+void Octree::insert(SpatialPtr s) 
 {
 	Vec3f p = s->getPosition();
 
 	// check if point is inside box
-	if(!this->contains(p)) return;
+	if(!contains(p)) return;
 	
 	// only add data leaves when extent is smaller than minsize
 	if(extent.x <= minSize || extent.y <= minSize || extent.z <= minSize) {
@@ -71,7 +74,6 @@ void Octree::insert(Spatial* s)
 		// insert spatial into child node
 		children[octant]->insert(s);
 	}
-
 }
 
 void Octree::select(BoundingVolumePtr volume, SpatialList result)
