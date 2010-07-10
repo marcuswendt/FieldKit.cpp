@@ -8,21 +8,25 @@
  */
 
 #include "fieldkit/math/AABB.h"
+#include "fieldkit/math/SphereBound.h"
 
 using namespace fieldkit::math;
 
 // initialise to normalised box within [0,1] range
 AABB::AABB() : BoundingVolume() {
+	type = BoundingVolume::BOUNDING_BOX;
 	position = Vec3f(0.5, 0.5, 0.5);
 	setDimension(1, 1, 1);
 }
 
 AABB::AABB(float w, float h, float d) : BoundingVolume() {
+	type = BoundingVolume::BOUNDING_BOX;
 	position = Vec3f(w/2.0f, h/2.0f, d/2.0f);
 	setDimension(w, h, d);
 }
 
 AABB::AABB(Vec3f min, Vec3f max) : BoundingVolume() {
+	type = BoundingVolume::BOUNDING_BOX;
 	this->min = min;
 	this->max = max;
 	this->extent = (max - min) / 2.0f;
@@ -72,15 +76,18 @@ void AABB::setDimension(float w, float h, float d) {
 Vec3f AABB::getDimension() {
 	return extent * 2.0f;
 }
-	
+
+// -- Bounding Volume ----------------------------------------------------------
 bool AABB::contains(Vec3f p) {
 	if(p.x < min.x || p.x > max.x) return false;
 	if(p.y < min.y || p.y > max.y) return false;
 	if(p.z < min.z || p.z > max.z) return false;
 	return true;
 }
-	
-void AABB::updateBounds() {
+
+// -- Helpers ------------------------------------------------------------------
+void AABB::updateBounds() 
+{
 	min = position - extent;
 	max = position + extent;
 }

@@ -78,7 +78,7 @@ namespace fieldkit { namespace physics {
 		float getSize();
 
 		SpatialList getNeighbours() { return neighbours; };
-		BoundingVolume* getBounds() { return bounds; };
+		BoundingVolumePtr getBounds() { return bounds; };
 
 	protected:
 		Vec3f tmp;
@@ -90,7 +90,7 @@ namespace fieldkit { namespace physics {
 		SpatialList neighbours;
 
 		//! the bounding volume used to detect collisions between neighbours
-		BoundingVolume* bounds;
+		BoundingVolumePtr bounds;
 	};
 	
 	// Define 

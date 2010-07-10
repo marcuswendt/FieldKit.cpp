@@ -17,28 +17,27 @@ namespace fieldkit { namespace math {
 	//! A Sphere that can be used as bounding volume
 	class SphereBound : public BoundingVolume {
 	public:
-		Vec3f center;
 		float radius;
 		
 		//! Constructs a new sphere with the given radius
-		SphereBound(float radius_) : center(Vec3f::zero()), radius(radius_) {};
+		SphereBound(float radius_);
 
 		//! Constructs a new sphere at the given position with the given radius
-		SphereBound(Vec3f center_ = Vec3f::zero(), float radius_ = 1.0f) :
-			center(center_), radius(radius_) { };
+		SphereBound(Vec3f center = Vec3f::zero(), float radius_ = 1.0f) : 
+			radius(radius_) { 
+				position = center;
+			};
 
 		void set(SphereBound sphere);
 		
 		// Bounding Volume
 		bool contains(Vec3f p);
-		bool intersects(SphereBound s);
 		
-		// Accessors
-		void setCenter(Vec3f location) { center = location; };
-		Vec3f getCenter() { return center; };
-		
+		// Accessors		
 		void setRadius(float value) { radius = value; };
 		float getRadius() { return radius; };
+		
+	protected:
 	};
-
+	
 } } // namespace fieldkit::math

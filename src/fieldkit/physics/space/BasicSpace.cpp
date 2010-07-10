@@ -9,8 +9,6 @@
 
 #include "fieldkit/physics/space/BasicSpace.h"
 
-#include "fieldkit/physics/space/Spatial.h"
-
 using namespace fieldkit::physics;
 
 BasicSpace::BasicSpace() { 
@@ -27,12 +25,12 @@ void BasicSpace::clear()
 	spatials.clear();
 }
 
-void BasicSpace::insert(Spatial* s) 
+void BasicSpace::insert(SpatialPtr s) 
 {
 	spatials.push_back(s);
 }
 
-void BasicSpace::select(BoundingVolume* volume, list<Spatial*> result)
+void BasicSpace::select(BoundingVolumePtr volume, SpatialList result)
 {
 	result.clear();
 	BOOST_FOREACH(Spatial* s, spatials) {

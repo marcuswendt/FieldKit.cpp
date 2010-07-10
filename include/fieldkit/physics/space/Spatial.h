@@ -13,6 +13,11 @@
 
 namespace fieldkit { namespace physics {
 
+	//! typedefs
+	class Spatial;
+	typedef Spatial* SpatialPtr;
+	typedef list<Spatial*> SpatialList;
+
 	//! interface for all types of elements that can be put into a space
 	class Spatial {
 	public:
@@ -22,8 +27,5 @@ namespace fieldkit { namespace physics {
 		virtual Vec3f getPosition() = 0;
 		//virtual BoundingVolume getSpatialBounds() = 0;
 	};
-
-	typedef Spatial* SpatialPtr;
-	typedef list<Spatial*> SpatialList;
-
+	
 } } // namespace fieldkit::physics

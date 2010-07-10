@@ -13,10 +13,10 @@
 #include "fieldkit/math/MathKit.h"
 using namespace fieldkit::math;
 
+#include "fieldkit/physics/space/Spatial.h"
+
 namespace fieldkit { namespace physics {
 
-	class Spatial;
-	
 	class Space : public AABB {
 	public:			
 		Space() {};
@@ -26,10 +26,10 @@ namespace fieldkit { namespace physics {
 		virtual void clear() = 0;
 
 		//! adds a single spatial
-		virtual void insert(Spatial* s) = 0;
+		virtual void insert(SpatialPtr s) = 0;
 
 		//! selects all spatials within the given bounding volume
-		virtual void select(BoundingVolume* volume, list<Spatial*> result) = 0;
+		virtual void select(BoundingVolumePtr volume, SpatialList result) = 0;
 
 		//! returns the center of the space
 		Vec3f getCenter();

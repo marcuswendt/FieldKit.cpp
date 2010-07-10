@@ -36,7 +36,7 @@ namespace fieldkit { namespace physics {
 		void insert(SpatialPtr s);
 		
 		//! Selects all spatials within the given bounding volume.
-		void select(BoundingVolume* volume, SpatialList result);
+		void select(BoundingVolumePtr volume, SpatialList result);
 		
 		// Acessors
 		void setOffset(Vec3f offset);
@@ -55,6 +55,8 @@ namespace fieldkit { namespace physics {
 
 		//! Computes the local child octant/cube index for the given point.
 		inline int getOctantID(float x, float y, float z);
+		
+		void selectImpl(BoundingVolumePtr volume, SpatialList result);
 	};
 
 } } // namespace fieldkit::physics

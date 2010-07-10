@@ -74,12 +74,30 @@ void Octree::insert(Spatial* s)
 
 }
 
-void Octree::select(BoundingVolume* volume, SpatialList result)
+void Octree::select(BoundingVolumePtr volume, SpatialList result)
 {
 	result.clear();
-	BOOST_FOREACH(SpatialPtr s, data) {
-		if(volume->contains(s->getPosition())) {
-			result.push_back(s);
+	selectImpl(volume, result);
+}
+
+void Octree::selectImpl(BoundingVolumePtr volume, SpatialList result)
+{
+	// check wether bounding volume and this node intersect at all
+	if(!intersects(volume)) return;
+	
+	// if this node contains spatial data then check which spatials lie within the bounding volume
+	if(data.size() > 0) {
+		BOOST_FOREACH(SpatialPtr s, data) {
+			if(volume->contains(s->getPosition())) {
+				result.push_back(s);	
+			}
+		}
+
+	// otherwise traverse child nodes
+	} else if(children) {
+		for(int i=0; i<8; i++) {
+			if(children[i])
+				children[i]->selectImpl(volume, result);
 		}
 	}
 }

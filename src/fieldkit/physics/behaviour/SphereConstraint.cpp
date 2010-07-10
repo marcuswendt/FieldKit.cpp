@@ -15,7 +15,7 @@ void SphereConstraint::apply(ParticlePtr p) {
 	bool isInside = contains(p->position);
 	if((isBoundingSphere && !isInside) || (!isBoundingSphere && isInside)) {
 		p->position.set(
-			((p->position - center).normalized() *= radius) += center
+			((p->position - position).normalized() *= radius) += position
 		);
 	}	
 }

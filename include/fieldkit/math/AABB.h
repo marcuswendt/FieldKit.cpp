@@ -13,7 +13,7 @@
 #include "fieldkit/math/BoundingVolume.h"
 
 namespace fieldkit { namespace math {
-
+	
 	//! An axis aligned bounding box
 	class AABB : public BoundingVolume {
 	public:
@@ -25,8 +25,10 @@ namespace fieldkit { namespace math {
 		AABB(float w, float h, float d);
 		AABB(Vec3f min, Vec3f max);
 		
+		// Bounding Volume
 		bool contains(Vec3f p);
-
+		
+		// Accessors
 		void set(AABB box);
 		
 		void setWidth(float value);
@@ -43,6 +45,7 @@ namespace fieldkit { namespace math {
 		
 	protected:
 		void updateBounds();
+		
 	};
-
+	
 } } // namespace fieldkit::math

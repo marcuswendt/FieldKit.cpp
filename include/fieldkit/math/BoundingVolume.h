@@ -14,10 +14,32 @@
 
 namespace fieldkit { namespace math {
 
-class BoundingVolume {
+	//! typedefs
+	class BoundingVolume;
+	typedef shared_ptr<BoundingVolume> BoundingVolumePtr;
+	
+	//! forward declarations
+	class AABB;
+	class SphereBound;
+	
+	//! Base class for all types of bounding volumes
+	class BoundingVolume {
 	public:
+		enum BoundingVolumeType {
+			BOUNDING_BOX, BOUNDING_SPHERE
+		};
+		
+		BoundingVolumeType type;
+		
 		Vec3f position;
 		virtual bool contains(Vec3f p) = 0;
-};
+		bool intersects(BoundingVolumePtr volume);
+		
+	protected:
+		// intersection helpers
+		inline bool intersects(AABB* a, AABB* b);
+		inline bool intersects(SphereBound* a, SphereBound* b);
+		inline bool intersects(AABB* a, SphereBound* b);
+	};
 
 } } // namespace fieldkit::math

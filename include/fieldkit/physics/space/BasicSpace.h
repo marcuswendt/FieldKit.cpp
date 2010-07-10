@@ -23,13 +23,13 @@ namespace fieldkit { namespace physics {
 		void clear();
 
 		//! adds a single spatial
-		void insert(Spatial* s);
+		void insert(SpatialPtr s);
 
 		//! selects all spatials within the given bounding volume
-		void select(BoundingVolume* volume, list<Spatial*> result);
+		void select(BoundingVolumePtr volume, SpatialList result);
 
 	protected:
-		list<Spatial*> spatials;
+		SpatialList spatials;
 	};
 
 } } // namespace fieldkit::physics

@@ -11,23 +11,19 @@
 
 using namespace fieldkit::math;
 
+SphereBound::SphereBound(float radius_) : radius(radius_) 
+{
+	type = BoundingVolume::BOUNDING_SPHERE;
+};
+
 void SphereBound::set(SphereBound s) {
-	center = s.center;
+	position = s.position;
 	radius = s.radius;
 }
 
-// -- Bounding Volume ----------------------------------------------------------
 bool SphereBound::contains(Vec3f p) {
-	float dx = center.x - p.x;
-	float dy = center.y - p.y;
-	float dz = center.z - p.z;
+	float dx = position.x - p.x;
+	float dy = position.y - p.y;
+	float dz = position.z - p.z;
 	return dx * dx + dy * dy + dz * dz <= radius * radius;
-}
-
-bool SphereBound::intersects(SphereBound s) {
-	Vec3f delta = s.center - center;
-	float d = delta.length();
-	float r1 = radius;
-	float r2 = s.radius;
-	return d <= r1 + r2 && d >= abs(r1 - r2);
 }
