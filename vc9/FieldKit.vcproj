@@ -183,7 +183,7 @@
 						>
 					</File>
 					<File
-						RelativePath="..\src\fieldkit\math\Sphere.cpp"
+						RelativePath="..\src\fieldkit\math\SphereBound.cpp"
 						>
 					</File>
 				</Filter>
