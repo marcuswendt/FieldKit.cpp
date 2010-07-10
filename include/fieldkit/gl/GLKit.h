@@ -28,6 +28,6 @@ using namespace ci::gl;
 
 namespace fieldkit { namespace gl {
 	
-void drawCube(const Vec3f &center, const Vec3f &size);
+	void drawCube(const Vec3f &center, const Vec3f &size);
 	
 } }

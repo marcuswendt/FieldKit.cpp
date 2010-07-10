@@ -29,7 +29,7 @@ namespace fieldkit { namespace physics {
 	};
 	
 	//! basic spatial implementation that wraps a Vec3f into a spatial
-	class PointSpatial {
+	class PointSpatial : public Spatial {
 	public:
 		PointSpatial(Vec3f p = Vec3f::zero()) : position(p) {};
 		~PointSpatial() {};

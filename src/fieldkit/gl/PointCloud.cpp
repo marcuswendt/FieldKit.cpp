@@ -8,11 +8,10 @@
  */
 
 #include "fieldkit/gl/PointCloud.h"
-#include "fieldkit/gl/PointDataFormat.h"
 
 using namespace fieldkit::gl;
 
-void PointCloud::init(PointDataFormat* format, int capacity,
+void PointCloud::init(PointDataFormat format, int capacity,
 					  DataSourceRef vertexShader, DataSourceRef fragmentShader)
 {
 	this->format = format;
@@ -20,7 +19,7 @@ void PointCloud::init(PointDataFormat* format, int capacity,
 	
 	// calculate buffer size
 	bytesPerParticle = 0;
-	BOOST_FOREACH(PointDataFormat::Attribute attr, format->attributes) {
+	BOOST_FOREACH(PointDataFormat::Attribute attr, format.attributes) {
 		bytesPerParticle += attr.bytes;
 	}
 	
@@ -128,7 +127,7 @@ void PointCloud::draw()
 	
 	// set attribute pointers
 	int offset = 0;
-	BOOST_FOREACH(PointDataFormat::Attribute attr, format->attributes) {		
+	BOOST_FOREACH(PointDataFormat::Attribute attr, format.attributes) {		
 		GLint loc = shader->getAttribLocation(attr.name);
 		if(loc == -1) {
 			logger() << "WARNING: Couldnt find shader attribute '"<< attr.name << std::endl;
@@ -143,7 +142,7 @@ void PointCloud::draw()
 	glDrawArrays(GL_POINTS, 0, size);
 
 	// restore attribute pointers
-	BOOST_FOREACH(PointDataFormat::Attribute attr, format->attributes) {		
+	BOOST_FOREACH(PointDataFormat::Attribute attr, format.attributes) {		
 		GLint loc = shader->getAttribLocation(attr.name);
 		glDisableVertexAttribArray(loc);
 	}

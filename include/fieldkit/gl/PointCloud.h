@@ -10,10 +10,9 @@
 #pragma once
 
 #include "fieldkit/gl/GLKit.h"
+#include "fieldkit/gl/PointDataFormat.h"
 
 namespace fieldkit { namespace gl {
-
-	class PointDataFormat;
 
 	class PointCloud {
 	public:
@@ -21,7 +20,7 @@ namespace fieldkit { namespace gl {
 		~PointCloud() {};
 		
 		//! initializes this clouds buffer to a certain format
-		void init(PointDataFormat* format, int capacity,
+		void init(PointDataFormat format, int capacity,
 				  DataSourceRef vertexShader=DataSourceRef(), 
 				  DataSourceRef fragmentShader=DataSourceRef());
 		
@@ -50,7 +49,7 @@ namespace fieldkit { namespace gl {
 		void draw();
 
 	protected:
-		PointDataFormat* format;
+		PointDataFormat format;
 		int capacity;
 		int bytesPerParticle;
 		GLfloat* data;
