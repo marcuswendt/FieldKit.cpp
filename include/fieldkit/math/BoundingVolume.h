@@ -16,7 +16,8 @@ namespace fieldkit { namespace math {
 
 	//! typedefs
 	class BoundingVolume;
-	typedef shared_ptr<BoundingVolume> BoundingVolumePtr;
+	//typedef shared_ptr<BoundingVolume> BoundingVolumePtr;
+	typedef BoundingVolume* BoundingVolumePtr;
 	
 	//! forward declarations
 	class AABB;

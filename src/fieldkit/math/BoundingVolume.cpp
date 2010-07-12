@@ -24,11 +24,11 @@ bool BoundingVolume::intersects(BoundingVolumePtr volume) {
 			switch(volume->type) {
 				// AABB x AABB
 				case BOUNDING_BOX:
-					return intersectAABBxAABB(a, (AABB*)volume.get() );
+					return intersectAABBxAABB(a, (AABB*)volume );
 					
 				// AABB x Sphere
 				case BOUNDING_SPHERE:
-					return intersectAABBxSphere(a, (SphereBound*)volume.get() );
+					return intersectAABBxSphere(a, (SphereBound*)volume );
 			};
 			break;
 		}
@@ -40,11 +40,11 @@ bool BoundingVolume::intersects(BoundingVolumePtr volume) {
 			switch (volume->type) {
 				// Sphere x Sphere
 				case BOUNDING_SPHERE:
-					return intersectSpherexSphere(a, (SphereBound*)volume.get() );
+					return intersectSpherexSphere(a, (SphereBound*)volume );
 					
 				// AABB x Sphere
 				case BOUNDING_BOX:
-					return intersectAABBxSphere( (AABB*)volume.get(), a );
+					return intersectAABBxSphere( (AABB*)volume, a );
 			};
 			break;
 		}
