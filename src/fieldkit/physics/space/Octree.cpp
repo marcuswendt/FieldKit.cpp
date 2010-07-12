@@ -83,9 +83,9 @@ void Octree::Branch::init(Vec3f offset, Vec3f dimension, float minSize, int dept
 	
 	for(int octant=0; octant<8; octant++) {
 		Vec3f o = offset;
-		if((octant & 1) != 0) o.x += halfSize.x;
-		if((octant & 2) != 0) o.y += halfSize.y;
-		if((octant & 4) != 0) o.z += halfSize.z;
+		if((octant & 1) != 0) o.x += dimension.x;
+		if((octant & 2) != 0) o.y += dimension.y;
+		if((octant & 4) != 0) o.z += dimension.z;
 	
 		// create leaf nodes when we reached a certain minSize
 		if(halfSize.x < minSize || halfSize.y < minSize || halfSize.z < minSize) {
