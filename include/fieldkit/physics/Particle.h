@@ -77,7 +77,7 @@ namespace fieldkit { namespace physics {
 		virtual void setSize(float radius);
 		float getSize();
 
-		SpatialList getNeighbours() { return neighbours; };
+		SpatialListPtr getNeighbours() { return &neighbours; };
 		BoundingVolumePtr getBounds() { return bounds; };
 
 	protected:

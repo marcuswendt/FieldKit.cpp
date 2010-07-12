@@ -18,7 +18,8 @@ namespace fieldkit { namespace physics {
 	//typedef shared_ptr<Spatial> SpatialPtr;
 	typedef Spatial* SpatialPtr;
 	typedef vector<SpatialPtr> SpatialList;
-
+	typedef SpatialList* SpatialListPtr;
+	
 	//! interface for all types of elements that can be put into a space
 	class Spatial {
 	public:

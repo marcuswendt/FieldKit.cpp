@@ -26,7 +26,7 @@ namespace fieldkit { namespace physics {
 		void insert(SpatialPtr s);
 
 		//! selects all spatials within the given bounding volume
-		void select(BoundingVolumePtr volume, SpatialList result);
+		void select(BoundingVolumePtr volume, SpatialListPtr result);
 
 	protected:
 		SpatialList spatials;

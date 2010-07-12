@@ -40,9 +40,9 @@ void Octree::insert(SpatialPtr spatial)
 	root->insert(spatial);
 }
 
-void Octree::select(BoundingVolumePtr volume, SpatialList result)
+void Octree::select(BoundingVolumePtr volume, SpatialListPtr result)
 {
-	result.clear();
+	result->clear();
 	root->select(volume, result);
 }
 
@@ -125,7 +125,7 @@ void Octree::Branch::insert(SpatialPtr spatial)
 	children[octant]->insert(spatial);
 }
 
-void Octree::Branch::select(BoundingVolumePtr volume, SpatialList result)
+void Octree::Branch::select(BoundingVolumePtr volume, SpatialListPtr result)
 {
 	if(isEmpty) return;
 	
@@ -178,7 +178,7 @@ void Octree::Leaf::insert(SpatialPtr spatial)
 	data.push_back(spatial);
 }
 
-void Octree::Leaf::select(BoundingVolumePtr volume, SpatialList result)
+void Octree::Leaf::select(BoundingVolumePtr volume, SpatialListPtr result)
 {
 	if(isEmpty) return;
 	
@@ -187,6 +187,6 @@ void Octree::Leaf::select(BoundingVolumePtr volume, SpatialList result)
 	
 	BOOST_FOREACH(SpatialPtr s, data) {
 		if(volume->contains(s->getPosition()))
-			result.push_back(s);	
+			result->push_back(s);	
 	}
 }
