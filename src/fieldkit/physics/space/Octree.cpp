@@ -11,100 +11,130 @@
 
 using namespace fieldkit::physics;
 
-Octree::Octree(Vec3f offset, Vec3f dimension, float minSize)
-{ 	
-	this->parent = parent;
-	this->offset = offset;
-	this->minSize = minSize;
-	
-	// init AABB
-	Vec3f halfSize = dimension * 0.5f;
-	this->position = offset + halfSize;
-	this->extent = halfSize;
+
+// -- Octree -------------------------------------------------------------------
+Octree::Octree(Vec3f offset, Vec3f dimension, float minSize, int depth)
+{
+	// init bounds
+	this->position = offset + dimension;
+	this->extent = dimension;
 	updateBounds();
 	
-	depth = 0;
-	children = new OctreePtr[8];
-	for(int i=0; i<8; i++) {
-		children[i] = OctreePtr();
-	}
+	// init tree
+	root = new Branch();
+	root->init(offset, dimension, minSize, depth);
 }
 
 Octree::~Octree() 
 {
-	data.clear();
-	delete[] children;
+	root->clear();
 }
 
 void Octree::clear() 
 {
-	// clear all inserted spatials
-	data.clear();
-	
-	// clear all children
-	for(int i=0; i<8; i++) {
-		if(children[i])
-			children[i].reset();
-	}
+	root->clear();
 }
 
-void Octree::insert(SpatialPtr s) 
+void Octree::insert(SpatialPtr spatial) 
 {
-	Vec3f p = s->getPosition();
-
-	// check if point is inside box
-	if(!contains(p)) return;
-	
-	// only add data leaves when extent is smaller than minsize
-	if(extent.x <= minSize || extent.y <= minSize || extent.z <= minSize) {
-		data.push_back(s);
-		
-	} else {
-		int octant = getOctantID(p.x - offset.x, p.y - offset.y, p.z - offset.z);
-
-		// create new octree at given octant
-		if(children[octant] == 0) {
-			Vec3f o = offset;
-			if((octant & 1) != 0) o.x += extent.x;
-			if((octant & 2) != 0) o.y += extent.y;
-			if((octant & 4) != 0) o.z += extent.z;				
-			children[octant] = OctreePtr(new Octree(o, extent, minSize));
-		}
-		
-		// insert spatial into child node
-		children[octant]->insert(s);
-	}
+	root->insert(spatial);
 }
 
 void Octree::select(BoundingVolumePtr volume, SpatialList result)
 {
 	result.clear();
-	selectImpl(volume, result);
+	root->select(volume, result);
 }
 
-void Octree::selectImpl(BoundingVolumePtr volume, SpatialList result)
-{
-	// check wether bounding volume and this node intersect at all
-	if(!intersects(volume)) return;
-	
-	// if this node contains spatial data then check which spatials lie within the bounding volume
-	if(data.size() > 0) {
-		BOOST_FOREACH(SpatialPtr s, data) {
-			if(volume->contains(s->getPosition())) {
-				result.push_back(s);	
-			}
-		}
 
-	// otherwise traverse child nodes
-	} else if(children) {
-		for(int i=0; i<8; i++) {
-			if(children[i])
-				children[i]->selectImpl(volume, result);
+// -- Node ---------------------------------------------------------------------
+void Octree::Node::init(Vec3f offset, Vec3f dimension, float minSize, int depth)
+{
+	this->offset = offset;
+	this->minSize = minSize;
+	this->depth = depth;
+	
+	// init bounds
+	this->position = offset + dimension;
+	this->extent = dimension;
+	updateBounds();
+}
+
+
+// -- Branch -------------------------------------------------------------------
+Octree::Branch::Branch() 
+{
+	type = TYPE_BRANCH;	
+}
+
+Octree::Branch::~Branch() 
+{
+	children.clear();
+}
+
+void Octree::Branch::init(Vec3f offset, Vec3f dimension, float minSize, int depth)
+{
+	Node::init(offset, dimension, minSize, depth);
+	
+	// create child nodes
+	Vec3f halfSize = dimension * 0.5f;
+	
+	for(int octant=0; octant<8; octant++) {
+		Vec3f o = offset;
+		if((octant & 1) != 0) o.x += halfSize.x;
+		if((octant & 2) != 0) o.y += halfSize.y;
+		if((octant & 4) != 0) o.z += halfSize.z;
+	
+		// create leaf nodes when we reached a certain minSize
+		if(halfSize.x < minSize || halfSize.y < minSize || halfSize.z < minSize) {
+			Leaf* leaf = new Leaf();
+			leaf->init(o, halfSize, minSize, depth+1);
+			children.push_back(leaf);
+			
+		// otherwise subdivide into further branches
+		} else {
+			Branch* branch = new Branch();
+			branch->init(o, halfSize, minSize, depth+1);
+			children.push_back(branch);	
 		}
 	}
 }
 
-int Octree::getOctantID(float x, float y, float z) 
+void Octree::Branch::clear() 
+{
+	BOOST_FOREACH(Octree::NodePtr child, children) {
+		child->clear();
+	}
+	isEmpty = true;
+}
+
+void Octree::Branch::insert(SpatialPtr spatial)
+{
+	Vec3f p = spatial->getPosition();
+	
+	// check if point is inside box
+	if(!contains(p)) return;
+	
+	isEmpty = false;
+	
+	int octant = getOctantID(p.x - offset.x, p.y - offset.y, p.z - offset.z);
+	children[octant]->insert(spatial);
+}
+
+void Octree::Branch::select(BoundingVolumePtr volume, SpatialList result)
+{
+	if(isEmpty) return;
+	
+	// check wether bounding volume and this node intersect at all
+	if(!intersects(volume)) return;
+	
+	// traverse all children until we find a leaf node
+	BOOST_FOREACH(Octree::NodePtr child, children) {
+		child->select(volume, result);
+	}	
+}
+
+int Octree::Branch::getOctantID(float x, float y, float z) 
 {
 	int id = 0;
 	if(x >= extent.x) id += 1;
@@ -114,10 +144,43 @@ int Octree::getOctantID(float x, float y, float z)
 }
 
 
-OctreePtr Octree::getChild(int i) { 
-	return children[i]; 
+// -- Leaf ---------------------------------------------------------------------
+Octree::Leaf::Leaf() 
+{
+	type = TYPE_LEAF;
 }
 
-int Octree::getNumChildren() {
-	return 8;
+Octree::Leaf::~Leaf() 
+{
+	data.clear();
+}
+
+void Octree::Leaf::clear() 
+{
+	data.clear();
+	isEmpty = true;
+}
+
+void Octree::Leaf::insert(SpatialPtr spatial)
+{	
+	if(isEmpty) return;
+	
+	// check if point is inside box
+	if(!contains(spatial->getPosition())) return;
+	
+	isEmpty = false;
+	
+	// insert spatial into data
+	data.push_back(spatial);
+}
+
+void Octree::Leaf::select(BoundingVolumePtr volume, SpatialList result)
+{
+	// check wether bounding volume and this node intersect at all
+	if(!intersects(volume)) return;
+	
+	BOOST_FOREACH(SpatialPtr s, data) {
+		if(volume->contains(s->getPosition()))
+			result.push_back(s);	
+	}
 }

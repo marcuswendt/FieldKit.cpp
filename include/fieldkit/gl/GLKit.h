@@ -23,8 +23,8 @@ using namespace ci;
 using namespace ci::gl;
 
 // default includes
-#include "fieldkit/gl/PointCloud.h"
 #include "fieldkit/gl/PointDataFormat.h"
+#include "fieldkit/gl/PointCloud.h"
 
 namespace fieldkit { namespace gl {
 	

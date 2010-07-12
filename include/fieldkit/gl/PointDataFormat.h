@@ -9,10 +9,12 @@
 
 #pragma once
 
-#include "fieldkit/gl/GLKit.h"
+#include "fieldkit/FieldKit.h"
+
+#include <cinder/gl/GL.h>
+using namespace ci::gl;
 
 namespace fieldkit { namespace gl {
-	class PointCloud;
 
 	class PointDataFormat {
 	public:

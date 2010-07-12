@@ -35,6 +35,9 @@ namespace fieldkit { namespace math {
 		virtual bool contains(Vec3f p) = 0;
 		bool intersects(BoundingVolumePtr volume);
 		
+		// Accessors
+		Vec3f getPosition() { return position; };
+		
 	protected:
 		// intersection helpers
 		inline bool intersectAABBxAABB(AABB* a, AABB* b);
