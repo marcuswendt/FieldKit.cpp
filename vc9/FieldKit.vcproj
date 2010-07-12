@@ -179,6 +179,10 @@
 						>
 					</File>
 					<File
+						RelativePath="..\src\fieldkit\math\BoundingVolume.cpp"
+						>
+					</File>
+					<File
 						RelativePath="..\src\fieldkit\math\MathKit.cpp"
 						>
 					</File>
