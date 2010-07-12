@@ -54,6 +54,8 @@ void Octree::Node::init(Vec3f offset, Vec3f dimension, float minSize, int depth)
 	this->minSize = minSize;
 	this->depth = depth;
 	
+	isEmpty = true;
+	
 	// init bounds
 	this->position = offset + dimension;
 	this->extent = dimension;
@@ -102,6 +104,8 @@ void Octree::Branch::init(Vec3f offset, Vec3f dimension, float minSize, int dept
 
 void Octree::Branch::clear() 
 {
+	if(isEmpty) return;
+	
 	BOOST_FOREACH(Octree::NodePtr child, children) {
 		child->clear();
 	}
@@ -157,14 +161,14 @@ Octree::Leaf::~Leaf()
 
 void Octree::Leaf::clear() 
 {
+	if(isEmpty) return;
+	
 	data.clear();
 	isEmpty = true;
 }
 
 void Octree::Leaf::insert(SpatialPtr spatial)
-{	
-	if(isEmpty) return;
-	
+{		
 	// check if point is inside box
 	if(!contains(spatial->getPosition())) return;
 	
@@ -176,6 +180,8 @@ void Octree::Leaf::insert(SpatialPtr spatial)
 
 void Octree::Leaf::select(BoundingVolumePtr volume, SpatialList result)
 {
+	if(isEmpty) return;
+	
 	// check wether bounding volume and this node intersect at all
 	if(!intersects(volume)) return;
 	
