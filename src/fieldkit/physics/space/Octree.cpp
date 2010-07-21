@@ -11,9 +11,23 @@
 
 using namespace fieldkit::physics;
 
-
 // -- Octree -------------------------------------------------------------------
-Octree::Octree(Vec3f offset, Vec3f dimension, float minSize, int depth)
+Octree::Octree()
+{
+	init(Vec3f::zero(), Vec3f(100.0f, 100.0f, 100.0f), 10.0f);
+}
+
+Octree::Octree(Vec3f offset, Vec3f dimension, float minSize)
+{
+	init(offset, dimension, minSize);
+}
+
+Octree::~Octree() 
+{
+	root->clear();
+}
+
+void Octree::init(Vec3f offset, Vec3f dimension, float minSize)
 {
 	// init bounds
 	this->position = offset + dimension;
@@ -22,12 +36,7 @@ Octree::Octree(Vec3f offset, Vec3f dimension, float minSize, int depth)
 	
 	// init tree
 	root = new Branch();
-	root->init(offset, dimension, minSize, depth);
-}
-
-Octree::~Octree() 
-{
-	root->clear();
+	root->init(offset, dimension, minSize, 0);
 }
 
 void Octree::clear() 

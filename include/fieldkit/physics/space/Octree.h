@@ -81,9 +81,13 @@ namespace fieldkit { namespace physics {
 		// -- Octree Main ------------------------------------------------------
 		
 		//! Constructs a new Octree node.
-		Octree(Vec3f offset, Vec3f dimension, float minSize=5.0f, int depth=0);
+		Octree();
+		Octree(Vec3f offset, Vec3f dimension, float minSize=5.0f);
 		~Octree();
 
+		//! Initializes the tree.
+		void init(Vec3f offset, Vec3f dimension, float minSize=5.0f);
+		
 		//! Empties the entire space contents.
 		void clear();
 		

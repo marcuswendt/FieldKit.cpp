@@ -21,6 +21,7 @@ using namespace fieldkit::math;
 #include "fieldkit/physics/space/Space.h"
 #include "fieldkit/physics/space/BasicSpace.h"
 #include "fieldkit/physics/space/Octree.h"
+#include "fieldkit/physics/space/SpatialHash.h"
 
 // physics
 #include "fieldkit/physics/Behaviour.h"
