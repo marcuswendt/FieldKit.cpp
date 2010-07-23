@@ -11,46 +11,55 @@
 
 #include "cinder/Rand.h"
 
-const  bool fieldkit::math::flipCoin( float chance )
+float invSqrt(float x) {
+	float xhalf = 0.5f * x;
+	int i = *(int*)&x; // store floating-point bits in integer
+	i = 0x5f3759d5 - (i >> 1); // initial guess for Newton's method
+	x = *(float*)&i; // convert new bits into float
+	x = x*(1.5f - xhalf*x*x); // One round of Newton's method
+	return x;
+}
+
+bool fieldkit::math::flipCoin( float chance )
 {
 	return randFloat() > chance;
 }
 
 
 // -- Random Float ----------------------------------------------------------
-const float fieldkit::math::randFloat() 
+float fieldkit::math::randFloat() 
 {
 	return ci::Rand::randFloat();
 }
 
-const float fieldkit::math::randFloat( float range )
+float fieldkit::math::randFloat( float range )
 {
 	return ci::Rand::randFloat(range);
 }
 
-const float fieldkit::math::randFloat( float from, float to )
+float fieldkit::math::randFloat( float from, float to )
 {
 	return ci::Rand::randFloat(from, to);
 }
 
 
 // -- Random Vec3 -----------------------------------------------------------
-const Vec3f fieldkit::math::randVec3f()
+Vec3f fieldkit::math::randVec3f()
 {
 	return Vec3f(randFloat(), randFloat(), randFloat());
 }
 
-const Vec3f fieldkit::math::randVec3f( float range )
+Vec3f fieldkit::math::randVec3f( float range )
 {
 	return Vec3f(randFloat(range), randFloat(range), randFloat(range));
 }
 
-const Vec3f fieldkit::math::randVec3f( float from, float to )
+Vec3f fieldkit::math::randVec3f( float from, float to )
 {
 	return Vec3f(randFloat(from, to), randFloat(from, to), randFloat(from, to));
 }
 
-const Vec3f fieldkit::math::randNormal()
+Vec3f fieldkit::math::randNormal()
 {
 	return randVec3f(-1.0f, 1.0f);
 }

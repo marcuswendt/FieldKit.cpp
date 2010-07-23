@@ -14,18 +14,21 @@
 // Global math helper methods
 namespace fieldkit { namespace math {
 
-	const float randFloat();
-	const float randFloat(float range);
-	const float randFloat(float from, float to);
+	// Carmack's inverse square root function
+	float invSqrt(float x);
+	
+	float randFloat();
+	float randFloat(float range);
+	float randFloat(float from, float to);
 
-	const Vec3f randVec3f();
-	const Vec3f randVec3f(float range);
-	const Vec3f randVec3f(float from, float to);
+	Vec3f randVec3f();
+	Vec3f randVec3f(float range);
+	Vec3f randVec3f(float from, float to);
 
-	const Vec3f randNormal();
+	Vec3f randNormal();
 
-	const bool flipCoin(float chance);
-
+	bool flipCoin(float chance);
+	
 } } // namespace fieldkit::math
 
 
