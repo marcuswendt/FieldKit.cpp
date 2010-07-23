@@ -11,14 +11,26 @@
 
 using namespace fieldkit::physics;
 
-BasicSpace::BasicSpace() { 
-	clear(); 
-};
+BasicSpace::BasicSpace() {}
 
-BasicSpace::~BasicSpace() { 
-	//delete &spatials;
-	//spatials = NULL;
-};
+BasicSpace::BasicSpace(Vec3f offset, Vec3f dimension)
+{
+	init(offset, dimension);
+}
+
+BasicSpace::~BasicSpace() {}
+
+void BasicSpace::init(Vec3f offset, Vec3f dimension)
+{
+	this->position = offset + dimension * 0.5f;
+	this->extent = dimension * 0.5f;
+	updateBounds();	
+}
+
+void BasicSpace::reserve(int count)
+{
+	spatials.reserve(count);
+}
 
 void BasicSpace::clear() 
 {

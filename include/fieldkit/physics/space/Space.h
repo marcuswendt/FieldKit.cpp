@@ -21,7 +21,10 @@ namespace fieldkit { namespace physics {
 	public:			
 		Space() {};
 		~Space() {};
-			
+
+		//! make sure the space can hold a certain amount of spatials
+		virtual void reserve(int count) = 0;
+		
 		//! empties the entire space contents
 		virtual void clear() = 0;
 
@@ -30,7 +33,7 @@ namespace fieldkit { namespace physics {
 
 		//! selects all spatials within the given bounding volume
 		virtual void select(BoundingVolumePtr volume, SpatialListPtr result) = 0;
-
+		
 		//! returns the center of the space
 		Vec3f getCenter();
 		

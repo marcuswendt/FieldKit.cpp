@@ -57,6 +57,8 @@ void Physics::allocParticles(int count)
 	for(int i=0; i<count; i++){
 		particles.push_back( allocParticle() );
 	}
+	
+	space->reserve(count);
 }
 
 // allocates a single particle, override this method to create custom Particle types

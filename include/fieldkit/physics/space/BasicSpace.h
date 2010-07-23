@@ -17,7 +17,14 @@ namespace fieldkit { namespace physics {
 	class BasicSpace : public Space {
 	public:
 		BasicSpace();
+		BasicSpace(Vec3f offset, Vec3f dimension);
 		~BasicSpace();
+		
+		//! Initializes the space.
+		void init(Vec3f offset, Vec3f dimension);
+
+		//! make sure the space can hold a certain amount of spatials
+		void reserve(int count);
 
 		//! empties the entire space contents
 		void clear();
@@ -27,7 +34,7 @@ namespace fieldkit { namespace physics {
 
 		//! selects all spatials within the given bounding volume
 		void select(BoundingVolumePtr volume, SpatialListPtr result);
-
+		
 	protected:
 		SpatialList spatials;
 	};

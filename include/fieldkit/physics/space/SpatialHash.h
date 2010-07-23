@@ -40,6 +40,9 @@ namespace fieldkit { namespace physics {
 		
 		void init(Vec3f offset, Vec3f dimension, float cellSize=5.0f);
 		
+		//! make sure the space can hold a certain amount of spatials
+		void reserve(int count) {};
+
 		//! Empties the entire space contents.
 		void clear();
 		
