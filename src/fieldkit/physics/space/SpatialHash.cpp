@@ -9,6 +9,9 @@
 
 #include "fieldkit/physics/space/SpatialHash.h"
 
+#include "fieldkit/math/MathKit.h"
+using namespace fieldkit::math;
+
 using namespace fieldkit::physics;
 
 // -- SpatialHash::Cell --------------------------------------------------------
@@ -99,19 +102,58 @@ void SpatialHash::clear()
 
 void SpatialHash::insert(SpatialPtr spatial) 
 {
+	// find position in cell space
 	Vec3f p = spatial->getPosition();
 	int hashX = (int)(p.x / cellSize);
 	int hashY = (int)(p.y / cellSize);
+
+	// make sure the spatial lies within the cell space
 	if(hashX > 0 && hashX < cellsX && 
-	   hashY > 0 && hashY < cellsY) {\
+	   hashY > 0 && hashY < cellsY) {
 		cells[hashX][hashY]->insert(spatial);
-	} else {
-		
 	}
 }
 
 void SpatialHash::select(BoundingVolumePtr volume, SpatialListPtr result)
 {
+	// find search center position in cell space
+	Vec3f p = volume->getPosition();
+	int hashX = (int)(p.x / cellSize);
+	int hashY = (int)(p.y / cellSize);
 	
+	// figure out search radius
+	int searchX = 0;
+	int searchY = 0;
+	switch(volume->getType()) {
+		case BOUNDING_BOX: {
+			AABB* box = (AABB*)volume;
+			searchX = box->getWidth();
+			searchY = box->getHeight();
+			break;
+		}
+			
+		case BOUNDING_SPHERE: {
+			SphereBound* sphere = (SphereBound*)volume;
+			searchX = searchY = sphere->getRadius(); 
+			break;
+		}
+	};
+	
+	// make sure we have a clean list
+	result->clear();
+	
+	// put all spatials from the selected cells into result
+	for(int i=hashY-searchY; i<hashY+searchY; i++) {
+		for(int j=hashX-searchX; j<hashX+searchX; j++) {
+			// check wether we're still inside the grid
+			if(j > 0 && j < cellsX && 
+			   i > 0 && i < cellsY) {
+				CellPtr cell = cells[j][i];
+				BOOST_FOREACH(SpatialPtr spatial, cell->spatials) {
+					result->push_back(spatial);
+				}
+			}			
+		}
+	}
 }
 

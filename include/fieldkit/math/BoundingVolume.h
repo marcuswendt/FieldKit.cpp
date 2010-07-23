@@ -30,16 +30,17 @@ namespace fieldkit { namespace math {
 			BOUNDING_BOX, BOUNDING_SPHERE
 		};
 		
-		BoundingVolumeType type;
-		
 		Vec3f position;
 		virtual bool contains(Vec3f p) = 0;
 		bool intersects(BoundingVolumePtr volume);
 		
 		// Accessors
 		Vec3f getPosition() { return position; };
+		BoundingVolumeType getType() { return type; }
 		
 	protected:
+		BoundingVolumeType type;
+		
 		// intersection helpers
 		inline bool intersectAABBxAABB(AABB* a, AABB* b);
 		inline bool intersectSpherexSphere(SphereBound* a, SphereBound* b);
