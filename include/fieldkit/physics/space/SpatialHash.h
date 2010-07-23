@@ -59,6 +59,10 @@ namespace fieldkit { namespace physics {
 		float cellSize;
 		
 		void destroy();
+		
+		inline int hash(float position) {
+			return (int)(position / cellSize);
+		};
 	};
 	
 } } // namespace fieldkit::physics

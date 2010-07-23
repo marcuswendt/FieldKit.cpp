@@ -64,8 +64,8 @@ void SpatialHash::init(Vec3f offset, Vec3f dimension, float cellSize)
 
 	// create cells
 	this->cellSize = cellSize;
-	cellsX = (int)(dimension.x / cellSize);
-	cellsY = (int)(dimension.y / cellSize);
+	cellsX = hash(dimension.x);
+	cellsY = hash(dimension.y);
 
 	if(cells != NULL) 
 		destroy();
@@ -104,8 +104,8 @@ void SpatialHash::insert(SpatialPtr spatial)
 {
 	// find position in cell space
 	Vec3f p = spatial->getPosition();
-	int hashX = (int)(p.x / cellSize);
-	int hashY = (int)(p.y / cellSize);
+	int hashX = hash(p.x);
+	int hashY = hash(p.y);
 
 	// make sure the spatial lies within the cell space
 	if(hashX > 0 && hashX < cellsX && 
@@ -118,8 +118,8 @@ void SpatialHash::select(BoundingVolumePtr volume, SpatialListPtr result)
 {
 	// find search center position in cell space
 	Vec3f p = volume->getPosition();
-	int hashX = (int)(p.x / cellSize);
-	int hashY = (int)(p.y / cellSize);
+	int hashX = hash(p.x);
+	int hashY = hash(p.y);
 	
 	// figure out search radius
 	int searchX = 0;
@@ -127,14 +127,14 @@ void SpatialHash::select(BoundingVolumePtr volume, SpatialListPtr result)
 	switch(volume->getType()) {
 		case BOUNDING_BOX: {
 			AABB* box = (AABB*)volume;
-			searchX = box->getWidth();
-			searchY = box->getHeight();
+			searchX = hash(box->getWidth() / 2.0f);
+			searchY = hash(box->getHeight() / 2.0f);
 			break;
 		}
 			
 		case BOUNDING_SPHERE: {
 			SphereBound* sphere = (SphereBound*)volume;
-			searchX = searchY = sphere->getRadius(); 
+			searchX = searchY = hash(sphere->getRadius());
 			break;
 		}
 	};

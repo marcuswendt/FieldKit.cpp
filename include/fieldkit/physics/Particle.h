@@ -65,18 +65,17 @@ namespace fieldkit { namespace physics {
 		void scaleVelocity(float s);
 		
 		// Accessors
+		Vec3f getPosition() { return position; };
+		
+		virtual void setSize(float radius);
+		float getSize();
+		
 		void setWeight(float value);
 		inline float getWeight() { return this->weight; };
 		inline float getInvWeight() { return this->invWeight; };
 		Vec3f getVelocity();
 		float getSpeed();
-
-		// Spatial
-		Vec3f getPosition() { return position; };
-
-		virtual void setSize(float radius);
-		float getSize();
-
+		
 		SpatialListPtr getNeighbours() { return &neighbours; };
 		BoundingVolumePtr getBounds() { return bounds; };
 
