@@ -58,8 +58,8 @@ SpatialHash::~SpatialHash()
 void SpatialHash::init(Vec3f offset, Vec3f dimension, float cellSize)
 {
 	// init bounds
-	this->position = offset + dimension;
-	this->extent = dimension;
+	this->position = offset + dimension * 0.5f;
+	this->extent = dimension * 0.5f;
 	updateBounds();
 
 	// create cells
@@ -156,4 +156,3 @@ void SpatialHash::select(BoundingVolumePtr volume, SpatialListPtr result)
 		}
 	}
 }
-

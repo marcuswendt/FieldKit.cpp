@@ -30,6 +30,7 @@ namespace fieldkit { namespace math {
 		
 		// Accessors
 		void set(AABB box);
+		void set(AABB* box);
 		
 		void setWidth(float value);
 		float getWidth();

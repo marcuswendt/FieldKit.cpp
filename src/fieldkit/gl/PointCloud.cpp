@@ -11,8 +11,7 @@
 
 using namespace fieldkit::gl;
 
-void PointCloud::init(PointDataFormat format, int capacity,
-					  DataSourceRef vertexShader, DataSourceRef fragmentShader)
+void PointCloud::init(PointDataFormat format, int capacity, GlslProg shader)
 {
 	this->format = format;
 	this->capacity = capacity;
@@ -33,9 +32,9 @@ void PointCloud::init(PointDataFormat format, int capacity,
 	vbo->bufferData(bytesTotal, data, GL_DYNAMIC_DRAW); // or GL_STREAM_DRAW
 	vbo->unbind();
 
-	// when vertex and fragment shaders are given, try to load them
-	if(vertexShader && fragmentShader) {
-		shader = new GlslProg(vertexShader, fragmentShader);
+	// when shader programm was given, try to load them
+	if(shader != NULL) {
+		this->shader = shader;
 
 	// load default shaders
 	} else {
@@ -61,7 +60,7 @@ void PointCloud::init(PointDataFormat format, int capacity,
 			gl_FragColor = gl_Color;\
 		}";
 		
-		shader = new GlslProg(POINTCLOUD_DEFAULT_VS, POINTCLOUD_DEFAULT_FS);
+		this->shader = GlslProg(POINTCLOUD_DEFAULT_VS, POINTCLOUD_DEFAULT_FS);
 	}
 }
 
@@ -113,7 +112,7 @@ void PointCloud::put(ColorAf v)
 void PointCloud::draw()
 {
 	// enable states
-	shader->bind();
+	shader.bind();
 	vbo->bind();
 	
 	// upload data
@@ -128,7 +127,7 @@ void PointCloud::draw()
 	// set attribute pointers
 	int offset = 0;
 	BOOST_FOREACH(PointDataFormat::Attribute attr, format.attributes) {		
-		GLint loc = shader->getAttribLocation(attr.name);
+		GLint loc = shader.getAttribLocation(attr.name);
 		if(loc == -1) {
 			logger() << "WARNING: Couldnt find shader attribute '"<< attr.name << std::endl;
 			return;
@@ -143,7 +142,7 @@ void PointCloud::draw()
 
 	// restore attribute pointers
 	BOOST_FOREACH(PointDataFormat::Attribute attr, format.attributes) {		
-		GLint loc = shader->getAttribLocation(attr.name);
+		GLint loc = shader.getAttribLocation(attr.name);
 		glDisableVertexAttribArray(loc);
 	}
 	
@@ -154,6 +153,6 @@ void PointCloud::draw()
 	glEnable(GL_DEPTH_TEST);
 
 	vbo->unbind();
-	shader->unbind();
+	shader.unbind();
 }
 

@@ -38,6 +38,12 @@ void AABB::set(AABB box) {
 	this->max = box.max;
 	this->extent = box.extent;
 }
+
+void AABB::set(AABB* box) {
+	this->min = box->min;
+	this->max = box->max;
+	this->extent = box->extent;
+}
 	
 void AABB::setWidth(float value) {
 	extent.x = value * 0.5f;

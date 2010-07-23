@@ -30,8 +30,8 @@ Octree::~Octree()
 void Octree::init(Vec3f offset, Vec3f dimension, float minSize)
 {
 	// init bounds
-	this->position = offset + dimension;
-	this->extent = dimension;
+	this->position = offset + dimension * 0.5f;
+	this->extent = dimension * 0.5f;
 	updateBounds();
 	
 	// init tree

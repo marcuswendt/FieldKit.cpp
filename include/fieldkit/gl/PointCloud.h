@@ -20,9 +20,7 @@ namespace fieldkit { namespace gl {
 		~PointCloud() {};
 		
 		//! initializes this clouds buffer to a certain format
-		void init(PointDataFormat format, int capacity,
-				  DataSourceRef vertexShader=DataSourceRef(), 
-				  DataSourceRef fragmentShader=DataSourceRef());
+		void init(PointDataFormat format, int capacity, GlslProg shader=NULL);
 		
 		//! clears the buffer data
 		void clear();
@@ -58,6 +56,6 @@ namespace fieldkit { namespace gl {
 		GLfloat* ptr;
 		
 		Vbo* vbo;
-		GlslProg* shader;
+		GlslProg shader;
 	};
 } } // namespace fieldkit::gl

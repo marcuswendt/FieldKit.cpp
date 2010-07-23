@@ -24,6 +24,11 @@ namespace fieldkit { namespace physics {
 			preserveMomentum = false;
 		}
 		
+		BoxWrap(SpacePtr space) {
+			preserveMomentum = false;
+			set(space.get());
+		}
+		
 		BoxWrap(AABB box) {
 			set(box);
 			preserveMomentum = false;
