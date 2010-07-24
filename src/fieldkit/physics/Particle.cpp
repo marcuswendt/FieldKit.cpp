@@ -21,11 +21,14 @@ Particle::Particle() :
 	tmp = Vec3f::zero();
 
 	setSize(1.0f);
+		
+	bounds = NULL;
 }
 
 Particle::~Particle()
 {
-	// TODO
+	if(bounds != NULL)
+		delete bounds;
 }
 
 void Particle::init(Vec3f location) 
@@ -76,7 +79,7 @@ void Particle::updatePosition()
 	prev = tmp;
 	
 	scaleVelocity(drag);
-	force = Vec3f::zero();
+	force.x = force.y = force.z = 0.0f;
 }
 
 void Particle::lock() 
@@ -118,6 +121,10 @@ float fk::physics::Particle::getSpeed()
 
 void Particle::setSize(float radius)
 {
+	// clean up old bounds before creating new one
+	if(bounds != NULL)
+		delete bounds;
+	
 	//bounds = BoundingVolumePtr(new SphereBound(radius));
 	bounds = BoundingVolumePtr(new AABB(radius, radius, radius));
 	size = radius;
