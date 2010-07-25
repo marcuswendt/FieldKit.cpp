@@ -75,21 +75,15 @@ namespace fieldkit { namespace physics {
 		inline float getInvWeight() { return this->invWeight; };
 		Vec3f getVelocity();
 		float getSpeed();
-		
+				
 		SpatialListPtr getNeighbours() { return &neighbours; };
-		BoundingVolumePtr getBounds() { return bounds; };
-
+		
 	protected:
-		Vec3f tmp;
-
 		//! physical size in the simulation space
 		float size;
 
 		//! list of neighbours this particle is aware of
 		SpatialList neighbours;
-
-		//! the bounding volume used to detect collisions between neighbours
-		BoundingVolumePtr bounds;
 	};
 	
 	// Define 

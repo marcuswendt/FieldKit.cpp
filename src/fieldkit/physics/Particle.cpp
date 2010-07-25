@@ -18,17 +18,12 @@ Particle::Particle() :
 	position = Vec3f::zero();
 	prev = Vec3f::zero();
 	force = Vec3f::zero();
-	tmp = Vec3f::zero();
 
 	setSize(1.0f);
-		
-	bounds = NULL;
 }
 
 Particle::~Particle()
 {
-	if(bounds != NULL)
-		delete bounds;
 }
 
 void Particle::init(Vec3f location) 
@@ -70,7 +65,7 @@ void Particle::updateState(float dt)
 // -- Verlet Integration -------------------------------------------------------
 void Particle::updatePosition() 
 {
-	tmp = position;
+	Vec3f tmp = position;
 	
 	position.x += ((position.x - prev.x) + force.x);
 	position.y += ((position.y - prev.y) + force.y);
@@ -121,12 +116,6 @@ float fk::physics::Particle::getSpeed()
 
 void Particle::setSize(float radius)
 {
-	// clean up old bounds before creating new one
-	if(bounds != NULL)
-		delete bounds;
-	
-	//bounds = BoundingVolumePtr(new SphereBound(radius));
-	bounds = BoundingVolumePtr(new AABB(radius, radius, radius));
 	size = radius;
 }
 

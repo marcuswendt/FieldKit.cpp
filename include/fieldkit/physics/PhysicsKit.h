@@ -23,6 +23,12 @@ using namespace fieldkit::math;
 #include "fieldkit/physics/space/Octree.h"
 #include "fieldkit/physics/space/SpatialHash.h"
 
+// strategies
+#include "fieldkit/physics/strategy/PhysicsStrategy.h"
+#include "fieldkit/physics/strategy/ParticleUpdate.h"
+#include "fieldkit/physics/strategy/SpringUpdate.h"
+#include "fieldkit/physics/strategy/NeighbourUpdate.h"
+
 // physics
 #include "fieldkit/physics/Behaviour.h"
 #include "fieldkit/physics/Constraint.h"

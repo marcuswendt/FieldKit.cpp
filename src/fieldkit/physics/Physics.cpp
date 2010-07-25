@@ -14,9 +14,11 @@ using namespace fieldkit::physics;
 Physics::Physics(SpacePtr space) 
 {
 	this->space = space;
-	doUpdateNeighbours = true;
-	emptySpaceOnUpdate = true;
 	numParticles = 0;
+
+	setParticleUpdate(PhysicsStrategyPtr(new ParticleUpdate()));
+	setSpringUpdate(PhysicsStrategyPtr(new SpringUpdate()));
+	setNeighbourUpdate(PhysicsStrategyPtr(new FixedRadiusNeighbourUpdate()));
 }
 
 Physics::~Physics() 
@@ -30,9 +32,9 @@ void Physics::update(float dt)
 	if(emitter)
 		emitter->update(dt);
 	
-	updateParticles(dt);
-	updateSprings();
-	updateNeighbours();
+	particleUpdate->apply(this);
+	springUpdate->apply(this);
+	neighbourUpdate->apply(this);
 }
 
 // -- Particles ------------------------------------------------------------
@@ -67,43 +69,6 @@ ParticlePtr Physics::allocParticle()
 	return new Particle();
 }
 
-// updates all particles by applying all behaviours and constraints
-void Physics::updateParticles(float dt) 
-{
-	// prepare behaviours & constraints
-	BOOST_FOREACH(BehaviourPtr b, behaviours) {
-		b->prepare(dt);
-	}
-	
-	BOOST_FOREACH(ConstraintPtr c, constraints) {
-		c->prepare(dt);
-	}
-	
-	// update all particles
-	//for(ParticlePtr p = particles.begin(); p != particles.end(); p++) {
-	BOOST_FOREACH(ParticlePtr p, particles) {
-		if(!p->isAlive) continue;
-		
-		// apply behaviours
-		BOOST_FOREACH(BehaviourPtr b, behaviours) {
-			b->apply(p);
-		}
-		
-		// apply constraints
-		BOOST_FOREACH(ConstraintPtr c, constraints) {
-			c->apply(p);
-		}
-		
-		// update particle
-		p->update(dt);
-		
-		// particle just has died
-		if(!p->isAlive) {
-			numParticles--;
-		}
-	}
-}
-
 
 // -- Springs --------------------------------------------------------------
 void Physics::addSpring(SpringPtr spring) 
@@ -117,36 +82,3 @@ void Physics::removeSpring(SpringPtr spring)
 //	springs.erase(spring);
 }
 
-// updates all spring connections based on new particle positions
-void Physics::updateSprings() 
-{
-	// update all springs
-	BOOST_FOREACH(SpringPtr s, springs) {
-		s->update();
-		
-		// apply constraints after spring update
-		BOOST_FOREACH(ConstraintPtr c, constraints) {
-			c->apply(s->a);
-			c->apply(s->b);
-		}			
-	}		
-}
-
-// -- Neighbours -----------------------------------------------------------
-void Physics::updateNeighbours()
-{
-	if(!doUpdateNeighbours) return;
-
-	if(emptySpaceOnUpdate) 
-		space->clear();
-
-	BOOST_FOREACH(ParticlePtr p, particles) {
-		if(p->isAlive)
-			space->insert(p);
-	}
-
-	BOOST_FOREACH(ParticlePtr p, particles) {
-		if(p->isAlive)
-			space->select(p->getBounds(), p->getNeighbours());
-	}
-}

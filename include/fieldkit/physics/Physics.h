@@ -4,7 +4,6 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   Physics.h
  *	 Created by Marcus Wendt on 20/05/2010.
  */
 
@@ -19,7 +18,16 @@ namespace fieldkit { namespace physics {
 	public:
 		EmitterPtr emitter;
 		SpacePtr space;
+
+		//! number of currently active particles
+		int numParticles;
 		
+		//! time since last update
+		float dt;
+		
+		// ---------------------------------------------------------------------
+		
+		// Constructors
 		Physics(SpacePtr space);
 		virtual ~Physics();
 			
@@ -41,22 +49,22 @@ namespace fieldkit { namespace physics {
 		void addSpring(SpringPtr spring);
 		void removeSpring(SpringPtr spring);
 		
-		// Accessors
-		void setEmptySpaceOnUpdate(bool enabled) { emptySpaceOnUpdate = enabled; };
-		bool getEmptySpaceOnUpdate() { return emptySpaceOnUpdate; };
+		// ---------------------------------------------------------------------
 
-		void setDoUpdateNeighbours(bool enabled) { doUpdateNeighbours = enabled; };
-		bool getDoUpdateNeighbours() { return doUpdateNeighbours; };
+		// Accessors
+		void setParticleUpdate(PhysicsStrategyPtr strategy) { particleUpdate = strategy; };
+		PhysicsStrategyPtr getParticleUpdate() { return particleUpdate; };
+
+		void setSpringUpdate(PhysicsStrategyPtr strategy) { springUpdate = strategy; };
+		PhysicsStrategyPtr getSpringUpdate() { return springUpdate; };
+
+		void setNeighbourUpdate(PhysicsStrategyPtr strategy) { neighbourUpdate = strategy; };
+		PhysicsStrategyPtr getNeighbourUpdate() { return neighbourUpdate; };
 		
 	protected:	
-		int numParticles;
-
-		bool doUpdateNeighbours;
-		bool emptySpaceOnUpdate;
-
-		virtual void updateParticles(float dt);
-		virtual void updateSprings();
-		virtual void updateNeighbours();
+		PhysicsStrategyPtr particleUpdate;
+		PhysicsStrategyPtr springUpdate;
+		PhysicsStrategyPtr neighbourUpdate;
 		
 		virtual ParticlePtr allocParticle();
 	};
