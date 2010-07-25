@@ -14,17 +14,22 @@ using namespace fieldkit::physics;
 Physics::Physics(SpacePtr space) 
 {
 	this->space = space;
+	
 	numParticles = 0;
 
 	setParticleUpdate(PhysicsStrategyPtr(new ParticleUpdate()));
 	setSpringUpdate(PhysicsStrategyPtr(new SpringUpdate()));
-	setNeighbourUpdate(PhysicsStrategyPtr(new FixedRadiusNeighbourUpdate()));
+	setNeighbourUpdate(PhysicsStrategyPtr(new EmptyStrategy()));
 }
 
 Physics::~Physics() 
 {
 	particles.clear();
 	springs.clear();
+	
+	particleUpdate.reset();
+	springUpdate.reset();
+	neighbourUpdate.reset();
 }
 
 void Physics::update(float dt)

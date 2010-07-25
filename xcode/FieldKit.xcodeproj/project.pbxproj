@@ -113,6 +113,8 @@
 		2C49602811FC3B1100749B68 /* ParticleUpdate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C49602711FC3B1100749B68 /* ParticleUpdate.h */; };
 		2C49602A11FC3B2600749B68 /* SpringUpdate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C49602911FC3B2600749B68 /* SpringUpdate.cpp */; };
 		2C49602C11FC3B3200749B68 /* ParticleUpdate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C49602B11FC3B3200749B68 /* ParticleUpdate.cpp */; };
+		2C49608011FC428300749B68 /* CollisionConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C49607F11FC428300749B68 /* CollisionConstraint.h */; };
+		2C49608211FC42A100749B68 /* CollisionConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C49608111FC42A000749B68 /* CollisionConstraint.cpp */; };
 		2C55A3E911B0610F00041C25 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2C55A3EA11B0610F00041C25 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
 		2C55A3EB11B0610F00041C25 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -308,6 +310,8 @@
 		2C49602711FC3B1100749B68 /* ParticleUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleUpdate.h; path = strategy/ParticleUpdate.h; sourceTree = "<group>"; };
 		2C49602911FC3B2600749B68 /* SpringUpdate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpringUpdate.cpp; path = strategy/SpringUpdate.cpp; sourceTree = "<group>"; };
 		2C49602B11FC3B3200749B68 /* ParticleUpdate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleUpdate.cpp; path = strategy/ParticleUpdate.cpp; sourceTree = "<group>"; };
+		2C49607F11FC428300749B68 /* CollisionConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionConstraint.h; sourceTree = "<group>"; };
+		2C49608111FC42A000749B68 /* CollisionConstraint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionConstraint.cpp; sourceTree = "<group>"; };
 		2C55A26211B0608700041C25 /* libFieldKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
 		2CA833E611DB99EE00D5B37B /* libGLKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -824,9 +828,10 @@
 				2CA8343111DBBE3A00D5B37B /* Flocking.cpp */,
 				2CA8343211DBBE3A00D5B37B /* Force.cpp */,
 				2CA8343311DBBE3A00D5B37B /* Initializer.cpp */,
-				2CA8343411DBBE3A00D5B37B /* PlaneConstraint.cpp */,
 				2CA8343511DBBE3A00D5B37B /* Random.cpp */,
+				2CA8343411DBBE3A00D5B37B /* PlaneConstraint.cpp */,
 				2CA8343611DBBE3A00D5B37B /* SphereConstraint.cpp */,
+				2C49608111FC42A000749B68 /* CollisionConstraint.cpp */,
 			);
 			name = behaviour;
 			path = ../../FieldKit.cpp/src/fieldkit/physics/behaviour;
@@ -852,9 +857,10 @@
 				2CA8344911DBBE5E00D5B37B /* Flocking.h */,
 				2CA8344A11DBBE5E00D5B37B /* Force.h */,
 				2CA8344B11DBBE5E00D5B37B /* Initializer.h */,
-				2CA8344C11DBBE5E00D5B37B /* PlaneConstraint.h */,
 				2CA8344D11DBBE5E00D5B37B /* Random.h */,
+				2CA8344C11DBBE5E00D5B37B /* PlaneConstraint.h */,
 				2CA8344E11DBBE5E00D5B37B /* SphereConstraint.h */,
+				2C49607F11FC428300749B68 /* CollisionConstraint.h */,
 			);
 			name = behaviour;
 			path = ../../FieldKit.cpp/include/fieldkit/physics/behaviour;
@@ -974,6 +980,7 @@
 				2C49600B11FC341C00749B68 /* NeighbourUpdate.h in Headers */,
 				2C49602611FC3B0300749B68 /* SpringUpdate.h in Headers */,
 				2C49602811FC3B1100749B68 /* ParticleUpdate.h in Headers */,
+				2C49608011FC428300749B68 /* CollisionConstraint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1165,6 +1172,7 @@
 				2C49600E11FC34C200749B68 /* NeighbourUpdate.cpp in Sources */,
 				2C49602A11FC3B2600749B68 /* SpringUpdate.cpp in Sources */,
 				2C49602C11FC3B3200749B68 /* ParticleUpdate.cpp in Sources */,
+				2C49608211FC42A100749B68 /* CollisionConstraint.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
