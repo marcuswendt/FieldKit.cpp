@@ -108,8 +108,8 @@ void SpatialHash::insert(SpatialPtr spatial)
 	int hashY = hash(p.y);
 
 	// make sure the spatial lies within the cell space
-	if(hashX > 0 && hashX < cellsX && 
-	   hashY > 0 && hashY < cellsY) {
+	if(hashX >= 0 && hashX < cellsX && 
+	   hashY >= 0 && hashY < cellsY) {
 		cells[hashX][hashY]->insert(spatial);
 	}
 }
@@ -146,8 +146,8 @@ void SpatialHash::select(BoundingVolumePtr volume, SpatialListPtr result)
 	for(int i=hashY-searchY; i<hashY+searchY; i++) {
 		for(int j=hashX-searchX; j<hashX+searchX; j++) {
 			// check wether we're still inside the grid
-			if(j > 0 && j < cellsX && 
-			   i > 0 && i < cellsY) {
+			if(j >= 0 && j < cellsX && 
+			   i >= 0 && i < cellsY) {
 				CellPtr cell = cells[j][i];
 				BOOST_FOREACH(SpatialPtr spatial, cell->spatials) {
 					result->push_back(spatial);

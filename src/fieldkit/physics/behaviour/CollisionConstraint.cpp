@@ -47,8 +47,7 @@ void CollisionConstraint::apply(ParticlePtr p) {
 			float dist = sqrt(distSq);
 			delta *= (dist - radius)/ radius * 0.5f;
 			p->setPosition(p->getPosition() + delta);
-			n->setPosition(n->getPosition() + delta);
-		}
-		
+			n->setPosition(n->getPosition() - delta);
+		}		
 	}
 }

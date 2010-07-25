@@ -11,7 +11,6 @@
 
 using namespace fieldkit::physics;
 	
-// -- BoxWrap ------------------------------------------------------------------
 void BoxWrap::apply(ParticlePtr p) {
 	
 	bool wrapped = false;

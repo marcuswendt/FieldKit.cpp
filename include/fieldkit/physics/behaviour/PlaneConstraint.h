@@ -33,22 +33,29 @@ namespace fieldkit { namespace physics {
 	};
 	
 	//! Makes sure a particle never moves below a certain minimum floor height
-	class FloorConstraint : public Constraint {
+	class WallConstraint : public Constraint {
 	public:
-		Axis axis;
-		float height;
-
-		FloorConstraint() : axis(AXIS_Y), height(0.0f) {
-			setBouncyness(1.0f);
-		}
-		~FloorConstraint() {}
+		WallConstraint(Axis axis_ = AXIS_Y,
+					   float height_=0.0f, 
+					   float bouncyness_ = 1.0f) : 
+			axis(axis_), bouncyness(bouncyness_), height(height_) {}
+		~WallConstraint() {}
 		
 		void apply(ParticlePtr p);
 
-		void setBouncyness(float value);
+		// Accessors
+		void setAxis(Axis value) { axis = value; }
+		Axis getAxis() { return axis; };
+		
+		void setHeight(float value) { height = value; }
+		float getHeight() { return height; };
+		
+		void setBouncyness(float value) { bouncyness = value; }
 		float getBouncyness() { return bouncyness; };
 
 	protected:
+		Axis axis;
+		float height;
 		float bouncyness;
 	};
 	

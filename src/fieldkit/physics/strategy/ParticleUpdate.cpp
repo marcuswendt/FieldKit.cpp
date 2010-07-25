@@ -26,7 +26,6 @@ void ParticleUpdate::apply(Physics* physics)
 	}
 	
 	// update all particles
-	//for(ParticlePtr p = particles.begin(); p != particles.end(); p++) {
 	BOOST_FOREACH(ParticlePtr p, physics->particles) {
 		if(!p->isAlive) continue;
 		

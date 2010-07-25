@@ -14,7 +14,7 @@
 namespace fieldkit { namespace physics {
 	
 	// Keeps a particle inside the given AABB volume by wrapping it around its edges without loosing velocity.
-	class BoxWrap : public Behaviour, AABB {
+	class BoxWrap : public Behaviour, public AABB {
 	public:
 		
 		// whether the particles velocity should be cleared when it was wrapped

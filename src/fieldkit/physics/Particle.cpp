@@ -109,7 +109,7 @@ void Particle::setWeight(float value)
 
 Vec3f fk::physics::Particle::getVelocity()
 {
-	return prev - position;
+	return position - prev;
 }
 
 float fk::physics::Particle::getSpeed()
