@@ -20,10 +20,13 @@ Particle::Particle() :
 	force = Vec3f::zero();
 
 	setSize(1.0f);
+		
+	neighbours = SpatialListPtr(new SpatialList());
 }
 
 Particle::~Particle()
 {
+	delete neighbours;
 }
 
 void Particle::init(Vec3f location) 

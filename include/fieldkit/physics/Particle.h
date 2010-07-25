@@ -65,7 +65,10 @@ namespace fieldkit { namespace physics {
 		void scaleVelocity(float s);
 		
 		// Accessors
+		SpatialType getType() { return TYPE_PARTICLE; };
+		
 		Vec3f getPosition() { return position; };
+		void setPosition(Vec3f location) { this->position = location; };
 		
 		virtual void setSize(float radius);
 		float getSize();
@@ -76,14 +79,14 @@ namespace fieldkit { namespace physics {
 		Vec3f getVelocity();
 		float getSpeed();
 				
-		SpatialListPtr getNeighbours() { return &neighbours; };
+		SpatialListPtr getNeighbours() { return neighbours; };
 		
 	protected:
 		//! physical size in the simulation space
 		float size;
 
 		//! list of neighbours this particle is aware of
-		SpatialList neighbours;
+		SpatialListPtr neighbours;
 	};
 	
 	// Define 

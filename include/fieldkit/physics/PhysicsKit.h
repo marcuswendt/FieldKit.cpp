@@ -45,6 +45,7 @@ using namespace fieldkit::math;
 #include "fieldkit/physics/behaviour/Flocking.h"
 #include "fieldkit/physics/behaviour/Force.h"
 #include "fieldkit/physics/behaviour/Initializer.h"
-#include "fieldkit/physics/behaviour/PlaneConstraint.h"
 #include "fieldkit/physics/behaviour/Random.h"
+#include "fieldkit/physics/behaviour/PlaneConstraint.h"
 #include "fieldkit/physics/behaviour/SphereConstraint.h"
+#include "fieldkit/physics/behaviour/CollisionConstraint.h"
