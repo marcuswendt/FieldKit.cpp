@@ -36,9 +36,12 @@ namespace fieldkit { namespace physics {
 	class WallConstraint : public Constraint {
 	public:
 		WallConstraint(Axis axis_ = AXIS_Y,
+					   bool isPositive_ = true,
 					   float height_=0.0f, 
 					   float bouncyness_ = 1.0f) : 
-			axis(axis_), bouncyness(bouncyness_), height(height_) {}
+			axis(axis_), isPositive(isPositive_),
+			bouncyness(bouncyness_), height(height_) {}
+		
 		~WallConstraint() {}
 		
 		void apply(ParticlePtr p);
@@ -46,6 +49,9 @@ namespace fieldkit { namespace physics {
 		// Accessors
 		void setAxis(Axis value) { axis = value; }
 		Axis getAxis() { return axis; };
+		
+		void setIsPositive(bool value) { isPositive = value; }
+		bool getIsPositive() { return isPositive; };
 		
 		void setHeight(float value) { height = value; }
 		float getHeight() { return height; };
@@ -55,6 +61,7 @@ namespace fieldkit { namespace physics {
 
 	protected:
 		Axis axis;
+		bool isPositive;
 		float height;
 		float bouncyness;
 	};
