@@ -35,9 +35,11 @@ void ParticleUpdate::apply(Physics* physics)
 		}
 		
 		// apply constraints
-		BOOST_FOREACH(ConstraintPtr c, physics->constraints) {
-			c->apply(p);
-		}
+		for (int i=0; i<constraintIterations; i++) {
+			BOOST_FOREACH(ConstraintPtr c, physics->constraints) {
+				c->apply(p);
+			}
+		}	
 		
 		// update particle
 		p->update(dt);

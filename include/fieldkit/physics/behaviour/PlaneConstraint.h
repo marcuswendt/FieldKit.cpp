@@ -36,11 +36,13 @@ namespace fieldkit { namespace physics {
 	class WallConstraint : public Constraint {
 	public:
 		WallConstraint(Axis axis_ = AXIS_Y,
-					   bool isPositive_ = true,
+					   bool isPositive = true,
 					   float height_=0.0f, 
 					   float bouncyness_ = 1.0f) : 
-			axis(axis_), isPositive(isPositive_),
-			bouncyness(bouncyness_), height(height_) {}
+			axis(axis_), bouncyness(bouncyness_), height(height_)
+		{
+			setIsPositive(isPositive);
+		}
 		
 		~WallConstraint() {}
 		
@@ -50,7 +52,10 @@ namespace fieldkit { namespace physics {
 		void setAxis(Axis value) { axis = value; }
 		Axis getAxis() { return axis; };
 		
-		void setIsPositive(bool value) { isPositive = value; }
+		void setIsPositive(bool value) { 
+			direction = value ? -1 : 1;
+			isPositive = value; 
+		}
 		bool getIsPositive() { return isPositive; };
 		
 		void setHeight(float value) { height = value; }
@@ -62,6 +67,7 @@ namespace fieldkit { namespace physics {
 	protected:
 		Axis axis;
 		bool isPositive;
+		int direction;
 		float height;
 		float bouncyness;
 	};

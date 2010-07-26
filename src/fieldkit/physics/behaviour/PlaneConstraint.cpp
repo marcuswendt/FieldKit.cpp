@@ -17,11 +17,13 @@ void PlaneConstraint::apply(ParticlePtr p) {
 
 
 void WallConstraint::apply(ParticlePtr p) {
-	if( (isPositive && p->position[axis] > height) ||
-	    (!isPositive && p->position[axis] < height) ) {
+	float pos = height + p->getSize() * direction;
+	
+	if( (isPositive && p->position[axis] > pos) ||
+	    (!isPositive && p->position[axis] < pos) ) {
 		float velocity = p->getVelocity()[axis];
-		p->position[axis] = height;
-		p->prev[axis] = height - velocity * bouncyness;
+		p->position[axis] = pos;
+		p->prev[axis] = pos - velocity * bouncyness;
 	}
 }
 

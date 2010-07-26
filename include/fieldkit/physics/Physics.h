@@ -29,7 +29,7 @@ namespace fieldkit { namespace physics {
 		
 		// Constructors
 		Physics(SpacePtr space);
-		virtual ~Physics();
+		~Physics();
 			
 		virtual void update(float dt);
 	

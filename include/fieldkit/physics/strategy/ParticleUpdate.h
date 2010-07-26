@@ -15,9 +15,18 @@ namespace fieldkit { namespace physics {
 	
 	class ParticleUpdate : public PhysicsStrategy {
 	public:
-		ParticleUpdate() {};
+		ParticleUpdate() {
+			constraintIterations = 1;
+		};
 		~ParticleUpdate() {};
+		
 		void apply(Physics* physics);
+		
+		// Accessors
+		void setConstraintIterations(int iterations) { constraintIterations = iterations; };
+		int getConstraintIterations() { return constraintIterations; };
+		
+	protected:
+		int constraintIterations;
 	};
-	
 } } // namespace fieldkit::physics

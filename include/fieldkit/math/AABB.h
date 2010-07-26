@@ -29,6 +29,7 @@ namespace fieldkit { namespace math {
 		bool contains(Vec3f p);
 		
 		// Accessors
+		void set(Vec3f min, Vec3f max);
 		void set(AABB box);
 		void set(AABB* box);
 		

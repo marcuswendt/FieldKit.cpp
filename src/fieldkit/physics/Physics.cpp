@@ -42,30 +42,30 @@ void Physics::update(float dt)
 	neighbourUpdate->apply(this);
 }
 
-// -- Particles ------------------------------------------------------------
+// -- Particles ----------------------------------------------------------------
 // check if we still have a dead particle that we can reuse, otherwise create a new one
 ParticlePtr Physics::createParticle() 
 {
 	numParticles++;
-	//for(ParticlePtr pIt = particles.begin(); pIt != particles.end();) {
 	BOOST_FOREACH(ParticlePtr p, particles) {
 		if(!p->isAlive) return p;
 	}
 	
-	logger() << "WARNING: running out of particles" << std::endl;
-	// FIXME
-	return particles[0];
+	ParticlePtr p = allocParticle();
+	particles.push_back(p);
+	return p;
 }
 
 // allocates a bunch of new particles
 void Physics::allocParticles(int count) 
 {
-	particles.reserve(count);
+	int totalReserved = particles.size() + count;
+	space->reserve(totalReserved);
+	particles.reserve(totalReserved);
+	
 	for(int i=0; i<count; i++){
 		particles.push_back( allocParticle() );
 	}
-	
-	space->reserve(count);
 }
 
 // allocates a single particle, override this method to create custom Particle types
@@ -75,7 +75,7 @@ ParticlePtr Physics::allocParticle()
 }
 
 
-// -- Springs --------------------------------------------------------------
+// -- Springs ------------------------------------------------------------------
 void Physics::addSpring(SpringPtr spring) 
 {
 	springs.push_back(spring);
