@@ -111,6 +111,9 @@ void PointCloud::put(ColorAf v)
 
 void PointCloud::draw()
 {
+	// dont draw when no points were inserted
+	if(size == 0) return;
+	
 	// enable states
 	shader.bind();
 	vbo->bind();

@@ -37,3 +37,4 @@ namespace fieldkit { namespace math {
 #include "fieldkit/math/AABB.h"
 #include "fieldkit/math/SphereBound.h"
 #include "fieldkit/math/Ray.h"
+#include "fieldkit/math/Line.h"

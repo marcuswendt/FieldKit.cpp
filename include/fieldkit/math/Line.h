@@ -12,35 +12,37 @@
 #include "fieldkit/FieldKit.h"
 
 namespace fieldkit { namespace math {
+
+	class Ray2f;
 	
-	class Line2f;
-	
-	//! A 2 or 3-dimensional ray
-	class Ray2f {
+	//! A 2-dimensional line
+	class Line2f {
 	public:
-		Ray2f() {};
-		Ray2f(Vec2f origin_, Vec2f direction_) :
-			origin(origin_), direction(direction_) {};
+		Vec2f p1;
+		Vec2f p2;
 		
-		~Ray2f() {};
+		Line2f() {
+			p1 = Vec2f::zero();
+			p2 = Vec2f::zero();
+		};
+		Line2f(Vec2f from, Vec2f to) :
+			p1(from), p2(to) {};
 		
-		Vec2f getPointAtDistance(float length) {
-			return origin + direction * length;
-		}
-		
-		bool findIntersection(Ray2f ray, Vec2f* result);
+		~Line2f() {};
+
 		bool findIntersection(Line2f line, Vec2f* result);
+		bool findIntersection(Ray2f ray, Vec2f* result);
 		
-		// Accessors
-		Vec2f getOrigin() { return origin; }
-		void setOrigin(Vec2f point) { origin = point; }
+		void set(Vec2f from, Vec2f to);
 		
-		Vec2f getDirection() { return direction; }
-		void setDirection(Vec2f vector) { direction = vector; }
+		Vec2f getP1() { return p1; }
+		void setP1(Vec2f point) { p1 = point; }
+		
+		Vec2f getP2() { return p2; }
+		void setP2(Vec2f point) { p2 = point; }
 		
 	protected:
-		Vec2f origin;
-		Vec2f direction;
+
 	};
 	
 } } // namespace fieldkit::math
