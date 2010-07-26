@@ -117,6 +117,8 @@
 		2C49608211FC42A100749B68 /* CollisionConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C49608111FC42A000749B68 /* CollisionConstraint.cpp */; };
 		2C49612011FC5AC400749B68 /* BoxConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C49611F11FC5AC400749B68 /* BoxConstraint.h */; };
 		2C49612211FC5AD500749B68 /* BoxConstraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C49612111FC5AD500749B68 /* BoxConstraint.cpp */; };
+		2C49642311FDB72F00749B68 /* Ray.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C49642211FDB72F00749B68 /* Ray.h */; };
+		2C49642511FDB74100749B68 /* Ray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C49642411FDB74100749B68 /* Ray.cpp */; };
 		2C55A3E911B0610F00041C25 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2C55A3EA11B0610F00041C25 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
 		2C55A3EB11B0610F00041C25 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -316,6 +318,9 @@
 		2C49608111FC42A000749B68 /* CollisionConstraint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionConstraint.cpp; sourceTree = "<group>"; };
 		2C49611F11FC5AC400749B68 /* BoxConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxConstraint.h; sourceTree = "<group>"; };
 		2C49612111FC5AD500749B68 /* BoxConstraint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoxConstraint.cpp; sourceTree = "<group>"; };
+		2C49642211FDB72F00749B68 /* Ray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ray.h; sourceTree = "<group>"; };
+		2C49642411FDB74100749B68 /* Ray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ray.cpp; sourceTree = "<group>"; };
+		2C49644C11FDC1B600749B68 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		2C55A26211B0608700041C25 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
 		2CA833E611DB99EE00D5B37B /* libGLKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -578,9 +583,11 @@
 			isa = PBXGroup;
 			children = (
 				2C16CBDA11D944B10038C163 /* MathKit.h */,
-				2C240DE211CFC1CD00856329 /* AABB.h */,
 				2C240DE311CFC1CD00856329 /* BoundingVolume.h */,
 				2C240DE411CFC1CD00856329 /* SphereBound.h */,
+				2C240DE211CFC1CD00856329 /* AABB.h */,
+				2C49642211FDB72F00749B68 /* Ray.h */,
+				2C49644C11FDC1B600749B68 /* Line.h */,
 			);
 			path = math;
 			sourceTree = "<group>";
@@ -703,9 +710,10 @@
 			isa = PBXGroup;
 			children = (
 				2C16CBDC11D944BD0038C163 /* MathKit.cpp */,
-				2C240E1E11CFC1DF00856329 /* AABB.cpp */,
-				2C240E1F11CFC1DF00856329 /* SphereBound.cpp */,
 				2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */,
+				2C240E1F11CFC1DF00856329 /* SphereBound.cpp */,
+				2C240E1E11CFC1DF00856329 /* AABB.cpp */,
+				2C49642411FDB74100749B68 /* Ray.cpp */,
 			);
 			path = math;
 			sourceTree = "<group>";
@@ -944,6 +952,7 @@
 				2C240E9311CFC25400856329 /* Tweak.h in Headers */,
 				2C16CBDB11D944B10038C163 /* MathKit.h in Headers */,
 				2C16CBE311D944E30038C163 /* Logger.h in Headers */,
+				2C49642311FDB72F00749B68 /* Ray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1142,6 +1151,7 @@
 				2C240EA611CFC26B00856329 /* Tweak.cpp in Sources */,
 				2C16CBDD11D944BD0038C163 /* MathKit.cpp in Sources */,
 				2C16CBE111D944D70038C163 /* Logger.cpp in Sources */,
+				2C49642511FDB74100749B68 /* Ray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

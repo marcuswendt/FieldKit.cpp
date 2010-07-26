@@ -27,7 +27,7 @@ using namespace ci::gl;
 #include "fieldkit/gl/PointCloud.h"
 
 namespace fieldkit { namespace gl {
-	
+
 	void drawCube(const Vec3f &center, const Vec3f &size);
 	
 } }

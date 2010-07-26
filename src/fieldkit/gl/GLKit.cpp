@@ -10,7 +10,7 @@
 #include "fieldkit/gl/GLKit.h"
 
 namespace fieldkit { namespace gl {
-	
+
 	void drawCube(const Vec3f &c, const Vec3f &size)
 	{
 		GLfloat sx = size.x * 0.5f;
