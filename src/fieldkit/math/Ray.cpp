@@ -17,10 +17,10 @@ using namespace fieldkit::math;
 bool Ray2f::findIntersection(Ray2f ray, Vec2f* result)
 {	
 	Vec2f p1 = origin;
-	Vec2f p2 = direction;
+	Vec2f p2 = origin + direction;
 	
 	Vec2f p3 = ray.origin;
-	Vec2f p4 = ray.direction;
+	Vec2f p4 = ray.origin + ray.direction;
 	
 	float xD1, yD1, xD2, yD2, xD3, yD3;
 	float dot, deg, len1, len2;
@@ -79,7 +79,7 @@ bool Ray2f::findIntersection(Line2f line, Vec2f* result)
 	xD3 = p1.x - p3.x;
 	yD3 = p1.y - p3.y;
 	
-	// calculate the lengths of the two lines
+	// calculate the lenhg gths of the two lines
 	len1 = sqrt(xD1 * xD1 + yD1 * yD1);
 	len2 = sqrt(xD2 * xD2 + yD2 * yD2);
 	
