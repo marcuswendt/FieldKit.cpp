@@ -61,7 +61,7 @@ bool Ray2f::findIntersection(Ray2f ray, Vec2f* result)
 bool Ray2f::findIntersection(Line2f line, Vec2f* result)
 {	
 	Vec2f p1 = origin;
-	Vec2f p2 = direction;
+	Vec2f p2 = origin + direction;
 	
 	Vec2f p3 = line.p1;
 	Vec2f p4 = line.p2;
