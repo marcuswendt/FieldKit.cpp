@@ -202,6 +202,10 @@
 							>
 						</File>
 						<File
+							RelativePath="..\src\fieldkit\physics\behaviour\CollisionConstraint.cpp"
+							>
+						</File>
+						<File
 							RelativePath="..\src\fieldkit\physics\behaviour\Flocking.cpp"
 							>
 						</File>
@@ -239,6 +243,26 @@
 						</File>
 						<File
 							RelativePath="..\src\fieldkit\physics\space\Space.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\space\SpatialHash.cpp"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="strategy"
+						>
+						<File
+							RelativePath="..\src\fieldkit\physics\strategy\NeighbourUpdate.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\strategy\ParticleUpdate.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\src\fieldkit\physics\strategy\SpringUpdate.cpp"
 							>
 						</File>
 					</Filter>
@@ -300,6 +324,10 @@
 							>
 						</File>
 						<File
+							RelativePath="..\include\fieldkit\physics\behaviour\CollisionConstraint.h"
+							>
+						</File>
+						<File
 							RelativePath="..\include\fieldkit\physics\behaviour\Flocking.h"
 							>
 						</File>
@@ -341,6 +369,30 @@
 						</File>
 						<File
 							RelativePath="..\include\fieldkit\physics\space\Spatial.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\space\SpatialHash.h"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="strategy"
+						>
+						<File
+							RelativePath="..\include\fieldkit\physics\strategy\NeighbourUpdate.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\strategy\ParticleUpdate.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\strategy\PhysicsStrategy.h"
+							>
+						</File>
+						<File
+							RelativePath="..\include\fieldkit\physics\strategy\SpringUpdate.h"
 							>
 						</File>
 					</Filter>

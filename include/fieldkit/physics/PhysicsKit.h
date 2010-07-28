@@ -50,5 +50,5 @@ using namespace fieldkit::math;
 // constraints
 #include "fieldkit/physics/behaviour/PlaneConstraint.h"
 #include "fieldkit/physics/behaviour/SphereConstraint.h"
-#include "fieldkit/physics/behaviour/BoxConstraint.h"
+//#include "fieldkit/physics/behaviour/BoxConstraint.h"
 #include "fieldkit/physics/behaviour/CollisionConstraint.h"

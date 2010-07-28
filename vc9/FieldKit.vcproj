@@ -183,7 +183,15 @@
 						>
 					</File>
 					<File
+						RelativePath="..\src\fieldkit\math\Line.cpp"
+						>
+					</File>
+					<File
 						RelativePath="..\src\fieldkit\math\MathKit.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\src\fieldkit\math\Ray.cpp"
 						>
 					</File>
 					<File
@@ -233,7 +241,15 @@
 						>
 					</File>
 					<File
+						RelativePath="..\include\fieldkit\math\Line.h"
+						>
+					</File>
+					<File
 						RelativePath="..\include\fieldkit\math\MathKit.h"
+						>
+					</File>
+					<File
+						RelativePath="..\include\fieldkit\math\Ray.h"
 						>
 					</File>
 					<File
