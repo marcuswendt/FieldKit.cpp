@@ -18,3 +18,5 @@ glob:*.orig
 glob:*/Debug/*
 glob:*/Release/*
 glob:*.user
+glob:vc10/ipch*
+glob:vc10/*.opensdf

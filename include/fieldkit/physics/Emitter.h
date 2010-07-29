@@ -16,10 +16,10 @@ namespace fieldkit { namespace physics {
 	
 	//! typedefs
 	class Physics;
-	typedef shared_ptr<Physics> PhysicsPtr;
+	typedef boost::shared_ptr<Physics> PhysicsPtr;
 	
 	class Emitter;
-	typedef shared_ptr<Emitter> EmitterPtr;
+	typedef boost::shared_ptr<Emitter> EmitterPtr;
 	
 	class Emitter : public Behavioural {
 	public:

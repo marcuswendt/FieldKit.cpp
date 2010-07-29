@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{FD7C08E4-317D-4B03-AFCD-6F3BC88EB168}</ProjectGuid>
+    <RootNamespace>PhysicsKit</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)..\lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\PhysicsKit\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)..\lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\PhysicsKit\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectName)_d</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)PhysicsKit-BuildLog.htm</Path>
+    </BuildLog>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost;..\..\..\Libraries\FBXSDK\2011.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>..\include;..\..\..\Libraries\cinder\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>..\lib\PhysicsKit_d.lib</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <BuildLog>
+      <Path>$(IntDir)PhysicsKit-BuildLog.htm</Path>
+    </BuildLog>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>..\include;..\..\..\Libraries\cinder\include;..\..\..\Libraries\cinder\boost;..\..\..\Libraries\FBXSDK\2011.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>..\include;..\..\..\Libraries\cinder\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Lib>
+      <OutputFile>..\lib\PhysicsKit.lib</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\fieldkit\physics\Behavioural.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Emitter.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Particle.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Physics.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\Spring.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviour\Attractor.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviour\Boundary.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviour\CollisionConstraint.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviour\Flocking.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviour\Force.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviour\Initializer.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviour\PlaneConstraint.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviour\Random.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\behaviour\SphereConstraint.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\space\BasicSpace.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\space\Octree.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\space\Space.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\space\SpatialHash.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\strategy\NeighbourUpdate.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\strategy\ParticleUpdate.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\strategy\SpringUpdate.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\fieldkit\physics\Behaviour.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Behavioural.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Constraint.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Emitter.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Particle.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Physics.h" />
+    <ClInclude Include="..\include\fieldkit\physics\PhysicsKit.h" />
+    <ClInclude Include="..\include\fieldkit\physics\Spring.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviour\Attractor.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviour\Boundary.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviour\CollisionConstraint.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviour\Flocking.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviour\Force.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviour\Initializer.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviour\PlaneConstraint.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviour\Random.h" />
+    <ClInclude Include="..\include\fieldkit\physics\behaviour\SphereConstraint.h" />
+    <ClInclude Include="..\include\fieldkit\physics\space\BasicSpace.h" />
+    <ClInclude Include="..\include\fieldkit\physics\space\Octree.h" />
+    <ClInclude Include="..\include\fieldkit\physics\space\Space.h" />
+    <ClInclude Include="..\include\fieldkit\physics\space\Spatial.h" />
+    <ClInclude Include="..\include\fieldkit\physics\space\SpatialHash.h" />
+    <ClInclude Include="..\include\fieldkit\physics\strategy\NeighbourUpdate.h" />
+    <ClInclude Include="..\include\fieldkit\physics\strategy\ParticleUpdate.h" />
+    <ClInclude Include="..\include\fieldkit\physics\strategy\PhysicsStrategy.h" />
+    <ClInclude Include="..\include\fieldkit\physics\strategy\SpringUpdate.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="FieldKit.vcxproj">
+      <Project>{9da00fea-5218-413e-b762-35d91045b3b4}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

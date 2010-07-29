@@ -33,9 +33,6 @@ using std::endl;
 
 using boost::format;
 using boost::io::group;
-using boost::shared_ptr;
-using boost::shared_array;
-using boost::ptr_vector;
 
 // -- Cinder -----------------------------------------------------------------
 #include "cinder/Cinder.h"

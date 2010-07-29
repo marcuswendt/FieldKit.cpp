@@ -15,7 +15,7 @@ namespace fieldkit { namespace physics {
 
 	//! typedefs			
 	class Space;
-	typedef shared_ptr<Space> SpacePtr;
+	typedef boost::shared_ptr<Space> SpacePtr;
 	
 	class Behaviour;
 	typedef shared_ptr<Behaviour> BehaviourPtr;

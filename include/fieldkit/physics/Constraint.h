@@ -16,6 +16,6 @@ namespace fieldkit { namespace physics {
 	class Constraint : public Behaviour {
 	};
 	
-	typedef shared_ptr<Constraint> ConstraintPtr;
+	typedef boost::shared_ptr<Constraint> ConstraintPtr;
 	
 } } // namespace fieldkit::physics

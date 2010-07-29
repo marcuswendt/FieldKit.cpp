@@ -20,7 +20,7 @@ void Behavioural::removeBehaviour(BehaviourPtr b) {
 }
 	
 void Behavioural::addConstraint(ConstraintPtr c) {
-	behaviours.push_back(c);
+	constraints.push_back(c);
 }
 	
 void Behavioural::removeConstraint(ConstraintPtr c) {

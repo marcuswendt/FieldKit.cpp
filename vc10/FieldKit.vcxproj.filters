@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\fieldkit">
+      <UniqueIdentifier>{a8afc1e8-b47f-4e89-b124-b249e05bb0c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fieldkit\math">
+      <UniqueIdentifier>{ea76adfe-ac01-4ea1-b6dd-8c3a9e1a7762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fieldkit\tweak">
+      <UniqueIdentifier>{daccb5cd-06a8-46f2-a684-81d9249a6ae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\fieldkit">
+      <UniqueIdentifier>{7fac81ef-cba4-4c77-a3e5-eb75f683e538}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\fieldkit\math">
+      <UniqueIdentifier>{0b14d083-57bf-4bec-915e-35611f8e76a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\fieldkit\tweak">
+      <UniqueIdentifier>{703bc063-96db-4c01-bd3c-64e6b298eafb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\fieldkit\Logger.cpp">
+      <Filter>Source Files\fieldkit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\math\AABB.cpp">
+      <Filter>Source Files\fieldkit\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\math\BoundingVolume.cpp">
+      <Filter>Source Files\fieldkit\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\math\Line.cpp">
+      <Filter>Source Files\fieldkit\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\math\MathKit.cpp">
+      <Filter>Source Files\fieldkit\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\math\Ray.cpp">
+      <Filter>Source Files\fieldkit\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\math\SphereBound.cpp">
+      <Filter>Source Files\fieldkit\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\tweak\Model.cpp">
+      <Filter>Source Files\fieldkit\tweak</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\tweak\Tweak.cpp">
+      <Filter>Source Files\fieldkit\tweak</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\fieldkit\FieldKit.h">
+      <Filter>Header Files\fieldkit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\Logger.h">
+      <Filter>Header Files\fieldkit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\math\AABB.h">
+      <Filter>Header Files\fieldkit\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\math\BoundingVolume.h">
+      <Filter>Header Files\fieldkit\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\math\Line.h">
+      <Filter>Header Files\fieldkit\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\math\MathKit.h">
+      <Filter>Header Files\fieldkit\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\math\Ray.h">
+      <Filter>Header Files\fieldkit\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\math\SphereBound.h">
+      <Filter>Header Files\fieldkit\math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\tweak\Model.h">
+      <Filter>Header Files\fieldkit\tweak</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\tweak\Tweak.h">
+      <Filter>Header Files\fieldkit\tweak</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.txt" />
+  </ItemGroup>
+</Project>
