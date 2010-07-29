@@ -69,7 +69,9 @@ namespace fieldkit { namespace vision
 	{
 		if(!isInitialized) return 0;
 		int stride = color ? width * 3: width;
-		cvSetData(image, mCapture.getSurface().getData(), stride);
+		if(mCapture && mCapture.checkNewFrame()) {
+			cvSetData(image, mCapture.getSurface().getData(), stride);
+		}
 		return VISION_SUCCESS;
 	}
 	
