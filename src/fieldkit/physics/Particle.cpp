@@ -18,8 +18,9 @@ Particle::Particle() :
 	position = Vec3f::zero();
 	prev = Vec3f::zero();
 	force = Vec3f::zero();
-
+	
 	setSize(1.0f);
+	userData = 0;
 		
 	neighbours = SpatialListPtr(new SpatialList());
 }
@@ -63,6 +64,11 @@ void Particle::updateState(float dt)
 	age += dt;
 	if(lifeTime != LIFETIME_PERPETUAL && age > lifeTime)
 		isAlive = false;	
+}
+
+void Particle::kill() 
+{
+	isAlive = false;
 }
 
 // -- Verlet Integration -------------------------------------------------------

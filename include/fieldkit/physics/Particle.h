@@ -48,6 +48,9 @@ namespace fieldkit { namespace physics {
 		//! force accumulator applied to this particle (set to zero after each update)
 		Vec3f force;
 
+		//! optional user data
+		void *userData;
+
 		Particle();
 		~Particle();
 		
@@ -57,6 +60,9 @@ namespace fieldkit { namespace physics {
 		
 		void updateState(float dt);
 		void updatePosition();
+		
+		// ! manual kill, set alive to false
+		void kill();
 
 		// Verlet integration
 		void lock();

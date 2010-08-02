@@ -34,6 +34,7 @@ void CinderVideoFileCapture::setVideoPath(string filepath)
 
 void CinderVideoFileCapture::setVideoPathFromFileWindow()
 {
+	filepathSet = false;
 	filepath = getOpenFilePath();
 	if(! filepath.empty() ) {
 		filepathSet = true;
@@ -44,12 +45,14 @@ void CinderVideoFileCapture::setVideoPathFromFileWindow()
 void CinderVideoFileCapture::loadVideo()
 {
 	if(filepathSet){
+		ready = false;
 		moviesurfaceCreated = true;
 		moviesurface = qtime::MovieSurface(filepath);
 		this->width = moviesurface.getWidth();
 		this->height = moviesurface.getHeight();
 		image = cvCreateImage(cvSize(width, height), IPL_DEPTH_8U, 3);
 	}
+	
 }
 
 int CinderVideoFileCapture::init()
