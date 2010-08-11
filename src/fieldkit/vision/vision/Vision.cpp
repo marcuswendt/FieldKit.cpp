@@ -22,10 +22,14 @@ namespace fieldkit { namespace vision
 	
 	Vision::~Vision()
 	{
+		// throws mem errors, uncomment for now
+		/*
 		stop();
-		camera->close();
-		delete camera;	
+		if(camera)
+			camera->close();
+		delete camera;
 		delete processor;
+		*/
 	}
 
 	// -------------------------------------------------------------------------
@@ -90,7 +94,7 @@ namespace fieldkit { namespace vision
 
 		processor->setSize(width, height);
 		processor->setROI(0, 0, width, height);
-		
+			
 		err = processor->init();
 		
 		if(err == VISION_SUCCESS) isInitialized = true;
