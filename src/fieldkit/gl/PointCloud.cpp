@@ -54,7 +54,9 @@ void PointCloud::init(PointDataFormat format, int capacity, GlslProg shader)
 		
 		const char* POINTCLOUD_DEFAULT_FS = "\
 		void main() { \
-			vec2 tc = gl_TexCoord[0].st;\
+			//vec2 tc = gl_TexCoord[0].st;\
+			// This has to be gl_PointCoord instead of gl_TexCoord for ATI graphics cards! \
+			vec2 tc = gl_PointCoord.st;\
 			float dist = distance(vec2(0.5, 0.5), tc);\
 			if(dist > 0.5) discard;\
 			gl_FragColor = gl_Color;\
@@ -122,11 +124,12 @@ void PointCloud::draw()
 	vbo->bufferSubData(0, size * bytesPerParticle, data);
 	
 	glDisable(GL_DEPTH_TEST);
-	glEnable(GL_POINT_SPRITE);								
+	glEnable(GL_POINT_SPRITE);				
 	glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
+	//glPointParameteri(GL_POINT_SPRITE_COORD_ORIGIN, GL_LOWER_LEFT);
 	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
 	glEnableClientState(GL_VERTEX_ARRAY);
-	
+
 	// set attribute pointers
 	int offset = 0;
 	BOOST_FOREACH(PointDataFormat::Attribute attr, format.attributes) {		
@@ -151,8 +154,8 @@ void PointCloud::draw()
 	
 	// restore states
 	glDisableClientState(GL_VERTEX_ARRAY);
-	glDisable(GL_POINT_SPRITE);
 	glDisable(GL_VERTEX_PROGRAM_POINT_SIZE);
+	glDisable(GL_POINT_SPRITE);
 	glEnable(GL_DEPTH_TEST);
 
 	vbo->unbind();
