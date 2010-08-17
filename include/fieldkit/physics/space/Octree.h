@@ -37,7 +37,7 @@ namespace fieldkit { namespace physics {
 			Node() { isEmpty = true; };
 			~Node() {};
 			
-			virtual void init(Vec3f offset, Vec3f dimension, float minSize=5.0f, int depth=0);			
+			virtual void init(Vec3f const& offset, Vec3f const& dimension, float minSize=5.0f, int depth=0);			
 			virtual void clear() {};
 			virtual void insert(SpatialPtr spatial) {};
 			virtual void select(BoundingVolumePtr volume, SpatialListPtr result) {};
@@ -56,7 +56,7 @@ namespace fieldkit { namespace physics {
 			Branch();
 			~Branch();
 			
-			void init(Vec3f offset, Vec3f dimension, float minSize=5.0f, int depth=0);
+			void init(Vec3f const& offset, Vec3f const& dimension, float minSize=5.0f, int depth=0);
 			void clear();
 			void insert(SpatialPtr spatial);
 			void select(BoundingVolumePtr volume, SpatialListPtr result);

@@ -17,11 +17,11 @@ namespace fieldkit { namespace physics {
 	class BasicSpace : public Space {
 	public:
 		BasicSpace();
-		BasicSpace(Vec3f offset, Vec3f dimension);
+		BasicSpace(Vec3f const& offset, Vec3f const& dimension);
 		~BasicSpace();
 		
 		//! Initializes the space.
-		void init(Vec3f offset, Vec3f dimension);
+		void init(Vec3f const& offset, Vec3f const& dimension);
 
 		//! make sure the space can hold a certain amount of spatials
 		void reserve(int count);

@@ -80,20 +80,20 @@ void PointCloud::put(float v)
 	*ptr = v; ++ptr;
 }
 
-void PointCloud::put(Vec2f v)
+void PointCloud::put(Vec2f const& v)
 {
 	*ptr = v.x; ++ptr;
 	*ptr = v.y; ++ptr;
 }
 
-void PointCloud::put(Vec3f v)
+void PointCloud::put(Vec3f const& v)
 {
 	*ptr = v.x; ++ptr;
 	*ptr = v.y; ++ptr;
 	*ptr = v.z; ++ptr;
 }
 
-void PointCloud::put(Vec4f v)
+void PointCloud::put(Vec4f const& v)
 {
 	*ptr = v.x; ++ptr;
 	*ptr = v.y; ++ptr;
@@ -101,7 +101,7 @@ void PointCloud::put(Vec4f v)
 	*ptr = v.w; ++ptr;
 }
 
-void PointCloud::put(ColorAf v)
+void PointCloud::put(ColorAf const& v)
 {
 	*ptr = v.r; ++ptr;
 	*ptr = v.g; ++ptr;

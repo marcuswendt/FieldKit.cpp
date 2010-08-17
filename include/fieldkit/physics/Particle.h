@@ -55,7 +55,7 @@ namespace fieldkit { namespace physics {
 		~Particle();
 		
 		// Lifecycle
-		virtual void init(Vec3f location);
+		virtual void init(Vec3f const& location);
 		virtual void update(float dt);
 		
 		void updateState(float dt);
@@ -74,7 +74,7 @@ namespace fieldkit { namespace physics {
 		SpatialType getType() { return TYPE_PARTICLE; };
 		
 		Vec3f getPosition() { return position; };
-		void setPosition(Vec3f location) { this->position = location; };
+		void setPosition(Vec3f const& location) { this->position = location; };
 		
 		virtual void setSize(float radius);
 		float getSize();

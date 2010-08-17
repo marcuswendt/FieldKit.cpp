@@ -29,16 +29,16 @@ namespace fieldkit { namespace gl {
 		void put(float v);
 		
 		//! inserts a 2d vector attribute for the current particle
-		void put(Vec2f v);
+		void put(Vec2f const& v);
 		
 		//! inserts a 3d vector attribute for the current particle
-		void put(Vec3f v);
+		void put(Vec3f const& v);
 		
 		//! inserts a 4d vector attribute for the current particle
-		void put(Vec4f v);
+		void put(Vec4f const& v);
 		
 		//! inserts a color attribute for the current particle
-		void put(ColorAf v);
+		void put(ColorAf const& v);
 		
 		//! call this when all data for a single particle was inserted
 		void insert();

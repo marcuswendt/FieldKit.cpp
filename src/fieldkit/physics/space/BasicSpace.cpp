@@ -13,14 +13,14 @@ using namespace fieldkit::physics;
 
 BasicSpace::BasicSpace() {}
 
-BasicSpace::BasicSpace(Vec3f offset, Vec3f dimension)
+BasicSpace::BasicSpace(Vec3f const& offset, Vec3f const& dimension)
 {
 	init(offset, dimension);
 }
 
 BasicSpace::~BasicSpace() {}
 
-void BasicSpace::init(Vec3f offset, Vec3f dimension)
+void BasicSpace::init(Vec3f const& offset, Vec3f const& dimension)
 {
 	this->position = offset + dimension * 0.5f;
 	this->extent = dimension * 0.5f;

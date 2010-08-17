@@ -11,7 +11,7 @@
 
 namespace fieldkit { namespace gl {
 
-	void drawCube(const Vec3f &c, const Vec3f &size)
+	void drawCube(Vec3f const& c, Vec3f const& size)
 	{
 		GLfloat sx = size.x * 0.5f;
 		GLfloat sy = size.y * 0.5f;

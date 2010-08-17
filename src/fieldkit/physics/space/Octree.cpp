@@ -57,7 +57,7 @@ void Octree::select(BoundingVolumePtr volume, SpatialListPtr result)
 
 
 // -- Node ---------------------------------------------------------------------
-void Octree::Node::init(Vec3f offset, Vec3f dimension, float minSize, int depth)
+void Octree::Node::init(Vec3f const& offset, Vec3f const& dimension, float minSize, int depth)
 {
 	this->offset = offset;
 	this->minSize = minSize;
@@ -83,7 +83,7 @@ Octree::Branch::~Branch()
 	children.clear();
 }
 
-void Octree::Branch::init(Vec3f offset, Vec3f dimension, float minSize, int depth)
+void Octree::Branch::init(Vec3f const& offset, Vec3f const& dimension, float minSize, int depth)
 {
 	Node::init(offset, dimension, minSize, depth);
 	

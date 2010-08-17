@@ -29,9 +29,9 @@ namespace fieldkit { namespace physics {
 		~Emitter() {};
 		
 		void update(float dt);
-		ParticlePtr emit(Vec3f location);
+		ParticlePtr emit(Vec3f const& location);
 		
-		void setPosition(Vec3f location) { position.set(location); }
+		void setPosition(Vec3f const& location) { position.set(location); }
 		Vec3f getPosition() { return position; }
 		
 		void setRate(int value) { rate = value; }

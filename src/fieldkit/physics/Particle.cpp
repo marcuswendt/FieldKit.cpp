@@ -30,7 +30,7 @@ Particle::~Particle()
 	delete neighbours;
 }
 
-void Particle::init(Vec3f location) 
+void Particle::init(Vec3f const& location) 
 {
 	position = location;
 	prev = location;
