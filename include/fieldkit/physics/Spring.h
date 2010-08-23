@@ -13,10 +13,11 @@
 #include "fieldkit/physics/Particle.h"
 
 namespace fieldkit { namespace physics {
+
 	class Spring {
 	public:
-		ParticlePtr a;
-		ParticlePtr b;
+		Particle* a;
+		Particle* b;
 		
 		// Spring rest length to which it always wants to return too
 		float restLength;
@@ -29,10 +30,9 @@ namespace fieldkit { namespace physics {
 		bool isBLocked;
 		
 		Spring();
-		Spring(ParticlePtr a, ParticlePtr b, float restLength, float strength);
+		Spring(Particle* a, Particle* b, float restLength, float strength);
 		
 		virtual void update();	
 	};
 
-	typedef Spring* SpringPtr;
 } } // namespace fieldkit::physics

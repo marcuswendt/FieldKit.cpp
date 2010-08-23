@@ -14,7 +14,7 @@
 
 using namespace fieldkit::math;
 
-bool BoundingVolume::intersects(BoundingVolumePtr volume) {
+bool BoundingVolume::intersects(BoundingVolume* volume) {
 
 	switch(type) {
 		// AABB interesections

@@ -122,6 +122,7 @@
     <ClCompile Include="..\src\fieldkit\physics\space\Space.cpp" />
     <ClCompile Include="..\src\fieldkit\physics\space\SpatialHash.cpp" />
     <ClCompile Include="..\src\fieldkit\physics\strategy\NeighbourUpdate.cpp" />
+    <ClCompile Include="..\src\fieldkit\physics\strategy\ParticleAllocator.cpp" />
     <ClCompile Include="..\src\fieldkit\physics\strategy\ParticleUpdate.cpp" />
     <ClCompile Include="..\src\fieldkit\physics\strategy\SpringUpdate.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="..\include\fieldkit\physics\space\Spatial.h" />
     <ClInclude Include="..\include\fieldkit\physics\space\SpatialHash.h" />
     <ClInclude Include="..\include\fieldkit\physics\strategy\NeighbourUpdate.h" />
+    <ClInclude Include="..\include\fieldkit\physics\strategy\ParticleAllocator.h" />
     <ClInclude Include="..\include\fieldkit\physics\strategy\ParticleUpdate.h" />
     <ClInclude Include="..\include\fieldkit\physics\strategy\PhysicsStrategy.h" />
     <ClInclude Include="..\include\fieldkit\physics\strategy\SpringUpdate.h" />

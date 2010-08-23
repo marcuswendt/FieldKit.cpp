@@ -17,15 +17,15 @@ namespace fieldkit { namespace physics {
 	public:
 		BoxRandom() {}
 		
-		BoxRandom(SpacePtr space) {
-			set(space.get());
+		BoxRandom(Space* space) {
+			set(space);
 		}
 		
 		BoxRandom(AABB box) {
 			set(box);
 		}
 		
-		void apply(ParticlePtr p);
+		void apply(Particle* p);
 	};
 	
 } } // namespace fieldkit::physics

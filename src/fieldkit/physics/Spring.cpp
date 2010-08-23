@@ -15,7 +15,7 @@ Spring::Spring() :
 restLength(0), strength(0), isALocked(false), isBLocked(false) {
 }
 
-Spring::Spring(ParticlePtr a, ParticlePtr b, float restLength, float strength) :
+Spring::Spring(Particle* a, Particle* b, float restLength, float strength) :
 isALocked(false), isBLocked(false) {
 	this->a = a;
 	this->b = b;

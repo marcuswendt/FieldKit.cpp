@@ -14,11 +14,11 @@ using namespace fieldkit::physics;
 //! updates all spring connections based on new particle positions
 void SpringUpdate::apply(Physics* physics) 
 {
-	BOOST_FOREACH(SpringPtr s, physics->springs) {
+	BOOST_FOREACH(Spring* s, physics->springs) {
 		s->update();
 		
 		// apply constraints after spring update
-		BOOST_FOREACH(ConstraintPtr c, physics->constraints) {
+		BOOST_FOREACH(Constraint* c, physics->constraints) {
 			c->apply(s->a);
 			c->apply(s->b);
 		}			

@@ -21,7 +21,7 @@ namespace fieldkit { namespace physics {
 		CollisionConstraint() {};
 		~CollisionConstraint() {};
 		
-		void apply(ParticlePtr p);
+		void apply(Particle* p);
 	};
 	
 } } // namespace fieldkit::physics

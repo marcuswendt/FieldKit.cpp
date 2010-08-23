@@ -39,8 +39,8 @@ namespace fieldkit { namespace physics {
 			
 			virtual void init(Vec3f const& offset, Vec3f const& dimension, float minSize=5.0f, int depth=0);			
 			virtual void clear() {};
-			virtual void insert(SpatialPtr spatial) {};
-			virtual void select(BoundingVolumePtr volume, SpatialListPtr result) {};
+			virtual void insert(Spatial* spatial) {};
+			virtual void select(BoundingVolume* volume, SpatialListPtr result) {};
 			
 			// Acessors
 			void setOffset(Vec3f offset);
@@ -58,8 +58,8 @@ namespace fieldkit { namespace physics {
 			
 			void init(Vec3f const& offset, Vec3f const& dimension, float minSize=5.0f, int depth=0);
 			void clear();
-			void insert(SpatialPtr spatial);
-			void select(BoundingVolumePtr volume, SpatialListPtr result);
+			void insert(Spatial* spatial);
+			void select(BoundingVolume* volume, SpatialListPtr result);
 			
 			//! Computes the local child octant/cube index for the given point.
 			inline int getOctantID(float x, float y, float z);
@@ -73,8 +73,8 @@ namespace fieldkit { namespace physics {
 			~Leaf();
 
 			void clear();
-			void insert(SpatialPtr spatial);
-			void select(BoundingVolumePtr volume, SpatialListPtr result);
+			void insert(Spatial* spatial);
+			void select(BoundingVolume* volume, SpatialListPtr result);
 		};
 		
 		
@@ -95,10 +95,10 @@ namespace fieldkit { namespace physics {
 		void clear();
 		
 		//! Adds a new spatial to the tree structure. All points are stored within leaf nodes only.
-		void insert(SpatialPtr spatial);
+		void insert(Spatial* spatial);
 		
 		//! Selects all spatials within the given bounding volume.
-		void select(BoundingVolumePtr volume, SpatialListPtr result);
+		void select(BoundingVolume* volume, SpatialListPtr result);
 		
 		// Accessors
 		Octree::NodePtr getRoot() { return root; };

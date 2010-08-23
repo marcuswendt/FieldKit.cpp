@@ -32,6 +32,4 @@ namespace fieldkit { namespace physics {
 		};
 	};
 	
-	typedef boost::shared_ptr<PhysicsStrategy> PhysicsStrategyPtr;
-	
 } } // namespace fieldkit::physics

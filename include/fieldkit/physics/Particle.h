@@ -95,6 +95,4 @@ namespace fieldkit { namespace physics {
 		SpatialListPtr neighbours;
 	};
 	
-	// Define 
-	typedef Particle* ParticlePtr;
 } } // namespace fieldkit::physics

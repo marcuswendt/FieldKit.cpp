@@ -14,11 +14,6 @@
 
 namespace fieldkit { namespace math {
 
-	//! typedefs
-	class BoundingVolume;
-	//typedef boost::shared_ptr<BoundingVolume> BoundingVolumePtr;
-	typedef BoundingVolume* BoundingVolumePtr;
-	
 	//! forward declarations
 	class AABB;
 	class SphereBound;
@@ -32,7 +27,7 @@ namespace fieldkit { namespace math {
 		
 		Vec3f position;
 		virtual bool contains(Vec3f p) = 0;
-		bool intersects(BoundingVolumePtr volume);
+		bool intersects(BoundingVolume* volume);
 		
 		// Accessors
 		Vec3f getPosition() { return position; };

@@ -37,15 +37,15 @@ void BasicSpace::clear()
 	spatials.clear();
 }
 
-void BasicSpace::insert(SpatialPtr s) 
+void BasicSpace::insert(Spatial* s) 
 {
 	spatials.push_back(s);
 }
 
-void BasicSpace::select(BoundingVolumePtr volume, SpatialListPtr result)
+void BasicSpace::select(BoundingVolume* volume, SpatialListPtr result)
 {
 	result->clear();
-	BOOST_FOREACH(SpatialPtr s, spatials) {
+	BOOST_FOREACH(Spatial* s, spatials) {
 		if(volume->contains(s->getPosition())) {
 			result->push_back(s);
 		}

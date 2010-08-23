@@ -24,6 +24,6 @@ void Force::prepare(float dt) {
 	force = direction * weight;
 }
 
-void Force::apply(ParticlePtr p) {
+void Force::apply(Particle* p) {
 	p->force += force;
 }

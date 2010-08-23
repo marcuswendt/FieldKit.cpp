@@ -11,18 +11,18 @@
 
 using namespace fieldkit::physics;
 	
-void Behavioural::addBehaviour(BehaviourPtr b) {
+void Behavioural::addBehaviour(Behaviour* b) {
 	behaviours.push_back(b);
 }
 	
-void Behavioural::removeBehaviour(BehaviourPtr b) {
+void Behavioural::removeBehaviour(Behaviour* b) {
 	behaviours.remove(b);
 }
 	
-void Behavioural::addConstraint(ConstraintPtr c) {
+void Behavioural::addConstraint(Constraint* c) {
 	constraints.push_back(c);
 }
 	
-void Behavioural::removeConstraint(ConstraintPtr c) {
+void Behavioural::removeConstraint(Constraint* c) {
 	constraints.remove(c);
 }

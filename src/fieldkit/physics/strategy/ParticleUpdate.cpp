@@ -17,26 +17,26 @@ void ParticleUpdate::apply(Physics* physics)
 	float dt = physics->dt;
 	
 	// prepare behaviours & constraints
-	BOOST_FOREACH(BehaviourPtr b, physics->behaviours) {
+	BOOST_FOREACH(Behaviour* b, physics->behaviours) {
 		b->prepare(dt);
 	}
 	
-	BOOST_FOREACH(ConstraintPtr c, physics->constraints) {
+	BOOST_FOREACH(Constraint* c, physics->constraints) {
 		c->prepare(dt);
 	}
 	
 	// update all particles
-	BOOST_FOREACH(ParticlePtr p, physics->particles) {
+	BOOST_FOREACH(Particle* p, physics->particles) {
 		if(!p->isAlive) continue;
 		
 		// apply behaviours
-		BOOST_FOREACH(BehaviourPtr b, physics->behaviours) {
+		BOOST_FOREACH(Behaviour* b, physics->behaviours) {
 			b->apply(p);
 		}
 		
 		// apply constraints
 		for (int i=0; i<constraintIterations; i++) {
-			BOOST_FOREACH(ConstraintPtr c, physics->constraints) {
+			BOOST_FOREACH(Constraint* c, physics->constraints) {
 				c->apply(p);
 			}
 		}	

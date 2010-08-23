@@ -11,7 +11,7 @@
 
 using namespace fieldkit::physics;
 
-void CollisionConstraint::apply(ParticlePtr p) {
+void CollisionConstraint::apply(Particle* p) {
 	
 	//SpatialList::iterator it = p->getNeighbours()->begin();
 	//while( it != p->getNeighbours()->end())
@@ -19,7 +19,7 @@ void CollisionConstraint::apply(ParticlePtr p) {
 	SpatialList::iterator it;
 	for(it=p->getNeighbours()->begin(); it < p->getNeighbours()->end(); it++ )
 	{
-		SpatialPtr n = *it;
+		Spatial* n = *it;
 //		logger() << "CollisionConstraint::apply p:" << p->getPosition() 
 //				 << " n:" << n->getPosition() << endl;
 		
@@ -33,7 +33,7 @@ void CollisionConstraint::apply(ParticlePtr p) {
 		float radius; 
 		// particle x particle interaction
 		if(n->getType() == Spatial::TYPE_PARTICLE) {
-			radius = (p->getSize() + ((ParticlePtr)n)->getSize()) * 0.51f;
+			radius = (p->getSize() + ((Particle*)n)->getSize()) * 0.51f;
 			
 		// particle x other interaction
 		} else {

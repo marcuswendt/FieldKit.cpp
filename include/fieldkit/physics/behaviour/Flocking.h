@@ -16,7 +16,7 @@ namespace fieldkit { namespace physics {
 	
 	class FlockBaseBehaviour: public WeightedBehaviour{
 	public:
-		FlockBaseBehaviour(SpacePtr space) : WeightedBehaviour(space) {
+		FlockBaseBehaviour(Space* space) : WeightedBehaviour(space) {
 			setRange(0.1f);
 		};
 		void setRange(float value) { range = value; }
@@ -30,20 +30,20 @@ namespace fieldkit { namespace physics {
 
 	class FlockAlign : public FlockBaseBehaviour {
 	public:
-		FlockAlign(SpacePtr space) : FlockBaseBehaviour(space){};
-		void apply(ParticlePtr Particle);
+		FlockAlign(Space* space) : FlockBaseBehaviour(space){};
+		void apply(Particle* Particle);
 	};
 	
 	class FlockAttract : public FlockBaseBehaviour{
 	public:
-		FlockAttract(SpacePtr space) : FlockBaseBehaviour(space){};
-		void apply(ParticlePtr Particle);
+		FlockAttract(Space* space) : FlockBaseBehaviour(space){};
+		void apply(Particle* Particle);
 	};
 	
 	class FlockRepel : public FlockBaseBehaviour {
 	public:
-		FlockRepel(SpacePtr space) : FlockBaseBehaviour(space){};
-		void apply(ParticlePtr Particle);
+		FlockRepel(Space* space) : FlockBaseBehaviour(space){};
+		void apply(Particle* Particle);
 	};
 
 } } // namespace fieldkit::physics

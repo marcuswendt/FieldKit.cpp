@@ -24,7 +24,7 @@ namespace fieldkit { namespace physics {
 			Cell();
 			~Cell();
 			void clear();
-			void insert(SpatialPtr spatial);
+			void insert(Spatial* spatial);
 			SpatialList spatials;
 			bool isEmpty;
 		};
@@ -47,10 +47,10 @@ namespace fieldkit { namespace physics {
 		void clear();
 		
 		//! Adds a new spatial into the hash.
-		void insert(SpatialPtr spatial);
+		void insert(Spatial* spatial);
 		
 		//! Selects all spatials within the given bounding volume.
-		void select(BoundingVolumePtr volume, SpatialListPtr result);
+		void select(BoundingVolume* volume, SpatialListPtr result);
 		
 	protected:
 		CellArray cells;

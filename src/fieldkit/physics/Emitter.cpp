@@ -32,10 +32,10 @@ void Emitter::update(float dt) {
 	if(!isEnabled) return;
 	
 	// prepare behaviours & constraints
-	BOOST_FOREACH(BehaviourPtr b, behaviours) {
+	BOOST_FOREACH(Behaviour* b, behaviours) {
 		b->prepare(dt);
 	}
-	BOOST_FOREACH(ConstraintPtr c, constraints) {
+	BOOST_FOREACH(Constraint* c, constraints) {
 		c->prepare(dt);
 	}
 	
@@ -54,19 +54,19 @@ void Emitter::update(float dt) {
 }
 
 // emits a single particle and applies the emitter behaviours
-ParticlePtr Emitter::emit(Vec3f const& location) {
-	ParticlePtr p = physics->createParticle();
+Particle* Emitter::emit(Vec3f const& location) {
+	Particle* p = physics->createParticle();
 	
 	// set particle to start at the emitters position
 	p->init(location);
 	
 	// apply emitter behaviours
-	BOOST_FOREACH(BehaviourPtr b, behaviours) {
+	BOOST_FOREACH(Behaviour* b, behaviours) {
 		b->apply(p);
 	}
 
 	// apply emitter constraints
-	BOOST_FOREACH(ConstraintPtr c, constraints) {
+	BOOST_FOREACH(Constraint* c, constraints) {
 		c->apply(p);
 	}
 

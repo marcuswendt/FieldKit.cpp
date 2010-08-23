@@ -19,7 +19,7 @@ namespace fieldkit { namespace physics {
 		Initializer();
 		~Initializer() {};
 		
-		void apply(ParticlePtr p);
+		void apply(Particle* p);
 		
 		void setPerpetual(bool value);
 		bool isPerpetiual();

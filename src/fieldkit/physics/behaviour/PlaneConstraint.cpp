@@ -11,12 +11,12 @@
 
 using namespace fieldkit::physics;
 
-void PlaneConstraint::apply(ParticlePtr p) {
+void PlaneConstraint::apply(Particle* p) {
 	p->position[axis] = constraint;
 }
 
 
-void WallConstraint::apply(ParticlePtr p) {
+void WallConstraint::apply(Particle* p) {
 	float pos = height + p->getSize() * direction;
 	
 	if( (isPositive && p->position[axis] > pos) ||

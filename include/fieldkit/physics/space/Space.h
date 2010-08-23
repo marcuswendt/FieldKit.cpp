@@ -29,10 +29,10 @@ namespace fieldkit { namespace physics {
 		virtual void clear() = 0;
 
 		//! adds a single spatial
-		virtual void insert(SpatialPtr s) = 0;
+		virtual void insert(Spatial* s) = 0;
 
 		//! selects all spatials within the given bounding volume
-		virtual void select(BoundingVolumePtr volume, SpatialListPtr result) = 0;
+		virtual void select(BoundingVolume* volume, SpatialListPtr result) = 0;
 		
 		//! returns the center of the space
 		Vec3f getCenter();

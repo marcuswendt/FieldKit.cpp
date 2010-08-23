@@ -25,6 +25,7 @@ using namespace fieldkit::math;
 
 // strategies
 #include "fieldkit/physics/strategy/PhysicsStrategy.h"
+#include "fieldkit/physics/strategy/ParticleAllocator.h"
 #include "fieldkit/physics/strategy/ParticleUpdate.h"
 #include "fieldkit/physics/strategy/SpringUpdate.h"
 #include "fieldkit/physics/strategy/NeighbourUpdate.h"

@@ -30,7 +30,7 @@ void SpatialHash::Cell::clear()
 	isEmpty=true;
 }
 
-void SpatialHash::Cell::insert(SpatialPtr spatial)
+void SpatialHash::Cell::insert(Spatial* spatial)
 {
 	spatials.push_back(spatial);
 	isEmpty=false;
@@ -100,7 +100,7 @@ void SpatialHash::clear()
 	}	
 }
 
-void SpatialHash::insert(SpatialPtr spatial) 
+void SpatialHash::insert(Spatial* spatial) 
 {
 	// find position in cell space
 	Vec3f p = spatial->getPosition();
@@ -114,7 +114,7 @@ void SpatialHash::insert(SpatialPtr spatial)
 	}
 }
 
-void SpatialHash::select(BoundingVolumePtr volume, SpatialListPtr result)
+void SpatialHash::select(BoundingVolume* volume, SpatialListPtr result)
 {
 	// find search center position in cell space
 	Vec3f p = volume->getPosition();
@@ -149,7 +149,7 @@ void SpatialHash::select(BoundingVolumePtr volume, SpatialListPtr result)
 			if(j >= 0 && j < cellsX && 
 			   i >= 0 && i < cellsY) {
 				CellPtr cell = cells[j][i];
-				BOOST_FOREACH(SpatialPtr spatial, cell->spatials) {
+				BOOST_FOREACH(Spatial* spatial, cell->spatials) {
 					result->push_back(spatial);
 				}
 			}			

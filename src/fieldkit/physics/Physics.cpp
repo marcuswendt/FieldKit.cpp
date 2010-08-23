@@ -11,15 +11,16 @@
 
 using namespace fieldkit::physics;
 
-Physics::Physics(SpacePtr space) 
+Physics::Physics(Space* space) 
 {
 	this->space = space;
 	
 	numParticles = 0;
 
-	setParticleUpdate(PhysicsStrategyPtr(new ParticleUpdate()));
-	setSpringUpdate(PhysicsStrategyPtr(new SpringUpdate()));
-	setNeighbourUpdate(PhysicsStrategyPtr(new EmptyStrategy()));
+	setParticleAllocator(new ParticleAllocator());
+	setParticleUpdate(new ParticleUpdate());
+	setSpringUpdate(new SpringUpdate());
+	setNeighbourUpdate(new EmptyStrategy());
 }
 
 Physics::~Physics() 
@@ -27,9 +28,10 @@ Physics::~Physics()
 	particles.clear();
 	springs.clear();
 	
-	particleUpdate.reset();
-	springUpdate.reset();
-	neighbourUpdate.reset();
+	delete &particleAllocator;
+	delete &particleUpdate;
+	delete &springUpdate;
+	delete &neighbourUpdate;
 }
 
 void Physics::update(float dt)
@@ -44,16 +46,15 @@ void Physics::update(float dt)
 
 // -- Particles ----------------------------------------------------------------
 // check if we still have a dead particle that we can reuse, otherwise create a new one
-ParticlePtr Physics::createParticle() 
+Particle* Physics::createParticle() 
 {
 	numParticles++;
-	BOOST_FOREACH(ParticlePtr p, particles) {
+	BOOST_FOREACH(Particle* p, particles) {
 		if(!p->isAlive) return p;
 	}
 	
-	ParticlePtr p = allocParticle();
-	particles.push_back(p);
-	return p;
+	particleAllocator->apply(this);
+	return particles.back();
 }
 
 // allocates a bunch of new particles
@@ -63,25 +64,22 @@ void Physics::allocParticles(int count)
 	space->reserve(totalReserved);
 	particles.reserve(totalReserved);
 	
-	for(int i=0; i<count; i++){
-		particles.push_back( allocParticle() );
-	}
+	for(int i=0; i<count; i++)
+		particleAllocator->apply(this);
 }
 
-// allocates a single particle, override this method to create custom Particle types
-ParticlePtr Physics::allocParticle()
+void Physics::addParticle(Particle* particle)
 {
-	return new Particle();
+	particles.push_back(particle);
 }
-
 
 // -- Springs ------------------------------------------------------------------
-void Physics::addSpring(SpringPtr spring) 
+void Physics::addSpring(Spring* spring) 
 {
 	springs.push_back(spring);
 }
 
-void Physics::removeSpring(SpringPtr spring)
+void Physics::removeSpring(Spring* spring)
 {
 	// TODO
 //	springs.erase(spring);

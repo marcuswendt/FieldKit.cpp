@@ -17,19 +17,19 @@ namespace fieldkit { namespace physics {
 	
 	class Behavioural {
 	public:
-		list<BehaviourPtr> behaviours;
-		list<ConstraintPtr> constraints;
+		list<Behaviour*> behaviours;
+		list<Constraint*> constraints;
 		
 		Behavioural() {};
 		~Behavioural() {};
 
 		// Behaviours
-		void addBehaviour(BehaviourPtr b);
-		void removeBehaviour(BehaviourPtr b);
+		void addBehaviour(Behaviour* b);
+		void removeBehaviour(Behaviour* b);
 
 		// Constraints
-		void addConstraint(ConstraintPtr c);
-		void removeConstraint(ConstraintPtr c);
+		void addConstraint(Constraint* c);
+		void removeConstraint(Constraint* c);
 	};
 
 } } // namespace fieldkit::physics

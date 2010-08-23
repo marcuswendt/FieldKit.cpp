@@ -13,27 +13,23 @@
 
 namespace fieldkit { namespace physics {
 
-	//! typedefs			
+	// FWD
 	class Space;
-	typedef boost::shared_ptr<Space> SpacePtr;
-	
-	class Behaviour;
-	typedef boost::shared_ptr<Behaviour> BehaviourPtr;
 	
 	// Base class for all physics behaviours
 	class Behaviour {
 	public:
-		SpacePtr space;
+		Space* space;
 		
 		Behaviour() {};
 		~Behaviour() {};
 		
-		Behaviour(SpacePtr space) {
+		Behaviour(Space* space) {
 			this->space = space;
 		};
 		
 		virtual void prepare(float dt) {};
-		virtual void apply(ParticlePtr p) = 0;
+		virtual void apply(Particle* p) = 0;
 	};
 	
 	// A behaviour with a weight field
@@ -41,7 +37,7 @@ namespace fieldkit { namespace physics {
 	public:
 		WeightedBehaviour() : weight(1.0f) {}
 		WeightedBehaviour(float weight) : weight(weight) {}
-		WeightedBehaviour(SpacePtr space) : Behaviour(space), weight(1.0f) {}
+		WeightedBehaviour(Space* space) : Behaviour(space), weight(1.0f) {}
 		
 		void setWeight(float value) { this->weight = value; }
 		float getWeight() { return this->weight; }

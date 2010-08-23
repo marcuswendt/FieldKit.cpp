@@ -16,12 +16,12 @@ void FixedRadiusNeighbourUpdate::apply(Physics* physics)
 	if(emptySpaceOnUpdate) 
 		physics->space->clear();
 
-	BOOST_FOREACH(ParticlePtr p, physics->particles) {
+	BOOST_FOREACH(Particle* p, physics->particles) {
 		if(p->isAlive)
 			physics->space->insert(p);
 	}
 
-	BOOST_FOREACH(ParticlePtr p, physics->particles) {
+	BOOST_FOREACH(Particle* p, physics->particles) {
 		if(p->isAlive) {
 			query->position = p->position;
 			physics->space->select(query, p->getNeighbours());

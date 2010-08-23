@@ -17,7 +17,7 @@ namespace fieldkit { namespace physics {
 	class Physics : public Behavioural {
 	public:
 		EmitterPtr emitter;
-		SpacePtr space;
+		Space* space;
 
 		//! number of currently active particles
 		int numParticles;
@@ -28,45 +28,44 @@ namespace fieldkit { namespace physics {
 		// ---------------------------------------------------------------------
 		
 		// Constructors
-		Physics(SpacePtr space);
+		Physics(Space* space);
 		~Physics();
 			
 		virtual void update(float dt);
 	
 		// Particles
-		vector<ParticlePtr> particles;
-			
-		ParticlePtr createParticle();	
+		vector<Particle*> particles;
+		
+		Particle* createParticle();
 		void allocParticles(int count);
-			
+		void addParticle(Particle* particle);
 		int getNumParticles() { return numParticles; }
 			
 		// Springs
-		vector<SpringPtr> springs;
-		
-		int numSprings() { return springs.size(); }
+		vector<Spring*> springs;
 
-		void addSpring(SpringPtr spring);
-		void removeSpring(SpringPtr spring);
-		
-		// ---------------------------------------------------------------------
+		void addSpring(Spring* spring);
+		void removeSpring(Spring* spring);
+		int getNumSprings() { return springs.size(); }
 
-		// Accessors
-		void setParticleUpdate(PhysicsStrategyPtr strategy) { particleUpdate = strategy; };
-		PhysicsStrategyPtr getParticleUpdate() { return particleUpdate; };
+		// Strategies
+		void setParticleAllocator(PhysicsStrategy* strategy) { particleAllocator = strategy; };
+		PhysicsStrategy* getParticleAllocator() { return particleAllocator; };
 
-		void setSpringUpdate(PhysicsStrategyPtr strategy) { springUpdate = strategy; };
-		PhysicsStrategyPtr getSpringUpdate() { return springUpdate; };
+		void setParticleUpdate(PhysicsStrategy* strategy) { particleUpdate = strategy; };
+		PhysicsStrategy* getParticleUpdate() { return particleUpdate; };
 
-		void setNeighbourUpdate(PhysicsStrategyPtr strategy) { neighbourUpdate = strategy; };
-		PhysicsStrategyPtr getNeighbourUpdate() { return neighbourUpdate; };
-		
+		void setSpringUpdate(PhysicsStrategy* strategy) { springUpdate = strategy; };
+		PhysicsStrategy* getSpringUpdate() { return springUpdate; };
+
+		void setNeighbourUpdate(PhysicsStrategy* strategy) { neighbourUpdate = strategy; };
+		PhysicsStrategy* getNeighbourUpdate() { return neighbourUpdate; };
+
 	protected:	
-		PhysicsStrategyPtr particleUpdate;
-		PhysicsStrategyPtr springUpdate;
-		PhysicsStrategyPtr neighbourUpdate;
-		
-		virtual ParticlePtr allocParticle();
+		PhysicsStrategy* particleUpdate;
+		PhysicsStrategy* springUpdate;
+		PhysicsStrategy* neighbourUpdate;
+		PhysicsStrategy* particleAllocator;
 	};
 
 } } // namespace fieldkit::physics

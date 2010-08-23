@@ -44,12 +44,12 @@ void Octree::clear()
 	root->clear();
 }
 
-void Octree::insert(SpatialPtr spatial) 
+void Octree::insert(Spatial* spatial) 
 {
 	root->insert(spatial);
 }
 
-void Octree::select(BoundingVolumePtr volume, SpatialListPtr result)
+void Octree::select(BoundingVolume* volume, SpatialListPtr result)
 {
 	result->clear();
 	root->select(volume, result);
@@ -121,7 +121,7 @@ void Octree::Branch::clear()
 	isEmpty = true;
 }
 
-void Octree::Branch::insert(SpatialPtr spatial)
+void Octree::Branch::insert(Spatial* spatial)
 {
 	Vec3f p = spatial->getPosition();
 	
@@ -134,7 +134,7 @@ void Octree::Branch::insert(SpatialPtr spatial)
 	children[octant]->insert(spatial);
 }
 
-void Octree::Branch::select(BoundingVolumePtr volume, SpatialListPtr result)
+void Octree::Branch::select(BoundingVolume* volume, SpatialListPtr result)
 {
 	if(isEmpty) return;
 	
@@ -176,7 +176,7 @@ void Octree::Leaf::clear()
 	isEmpty = true;
 }
 
-void Octree::Leaf::insert(SpatialPtr spatial)
+void Octree::Leaf::insert(Spatial* spatial)
 {		
 	// check if point is inside box
 	if(!contains(spatial->getPosition())) return;
@@ -187,14 +187,14 @@ void Octree::Leaf::insert(SpatialPtr spatial)
 	data.push_back(spatial);
 }
 
-void Octree::Leaf::select(BoundingVolumePtr volume, SpatialListPtr result)
+void Octree::Leaf::select(BoundingVolume* volume, SpatialListPtr result)
 {
 	if(isEmpty) return;
 	
 	// check wether bounding volume and this node intersect at all
 	if(!intersects(volume)) return;
 	
-	BOOST_FOREACH(SpatialPtr s, data) {
+	BOOST_FOREACH(Spatial* s, data) {
 		if(volume->contains(s->getPosition()))
 			result->push_back(s);	
 	}

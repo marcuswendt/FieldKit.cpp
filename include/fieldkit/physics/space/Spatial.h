@@ -15,8 +15,7 @@ namespace fieldkit { namespace physics {
 
 	//! typedefs
 	class Spatial;
-	typedef Spatial* SpatialPtr;
-	typedef vector<SpatialPtr> SpatialList;
+	typedef vector<Spatial*> SpatialList;
 	typedef SpatialList* SpatialListPtr;
 	
 	//! interface for all types of elements that can be put into a space

@@ -30,10 +30,10 @@ namespace fieldkit { namespace physics {
 		void clear();
 
 		//! adds a single spatial
-		void insert(SpatialPtr s);
+		void insert(Spatial* s);
 
 		//! selects all spatials within the given bounding volume
-		void select(BoundingVolumePtr volume, SpatialListPtr result);
+		void select(BoundingVolume* volume, SpatialListPtr result);
 		
 	protected:
 		SpatialList spatials;

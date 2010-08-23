@@ -108,6 +108,9 @@
     <ClCompile Include="..\src\fieldkit\physics\strategy\SpringUpdate.cpp">
       <Filter>Source Files\fieldkit\physics\strategy</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\fieldkit\physics\strategy\ParticleAllocator.cpp">
+      <Filter>Source Files\fieldkit\physics\strategy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\fieldkit\physics\Behaviour.h">
@@ -186,6 +189,9 @@
       <Filter>Header Files\fieldkit\physics\strategy</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\physics\strategy\SpringUpdate.h">
+      <Filter>Header Files\fieldkit\physics\strategy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\physics\strategy\ParticleAllocator.h">
       <Filter>Header Files\fieldkit\physics\strategy</Filter>
     </ClInclude>
   </ItemGroup>
