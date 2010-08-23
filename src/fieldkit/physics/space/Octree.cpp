@@ -24,7 +24,8 @@ Octree::Octree(Vec3f offset, Vec3f dimension, float minSize)
 
 Octree::~Octree() 
 {
-	root->clear();
+	root->destroy(ownsSpatials);
+	delete root;
 }
 
 void Octree::init(Vec3f offset, Vec3f dimension, float minSize)
@@ -111,6 +112,17 @@ void Octree::Branch::init(Vec3f const& offset, Vec3f const& dimension, float min
 	}
 }
 
+void Octree::Branch::destroy( bool ownsSpatials )
+{
+	BOOST_FOREACH(Octree::NodePtr child, children) {
+		child->destroy(ownsSpatials);
+		delete child;
+		child = NULL;
+	}
+	clear();
+}
+
+
 void Octree::Branch::clear() 
 {
 	if(isEmpty) return;
@@ -165,7 +177,21 @@ Octree::Leaf::Leaf()
 
 Octree::Leaf::~Leaf() 
 {
-	data.clear();
+	// assumes destroy was called before!
+}
+
+void Octree::Leaf::destroy(bool ownsSpatials)
+{
+	if(ownsSpatials) {
+		BOOST_FOREACH(Spatial* spatial, data) {
+			if(spatial != NULL) {
+				delete spatial;
+				spatial = NULL;
+			}
+		}
+	}
+
+	clear();
 }
 
 void Octree::Leaf::clear() 

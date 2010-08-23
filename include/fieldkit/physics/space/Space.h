@@ -18,8 +18,11 @@ using namespace fieldkit::math;
 namespace fieldkit { namespace physics {
 	
 	class Space : public AABB {
-	public:			
-		Space() {};
+	public:
+		Space() 
+		{
+			ownsSpatials = false;
+		};
 		~Space() {};
 
 		//! make sure the space can hold a certain amount of spatials
@@ -42,6 +45,13 @@ namespace fieldkit { namespace physics {
 
 		//! converts an absolute value to relative dimensions
 		float toRelative(float value);
+
+		void setOwnsSpatials(bool isOwner) { ownsSpatials = isOwner; }
+		bool getOwnsSpatials() { return ownsSpatials; }
+
+	protected:
+		bool ownsSpatials;
+
 	};
 
 } } // namespace fieldkit::physics

@@ -18,7 +18,21 @@ BasicSpace::BasicSpace(Vec3f const& offset, Vec3f const& dimension)
 	init(offset, dimension);
 }
 
-BasicSpace::~BasicSpace() {}
+BasicSpace::~BasicSpace() 
+{
+	//fk::logger() << "BasicSpace::destroy() " << std::endl;
+
+	if(ownsSpatials) {
+		BOOST_FOREACH(Spatial* spatial, spatials) {
+			if(spatial != NULL) {
+				delete spatial;
+				spatial = NULL;
+			}
+		}
+	}
+
+	clear();
+}
 
 void BasicSpace::init(Vec3f const& offset, Vec3f const& dimension)
 {

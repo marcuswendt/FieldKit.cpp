@@ -38,6 +38,8 @@ namespace fieldkit { namespace physics {
 		SpatialHash(Vec3f offset, Vec3f dimension, float cellSize=5.0f);
 		~SpatialHash();
 		
+		void destroy();
+
 		void init(Vec3f offset, Vec3f dimension, float cellSize=5.0f);
 		
 		//! make sure the space can hold a certain amount of spatials
@@ -57,8 +59,6 @@ namespace fieldkit { namespace physics {
 		int cellsX;
 		int cellsY;
 		float cellSize;
-		
-		void destroy();
 		
 		inline int hash(float position) {
 			return (int)(position / cellSize);

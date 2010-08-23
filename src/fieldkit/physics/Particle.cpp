@@ -13,21 +13,22 @@ using namespace fieldkit::physics;
 
 Particle::Particle() : 
 	isAlive(false), isLocked(false),
-	state(0), age(0.0f), lifeTime(1000.0f) {
-
+	state(0), age(0.0f), lifeTime(1000.0f) 
+{
 	position = Vec3f::zero();
 	prev = Vec3f::zero();
 	force = Vec3f::zero();
 	
 	setSize(1.0f);
-	userData = 0;
-		
-	neighbours = SpatialListPtr(new SpatialList());
+	neighbours = new SpatialList();
 }
 
 Particle::~Particle()
 {
-	delete neighbours;
+	if(neighbours != NULL) {
+		neighbours->clear();
+		neighbours = NULL;
+	}
 }
 
 void Particle::init(Vec3f const& location) 

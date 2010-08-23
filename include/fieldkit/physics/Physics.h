@@ -44,13 +44,15 @@ namespace fieldkit { namespace physics {
 		void allocParticles(int count);
 		void addParticle(Particle* particle);
 		int getNumParticles() { return numParticles; }
-			
+		void destroyParticles();
+
 		// Springs
 		vector<Spring*> springs;
 
 		void addSpring(Spring* spring);
 		void removeSpring(Spring* spring);
 		int getNumSprings() { return springs.size(); }
+		void destroySprings();
 
 		// Strategies
 		void setParticleAllocator(PhysicsStrategy* strategy) { particleAllocator = strategy; };

@@ -31,22 +31,20 @@ Physics::~Physics()
 void Physics::destroy()
 {
 	// strategies
-	delete particleAllocator;
-	delete particleUpdate;
-	delete springUpdate;
-	delete neighbourUpdate;
+	if(particleAllocator != NULL)
+		delete particleAllocator;
 
-	// springs
-	BOOST_FOREACH(Spring* s, springs) {
-		delete s;
-	}
-	springs.clear();
+	if(particleUpdate != NULL)
+		delete particleUpdate;
 
-	// particles
-	BOOST_FOREACH(Particle* p, particles) {
-		delete p;
-	}
-	particles.clear();
+	if(springUpdate != NULL)
+		delete springUpdate;
+
+	if(neighbourUpdate != NULL)
+		delete neighbourUpdate;
+
+	destroySprings();
+	destroyParticles();
 
 	// emitter
 	delete emitter;
@@ -91,6 +89,18 @@ void Physics::addParticle(Particle* particle)
 	particles.push_back(particle);
 }
 
+void Physics::destroyParticles()
+{
+	BOOST_FOREACH(Particle* p, particles) {
+		if(p != NULL) {
+			delete p;
+			p = NULL;
+		}
+	}
+	particles.clear();
+}
+
+
 // -- Springs ------------------------------------------------------------------
 void Physics::addSpring(Spring* spring) 
 {
@@ -101,4 +111,13 @@ void Physics::removeSpring(Spring* spring)
 {
 	// TODO
 //	springs.erase(spring);
+}
+
+void Physics::destroySprings()
+{
+	BOOST_FOREACH(Spring* s, springs) {
+		delete s;
+		s = NULL;
+	}
+	springs.clear();
 }

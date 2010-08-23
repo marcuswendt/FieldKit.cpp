@@ -20,9 +20,7 @@ SpatialHash::Cell::Cell()
 	isEmpty=true;
 }
 
-SpatialHash::Cell::~Cell() 
-{
-}
+SpatialHash::Cell::~Cell() {}
 
 void SpatialHash::Cell::clear()
 {
@@ -52,6 +50,7 @@ SpatialHash::SpatialHash(Vec3f offset, Vec3f dimension, float cellSize)
 
 SpatialHash::~SpatialHash()
 {
+	//fk::logger() << "SpatialHash::~SpatialHash()" << std::endl;
 	destroy();
 }
 
@@ -81,9 +80,24 @@ void SpatialHash::init(Vec3f offset, Vec3f dimension, float cellSize)
 
 void SpatialHash::destroy()
 {
-	for(int i = 0; i < cellsX; i++) {
-		for(int j = 0; j < cellsY; j++) {
-			delete cells[i][j];
+	for(int i=0; i<cellsX; i++) {
+		for(int j=0; j<cellsY; j++) {
+
+			// delete a single cell
+			SpatialHash::Cell* cell = cells[i][j];
+
+			// if owner also delete its spatials
+			if(ownsSpatials) {
+				BOOST_FOREACH(Spatial* spatial, cell->spatials) {
+					if(spatial != NULL) {
+						delete spatial;
+						spatial = NULL;
+					}
+				}
+			}
+
+			delete cell;
+			cell = NULL;
 		}
 		delete[] cells[i];
 	}
@@ -93,8 +107,8 @@ void SpatialHash::destroy()
 
 void SpatialHash::clear() 
 {
-	for(int i=0; i < cellsX; i++) {
-		for(int j=0; j < cellsY; j++) {
+	for(int i=0; i<cellsX; i++) {
+		for(int j=0; j<cellsY; j++) {
 			cells[i][j]->clear();
 		}
 	}	

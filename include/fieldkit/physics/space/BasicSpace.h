@@ -19,7 +19,7 @@ namespace fieldkit { namespace physics {
 		BasicSpace();
 		BasicSpace(Vec3f const& offset, Vec3f const& dimension);
 		~BasicSpace();
-		
+
 		//! Initializes the space.
 		void init(Vec3f const& offset, Vec3f const& dimension);
 
