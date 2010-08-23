@@ -13,10 +13,13 @@
 
 namespace fieldkit { namespace physics {
 
+	// FWD
+	class Emitter;
+
 	//! base class for all types of physics systems
 	class Physics : public Behavioural {
 	public:
-		EmitterPtr emitter;
+		Emitter* emitter;
 		Space* space;
 
 		//! number of currently active particles

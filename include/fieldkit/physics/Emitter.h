@@ -13,19 +13,15 @@
 #include "fieldkit/physics/Behavioural.h"
 
 namespace fieldkit { namespace physics {
-	
-	//! typedefs
+		
+	// FWD
 	class Physics;
-	typedef boost::shared_ptr<Physics> PhysicsPtr;
-	
-	class Emitter;
-	typedef boost::shared_ptr<Emitter> EmitterPtr;
-	
+
 	class Emitter : public Behavioural {
 	public:
-		PhysicsPtr physics;
+		Physics* physics;
 		
-		Emitter(PhysicsPtr physics);
+		Emitter(Physics* physics);
 		~Emitter() {};
 		
 		void update(float dt);

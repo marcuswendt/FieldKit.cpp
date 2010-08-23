@@ -13,7 +13,7 @@
 
 using namespace fieldkit::physics;
 
-Emitter::Emitter(PhysicsPtr physics) 
+Emitter::Emitter(Physics* physics) 
 {
 	this->physics = physics;		
 	rate = 1;
