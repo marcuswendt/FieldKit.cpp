@@ -20,16 +20,29 @@ namespace fieldkit { namespace physics {
 		list<Behaviour*> behaviours;
 		list<Constraint*> constraints;
 		
-		Behavioural() {};
-		~Behavioural() {};
+		Behavioural();
+		~Behavioural();
 
 		// Behaviours
 		void addBehaviour(Behaviour* b);
 		void removeBehaviour(Behaviour* b);
+		void destroyBehaviours();
 
 		// Constraints
 		void addConstraint(Constraint* c);
 		void removeConstraint(Constraint* c);
+		void destroyConstraints();
+
+		// Accessors
+		void setOwnsBehaviours(bool isOwner) { ownsBehaviours = isOwner; }
+		bool getOwnsBehaviours() { return ownsBehaviours; }
+
+		void setOwnsConstraints(bool isOwner) { ownsConstraints = isOwner; }
+		bool getOwnsConstraints() { return ownsConstraints; }
+
+	protected:
+		bool ownsBehaviours;
+		bool ownsConstraints;
 	};
 
 } } // namespace fieldkit::physics

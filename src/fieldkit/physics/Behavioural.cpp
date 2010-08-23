@@ -10,7 +10,23 @@
 #include "fieldkit/physics/Behavioural.h"
 
 using namespace fieldkit::physics;
-	
+
+Behavioural::Behavioural()
+{
+	ownsBehaviours = true;
+	ownsConstraints = true;
+}
+
+Behavioural::~Behavioural()
+{
+	if(ownsBehaviours)
+		destroyBehaviours();
+
+	if(ownsConstraints)
+		destroyConstraints();
+}
+
+// Behaviours
 void Behavioural::addBehaviour(Behaviour* b) {
 	behaviours.push_back(b);
 }
@@ -18,11 +34,28 @@ void Behavioural::addBehaviour(Behaviour* b) {
 void Behavioural::removeBehaviour(Behaviour* b) {
 	behaviours.remove(b);
 }
-	
+
+void Behavioural::destroyBehaviours()
+{
+	BOOST_FOREACH(Behaviour* b, behaviours) {
+		delete b;
+	}
+	behaviours.clear();
+}
+
+// Constraints
 void Behavioural::addConstraint(Constraint* c) {
 	constraints.push_back(c);
 }
 	
 void Behavioural::removeConstraint(Constraint* c) {
 	constraints.remove(c);
+}
+
+void Behavioural::destroyConstraints()
+{
+	BOOST_FOREACH(Constraint* c, constraints) {
+		delete c;
+	}
+	constraints.clear();
 }

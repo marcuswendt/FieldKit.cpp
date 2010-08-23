@@ -25,13 +25,31 @@ Physics::Physics(Space* space)
 
 Physics::~Physics() 
 {
-	particles.clear();
+	destroy();
+}
+
+void Physics::destroy()
+{
+	// strategies
+	delete particleAllocator;
+	delete particleUpdate;
+	delete springUpdate;
+	delete neighbourUpdate;
+
+	// springs
+	BOOST_FOREACH(Spring* s, springs) {
+		delete s;
+	}
 	springs.clear();
-	
-	delete &particleAllocator;
-	delete &particleUpdate;
-	delete &springUpdate;
-	delete &neighbourUpdate;
+
+	// particles
+	BOOST_FOREACH(Particle* p, particles) {
+		delete p;
+	}
+	particles.clear();
+
+	// emitter
+	delete emitter;
 }
 
 void Physics::update(float dt)
@@ -84,4 +102,3 @@ void Physics::removeSpring(Spring* spring)
 	// TODO
 //	springs.erase(spring);
 }
-

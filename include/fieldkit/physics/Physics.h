@@ -34,6 +34,7 @@ namespace fieldkit { namespace physics {
 		Physics(Space* space);
 		~Physics();
 			
+		virtual void destroy();
 		virtual void update(float dt);
 	
 		// Particles
