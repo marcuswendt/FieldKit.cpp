@@ -21,7 +21,7 @@ void Line2f::set(Vec2f from, Vec2f to)
 
 //! Calculates intersection and checks for parallel lines.
 //! Also checks that the intersection point is actually on the line segment p1 - p2
-bool Line2f::findIntersection(Line2f line, Vec2f* result)
+bool Line2f::findIntersection(Line2f const& line, Vec2f* result)
 {	
 	Vec2f p1 = this->p1;
 	Vec2f p2 = this->p2;
@@ -88,14 +88,17 @@ bool Line2f::findIntersection(Line2f line, Vec2f* result)
 		return false;
 	
 	// return valid intersection
-	result->x = pt.x;
-	result->y = pt.y;
+	if(result != NULL) {
+		result->x = pt.x;
+		result->y = pt.y;
+	}
+
 	return true;
 }
 
 
-//! Calculates the intersection between a ray and a line, also checks for parallel lines.
-bool Line2f::findIntersection(Ray2f ray, Vec2f* result)
-{
-	return ray.findIntersection(*this, result);
-}
+////! Calculates the intersection between a ray and a line, also checks for parallel lines.
+//bool Line2f::findIntersection(Ray2f const& ray, Vec2f* result)
+//{
+//	return ray.findIntersection(this, result);
+//}

@@ -28,8 +28,8 @@ namespace fieldkit { namespace math {
 			return origin + direction * length;
 		}
 		
-		bool findIntersection(Ray2f ray, Vec2f* result);
-		bool findIntersection(Line2f line, Vec2f* result);
+		bool findIntersection(Ray2f const& ray, Vec2f* result=NULL);
+		bool findIntersection(Line2f const& line, Vec2f* result=NULL);
 		
 		// Accessors
 		Vec2f getOrigin() { return origin; }

@@ -25,13 +25,14 @@ namespace fieldkit { namespace math {
 			p1 = Vec2f::zero();
 			p2 = Vec2f::zero();
 		};
+
 		Line2f(Vec2f from, Vec2f to) :
 			p1(from), p2(to) {};
 		
 		~Line2f() {};
 
-		bool findIntersection(Line2f line, Vec2f* result);
-		bool findIntersection(Ray2f ray, Vec2f* result);
+		bool findIntersection(Line2f const& line, Vec2f* result=NULL);
+		//bool findIntersection(Ray2f const& ray, Vec2f* result=NULL);
 		
 		void set(Vec2f from, Vec2f to);
 		

@@ -37,11 +37,11 @@ void AABB::set(Vec3f min, Vec3f max)
 {
 	this->min = min;
 	this->max = max;
-	extent = (max - min) / 2.0f;
+	extent = (max - min) * 0.5f;
 	position = min + extent;	
 }
 
-void AABB::set(AABB box) 
+void AABB::set(AABB const& box) 
 {
 	this->position = box.position;
 	this->min = box.min;
@@ -104,7 +104,7 @@ Vec3f AABB::getDimension()
 }
 
 // -- Bounding Volume ----------------------------------------------------------
-bool AABB::contains(Vec3f p) 
+bool AABB::contains(Vec3f const& p) 
 {
 	if(p.x < min.x || p.x > max.x) return false;
 	if(p.y < min.y || p.y > max.y) return false;

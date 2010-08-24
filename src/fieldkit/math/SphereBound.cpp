@@ -27,7 +27,7 @@ void SphereBound::set(SphereBound s) {
 	radius = s.radius;
 }
 
-bool SphereBound::contains(Vec3f p) {
+bool SphereBound::contains(Vec3f const& p) {
 	float dx = position.x - p.x;
 	float dy = position.y - p.y;
 	float dz = position.z - p.z;

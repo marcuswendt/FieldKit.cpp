@@ -26,7 +26,7 @@ namespace fieldkit { namespace math {
 		};
 		
 		Vec3f position;
-		virtual bool contains(Vec3f p) = 0;
+		virtual bool contains(Vec3f const& p) = 0;
 		bool intersects(BoundingVolume* volume);
 		
 		// Accessors

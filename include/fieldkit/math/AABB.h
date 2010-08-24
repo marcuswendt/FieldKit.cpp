@@ -26,11 +26,11 @@ namespace fieldkit { namespace math {
 		AABB(Vec3f min, Vec3f max);
 		
 		// Bounding Volume
-		bool contains(Vec3f p);
+		bool contains(Vec3f const& point);
 		
 		// Accessors
 		void set(Vec3f min, Vec3f max);
-		void set(AABB box);
+		void set(AABB const& box);
 		void set(AABB* box);
 		
 		void setWidth(float value);

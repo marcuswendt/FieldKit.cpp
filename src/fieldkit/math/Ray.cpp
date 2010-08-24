@@ -14,7 +14,7 @@
 using namespace fieldkit::math;
 
 //! Calculates the intersection between two rays and checks for parallel rays.
-bool Ray2f::findIntersection(Ray2f ray, Vec2f* result)
+bool Ray2f::findIntersection(Ray2f const& ray, Vec2f* result)
 {	
 	Vec2f p1 = origin;
 	Vec2f p2 = origin + direction;
@@ -51,14 +51,18 @@ bool Ray2f::findIntersection(Ray2f ray, Vec2f* result)
 	div = yD2 * xD1 - xD2 * yD1;
 	ua = (xD2 * yD3 - yD2 * xD3) / div;
 
-	result->x = p1.x + ua * xD1;
-	result->y = p1.y + ua * yD1;
+	// return valid intersection if requested
+	if(result != NULL) {
+		result->x = p1.x + ua * xD1;
+		result->y = p1.y + ua * yD1;
+	}
+	
 	return true;
 }
 
 
 //! Calculates the intersection between a ray and a line, also checks for parallel lines.
-bool Ray2f::findIntersection(Line2f line, Vec2f* result)
+bool Ray2f::findIntersection(Line2f const& line, Vec2f* result)
 {	
 	Vec2f p1 = origin;
 	Vec2f p2 = origin + direction;
@@ -114,9 +118,12 @@ bool Ray2f::findIntersection(Line2f line, Vec2f* result)
 	if(abs(len2 - segmentLen) > 0.01f)
 		return false;
 	
-	// return valid intersection
-	result->x = pt.x;
-	result->y = pt.y;
+	// return valid intersection if requested
+	if(result != NULL) {
+		result->x = pt.x;
+		result->y = pt.y;
+	}
+
 	return true;
 }
 

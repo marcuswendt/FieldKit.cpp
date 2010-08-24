@@ -28,7 +28,7 @@ namespace fieldkit { namespace math {
 		void set(SphereBound sphere);
 		
 		// Bounding Volume
-		bool contains(Vec3f p);
+		bool contains(Vec3f const& p);
 		
 		// Accessors		
 		void setRadius(float value) { radius = value; };
