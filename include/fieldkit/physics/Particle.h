@@ -72,13 +72,17 @@ namespace fieldkit { namespace physics {
 		
 		Vec3f getPosition() { return position; };
 		void setPosition(Vec3f const& location) { this->position = location; };
-		
+
+		Vec3f getPrevPosition() { return prev; };
+		void setPrevPosition(Vec3f const& location) { this->prev = location; };
+
 		virtual void setSize(float radius);
 		float getSize();
-		
+
 		void setWeight(float value);
 		inline float getWeight() { return this->weight; };
 		inline float getInvWeight() { return this->invWeight; };
+
 		Vec3f getVelocity();
 		float getSpeed();
 				

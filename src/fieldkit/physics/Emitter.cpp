@@ -55,6 +55,10 @@ void Emitter::update(float dt) {
 
 // emits a single particle and applies the emitter behaviours
 Particle* Emitter::emit(Vec3f const& location) {
+	if(physics->getNumParticles() == physics->getNumAllocated()) {
+		logger() << "Emitter::emit cannot emit more particles - allocate more particles first." << endl;
+		return NULL;
+	}
 	Particle* p = physics->createParticle();
 	
 	// set particle to start at the emitters position

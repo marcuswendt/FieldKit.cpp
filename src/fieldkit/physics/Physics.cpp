@@ -16,6 +16,7 @@ Physics::Physics(Space* space)
 	this->space = space;
 	
 	numParticles = 0;
+	numAllocated = 0;
 
 	setParticleAllocator(new ParticleAllocator());
 	setParticleUpdate(new ParticleUpdate());
@@ -76,9 +77,9 @@ Particle* Physics::createParticle()
 // allocates a bunch of new particles
 void Physics::allocParticles(int count) 
 {
-	int totalReserved = particles.size() + count;
-	space->reserve(totalReserved);
-	particles.reserve(totalReserved);
+	numAllocated = particles.size() + count;
+	space->reserve(numAllocated);
+	particles.reserve(numAllocated);
 	
 	for(int i=0; i<count; i++)
 		particleAllocator->apply(this);

@@ -40,8 +40,9 @@ namespace fieldkit { namespace physics {
 		// Particles
 		vector<Particle*> particles;
 		
-		Particle* createParticle();
 		void allocParticles(int count);
+		int getNumAllocated() { return numAllocated; }
+		Particle* createParticle();
 		void addParticle(Particle* particle);
 		int getNumParticles() { return numParticles; }
 		void destroyParticles();
@@ -68,6 +69,8 @@ namespace fieldkit { namespace physics {
 		PhysicsStrategy* getNeighbourUpdate() { return neighbourUpdate; };
 
 	protected:	
+		int numAllocated;
+
 		PhysicsStrategy* particleUpdate;
 		PhysicsStrategy* springUpdate;
 		PhysicsStrategy* neighbourUpdate;

@@ -13,12 +13,11 @@ using namespace fieldkit::physics;
 
 Particle::Particle() : 
 	isAlive(false), isLocked(false),
-	state(0), age(0.0f), lifeTime(1000.0f) 
+	state(0), age(0.0f), lifeTime(1000.0f), drag(0.03f)
 {
 	position = Vec3f::zero();
 	prev = Vec3f::zero();
-	force = Vec3f::zero();
-	
+	force = Vec3f::zero();	
 	setSize(1.0f);
 	neighbours = new SpatialList();
 }
