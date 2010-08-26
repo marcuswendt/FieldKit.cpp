@@ -31,6 +31,7 @@ void CollisionConstraint::apply(Particle* p) {
 		
 		// calc min distance between spatials to they dont overlap
 		float radius; 
+		
 		// particle x particle interaction
 		if(n->getType() == Spatial::TYPE_PARTICLE) {
 			radius = (p->getSize() + ((Particle*)n)->getSize()) * 0.51f;
@@ -44,7 +45,7 @@ void CollisionConstraint::apply(Particle* p) {
 		
 		// check wether spatials collide
 		if(distSq < radiusSq) {
-			float dist = sqrt(distSq);
+			float dist = sqrtf(distSq);
 			delta *= (dist - radius)/ radius * 0.5f;
 			p->setPosition(p->getPosition() + delta);
 			n->setPosition(n->getPosition() - delta);

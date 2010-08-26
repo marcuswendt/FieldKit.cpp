@@ -23,7 +23,7 @@ void AttractorPoint::apply(Particle* p) {
 	float distSq = delta.lengthSquared();
 
 	if(distSq < rangeAbsSq) {
-		float dist = sqrt(distSq);
+		float dist = sqrtf(distSq);
 
 		// normalize and inverse proportional weight
 		p->force += (delta / dist) * (1.0f - dist/ rangeAbs) * weight;

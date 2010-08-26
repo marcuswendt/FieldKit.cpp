@@ -141,8 +141,8 @@ void SpatialHash::select(BoundingVolume* volume, SpatialListPtr result)
 	switch(volume->getType()) {
 		case BOUNDING_BOX: {
 			AABB* box = (AABB*)volume;
-			searchX = hash(box->getWidth() / 2.0f);
-			searchY = hash(box->getHeight() / 2.0f);
+			searchX = hash(box->getWidth() * 0.5f);
+			searchY = hash(box->getHeight() * 0.5f);
 			break;
 		}
 			
@@ -156,17 +156,24 @@ void SpatialHash::select(BoundingVolume* volume, SpatialListPtr result)
 	// make sure we have a clean list
 	result->clear();
 	
+	int sx = std::max(hashX-searchX, 0);
+	int sy = std::max(hashY-searchY, 0);
+	int ex = std::min(hashX+searchX, cellsX);
+	int ey = std::min(hashY+searchY, cellsY);
+	
 	// put all spatials from the selected cells into result
-	for(int i=hashY-searchY; i<hashY+searchY; i++) {
-		for(int j=hashX-searchX; j<hashX+searchX; j++) {
+//	for(int i=hashY-searchY; i<hashY+searchY; i++) {
+//		for(int j=hashX-searchX; j<hashX+searchX; j++) {
+	for(int i=sy; i<ey; i++) {
+		for(int j=sx; j<ex; j++) {
 			// check wether we're still inside the grid
-			if(j >= 0 && j < cellsX && 
-			   i >= 0 && i < cellsY) {
+//			if(j >= 0 && j < cellsX && 
+//			   i >= 0 && i < cellsY) {
 				CellPtr cell = cells[j][i];
 				BOOST_FOREACH(Spatial* spatial, cell->spatials) {
 					result->push_back(spatial);
 				}
-			}			
+//			}			
 		}
 	}
 }
