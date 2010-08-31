@@ -9,17 +9,55 @@
 
 #include "fieldkit/Logger.h"
 
-#include "cinder/app/App.h"
+using namespace fieldkit;
 
-//Logger & fieldkit::Logger::getInstance()
-//{
-//	if(instance == NULL) 
-//		instance = new Logger();
-//
-//	return instance;
-//}
 
-std::ostream& fieldkit::logger()
-{
-	return ci::app::console();
+Logger::Logger() {
+	currContext = "";
+	currLevel = INFO;
+	addLogOutput(new ConsoleLogger());
 }
+
+Logger::~Logger() {
+	for(int i = 0; i < outputs.size(); i++) {
+		delete outputs[i];
+	}
+}
+
+Logger &Logger::getInstance() {
+	static Logger instance;
+	return instance;
+
+}
+
+void Logger::addLogOutput(LogOutput *logOutput) {
+	outputs.push_back(logOutput);
+}
+
+
+std::string Logger::getLevelName(LogLevel level) {
+	switch(level) {
+		case INFO: return "INFO";
+		case WARN: return "WARN";
+		case ERROR: return "ERROR";
+		default: return "";
+	}
+}
+
+
+
+void Logger::flush() {
+	for(int i = 0; i < outputs.size(); i++) {
+		outputs[i]->output(logstream.str());
+	}
+	logstream.str(std::string());
+}
+
+
+
+std::stringstream& Logger::getStream() {
+	return logstream;
+	// could use the below instead
+	//	return ci::app::console();
+}
+
