@@ -6,12 +6,12 @@
 \*                                                                            */
 /* created October 27, 2009 */
 
-#ifndef CAMERA_H
-#define CAMERA_H
+#pragma once
 
-#include "fieldkit/vision/constants.h"
+#include "fieldkit/vision/VisionKit.h"
 
 namespace fieldkit { namespace vision {
+
 	//
 	// base class for all camera types
 	//
@@ -50,5 +50,5 @@ namespace fieldkit { namespace vision {
 	private:
 		int err;
 	};
+
 } } // namespace fieldkit::vision
-#endif

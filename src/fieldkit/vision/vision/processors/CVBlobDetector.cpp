@@ -553,7 +553,7 @@ namespace fieldkit { namespace vision
 			
 			if (area > minArea && area < maxArea) {
 				if(foundBlobCount >= VISION_BLOB_COUNT) {
-					LOG("Too many contours");
+					LOG_WARN("Too many contours")
 					return;
 				}
 				// get blob properties

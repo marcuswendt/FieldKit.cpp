@@ -5,11 +5,10 @@
 **        /_/        /____/ /____/ /_____/     http://www.field.io            **
 \*                                                                            */
 
-#ifndef CINDER_CAMERA_H
-#define CINDER_CAMERA_H
+#pragma once
 
+#include "fieldkit/vision/VisionKit.h"
 #include "fieldkit/vision/camera/Camera.h"
-#include "fieldkit/vision/opencv.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/Capture.h"
 
@@ -36,5 +35,3 @@ namespace fieldkit { namespace vision
 		ci::Capture	mCapture;
 	};
 } } // namespace fieldkit::vision
-
-#endif

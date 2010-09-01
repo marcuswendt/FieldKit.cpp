@@ -37,7 +37,7 @@ namespace fieldkit { namespace vision
 	// -------------------------------------------------------------------------
 	void Vision::setSize(int width, int height) {
 		if(isStarted) {
-			LOG_ERR("Vision: Cannot set size, since vision is already started.");
+			LOG_ERROR("Vision: Cannot set size, since vision is already started.")
 			return;
 		}
 		this->width = width;
@@ -46,7 +46,7 @@ namespace fieldkit { namespace vision
 	
 	void Vision::setFramerate(int fps) {
 		if(isStarted) {
-			LOG_ERR("Vision: Cannot set framerate, since camera is already started.");
+			LOG_ERROR("Vision: Cannot set framerate, since camera is already started.")
 			return;
 		}
 		this->fps = fps;
@@ -54,7 +54,7 @@ namespace fieldkit { namespace vision
 	
 	void Vision::setCamera(Camera *camera) { 
 		if(isStarted) {
-			LOG_ERR("Vision: Cannot set camera, since camera is already started.");
+			LOG_ERROR("Vision: Cannot set camera, since camera is already started.")
 			return;
 		}		
 		this->camera = camera; 
@@ -62,7 +62,7 @@ namespace fieldkit { namespace vision
 	
 	void Vision::setProcessor(CVFrameProcessor *processor) {
 		if(isStarted) {
-			LOG_ERR("Vision: Cannot set frame processor, since camera is already started.");
+			LOG_ERROR("Vision: Cannot set frame processor, since camera is already started.")
 			return;
 		}		
 		this->processor = processor; 
@@ -76,7 +76,7 @@ namespace fieldkit { namespace vision
 	{
 		// initialize camera
 		if(camera == 0) {
-			LOG_ERR("Vision: Cannot initialize, since there is no camera set yet.");
+			LOG_ERROR("Vision: Cannot initialize, since there is no camera set yet.")
 			return VISION_ERROR;
 		}
 		camera->setSize(width, height);
@@ -88,7 +88,7 @@ namespace fieldkit { namespace vision
 
 		// initialize frame processor
 		if(processor == 0) {
-			LOG_ERR("Vision: Cannot initialize, since there is no frame processor set yet.");
+			LOG_ERROR("Vision: Cannot initialize, since there is no frame processor set yet.")
 			return VISION_ERROR;
 		}
 
@@ -140,7 +140,7 @@ namespace fieldkit { namespace vision
 	int Vision::update()
 	{
 		if(!isStarted) {
-			LOG_ERR("Vision: Cannot update, since vision is not started yet.");
+			LOG_ERROR("Vision: Cannot update, since vision is not started yet.")
 			return VISION_SUCCESS;
 		}
 		

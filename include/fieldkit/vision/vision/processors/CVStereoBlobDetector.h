@@ -6,9 +6,9 @@
 \*                                                                            */
 /* created October 27, 2009 */
 
-#ifndef CV_STEREO_BLOB_DETECTOR_H
-#define CV_STEREO_BLOB_DETECTOR_H
+#pragma once
 
+#include "fieldkit/vision/VisionKit.h"
 #include "fieldkit/vision/vision/CVFrameProcessor.h"
 #include "fieldkit/vision/vision/processors/CVBlobDetector.h"
 
@@ -65,5 +65,5 @@ namespace fieldkit { namespace vision
 	private:
 		int err;
 	};
+
 } } // namespace fieldkit::vision
-#endif

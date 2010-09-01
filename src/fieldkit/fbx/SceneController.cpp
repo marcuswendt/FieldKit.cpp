@@ -39,7 +39,7 @@ void SceneController::nextAnimation()
 
 void SceneController::setCamera(int index)
 {
-	logger() << "SceneController::setCamera("<< index <<")"<< std::endl;
+	LOG_INFO( "SceneController::setCamera("<< index <<")");
 
 	cameraIndex = index;
 	KFbxGlobalSettings& settings = scene->fbxScene->GetGlobalSettings();

@@ -83,12 +83,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\fieldkit\vision\constants.h">
-      <Filter>Header Files\fieldkit\vision</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\vision\opencv.h">
-      <Filter>Header Files\fieldkit\vision</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\CVFrameProcessor.h">
       <Filter>Header Files\fieldkit\vision\vision</Filter>
     </ClInclude>
@@ -145,6 +139,9 @@
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\camera\implementations\OpenCVCamera.h">
       <Filter>Header Files\fieldkit\vision\camera\implementations</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\vision\VisionKit.h">
+      <Filter>Header Files\fieldkit\vision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

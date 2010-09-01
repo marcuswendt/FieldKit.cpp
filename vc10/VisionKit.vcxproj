@@ -115,8 +115,7 @@
     <ClCompile Include="..\src\fieldkit\vision\vision\processors\GestureTracker.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\fieldkit\vision\constants.h" />
-    <ClInclude Include="..\include\fieldkit\vision\opencv.h" />
+    <ClInclude Include="..\include\fieldkit\vision\VisionKit.h" />
     <ClInclude Include="..\include\fieldkit\vision\vision\CVFrameProcessor.h" />
     <ClInclude Include="..\include\fieldkit\vision\vision\CVImageCache.h" />
     <ClInclude Include="..\include\fieldkit\vision\vision\CVProperty.h" />

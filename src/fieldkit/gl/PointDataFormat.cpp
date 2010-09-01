@@ -28,7 +28,7 @@ void PointDataFormat::addAttribute(string name, int size, int type)
 		typeBytes = sizeof(GLfloat);
 		
 	} else {
-		logger() << "WARN: Invalid type "<< type << std::endl;
+		LOG_WARN( "WARN: Invalid type "<< type);
 	}
 	
 	a.name = name;

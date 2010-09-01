@@ -10,8 +10,9 @@
 
 #pragma once
 
+#include "fieldkit/vision/VisionKit.h"
+
 #include "fieldkit/vision/camera/Camera.h"
-#include "fieldkit/vision/opencv.h"
 #include "cinder/Utilities.h"
 #include "cinder/gl/Texture.h"
 #include "cinder/qtime/QuickTime.h"

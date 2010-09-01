@@ -9,8 +9,6 @@
 
 #include "fieldkit/fbx/Scene.h"
 
-#include "cinder/app/AppBasic.h"
-
 using namespace fieldkit::fbx;
 
 // -- Constructor --------------------------------------------------------------
@@ -39,7 +37,7 @@ void Scene::init() {
     sdkManager = KFbxSdkManager::Create();
 	
     if (!sdkManager) {
-		logger() << ("Unable to create the FBX SDK manager\n");
+		LOG_ERROR("Unable to create the FBX SDK manager")
         exit(-1000);
     }
 	
@@ -74,7 +72,7 @@ void Scene::init() {
 // -- Actions ----------------------------------------------------------------
 void Scene::setAnimation(int index)
 {
-	logger() << "Scene::setAnimation("<< index <<")"<< std::endl;
+	LOG_INFO( "Scene::setAnimation("<< index <<")");
 
 	int numAnimStacks = animationNames.GetCount();
 	if (!numAnimStacks || index >= numAnimStacks) {
@@ -85,7 +83,7 @@ void Scene::setAnimation(int index)
 	KFbxAnimStack* currentAnimationStack = fbxScene->FindMember(FBX_TYPE(KFbxAnimStack), animationNames[index]->Buffer());
 	if (currentAnimationStack == NULL) {
 		// this is a problem. The anim stack should be found in the scene!
-		logger() << "The anim stack should be found in the scene!\n";
+		LOG_INFO( "The anim stack should be found in the scene!\n");
 		return;
 	}
 

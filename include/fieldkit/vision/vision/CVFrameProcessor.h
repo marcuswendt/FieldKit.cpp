@@ -6,8 +6,9 @@
 \*                                                                            */
 /* created October 27, 2009 */
 
-#ifndef CV_FRAME_PROCESSOR_H
-#define CV_FRAME_PROCESSOR_H
+#pragma once
+
+#include "fieldkit/vision/VisionKit.h"
 
 #include <map>
 
@@ -89,5 +90,3 @@ namespace fieldkit { namespace vision {
 		inline int min(int a, int b) { return a > b ? b : a; };
 	};
 } } // namespace fieldkit::vision
-
-#endif

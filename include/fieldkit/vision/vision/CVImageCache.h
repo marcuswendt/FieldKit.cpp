@@ -6,12 +6,10 @@
 \*                                                                            */
 /* created October 27, 2009 */
 
-#ifndef CV_IMAGE_CACHE_H
-#define CV_IMAGE_CACHE_H
+#pragma once
 
+#include "fieldkit/vision/VisionKit.h"
 #include <map>
-#include "fieldkit/vision/opencv.h"
-
 
 namespace fieldkit { namespace vision {
 
@@ -38,5 +36,5 @@ namespace fieldkit { namespace vision {
 	private:
 		std::map<int, IplImage*> map;
 	};
+
 } } // namespace fieldkit::vision
-#endif

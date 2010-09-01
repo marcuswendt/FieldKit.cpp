@@ -25,20 +25,30 @@
 #include <sstream>
 #include <fstream>
 
-#define LOG(LEVEL, MSG) if(Logger::getInstance().getLogLevel()<=LEVEL) { \
-							Logger::getInstance().getStream() << Logger::getInstance().getLevelName(LEVEL) << ": " << MSG; \
-							Logger::getInstance().flush(); \
-						}
+#define LOG_INFO(MSG) \
+	if(Logger::getInstance().getLogLevel() <= LOGLEVEL_INFO) { \
+		Logger::getInstance().getStream() << Logger::getInstance().getLevelName(LOGLEVEL_INFO) << ": " << MSG; \
+		Logger::getInstance().flush(); \
+	}
+
+#define LOG_WARN(MSG) \
+	if(Logger::getInstance().getLogLevel() <= LOGLEVEL_WARN) { \
+		Logger::getInstance().getStream() << Logger::getInstance().getLevelName(LOGLEVEL_WARN) << ": " << MSG; \
+		Logger::getInstance().flush(); \
+	}
+
+#define LOG_ERROR(MSG) \
+	if(Logger::getInstance().getLogLevel() <= LOGLEVEL_ERROR) { \
+		Logger::getInstance().getStream() << Logger::getInstance().getLevelName(LOGLEVEL_ERROR) << ": " << MSG; \
+		Logger::getInstance().flush(); \
+	}
 						
-
-
-
 namespace fieldkit {
 
 	enum LogLevel {
-		INFO = 1,    // this is the default log level
-		WARN,
-		ERROR
+		LOGLEVEL_INFO = 1,    // this is the default log level
+		LOGLEVEL_WARN,
+		LOGLEVEL_ERROR
 	};
 	
 	/** 

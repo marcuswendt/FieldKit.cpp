@@ -20,14 +20,14 @@ namespace fieldkit { namespace vision
 	int OpenCVCamera::init()
 	{
 		if(isStarted) {
-			LOG_ERR("OpenCVCamera: Cannot initialize, since camera is already started.");
+			LOG_ERROR("OpenCVCamera: Cannot initialize, since camera is already started.");
 			return VISION_ERROR;
 		}
 				
 		capture = cvCreateCameraCapture(cameraIndex);
 		
 		if(!capture) {
-			LOG_ERR("OpenCVCamera: Couldnt create camera capture.");
+			LOG_ERROR("OpenCVCamera: Couldnt create camera capture.");
 			return VISION_ERROR;
 		}
 		

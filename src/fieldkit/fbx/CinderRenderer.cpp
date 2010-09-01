@@ -206,7 +206,7 @@ void CinderRenderer::drawMesh(Scene* scene, KFbxXMatrix& globalPosition, KFbxMes
 		glTexEnvi( GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE, GL_REPLACE);
 
 		// TODO
-		logger() << "Warning! CinderRenderer::drawMesh DRAW_MODE_TEXTURED not properly implemented yet \n";
+		LOG_INFO( "Warning! CinderRenderer::drawMesh DRAW_MODE_TEXTURED not properly implemented yet");
 //		glTexImage2D(GL_TEXTURE_2D, 0,  3, lTexture->mW, lTexture->mH, 0,  GL_BGR_EXT,  GL_UNSIGNED_BYTE,  lTexture->mImageData);
 
 	} else if(drawMode == DRAW_MODE_WIREFRAME) {

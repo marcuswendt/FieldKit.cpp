@@ -14,12 +14,12 @@ using namespace fieldkit;
 
 Logger::Logger() {
 	currContext = "";
-	currLevel = INFO;
+	currLevel = LOGLEVEL_INFO;
 	addLogOutput(new ConsoleLogger());
 }
 
 Logger::~Logger() {
-	for(int i = 0; i < outputs.size(); i++) {
+	for(unsigned int i = 0; i < outputs.size(); i++) {
 		delete outputs[i];
 	}
 }
@@ -37,9 +37,9 @@ void Logger::addLogOutput(LogOutput *logOutput) {
 
 std::string Logger::getLevelName(LogLevel level) {
 	switch(level) {
-		case INFO: return "INFO";
-		case WARN: return "WARN";
-		case ERROR: return "ERROR";
+		case LOGLEVEL_INFO: return "INFO";
+		case LOGLEVEL_WARN: return "WARN";
+		case LOGLEVEL_ERROR: return "ERROR";
 		default: return "";
 	}
 }
@@ -47,7 +47,7 @@ std::string Logger::getLevelName(LogLevel level) {
 
 
 void Logger::flush() {
-	for(int i = 0; i < outputs.size(); i++) {
+	for(unsigned int i = 0; i < outputs.size(); i++) {
 		outputs[i]->output(logstream.str());
 	}
 	logstream.str(std::string());

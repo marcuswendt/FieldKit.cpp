@@ -50,7 +50,7 @@ bool BoundingVolume::intersects(BoundingVolume* volume) {
 		}
 	}
 
-	logger() << "Warning: Unsupported intersection type!" << endl;
+	LOG_WARN("Unsupported intersection type!");
 	return false;
 }
 

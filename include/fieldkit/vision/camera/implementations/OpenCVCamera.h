@@ -6,10 +6,9 @@
 \*                                                                            */
 /* created October 27, 2009 */
 
-#ifndef OPENCV_CAMERA_H
-#define OPENCV_CAMERA_H
+#pragma once
 
-#include "fieldkit/vision/opencv.h"
+#include "fieldkit/vision/VisionKit.h"
 #include "fieldkit/vision/camera/Camera.h"
 
 namespace fieldkit { namespace vision 
@@ -36,5 +35,3 @@ namespace fieldkit { namespace vision
 		CvCapture* capture;
 	};
 } } // namespace fieldkit::vision
-
-#endif

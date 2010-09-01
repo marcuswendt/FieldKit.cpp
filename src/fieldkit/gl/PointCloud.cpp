@@ -38,7 +38,7 @@ void PointCloud::init(PointDataFormat format, int capacity, GlslProg shader)
 
 	// load default shaders
 	} else {
-		logger() << "PointCloud::init using default shaders" << std::endl;
+		LOG_INFO( "PointCloud::init using default shaders");
 		
 		const char* POINTCLOUD_DEFAULT_VS = "\
 		attribute vec3 InVertex;\
@@ -138,7 +138,7 @@ void PointCloud::draw()
 	BOOST_FOREACH(PointDataFormat::Attribute attr, format.attributes) {		
 		GLint loc = shader.getAttribLocation(attr.name);
 		if(loc == -1) {
-			logger() << "WARNING: Couldnt find shader attribute '"<< attr.name << std::endl;
+			LOG_WARN( "Couldnt find shader attribute '"<< attr.name);
 			return;
 		}
 		glEnableVertexAttribArray(loc);

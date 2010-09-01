@@ -35,7 +35,7 @@ Scene* SceneImporter::load(const string &fileName_)
 
 	// Initialize the importer by providing a filename.
 	if(importer->Initialize(fileName->Buffer(), fileFormat) == true) {
-		logger() << "Loading file: " << fileName->Buffer() << "...\n";
+		LOG_INFO( "Loading file: " << fileName->Buffer());
 
 		// Import scene
 		if(importer->Import(fbxScene) == true) {
@@ -81,8 +81,8 @@ Scene* SceneImporter::load(const string &fileName_)
 		}
 
 	} else {
-		logger() << "Unable to open file!" << std::endl;
-		logger() << "Error reported: " << importer->GetLastErrorString() << std::endl;
+		LOG_ERROR("Unable to open file!")
+		LOG_INFO( "Error reported: " << importer->GetLastErrorString())
 		exit(-1001);
 	}
 
@@ -94,11 +94,11 @@ Scene* SceneImporter::load(const string &fileName_)
 
 // -- Helpers ----------------------------------------------------------------
 void SceneImporter::convertNurbsAndPatch(KFbxSdkManager* sdkManager, KFbxScene* fbxScene) {
-	logger() << "Scene::convertNurbsAndPatch() - not implemented at the moment! \n";
+	LOG_WARN( "Scene::convertNurbsAndPatch() - not implemented at the moment!");
 }
 
 void SceneImporter::preparePointCacheData(KFbxScene* fbxScene) {
-	logger() << "Scene::preparePointCacheData() - not implemented at the moment! \n";
+	LOG_WARN( "Scene::preparePointCacheData() - not implemented at the moment!");
 }
 
 void SceneImporter::fillCameraArray(KFbxScene* fbxScene, KArrayTemplate<KFbxNode*>& cameras) {
@@ -134,5 +134,5 @@ void SceneImporter::fillPoseArray(KFbxScene* fbxScene, KArrayTemplate<KFbxPose*>
 
 void SceneImporter::loadTextures(KFbxScene* fbxScene, KArrayTemplate<Texture*> textures) 
 {
-	logger() << "Scene::loadTextures() - not implemented at the moment! \n";
+	LOG_WARN( "Scene::loadTextures() - not implemented at the moment!");
 }

@@ -6,8 +6,9 @@
 \*                                                                            */
 /* created October 27, 2009 */
 
-#ifndef CV_PROPERTY_H
-#define CV_PROPERTY_H
+#pragma once
+
+#include "fieldkit/vision/VisionKit.h"
 
 using namespace std;
 
@@ -47,8 +48,6 @@ namespace fieldkit { namespace vision {
 		float scale;
 		float min;
 		float max;
-
 	};
-} } // namespace fieldkit::vision
 
-#endif
+} } // namespace fieldkit::vision

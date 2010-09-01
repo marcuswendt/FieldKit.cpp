@@ -6,9 +6,9 @@
 \*                                                                            */
 /* created October 27, 2009 */
 
-#ifndef VISION_H
-#define VISION_H
+#pragma once
 
+#include "fieldkit/vision/VisionKit.h"
 #include "fieldkit/vision/camera/Camera.h"
 #include "fieldkit/vision/vision/CVFrameProcessor.h"
 
@@ -49,5 +49,5 @@ namespace fieldkit { namespace vision
 	private:
 		int err;
 	};
+
 } } // namespace fieldkit::vision
-#endif
