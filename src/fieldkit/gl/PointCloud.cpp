@@ -11,6 +11,22 @@
 
 using namespace fieldkit::gl;
 
+PointCloud::PointCloud()
+{
+	data = NULL;
+	ptr = NULL;
+}
+
+PointCloud::~PointCloud()
+{
+	vbo.reset();
+	shader.reset();
+
+	delete data;
+	data = NULL;
+	ptr = NULL;
+}
+
 void PointCloud::init(PointDataFormat format, int capacity, GlslProg shader)
 {
 	this->format = format;
@@ -28,9 +44,9 @@ void PointCloud::init(PointDataFormat format, int capacity, GlslProg shader)
 	data = (GLfloat*)malloc(bytesTotal);
 	
 	// create gl objects
-	vbo = new Vbo(GL_ARRAY_BUFFER);
-	vbo->bufferData(bytesTotal, data, GL_DYNAMIC_DRAW); // or GL_STREAM_DRAW
-	vbo->unbind();
+	vbo = Vbo(GL_ARRAY_BUFFER);
+	vbo.bufferData(bytesTotal, data, GL_DYNAMIC_DRAW); // or GL_STREAM_DRAW
+	vbo.unbind();
 
 	// when shader programm was given, try to load them
 	if(shader != NULL) {
@@ -121,10 +137,10 @@ void PointCloud::draw()
 	
 	// enable states
 	shader.bind();
-	vbo->bind();
+	vbo.bind();
 	
 	// upload data
-	vbo->bufferSubData(0, size * bytesPerParticle, data);
+	vbo.bufferSubData(0, size * bytesPerParticle, data);
 	
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_POINT_SPRITE);
@@ -161,7 +177,7 @@ void PointCloud::draw()
 	glDisable(GL_POINT_SPRITE);
 	glEnable(GL_DEPTH_TEST);
 
-	vbo->unbind();
+	vbo.unbind();
 	shader.unbind();
 }
 

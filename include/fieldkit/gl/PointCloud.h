@@ -16,8 +16,8 @@ namespace fieldkit { namespace gl {
 
 	class PointCloud {
 	public:
-		PointCloud() {};
-		~PointCloud() {};
+		PointCloud();
+		~PointCloud();
 		
 		//! initializes this clouds buffer to a certain format
 		void init(PointDataFormat format, int capacity, GlslProg shader=NULL);
@@ -55,7 +55,7 @@ namespace fieldkit { namespace gl {
 		int size;
 		GLfloat* ptr;
 		
-		Vbo* vbo;
+		Vbo vbo;
 		GlslProg shader;
 	};
 } } // namespace fieldkit::gl
