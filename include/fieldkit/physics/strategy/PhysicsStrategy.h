@@ -25,11 +25,4 @@ namespace fieldkit { namespace physics {
 		virtual void apply(Physics* physics) = 0;
 	};
 	
-	class EmptyStrategy : public PhysicsStrategy {
-	public:	
-		void apply(Physics* physics) { 
-			// does nothing; 
-		};
-	};
-	
 } } // namespace fieldkit::physics

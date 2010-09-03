@@ -65,7 +65,12 @@ namespace fieldkit { namespace physics {
 		void setNeighbourUpdate(PhysicsStrategy* strategy);
 		PhysicsStrategy* getNeighbourUpdate() { return neighbourUpdate; };
 
-	protected:	
+		// Accessors
+		void setOwnsSpace(bool isOwner) { ownsSpace = isOwner; }
+		bool getOwnsSpace() { return ownsSpace; }
+	
+	protected:
+		bool ownsSpace;
 		int numAllocated;
 
 		PhysicsStrategy* particleUpdate;

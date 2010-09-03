@@ -17,25 +17,21 @@ namespace fieldkit { namespace physics {
 	public:
 		FixedRadiusNeighbourUpdate() {
 			emptySpaceOnUpdate = true;
-			query = new SphereBound();
 			setRadius(10.0f);
 		};
 		
-		~FixedRadiusNeighbourUpdate() {
-			delete query;
-			query = NULL;
-		};
+		~FixedRadiusNeighbourUpdate() {};
 		
 		void apply(Physics* physics);
 		
 		// Accessors
-		void setRadius(float radius) { query->setRadius(radius); }
+		void setRadius(float radius) { query.setRadius(radius); }
 		void setEmptySpaceOnUpdate(bool enabled) { emptySpaceOnUpdate = enabled; };
 		bool getEmptySpaceOnUpdate() { return emptySpaceOnUpdate; };
 
 	protected:
 		bool emptySpaceOnUpdate;
-		SphereBound* query;
+		SphereBound query;
 	};
 	
 } } // namespace fieldkit::physics

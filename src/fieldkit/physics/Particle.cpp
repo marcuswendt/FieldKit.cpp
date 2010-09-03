@@ -19,15 +19,29 @@ Particle::Particle() :
 	prev = Vec3f::zero();
 	force = Vec3f::zero();	
 	setSize(1.0f);
-	neighbours = new SpatialList();
 }
 
 Particle::~Particle()
 {
-	if(neighbours != NULL) {
-		neighbours->clear();
-		neighbours = NULL;
+//	if(neighbours != NULL) {
+//		BOOST_FOREACH(Spatial* spatial, neighbours) {
+//			if(spatial != NULL) {
+//				delete spatial;
+//				spatial = NULL;
+//			}
+//		}
+//		neighbours->clear();
+//		delete neighbours;
+//		neighbours = NULL;
+//	}
+	
+	BOOST_FOREACH(Spatial* spatial, neighbours) {
+		if(spatial != NULL) {
+			delete spatial;
+			spatial = NULL;
+		}
 	}
+	neighbours.clear();
 }
 
 void Particle::init(Vec3f const& location) 

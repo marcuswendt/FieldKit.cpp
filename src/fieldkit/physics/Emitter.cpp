@@ -23,6 +23,14 @@ Emitter::Emitter(Physics* physics)
 	time = 0;
 }
 
+Emitter::~Emitter()
+{
+	if(physics != NULL) {
+		delete physics;
+		physics = NULL;
+	}
+}
+
 void Emitter::setMax(int value) {
 	max = value;
 	physics->allocParticles(value);

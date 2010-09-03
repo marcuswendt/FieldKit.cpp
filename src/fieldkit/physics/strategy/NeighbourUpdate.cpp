@@ -23,8 +23,8 @@ void FixedRadiusNeighbourUpdate::apply(Physics* physics)
 
 	BOOST_FOREACH(Particle* p, physics->particles) {
 		if(p->isAlive) {
-			query->position = p->position;
-			physics->space->select(query, p->getNeighbours());
+			query.position = p->position;
+			physics->space->select(&query, p->getNeighbours());
 		}
 	}
 

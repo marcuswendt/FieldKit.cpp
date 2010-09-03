@@ -19,7 +19,8 @@ Physics::Physics(Space* space)
 	numAllocated = 0;
 	
 	emitter = NULL;
-
+	ownsSpace = true;
+	
 	particleAllocator = NULL;
 	particleUpdate = NULL;
 	springUpdate = NULL;
@@ -28,7 +29,7 @@ Physics::Physics(Space* space)
 	setParticleAllocator(new ParticleAllocator());
 	setParticleUpdate(new ParticleUpdate());
 	setSpringUpdate(new SpringUpdate());
-	setNeighbourUpdate(new EmptyStrategy());
+	//setNeighbourUpdate(new EmptyStrategy());
 }
 
 Physics::~Physics() 
@@ -60,6 +61,10 @@ Physics::~Physics()
 
 	// emitter
 	delete emitter;
+	
+	// space
+	if(ownsSpace)
+		delete space;
 }
 
 void Physics::update(float dt)

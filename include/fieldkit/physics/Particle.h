@@ -86,14 +86,14 @@ namespace fieldkit { namespace physics {
 		Vec3f getVelocity();
 		float getSpeed();
 				
-		SpatialListPtr getNeighbours() { return neighbours; };
+		SpatialListPtr getNeighbours() { return &neighbours; };
 		
 	protected:
 		//! physical size in the simulation space
 		float size;
 
 		//! list of neighbours this particle is aware of
-		SpatialListPtr neighbours;
+		SpatialList neighbours;
 	};
 	
 } } // namespace fieldkit::physics

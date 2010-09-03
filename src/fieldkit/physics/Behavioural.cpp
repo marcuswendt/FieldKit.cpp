@@ -39,6 +39,7 @@ void Behavioural::destroyBehaviours()
 {
 	BOOST_FOREACH(Behaviour* b, behaviours) {
 		delete b;
+		b = NULL;
 	}
 	behaviours.clear();
 }
@@ -56,6 +57,7 @@ void Behavioural::destroyConstraints()
 {
 	BOOST_FOREACH(Constraint* c, constraints) {
 		delete c;
+		c = NULL;
 	}
 	constraints.clear();
 }
