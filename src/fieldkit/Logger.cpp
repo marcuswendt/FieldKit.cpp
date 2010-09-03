@@ -11,7 +11,6 @@
 
 using namespace fieldkit;
 
-
 Logger::Logger() {
 	currContext = "";
 	currLevel = LOGLEVEL_INFO;
@@ -34,7 +33,6 @@ void Logger::addLogOutput(LogOutput *logOutput) {
 	outputs.push_back(logOutput);
 }
 
-
 std::string Logger::getLevelName(LogLevel level) {
 	switch(level) {
 		case LOGLEVEL_INFO: return "INFO";
@@ -44,8 +42,6 @@ std::string Logger::getLevelName(LogLevel level) {
 	}
 }
 
-
-
 void Logger::flush() {
 	for(unsigned int i = 0; i < outputs.size(); i++) {
 		outputs[i]->output(logstream.str());
@@ -53,11 +49,30 @@ void Logger::flush() {
 	logstream.str(std::string());
 }
 
-
-
 std::stringstream& Logger::getStream() {
 	return logstream;
 	// could use the below instead
 	//	return ci::app::console();
 }
 
+
+// -- Console Logger --------------------------------------------------
+
+// replace this to remove cinder dependency
+#include "cinder/app/App.h"
+
+void ConsoleLogger::output( std::string out )
+{
+	//std::cout << out << std::endl; 
+	ci::app::console() << out << std::endl;
+}
+
+
+// -- File Logger ----------------------------------------------------
+
+void FileLogger::output( std::string out )
+{
+	log.open(path.c_str(), std::ofstream::app);
+	log << out << std::endl;
+	log.close();
+}

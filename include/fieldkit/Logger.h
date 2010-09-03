@@ -59,19 +59,12 @@ namespace fieldkit {
 		virtual void output(std::string out) = 0;
 	};
 	
-	
-	
-	
-	
-	
-	
 	class Logger {
 	public:
-		
 		std::stringstream& getStream();
+
 		void flush();
-		
-		
+
 		/**
 		 * Add as many outputs as you like here
 		 */
@@ -101,12 +94,7 @@ namespace fieldkit {
 		
 		LogLevel currLevel;
 		std::string currContext;
-		
 	};
-	
-	
-	
-	
 	
 	
 	/**
@@ -114,26 +102,20 @@ namespace fieldkit {
 	 */
 	class ConsoleLogger: public LogOutput {
 	public:
-		virtual void output(std::string out) { std::cout << out << std::endl; };
+		void output(std::string out);
 	};
+
 	
-	
-	
-	
-	
-	
-	
+	/**
+	 * File logger
+	 */	
 	class FileLogger: public LogOutput {
 	public:
 		FileLogger(std::string _path) {
 			path = _path;
 		}
 
-		virtual void output(std::string out) { 
-			log.open(path.c_str(), std::ofstream::app);
-			log << out << std::endl;
-			log.close();
-		}
+		void output(std::string out);
 		
 	protected:
 		std::ofstream log;

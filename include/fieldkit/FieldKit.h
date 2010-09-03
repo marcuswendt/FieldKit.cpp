@@ -22,7 +22,6 @@ namespace fk = fieldkit;
 #include <string>
 
 using namespace std;
-using std::endl;
 
 // -- Boost ------------------------------------------------------------------
 #include <boost/foreach.hpp>
