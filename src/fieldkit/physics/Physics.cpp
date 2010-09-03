@@ -18,6 +18,11 @@ Physics::Physics(Space* space)
 	numParticles = 0;
 	numAllocated = 0;
 
+	particleAllocator = NULL;
+	particleUpdate = NULL;
+	springUpdate = NULL;
+	neighbourUpdate = NULL;
+
 	setParticleAllocator(new ParticleAllocator());
 	setParticleUpdate(new ParticleUpdate());
 	setSpringUpdate(new SpringUpdate());
@@ -26,24 +31,28 @@ Physics::Physics(Space* space)
 
 Physics::~Physics() 
 {
-	destroy();
-}
-
-void Physics::destroy()
-{
 	// strategies
-	if(particleAllocator != NULL)
+	if(particleAllocator != NULL) {
 		delete particleAllocator;
+		particleAllocator = NULL;
+	}
 
-	if(particleUpdate != NULL)
+	if(particleUpdate != NULL) {
 		delete particleUpdate;
+		particleUpdate = NULL;
+	}
 
-	if(springUpdate != NULL)
+	if(springUpdate != NULL) {
 		delete springUpdate;
+		springUpdate = NULL;
+	}
 
-	if(neighbourUpdate != NULL)
+	if(neighbourUpdate != NULL) {
 		delete neighbourUpdate;
+		neighbourUpdate = NULL;
+	}
 
+	// springs & particles
 	destroySprings();
 	destroyParticles();
 
@@ -56,9 +65,14 @@ void Physics::update(float dt)
 	if(emitter)
 		emitter->update(dt);
 	
-	particleUpdate->apply(this);
-	springUpdate->apply(this);
-	neighbourUpdate->apply(this);
+	if(particleUpdate != NULL)
+		particleUpdate->apply(this);
+
+	if(springUpdate = NULL)
+		springUpdate->apply(this);
+
+	if(neighbourUpdate != NULL)
+		neighbourUpdate->apply(this);
 }
 
 // -- Particles ----------------------------------------------------------------
@@ -70,7 +84,9 @@ Particle* Physics::createParticle()
 		if(!p->isAlive) return p;
 	}
 	
-	particleAllocator->apply(this);
+	if(particleAllocator != NULL)
+		particleAllocator->apply(this);
+
 	return particles.back();
 }
 
@@ -93,10 +109,8 @@ void Physics::addParticle(Particle* particle)
 void Physics::destroyParticles()
 {
 	BOOST_FOREACH(Particle* p, particles) {
-		if(p != NULL) {
-			delete p;
-			p = NULL;
-		}
+		delete p;
+		p = NULL;
 	}
 	particles.clear();
 }
@@ -121,4 +135,41 @@ void Physics::destroySprings()
 		s = NULL;
 	}
 	springs.clear();
+}
+
+// -- Setters -----------------------------------------------------------------
+void Physics::setParticleAllocator( PhysicsStrategy* strategy )
+{
+	if(particleAllocator != NULL) {
+		delete particleAllocator;
+		particleAllocator = NULL;
+	}
+	particleAllocator = strategy;
+}
+
+void Physics::setParticleUpdate( PhysicsStrategy* strategy )
+{
+	if(particleUpdate != NULL) {
+		delete particleUpdate;
+		particleUpdate = NULL;
+	}
+	particleUpdate = strategy;
+}
+
+void Physics::setSpringUpdate( PhysicsStrategy* strategy )
+{
+	if(springUpdate != NULL) {
+		delete springUpdate;
+		springUpdate = NULL;
+	}
+	springUpdate = strategy;
+}
+
+void Physics::setNeighbourUpdate( PhysicsStrategy* strategy )
+{
+	if(neighbourUpdate != NULL) {
+		delete neighbourUpdate;
+		neighbourUpdate = NULL;
+	}
+	neighbourUpdate = strategy;
 }

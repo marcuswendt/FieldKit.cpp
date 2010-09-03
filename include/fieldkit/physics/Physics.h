@@ -28,13 +28,10 @@ namespace fieldkit { namespace physics {
 		//! time since last update
 		float dt;
 		
-		// ---------------------------------------------------------------------
-		
 		// Constructors
 		Physics(Space* space);
-		~Physics();
+		virtual ~Physics();
 			
-		virtual void destroy();
 		virtual void update(float dt);
 	
 		// Particles
@@ -56,16 +53,16 @@ namespace fieldkit { namespace physics {
 		void destroySprings();
 
 		// Strategies
-		void setParticleAllocator(PhysicsStrategy* strategy) { particleAllocator = strategy; };
+		void setParticleAllocator(PhysicsStrategy* strategy);
 		PhysicsStrategy* getParticleAllocator() { return particleAllocator; };
 
-		void setParticleUpdate(PhysicsStrategy* strategy) { particleUpdate = strategy; };
+		void setParticleUpdate(PhysicsStrategy* strategy);
 		PhysicsStrategy* getParticleUpdate() { return particleUpdate; };
 
-		void setSpringUpdate(PhysicsStrategy* strategy) { springUpdate = strategy; };
+		void setSpringUpdate(PhysicsStrategy* strategy);
 		PhysicsStrategy* getSpringUpdate() { return springUpdate; };
 
-		void setNeighbourUpdate(PhysicsStrategy* strategy) { neighbourUpdate = strategy; };
+		void setNeighbourUpdate(PhysicsStrategy* strategy);
 		PhysicsStrategy* getNeighbourUpdate() { return neighbourUpdate; };
 
 	protected:	
