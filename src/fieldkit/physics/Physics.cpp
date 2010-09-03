@@ -17,6 +17,8 @@ Physics::Physics(Space* space)
 	
 	numParticles = 0;
 	numAllocated = 0;
+	
+	emitter = NULL;
 
 	particleAllocator = NULL;
 	particleUpdate = NULL;
@@ -62,7 +64,7 @@ Physics::~Physics()
 
 void Physics::update(float dt)
 {
-	if(emitter)
+	if(emitter != NULL)
 		emitter->update(dt);
 	
 	if(particleUpdate != NULL)
