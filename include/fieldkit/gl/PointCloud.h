@@ -26,7 +26,10 @@ namespace fieldkit { namespace gl {
 		void clear();
 
 		//! inserts a float attribute for the current particle
-		void put(float v);
+		void inline put(float const& value) 
+		{
+			*ptr = value; ++ptr;
+		}
 		
 		//! inserts a 2d vector attribute for the current particle
 		void put(Vec2f const& v);

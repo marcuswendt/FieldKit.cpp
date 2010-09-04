@@ -13,6 +13,10 @@ using namespace fieldkit::gl;
 
 PointCloud::PointCloud()
 {
+	capacity = 0;
+	bytesPerParticle = 0;
+	size = 0;
+
 	data = NULL;
 	ptr = NULL;
 }
@@ -42,7 +46,8 @@ void PointCloud::init(PointDataFormat format, int capacity, GlslProg shader)
 	
 	// create buffer
 	data = (GLfloat*)malloc(bytesTotal);
-	
+	clear();
+
 	// create gl objects
 	vbo = Vbo(GL_ARRAY_BUFFER);
 	vbo.bufferData(bytesTotal, data, GL_DYNAMIC_DRAW); // or GL_STREAM_DRAW
@@ -96,38 +101,38 @@ void PointCloud::insert()
 	size += 1;
 }
 
-void PointCloud::put(float v)
-{
-	*ptr = v; ++ptr;
-}
+//void PointCloud::put(float const& v)
+//{
+//	_put(v);
+//}
 
 void PointCloud::put(Vec2f const& v)
 {
-	*ptr = v.x; ++ptr;
-	*ptr = v.y; ++ptr;
+	put(v.x); 
+	put(v.y);
 }
 
 void PointCloud::put(Vec3f const& v)
 {
-	*ptr = v.x; ++ptr;
-	*ptr = v.y; ++ptr;
-	*ptr = v.z; ++ptr;
+	put(v.x); 
+	put(v.y);
+	put(v.z);
 }
 
 void PointCloud::put(Vec4f const& v)
 {
-	*ptr = v.x; ++ptr;
-	*ptr = v.y; ++ptr;
-	*ptr = v.z; ++ptr;
-	*ptr = v.w; ++ptr;
+	put(v.x);
+	put(v.y);
+	put(v.z);
+	put(v.w);
 }
 
 void PointCloud::put(ColorAf const& v)
 {
-	*ptr = v.r; ++ptr;
-	*ptr = v.g; ++ptr;
-	*ptr = v.b; ++ptr;
-	*ptr = v.a; ++ptr;
+	put(v.r);
+	put(v.g);
+	put(v.b);
+	put(v.a);
 }
 
 void PointCloud::draw()
