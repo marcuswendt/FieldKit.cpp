@@ -60,11 +60,16 @@ Physics::~Physics()
 	destroyParticles();
 
 	// emitter
-	delete emitter;
+	if(emitter != NULL) {
+		delete emitter;
+		emitter = NULL;
+	}
 	
 	// space
-	if(ownsSpace)
+	if(ownsSpace) {
 		delete space;
+		space = NULL;
+	}
 }
 
 void Physics::update(float dt)

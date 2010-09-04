@@ -36,10 +36,8 @@ Particle::~Particle()
 //	}
 	
 	BOOST_FOREACH(Spatial* spatial, neighbours) {
-		if(spatial != NULL) {
-			delete spatial;
-			spatial = NULL;
-		}
+		delete spatial;
+		spatial = NULL;
 	}
 	neighbours.clear();
 }

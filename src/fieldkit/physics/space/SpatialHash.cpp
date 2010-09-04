@@ -14,44 +14,29 @@ using namespace fieldkit::math;
 
 using namespace fieldkit::physics;
 
-// -- SpatialHash::Cell --------------------------------------------------------
-SpatialHash::Cell::Cell() 
-{
-	isEmpty=true;
-}
-
-SpatialHash::Cell::~Cell() {}
-
-void SpatialHash::Cell::clear()
-{
-	spatials.clear();
-	isEmpty=true;
-}
-
-void SpatialHash::Cell::insert(Spatial* spatial)
-{
-	spatials.push_back(spatial);
-	isEmpty=false;
-}
-
-
-// -- SpatialHash --------------------------------------------------------------
 SpatialHash::SpatialHash()
 {
-	cells = NULL;
 	init(Vec3f::zero(), Vec3f(100.0f, 100.0f, 100.0f), 10.0f);	
 }
 
 SpatialHash::SpatialHash(Vec3f offset, Vec3f dimension, float cellSize)
 {
-	cells = NULL;
 	init(offset, dimension, cellSize);	
 }
 
 SpatialHash::~SpatialHash()
 {
-	//fk::logger() << "SpatialHash::~SpatialHash()" << std::endl;
-	destroy();
+	if(ownsSpatials) {
+		int n = cells.size();
+		for(int i=0; i<n; i++) {
+			BOOST_FOREACH(Spatial* spatial, cells[i]) {
+				delete spatial;
+				spatial = NULL;
+			}
+			cells[i].clear();
+		}
+		cells.clear();
+	}
 }
 
 void SpatialHash::init(Vec3f offset, Vec3f dimension, float cellSize)
@@ -60,58 +45,22 @@ void SpatialHash::init(Vec3f offset, Vec3f dimension, float cellSize)
 	this->position = offset + dimension * 0.5f;
 	this->extent = dimension * 0.5f;
 	updateBounds();
-
+	
 	// create cells
 	this->cellSize = cellSize;
 	cellsX = hash(dimension.x);
 	cellsY = hash(dimension.y);
-
-	if(cells != NULL) 
-		destroy();
 	
-	cells = new CellList[cellsX];
-	for(int i=0; i < cellsX; i++) {
-		cells[i] = new CellPtr[cellsY];
-		for(int j=0; j < cellsY; j++) {
-			cells[i][j] = CellPtr(new Cell());
-		}
-	}
+	// reserve cells
+	cells.resize(cellsX * cellsY);
 }
-
-void SpatialHash::destroy()
-{
-	for(int i=0; i<cellsX; i++) {
-		for(int j=0; j<cellsY; j++) {
-
-			// delete a single cell
-			SpatialHash::Cell* cell = cells[i][j];
-
-			// if owner also delete its spatials
-			if(ownsSpatials) {
-				BOOST_FOREACH(Spatial* spatial, cell->spatials) {
-					if(spatial != NULL) {
-						delete spatial;
-						spatial = NULL;
-					}
-				}
-			}
-
-			delete cell;
-			cell = NULL;
-		}
-		delete[] cells[i];
-	}
-	delete[] cells;
-	cells = NULL;
-}	
 
 void SpatialHash::clear() 
 {
-	for(int i=0; i<cellsX; i++) {
-		for(int j=0; j<cellsY; j++) {
-			cells[i][j]->clear();
-		}
-	}	
+	int n = cells.size();
+	for(int i = 0; i < n; i++) {
+		cells[i].clear();
+	}
 }
 
 void SpatialHash::insert(Spatial* spatial) 
@@ -120,12 +69,11 @@ void SpatialHash::insert(Spatial* spatial)
 	Vec3f p = spatial->getPosition();
 	int hashX = hash(p.x);
 	int hashY = hash(p.y);
-
+	
 	// make sure the spatial lies within the cell space
-	if(hashX >= 0 && hashX < cellsX && 
-	   hashY >= 0 && hashY < cellsY) {
-		cells[hashX][hashY]->insert(spatial);
-	}
+	int index = hashY * cellsX + hashX;
+	if(index < 0 || index >= cells.size()) return;
+	cells[index].push_back(spatial);
 }
 
 void SpatialHash::select(BoundingVolume* volume, SpatialListPtr result)
@@ -162,18 +110,13 @@ void SpatialHash::select(BoundingVolume* volume, SpatialListPtr result)
 	int ey = std::min(hashY+searchY, cellsY);
 	
 	// put all spatials from the selected cells into result
-//	for(int i=hashY-searchY; i<hashY+searchY; i++) {
-//		for(int j=hashX-searchX; j<hashX+searchX; j++) {
+	int index;
 	for(int i=sy; i<ey; i++) {
 		for(int j=sx; j<ex; j++) {
-			// check wether we're still inside the grid
-//			if(j >= 0 && j < cellsX && 
-//			   i >= 0 && i < cellsY) {
-				CellPtr cell = cells[j][i];
-				BOOST_FOREACH(Spatial* spatial, cell->spatials) {
-					result->push_back(spatial);
-				}
-//			}			
+			index = j * cellsX + i;			
+			BOOST_FOREACH(Spatial* spatial, cells[index]) {
+				result->push_back(spatial);
+			}
 		}
 	}
 }

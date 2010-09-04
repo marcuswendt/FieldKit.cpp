@@ -18,32 +18,14 @@ namespace fieldkit { namespace physics {
 	//! uniformly distributed Spatials.
 	class SpatialHash : public Space {
 	public:
-		
-		class Cell {
-		public:			
-			Cell();
-			~Cell();
-			void clear();
-			void insert(Spatial* spatial);
-			SpatialList spatials;
-			bool isEmpty;
-		};
-
-		typedef Cell* CellPtr;
-		typedef CellPtr* CellList;
-		typedef CellList* CellArray;
-		
-		//! Constructs a new SpatialHash.
 		SpatialHash();
 		SpatialHash(Vec3f offset, Vec3f dimension, float cellSize=5.0f);
 		~SpatialHash();
 		
-		void destroy();
-
 		void init(Vec3f offset, Vec3f dimension, float cellSize=5.0f);
 		
 		//! make sure the space can hold a certain amount of spatials
-		void reserve(int count) {};
+		void reserve(int count) {}
 
 		//! Empties the entire space contents.
 		void clear();
@@ -55,7 +37,7 @@ namespace fieldkit { namespace physics {
 		void select(BoundingVolume* volume, SpatialListPtr result);
 		
 	protected:
-		CellArray cells;
+		vector< list<Spatial*> > cells;
 		int cellsX;
 		int cellsY;
 		float cellSize;

@@ -1407,10 +1407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					i386,
-					x86_64,
-				);
+				ARCHS = i386;
 				CINDER_PATH = ../../cinder;
 				FBXSDK_PATH = /Applications/Autodesk/FBXSDK20113;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1433,10 +1430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					i386,
-					x86_64,
-				);
+				ARCHS = i386;
 				CINDER_PATH = ../../cinder;
 				FBXSDK_PATH = /Applications/Autodesk/FBXSDK20113;
 				GCC_MODEL_TUNING = G5;
