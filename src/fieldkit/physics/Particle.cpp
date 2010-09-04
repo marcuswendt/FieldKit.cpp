@@ -22,23 +22,11 @@ Particle::Particle() :
 }
 
 Particle::~Particle()
-{
-//	if(neighbours != NULL) {
-//		BOOST_FOREACH(Spatial* spatial, neighbours) {
-//			if(spatial != NULL) {
-//				delete spatial;
-//				spatial = NULL;
-//			}
-//		}
-//		neighbours->clear();
-//		delete neighbours;
-//		neighbours = NULL;
+{	
+//	BOOST_FOREACH(Spatial* spatial, neighbours) {
+//		delete spatial;
+//		spatial = NULL;
 //	}
-	
-	BOOST_FOREACH(Spatial* spatial, neighbours) {
-		delete spatial;
-		spatial = NULL;
-	}
 	neighbours.clear();
 }
 

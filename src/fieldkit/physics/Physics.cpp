@@ -142,9 +142,10 @@ void Physics::removeSpring(Spring* spring)
 
 void Physics::destroySprings()
 {
+	if(springs.size() == 0) return;
+	
 	BOOST_FOREACH(Spring* s, springs) {
 		delete s;
-		s = NULL;
 	}
 	springs.clear();
 }
@@ -154,7 +155,6 @@ void Physics::setParticleAllocator( PhysicsStrategy* strategy )
 {
 	if(particleAllocator != NULL) {
 		delete particleAllocator;
-		particleAllocator = NULL;
 	}
 	particleAllocator = strategy;
 }
@@ -163,7 +163,6 @@ void Physics::setParticleUpdate( PhysicsStrategy* strategy )
 {
 	if(particleUpdate != NULL) {
 		delete particleUpdate;
-		particleUpdate = NULL;
 	}
 	particleUpdate = strategy;
 }
@@ -172,7 +171,6 @@ void Physics::setSpringUpdate( PhysicsStrategy* strategy )
 {
 	if(springUpdate != NULL) {
 		delete springUpdate;
-		springUpdate = NULL;
 	}
 	springUpdate = strategy;
 }
@@ -181,7 +179,6 @@ void Physics::setNeighbourUpdate( PhysicsStrategy* strategy )
 {
 	if(neighbourUpdate != NULL) {
 		delete neighbourUpdate;
-		neighbourUpdate = NULL;
 	}
 	neighbourUpdate = strategy;
 }

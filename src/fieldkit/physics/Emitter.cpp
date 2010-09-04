@@ -23,13 +23,7 @@ Emitter::Emitter(Physics* physics)
 	time = 0;
 }
 
-Emitter::~Emitter()
-{
-	if(physics != NULL) {
-		delete physics;
-		physics = NULL;
-	}
-}
+Emitter::~Emitter() {}
 
 void Emitter::setMax(int value) {
 	max = value;
