@@ -22,7 +22,7 @@ namespace fieldkit { namespace physics {
 		Physics* physics;
 		
 		Emitter(Physics* physics);
-		~Emitter();
+		virtual ~Emitter();
 		
 		void update(float dt);
 		Particle* emit(Vec3f const& location);

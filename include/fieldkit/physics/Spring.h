@@ -31,6 +31,7 @@ namespace fieldkit { namespace physics {
 		
 		Spring();
 		Spring(Particle* a, Particle* b, float restLength, float strength);
+		virtual ~Spring() {};
 		
 		virtual void update();	
 	};

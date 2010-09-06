@@ -22,7 +22,7 @@ namespace fieldkit { namespace physics {
 		Space* space;
 		
 		Behaviour() {};
-		~Behaviour() {};
+		virtual ~Behaviour() {};
 		
 		Behaviour(Space* space) {
 			this->space = space;

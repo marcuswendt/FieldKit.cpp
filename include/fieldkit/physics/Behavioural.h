@@ -21,7 +21,7 @@ namespace fieldkit { namespace physics {
 		list<Constraint*> constraints;
 		
 		Behavioural();
-		~Behavioural();
+		virtual ~Behavioural();
 
 		// Behaviours
 		void addBehaviour(Behaviour* b);

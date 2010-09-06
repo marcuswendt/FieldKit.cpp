@@ -26,7 +26,7 @@ namespace fieldkit { namespace physics {
 		};
 		
 		Spatial() {};
-		~Spatial() {};
+		virtual ~Spatial() {};
 
 		virtual SpatialType getType() { return TYPE_OTHER; };
 		

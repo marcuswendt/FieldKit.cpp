@@ -23,7 +23,7 @@ namespace fieldkit { namespace physics {
 		{
 			ownsSpatials = false;
 		};
-		~Space() {};
+		virtual ~Space() {};
 
 		//! make sure the space can hold a certain amount of spatials
 		virtual void reserve(int count) = 0;

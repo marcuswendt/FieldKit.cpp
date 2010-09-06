@@ -11,7 +11,7 @@
 
 using namespace fieldkit::physics;
 
-Particle::Particle() : 
+Particle::Particle() : Spatial(), 
 	isAlive(false), isLocked(false),
 	state(0), age(0.0f), lifeTime(1000.0f), drag(0.03f)
 {
