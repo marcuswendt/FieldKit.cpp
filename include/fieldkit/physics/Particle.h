@@ -49,7 +49,7 @@ namespace fieldkit { namespace physics {
 		Vec3f force;
 
 		Particle();
-		~Particle();
+		virtual ~Particle();
 		
 		// Lifecycle
 		virtual void init(Vec3f const& location);

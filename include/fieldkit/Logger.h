@@ -25,24 +25,17 @@
 #include <sstream>
 #include <fstream>
 
-#define LOG_INFO(MSG) \
-	if(Logger::getInstance().getLogLevel() <= LOGLEVEL_INFO) { \
-		Logger::getInstance().getStream() << Logger::getInstance().getLevelName(LOGLEVEL_INFO) << ": " << MSG; \
-		Logger::getInstance().flush(); \
+
+#define LOG_OUTPUT(LEVEL, MSG) \
+	if(fk::Logger::getInstance().getLogLevel() <= LEVEL) { \
+		fk::Logger::getInstance().getStream() << fk::Logger::getInstance().getLevelName(LEVEL) << ": " << MSG; \
+		fk::Logger::getInstance().flush(); \
 	}
 
-#define LOG_WARN(MSG) \
-	if(Logger::getInstance().getLogLevel() <= LOGLEVEL_WARN) { \
-		Logger::getInstance().getStream() << Logger::getInstance().getLevelName(LOGLEVEL_WARN) << ": " << MSG; \
-		Logger::getInstance().flush(); \
-	}
+#define LOG_INFO(MSG) LOG_OUTPUT(fk::LOGLEVEL_INFO, MSG)
+#define LOG_WARN(MSG) LOG_OUTPUT(fk::LOGLEVEL_WARN, MSG)
+#define LOG_ERROR(MSG) LOG_OUTPUT(fk::LOGLEVEL_ERROR, MSG)
 
-#define LOG_ERROR(MSG) \
-	if(Logger::getInstance().getLogLevel() <= LOGLEVEL_ERROR) { \
-		Logger::getInstance().getStream() << Logger::getInstance().getLevelName(LOGLEVEL_ERROR) << ": " << MSG; \
-		Logger::getInstance().flush(); \
-	}
-						
 namespace fieldkit {
 
 	enum LogLevel {

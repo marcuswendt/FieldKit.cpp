@@ -35,7 +35,7 @@ namespace fieldkit { namespace physics {
 			bool isEmpty;
 			
 			Node() { isEmpty = true; };
-			~Node() {};
+			virtual ~Node() {};
 			
 			virtual void init(Vec3f const& offset, Vec3f const& dimension, float minSize=5.0f, int depth=0);			
 			virtual void destroy(bool ownsSpatials);
