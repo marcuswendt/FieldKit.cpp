@@ -12,8 +12,14 @@
 #include "fieldkit/physics/PhysicsKit.h"
 
 namespace fieldkit { namespace physics {
-	
-	class FixedRadiusNeighbourUpdate : public PhysicsStrategy {
+
+	//! base class for all neighbour update strategies
+	class NeighbourUpdate : public PhysicsStrategy {
+	public:
+		virtual void apply(Physics* physics) = 0;
+	};
+
+	class FixedRadiusNeighbourUpdate : public NeighbourUpdate {
 	public:
 		FixedRadiusNeighbourUpdate() {
 			emptySpaceOnUpdate = true;

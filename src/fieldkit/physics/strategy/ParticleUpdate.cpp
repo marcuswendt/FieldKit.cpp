@@ -12,10 +12,8 @@
 using namespace fieldkit::physics;
 
 //! updates all particles by applying all behaviours and constraints
-void ParticleUpdate::apply(Physics* physics) 
-{
-	float dt = physics->dt;
-	
+void ParticleUpdate::apply(Physics* physics, float dt) 
+{	
 	// prepare behaviours & constraints
 	BOOST_FOREACH(Behaviour* b, physics->behaviours) {
 		b->prepare(dt);
