@@ -6,14 +6,15 @@
  *   
  *	 Created by Marcus Wendt on 22/06/2010.
  */
+
 #pragma once
 
 //#pragma message("PhysicsKit is included")
 
 // OpenMP
-#define ENABLE_OPENMP 1
-#if ENABLE_OPENMP
-#include <omp.h>
+#ifdef ENABLE_OPENMP
+	#pragma message("PhysicsKit: Compiling with OpenMP")
+	#include <omp.h>
 #endif
 
 // Dependencies

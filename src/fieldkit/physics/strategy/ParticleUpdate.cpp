@@ -25,11 +25,8 @@ void ParticleUpdate::apply(Physics* physics, float dt)
 
 	// update all particles
 
-	// Single threaded
-	// for (vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
-	//	Particle* p = *it;
-
 	// Parallel For
+	#ifdef ENABLE_OPENMP
 	vector<Particle*>::iterator it;
 	int size = physics->particles.size();
 
@@ -37,6 +34,13 @@ void ParticleUpdate::apply(Physics* physics, float dt)
 	for(int i=0; i<size; i++) {
 		Particle* p = physics->particles[i];
 
+	// Single threaded
+	#else
+	 for (vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
+		Particle* p = *it;
+	#endif
+
+		// Body
 		if(p->isAlive) {
 			// apply behaviours
 			for (list<Behaviour*>::iterator bit = physics->behaviours.begin(); bit != physics->behaviours.end(); bit++) {
