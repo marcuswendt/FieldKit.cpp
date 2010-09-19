@@ -65,6 +65,7 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>..\include;..\..\..\Libraries\cinder\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -93,6 +94,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>..\include;..\..\..\Libraries\cinder\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

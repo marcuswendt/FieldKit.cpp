@@ -10,6 +10,12 @@
 
 //#pragma message("PhysicsKit is included")
 
+// OpenMP
+#define ENABLE_OPENMP 1
+#if ENABLE_OPENMP
+#include <omp.h>
+#endif
+
 // Dependencies
 #include "fieldkit/FieldKit.h"
 
