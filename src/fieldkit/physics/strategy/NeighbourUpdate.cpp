@@ -22,15 +22,21 @@ void FixedRadiusNeighbourUpdate::apply(Physics* physics)
 			physics->space->insert(p);
 	}
 
-	#pragma omp parallel 
-	for (vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
-		#pragma omp single nowait 
-		{
-			Particle* p = *it;
-			if(p->isAlive) {
-				query.position = p->position;
-				physics->space->select(&query, p->getNeighbours());
-			}
+
+	// No OpenMP
+	// for (vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
+	// Particle* p = *it;
+
+	// Parallel For
+	vector<Particle*>::iterator it;
+	int size = physics->particles.size();
+
+	#pragma omp parallel for
+	for(int i=0; i<size; i++) {
+		Particle* p = physics->particles[i];
+		if(p->isAlive) {
+			query.position = p->position;
+			physics->space->select(&query, p->getNeighbours());
 		}
 	} 
 }

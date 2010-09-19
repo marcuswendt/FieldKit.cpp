@@ -24,9 +24,18 @@ void ParticleUpdate::apply(Physics* physics, float dt)
 	}
 
 	// update all particles
-	#pragma omp parallel 
-	for (vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
-		Particle* p = *it;
+
+	// Single threaded
+	// for (vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
+	//	Particle* p = *it;
+
+	// Parallel For
+	vector<Particle*>::iterator it;
+	int size = physics->particles.size();
+
+	#pragma omp parallel for
+	for(int i=0; i<size; i++) {
+		Particle* p = physics->particles[i];
 
 		if(p->isAlive) {
 			// apply behaviours
