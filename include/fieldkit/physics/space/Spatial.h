@@ -28,9 +28,9 @@ namespace fieldkit { namespace physics {
 		Spatial() {};
 		virtual ~Spatial() {};
 
-		virtual SpatialType getType() { return TYPE_OTHER; };
+		virtual int const getType() { return TYPE_OTHER; };
 		
-		virtual Vec3f getPosition() = 0;
+		virtual Vec3f const& getPosition() = 0;
 		virtual void setPosition(Vec3f const& location) = 0;
 	};
 	
@@ -40,9 +40,9 @@ namespace fieldkit { namespace physics {
 		PointSpatial(Vec3f p = Vec3f::zero()) : position(p) {};
 		~PointSpatial() {};
 
-		SpatialType getType() { return TYPE_POINT; };
+		int const getType() { return TYPE_POINT; };
 		
-		Vec3f getPosition() { return position; };
+		Vec3f const& getPosition() { return position; };
 		void setPosition(Vec3f const& location) { this->position = location; };
 		
 	protected:

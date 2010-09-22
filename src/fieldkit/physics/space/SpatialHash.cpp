@@ -114,8 +114,8 @@ void SpatialHash::select(BoundingVolume* volume, SpatialListPtr result)
 	for(int i=sy; i<ey; i++) {
 		for(int j=sx; j<ex; j++) {
 			index = i * cellsX + j;
-			for (list<Spatial*>::iterator sit = cells[index].begin(); sit != cells[index].end(); ++sit) {
-				result->push_back(*sit);
+			for(SpatialList::size_type i = 0; i != cells[index].size(); i++) {
+				result->push_back(cells[index][i]);
 			}
 		}
 	}

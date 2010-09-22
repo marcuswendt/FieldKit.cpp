@@ -127,8 +127,3 @@ void Particle::setSize(float radius)
 {
 	size = radius;
 }
-
-float Particle::getSize()
-{
-	return size;
-}

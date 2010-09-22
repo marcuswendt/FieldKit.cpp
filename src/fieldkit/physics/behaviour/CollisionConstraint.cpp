@@ -11,18 +11,14 @@
 
 using namespace fieldkit::physics;
 
-void CollisionConstraint::apply(Particle* p) {
-	
-	//SpatialList::iterator it = p->getNeighbours()->begin();
-	//while( it != p->getNeighbours()->end())
-	
-	SpatialList::iterator it;
-	for(it=p->getNeighbours()->begin(); it < p->getNeighbours()->end(); it++ )
+void CollisionConstraint::apply(Particle* p) 
+{	
+	SpatialListPtr neighbours = p->getNeighbours();
+
+	for(SpatialList::size_type i = 0; i != neighbours->size(); i++)
 	{
-		Spatial* n = *it;
-//		logger() << "CollisionConstraint::apply p:" << p->getPosition() 
-//				 << " n:" << n->getPosition() << endl;
-		
+		Spatial* n = neighbours->operator[](i);
+				
 		if(p == n) continue;
 
 		// get vector from particle to neighbour
