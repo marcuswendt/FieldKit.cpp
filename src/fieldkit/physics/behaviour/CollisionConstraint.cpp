@@ -13,11 +13,9 @@ using namespace fieldkit::physics;
 
 void CollisionConstraint::apply(Particle* p) 
 {	
-	SpatialListPtr neighbours = p->getNeighbours();
-
-	for(SpatialList::size_type i = 0; i != neighbours->size(); i++)
+	for(SpatialList::size_type i = 0; i != p->getNeighbours()->size(); i++)
 	{
-		Spatial* n = neighbours->operator[](i);
+		Spatial* n = p->getNeighbours()->operator[](i);
 				
 		if(p == n) continue;
 
