@@ -23,13 +23,16 @@ namespace fieldkit { namespace math {
 		
 		AABB();
 		AABB(float w, float h, float d);
-		AABB(Vec3f min, Vec3f max);
+		AABB(Vec3f const& min, Vec3f const& max);
 		
 		// Bounding Volume
 		bool contains(Vec3f const& point);
 		
+		//! Grows / shrinks the box by the given amount
+		void expand(Vec3f const& amount);
+
 		// Accessors
-		void set(Vec3f min, Vec3f max);
+		void set(Vec3f const& min, Vec3f const& max);
 		void set(AABB const& box);
 		void set(AABB* box);
 		

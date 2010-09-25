@@ -27,13 +27,13 @@ AABB::AABB(float w, float h, float d) : BoundingVolume()
 	setDimension(w, h, d);
 }
 
-AABB::AABB(Vec3f min, Vec3f max) : BoundingVolume() 
+AABB::AABB(Vec3f const& min, Vec3f const& max) : BoundingVolume() 
 {
 	type = BoundingVolume::BOUNDING_BOX;
 	set(min, max);
 }
 
-void AABB::set(Vec3f min, Vec3f max)
+void AABB::set(Vec3f const& min, Vec3f const& max)
 {
 	this->min = min;
 	this->max = max;
@@ -117,4 +117,10 @@ void AABB::updateBounds()
 {
 	min = position - extent;
 	max = position + extent;
+}
+
+void AABB::expand( Vec3f const& amount )
+{
+	extent += amount;
+	updateBounds();
 }
