@@ -36,14 +36,6 @@ namespace fieldkit { namespace physics {
 	};
 
 
-	//! Align - Calculate average force and move towards it (use velocity if available).
-	class FlockAlign : public FlockingBehaviour {
-	public:
-		FlockAlign(Space* space) : FlockingBehaviour(space){};
-		void apply(Particle* Particle);
-	};
-
-	
 	// Attract - calculate center of neighbours and move towards it
 	class FlockAttract : public FlockingBehaviour {
 	public:
@@ -51,6 +43,12 @@ namespace fieldkit { namespace physics {
 		void apply(Particle* Particle);
 	};
 
+	//! Align - Calculate average force and move towards it (use velocity if available).
+	class FlockAlign : public FlockingBehaviour {
+	public:
+		FlockAlign(Space* space) : FlockingBehaviour(space){};
+		void apply(Particle* Particle);
+	};
 	
 	//! Repel - move away from all neighbours colliding with particle
 	class FlockRepel : public FlockingBehaviour {
