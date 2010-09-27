@@ -29,30 +29,37 @@ void FlockAttract::apply(Particle* p)
 	Vec3f average(0.0f,0.0f,0.0f);
 	Vec3f delta;
 	float distSq;
+	int nInRange = 0;
 
 	// check radius, only apply to particle spatials
 	for(SpatialList::size_type i = 0; i != nNeighbours; i++)
 	{
 		Spatial* s = p->getNeighbours()->operator[](i);
-		if(s->getType() != Spatial::TYPE_PARTICLE) continue;
+		
+		if(p == s) continue;
+		//if(s->getType() != Spatial::TYPE_PARTICLE) continue;
 
 		Particle* n = (Particle*)s;
 		delta = n->position - p->position; 
 		distSq = delta.lengthSquared();
-		if(distSq > EPSILON && distSq < rangeAbsSq)
+		if(distSq < rangeAbsSq) {
 			average += delta;
+			nInRange ++;
+		}
 	}
 
 	// calculate average and attract towards it
-	average /= (float)nNeighbours;
+	average /= (float)nInRange;
 
 	// check length, avoid division by zero!
-	float lenSq = average.lengthSquared();
-	if(lenSq <= EPSILON) return;
+	distSq = average.lengthSquared();
+	if(distSq > rangeAbsSq) return;
 
-	average /= sqrt(lenSq);
-	average *= weight;
-
+	// normalize and inverse proportional weight
+	float dist = sqrt(distSq);
+	average /= dist;
+	average *= (1.0f - dist / rangeAbs) * weight;
+	
 	p->force += average;
 }
 

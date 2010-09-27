@@ -13,33 +13,42 @@ using namespace fieldkit::physics;
 
 void CollisionConstraint::apply(Particle* p) 
 {	
-	for(SpatialList::size_type i = 0; i != p->getNeighbours()->size(); i++)
+	Vec3f delta;
+	float dist, distSq, radius, radiusSq;
+	Spatial* n;
+	SpatialListPtr neighbours = p->getNeighbours();
+	int nNeighbours = neighbours->size();
+
+	for(SpatialList::size_type i = 0; i != nNeighbours; i++)
 	{
-		Spatial* n = p->getNeighbours()->operator[](i);
+		n = neighbours->operator[](i);
 				
+		// ignore self
 		if(p == n) continue;
 
 		// get vector from particle to neighbour
-		Vec3f delta = n->getPosition() - p->getPosition();
-		float distSq = delta.lengthSquared();
-		
+		delta.set(n->getPosition());
+		delta -= p->position;
+
+		//delta = n->getPosition() - p->getPosition();
+		distSq = delta.lengthSquared();
+
 		// calc min distance between spatials to they dont overlap
-		float radius; 
-		
 		// particle x particle interaction
 		if(n->getType() == Spatial::TYPE_PARTICLE) {
-			radius = (p->getSize() + ((Particle*)n)->getSize()) * 0.51f;
+			//radius = (p->getSize() + ((Particle*)n)->getSize()) * 0.51f;
+			radius = (p->size + ((Particle*)n)->size) * 0.51f;
 			
 		// particle x other interaction
 		} else {
 			radius = p->getSize();
 		}
 		
-		float radiusSq = radius * radius;
+		radiusSq = radius * radius;
 		
-		// check wether spatials collide
+		// check whether spatials collide
 		if(distSq < radiusSq) {
-			float dist = sqrtf(distSq);
+			dist = sqrtf(distSq);
 			delta *= (dist - radius)/ radius * 0.5f;
 			p->setPosition(p->getPosition() + delta);
 			n->setPosition(n->getPosition() - delta);
