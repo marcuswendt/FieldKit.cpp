@@ -42,24 +42,28 @@ void FlockAttract::apply(Particle* p)
 		Particle* n = (Particle*)s;
 		delta = n->position - p->position; 
 		distSq = delta.lengthSquared();
-		if(distSq < rangeAbsSq) {
+		if(distSq > EPSILON && distSq < rangeAbsSq) {
 			average += delta;
 			nInRange ++;
 		}
 	}
+
+	if(nInRange == 0) return;
 
 	// calculate average and attract towards it
 	average /= (float)nInRange;
 
 	// check length, avoid division by zero!
 	distSq = average.lengthSquared();
-	if(distSq > rangeAbsSq) return;
+	if(distSq <= EPSILON && distSq > rangeAbsSq) return;
 
 	// normalize and inverse proportional weight
 	float dist = sqrt(distSq);
 	average /= dist;
 	average *= (1.0f - dist / rangeAbs) * weight;
 	
+	//LOG_INFO("attract distSq "<< distSq <<" average "<< average);
+
 	p->force += average;
 }
 
@@ -74,30 +78,51 @@ void FlockAlign::apply(Particle* p)
 	Vec3f average(0.0f,0.0f,0.0f);
 	Vec3f delta;
 	float distSq;
+	int nInRange = 0;
 
 	// check radius, only apply to particle spatials
 	for(SpatialList::size_type i = 0; i != nNeighbours; i++)
 	{
 		Spatial* s = p->getNeighbours()->operator[](i);
-		if(s->getType() != Spatial::TYPE_PARTICLE) continue;
+		
+		if(p == s) continue;
+		//if(s->getType() != Spatial::TYPE_PARTICLE) continue;
 		
 		Particle* n = (Particle*)s;
 		delta = n->position - p->position; 
 		distSq = delta.lengthSquared();
-		if(distSq > EPSILON && distSq < rangeAbsSq)
+		if(distSq > EPSILON && distSq < rangeAbsSq) {
 			average += n->getVelocity();
+			nInRange ++;
+		}
 	}
 
-	// calculate average and add to force
-	average /= (float)nNeighbours;
+	//// calculate average and add to force
+	//average /= (float)nInRange;
+
+	//// check length, avoid division by zero!
+	//float lenSq = average.lengthSquared();
+	//if(lenSq <= EPSILON) return;
+
+	//average /= sqrt(lenSq);
+	//average *= weight;
+	//
+	//p->force += average;
+
+	if(nInRange == 0) return;
+
+	// calculate average and attract towards it
+	average /= (float)nInRange;
 
 	// check length, avoid division by zero!
-	float lenSq = average.lengthSquared();
-	if(lenSq <= EPSILON) return;
+	distSq = average.lengthSquared();
+	if(distSq > EPSILON && distSq > rangeAbsSq) return;
 
-	average /= sqrt(lenSq);
-	average *= weight;
-	
+	// normalize and inverse proportional weight
+	float dist = sqrt(distSq);
+	average /= dist;
+	average *= (1.0f - dist / rangeAbs) * weight;
+
 	p->force += average;
 }
 
@@ -112,29 +137,40 @@ void FlockRepel::apply(Particle* p)
 	Vec3f average(0.0f,0.0f,0.0f);
 	Vec3f delta;
 	float distSq;
+	int nInRange = 0;
 
 	// check radius, only apply to particle spatials
 	for(SpatialList::size_type i = 0; i != nNeighbours; i++)
 	{
 		Spatial* s = p->getNeighbours()->operator[](i);
-		if(s->getType() != Spatial::TYPE_PARTICLE) continue;
+
+		if(p == s) continue;
+		//if(s->getType() != Spatial::TYPE_PARTICLE) continue;
 
 		Particle* n = (Particle*)s;
 		delta = n->position - p->position; 
 		distSq = delta.lengthSquared();
-		if(distSq > EPSILON && distSq < rangeAbsSq)
+		if(distSq > EPSILON && distSq < rangeAbsSq) {
 			average += delta;
+			nInRange ++;
+		}
 	}
 
-	// calculate average and repel from it
-	average /= (float)nNeighbours;
+	if(nInRange == 0) return;
+
+	// calculate average and attract towards it
+	average /= (float)nInRange;
 
 	// check length, avoid division by zero!
-	float lenSq = average.lengthSquared();
-	if(lenSq <= EPSILON) return;
+	distSq = average.lengthSquared();
+	if(distSq <= EPSILON && distSq > rangeAbsSq) return;
 
-	average /= sqrt(lenSq);
-	average *= weight * -1.0f; // negative attract
+	// normalize and inverse proportional weight
+	float dist = sqrt(distSq);
+	average /= dist;
+	average *= (1.0f - dist / rangeAbs) * weight * -1.0f;
+
+	//LOG_INFO("attract distSq "<< distSq <<" average "<< average);
 
 	p->force += average;
 }
