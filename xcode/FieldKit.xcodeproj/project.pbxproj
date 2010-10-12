@@ -250,7 +250,7 @@
 		2C16CBDC11D944BD0038C163 /* MathKit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MathKit.cpp; path = ../../FieldKit.cpp/src/fieldkit/math/MathKit.cpp; sourceTree = SOURCE_ROOT; };
 		2C16CBE011D944D70038C163 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = ../../FieldKit.cpp/src/fieldkit/Logger.cpp; sourceTree = SOURCE_ROOT; };
 		2C16CBE211D944E30038C163 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = ../../FieldKit.cpp/include/fieldkit/Logger.h; sourceTree = SOURCE_ROOT; };
-		2C240DB011CFC11600856329 /* libVisionKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C240DB011CFC11600856329 /* libVisionKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVisionKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C240DD611CFC1CD00856329 /* CinderRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderRenderer.h; sourceTree = "<group>"; };
 		2C240DD711CFC1CD00856329 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		2C240DD911CFC1CD00856329 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
@@ -305,7 +305,7 @@
 		2C240E4111CFC1DF00856329 /* CVStereoBlobDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CVStereoBlobDetector.cpp; sourceTree = "<group>"; };
 		2C240E4211CFC1DF00856329 /* GestureTracker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GestureTracker.cpp; sourceTree = "<group>"; };
 		2C240E4311CFC1DF00856329 /* Vision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vision.cpp; sourceTree = "<group>"; };
-		2C2BEC0511CFB45C00868B71 /* libFBXKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C2BEC0511CFB45C00868B71 /* libFBXKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C48C4B211F5FAD800C5E77C /* SpatialHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpatialHash.h; sourceTree = "<group>"; };
 		2C48C4B411F5FE0700C5E77C /* SpatialHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpatialHash.cpp; sourceTree = "<group>"; };
 		2C49607F11FC428300749B68 /* CollisionConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionConstraint.h; sourceTree = "<group>"; };
@@ -314,10 +314,10 @@
 		2C49642411FDB74100749B68 /* Ray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ray.cpp; sourceTree = "<group>"; };
 		2C49644C11FDC1B600749B68 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		2C49644D11FDC1D000749B68 /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
-		2C55A26211B0608700041C25 /* libFieldKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C55A26211B0608700041C25 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
-		2CA833E611DB99EE00D5B37B /* libGLKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CA8340611DB99F100D5B37B /* libPhysicsKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhysicsKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA833E611DB99EE00D5B37B /* libGLKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhysicsKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA8340E11DBBDA400D5B37B /* GLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLKit.h; path = ../../FieldKit.cpp/include/fieldkit/gl/GLKit.h; sourceTree = SOURCE_ROOT; };
 		2CA8340F11DBBDA400D5B37B /* PointCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointCloud.h; path = ../../FieldKit.cpp/include/fieldkit/gl/PointCloud.h; sourceTree = SOURCE_ROOT; };
 		2CA8341011DBBDA400D5B37B /* PointDataFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointDataFormat.h; path = ../../FieldKit.cpp/include/fieldkit/gl/PointDataFormat.h; sourceTree = SOURCE_ROOT; };
@@ -502,11 +502,11 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C55A26211B0608700041C25 /* libFieldKit.a */,
-				2C2BEC0511CFB45C00868B71 /* libFBXKit.a */,
-				2C240DB011CFC11600856329 /* libVisionKit.a */,
-				2CA833E611DB99EE00D5B37B /* libGLKit.a */,
-				2CA8340611DB99F100D5B37B /* libPhysicsKit.a */,
+				2C55A26211B0608700041C25 /* libFieldKit_d.a */,
+				2C2BEC0511CFB45C00868B71 /* libFBXKit_d.a */,
+				2C240DB011CFC11600856329 /* libVisionKit_d.a */,
+				2CA833E611DB99EE00D5B37B /* libGLKit_d.a */,
+				2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1020,7 +1020,7 @@
 			);
 			name = VisionKit;
 			productName = FieldKit;
-			productReference = 2C240DB011CFC11600856329 /* libVisionKit.a */;
+			productReference = 2C240DB011CFC11600856329 /* libVisionKit_d.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		2C2BEBC411CFB45C00868B71 /* FBXKit */ = {
@@ -1037,7 +1037,7 @@
 			);
 			name = FBXKit;
 			productName = FieldKit;
-			productReference = 2C2BEC0511CFB45C00868B71 /* libFBXKit.a */;
+			productReference = 2C2BEC0511CFB45C00868B71 /* libFBXKit_d.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		2C55A26111B0608700041C25 /* FieldKit */ = {
@@ -1054,7 +1054,7 @@
 			);
 			name = FieldKit;
 			productName = FieldKit;
-			productReference = 2C55A26211B0608700041C25 /* libFieldKit.a */;
+			productReference = 2C55A26211B0608700041C25 /* libFieldKit_d.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		2CA833C711DB99EE00D5B37B /* GLKit */ = {
@@ -1071,7 +1071,7 @@
 			);
 			name = GLKit;
 			productName = FieldKit;
-			productReference = 2CA833E611DB99EE00D5B37B /* libGLKit.a */;
+			productReference = 2CA833E611DB99EE00D5B37B /* libGLKit_d.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		2CA833E711DB99F100D5B37B /* PhysicsKit */ = {
@@ -1088,7 +1088,7 @@
 			);
 			name = PhysicsKit;
 			productName = FieldKit;
-			productReference = 2CA8340611DB99F100D5B37B /* libPhysicsKit.a */;
+			productReference = 2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -1098,7 +1098,14 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FieldKit" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* FieldKit */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1287,6 +1294,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				COPY_PHASE_STRIP = NO;
+				FBXSDK_PATH = ../../FBXSDK;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				MACH_O_TYPE = staticlib;
@@ -1303,6 +1311,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FBXSDK_PATH = ../../FBXSDK;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				MACH_O_TYPE = staticlib;
 				PREBINDING = NO;
