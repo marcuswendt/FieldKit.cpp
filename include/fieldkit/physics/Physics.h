@@ -15,6 +15,10 @@ namespace fieldkit { namespace physics {
 
 	// FWD
 	class Emitter;
+	class ParticleAllocator;
+	class SpringUpdate;
+	class NeighbourUpdate;
+	class ParticleUpdate;
 
 	//! base class for all types of physics systems
 	class Physics : public Behavioural {
@@ -24,9 +28,6 @@ namespace fieldkit { namespace physics {
 
 		//! number of currently active particles
 		int numParticles;
-		
-		//! time since last update
-		float dt;
 		
 		// Constructors
 		Physics(Space* space);
@@ -53,17 +54,17 @@ namespace fieldkit { namespace physics {
 		void destroySprings();
 
 		// Strategies
-		void setParticleAllocator(PhysicsStrategy* strategy);
-		PhysicsStrategy* getParticleAllocator() { return particleAllocator; };
+		void setParticleAllocator(ParticleAllocator* strategy);
+		ParticleAllocator* getParticleAllocator() { return particleAllocator; };
 
-		void setParticleUpdate(PhysicsStrategy* strategy);
-		PhysicsStrategy* getParticleUpdate() { return particleUpdate; };
+		void setParticleUpdate(ParticleUpdate* strategy);
+		ParticleUpdate* getParticleUpdate() { return particleUpdate; };
 
-		void setSpringUpdate(PhysicsStrategy* strategy);
-		PhysicsStrategy* getSpringUpdate() { return springUpdate; };
+		void setSpringUpdate(SpringUpdate* strategy);
+		SpringUpdate* getSpringUpdate() { return springUpdate; };
 
-		void setNeighbourUpdate(PhysicsStrategy* strategy);
-		PhysicsStrategy* getNeighbourUpdate() { return neighbourUpdate; };
+		void setNeighbourUpdate(NeighbourUpdate* strategy);
+		NeighbourUpdate* getNeighbourUpdate() { return neighbourUpdate; };
 
 		// Accessors
 		void setOwnsSpace(bool isOwner) { ownsSpace = isOwner; }
@@ -73,10 +74,10 @@ namespace fieldkit { namespace physics {
 		bool ownsSpace;
 		int numAllocated;
 
-		PhysicsStrategy* particleUpdate;
-		PhysicsStrategy* springUpdate;
-		PhysicsStrategy* neighbourUpdate;
-		PhysicsStrategy* particleAllocator;
+		ParticleAllocator* particleAllocator;
+		ParticleUpdate* particleUpdate;
+		SpringUpdate* springUpdate;
+		NeighbourUpdate* neighbourUpdate;
 	};
 
 } } // namespace fieldkit::physics

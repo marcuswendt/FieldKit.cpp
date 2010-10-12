@@ -9,6 +9,11 @@
 
 #include "fieldkit/physics/Physics.h"
 
+#include "fieldkit/physics/strategy/ParticleAllocator.h"
+#include "fieldkit/physics/strategy/ParticleUpdate.h"
+#include "fieldkit/physics/strategy/SpringUpdate.h"
+#include "fieldkit/physics/strategy/NeighbourUpdate.h"
+
 using namespace fieldkit::physics;
 
 Physics::Physics(Space* space) 
@@ -29,7 +34,7 @@ Physics::Physics(Space* space)
 	setParticleAllocator(new ParticleAllocator());
 	setParticleUpdate(new ParticleUpdate());
 	setSpringUpdate(new SpringUpdate());
-	//setNeighbourUpdate(new EmptyStrategy());
+	// no neighbour update strategy by default
 }
 
 Physics::~Physics() 
@@ -78,7 +83,7 @@ void Physics::update(float dt)
 		emitter->update(dt);
 	
 	if(particleUpdate != NULL)
-		particleUpdate->apply(this);
+		particleUpdate->apply(this, dt);
 
 	if(springUpdate = NULL)
 		springUpdate->apply(this);
@@ -151,7 +156,7 @@ void Physics::destroySprings()
 }
 
 // -- Setters -----------------------------------------------------------------
-void Physics::setParticleAllocator( PhysicsStrategy* strategy )
+void Physics::setParticleAllocator(ParticleAllocator* strategy )
 {
 	if(particleAllocator != NULL) {
 		delete particleAllocator;
@@ -159,7 +164,7 @@ void Physics::setParticleAllocator( PhysicsStrategy* strategy )
 	particleAllocator = strategy;
 }
 
-void Physics::setParticleUpdate( PhysicsStrategy* strategy )
+void Physics::setParticleUpdate(ParticleUpdate* strategy )
 {
 	if(particleUpdate != NULL) {
 		delete particleUpdate;
@@ -167,7 +172,7 @@ void Physics::setParticleUpdate( PhysicsStrategy* strategy )
 	particleUpdate = strategy;
 }
 
-void Physics::setSpringUpdate( PhysicsStrategy* strategy )
+void Physics::setSpringUpdate(SpringUpdate* strategy )
 {
 	if(springUpdate != NULL) {
 		delete springUpdate;
@@ -175,7 +180,7 @@ void Physics::setSpringUpdate( PhysicsStrategy* strategy )
 	springUpdate = strategy;
 }
 
-void Physics::setNeighbourUpdate( PhysicsStrategy* strategy )
+void Physics::setNeighbourUpdate(NeighbourUpdate* strategy )
 {
 	if(neighbourUpdate != NULL) {
 		delete neighbourUpdate;

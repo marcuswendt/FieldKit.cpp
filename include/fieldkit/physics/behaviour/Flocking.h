@@ -5,7 +5,8 @@
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
  *   
- *	 Created by David Hoe on 26/05/2010.
+ *	Created by David Hoe on 26/05/2010.
+ *	Updates by Marcus Wendt on 23/09/2010.
  */
 
 #pragma once
@@ -14,35 +15,45 @@
 
 namespace fieldkit { namespace physics {
 	
-	class FlockBaseBehaviour: public WeightedBehaviour{
+	/************************************************************************/
+	/* Base class for all flocking behaviours                               */
+	/************************************************************************/
+	class FlockingBehaviour: public WeightedBehaviour {
 	public:
-		FlockBaseBehaviour(Space* space) : WeightedBehaviour(space) {
+		FlockingBehaviour(Space* space) : WeightedBehaviour(space) {
 			setRange(0.1f);
 		};
+
 		void setRange(float value) { range = value; }
 		float getRange() { return range; }
+
 		void prepare(float dt);
+
 	protected:
 		float range;
 		float rangeAbs;
 		float rangeAbsSq;
 	};
 
-	class FlockAlign : public FlockBaseBehaviour {
+
+	// Attract - calculate center of neighbours and move towards it
+	class FlockAttract : public FlockingBehaviour {
 	public:
-		FlockAlign(Space* space) : FlockBaseBehaviour(space){};
+		FlockAttract(Space* space) : FlockingBehaviour(space){};
+		void apply(Particle* Particle);
+	};
+
+	//! Align - Calculate average force and move towards it (use velocity if available).
+	class FlockAlign : public FlockingBehaviour {
+	public:
+		FlockAlign(Space* space) : FlockingBehaviour(space){};
 		void apply(Particle* Particle);
 	};
 	
-	class FlockAttract : public FlockBaseBehaviour{
+	//! Repel - move away from all neighbours colliding with particle
+	class FlockRepel : public FlockingBehaviour {
 	public:
-		FlockAttract(Space* space) : FlockBaseBehaviour(space){};
-		void apply(Particle* Particle);
-	};
-	
-	class FlockRepel : public FlockBaseBehaviour {
-	public:
-		FlockRepel(Space* space) : FlockBaseBehaviour(space){};
+		FlockRepel(Space* space) : FlockingBehaviour(space){};
 		void apply(Particle* Particle);
 	};
 

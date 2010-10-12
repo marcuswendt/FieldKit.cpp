@@ -21,8 +21,6 @@ namespace fieldkit { namespace physics {
 	public:
 		PhysicsStrategy() {};
 		~PhysicsStrategy() {};
-		
-		virtual void apply(Physics* physics) = 0;
 	};
 	
 } } // namespace fieldkit::physics

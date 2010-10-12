@@ -20,7 +20,7 @@ namespace fieldkit { namespace physics {
 		};
 		~ParticleUpdate() {};
 		
-		void apply(Physics* physics);
+		void apply(Physics* physics, float dt);
 		
 		// Accessors
 		void setConstraintIterations(int iterations) { constraintIterations = iterations; };

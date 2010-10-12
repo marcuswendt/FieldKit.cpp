@@ -71,7 +71,7 @@ void SpatialHash::insert(Spatial* spatial)
 	int hashY = hash(p.y);
 	
 	// make sure the spatial lies within the cell space
-	int index = hashY * cellsX + hashX;
+	unsigned int index = hashY * cellsX + hashX;
 	if(index < 0 || index >= cells.size()) return;
 	cells[index].push_back(spatial);
 }
@@ -114,8 +114,8 @@ void SpatialHash::select(BoundingVolume* volume, SpatialListPtr result)
 	for(int i=sy; i<ey; i++) {
 		for(int j=sx; j<ex; j++) {
 			index = i * cellsX + j;
-			BOOST_FOREACH(Spatial* spatial, cells[index]) {
-				result->push_back(spatial);
+			for(SpatialList::size_type i = 0; i != cells[index].size(); i++) {
+				result->push_back(cells[index][i]);
 			}
 		}
 	}

@@ -48,6 +48,9 @@ namespace fieldkit { namespace physics {
 		//! force accumulator applied to this particle (set to zero after each update)
 		Vec3f force;
 
+		//! physical size in the simulation space
+		float size;
+
 		Particle();
 		virtual ~Particle();
 		
@@ -68,20 +71,20 @@ namespace fieldkit { namespace physics {
 		void scaleVelocity(float s);
 		
 		// Accessors
-		SpatialType getType() { return TYPE_PARTICLE; };
+		int const getType() { return TYPE_PARTICLE; };
 		
-		Vec3f getPosition() { return position; };
+		Vec3f const& getPosition() { return position; };
 		void setPosition(Vec3f const& location) { this->position = location; };
 
-		Vec3f getPrevPosition() { return prev; };
+		Vec3f const& getPrevPosition() { return prev; };
 		void setPrevPosition(Vec3f const& location) { this->prev = location; };
 
 		virtual void setSize(float radius);
-		float getSize();
+		inline float const getSize() { return size; }
 
 		void setWeight(float value);
-		inline float getWeight() { return this->weight; };
-		inline float getInvWeight() { return this->invWeight; };
+		float const getWeight() { return this->weight; };
+		float const getInvWeight() { return this->invWeight; };
 
 		Vec3f getVelocity();
 		float getSpeed();
@@ -89,9 +92,6 @@ namespace fieldkit { namespace physics {
 		SpatialListPtr getNeighbours() { return &neighbours; };
 		
 	protected:
-		//! physical size in the simulation space
-		float size;
-
 		//! list of neighbours this particle is aware of
 		SpatialList neighbours;
 	};
