@@ -71,10 +71,10 @@
     </ResourceCompile>
     <Lib>
       <OutputFile>..\lib\FBXKit_d.lib</OutputFile>
-      <AdditionalLibraryDirectories>..\..\..\Libraries\FBXSDK\2011.3.1\lib\vs2010;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\Libraries\FBXSDK\2011.3.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <AdditionalDependencies>fbxsdk_20113_1d.lib</AdditionalDependencies>
+      <AdditionalDependencies>fbxsdk_mt2010d.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -100,10 +100,10 @@
     </ResourceCompile>
     <Lib>
       <OutputFile>..\lib\FBXKit.lib</OutputFile>
-      <AdditionalLibraryDirectories>..\..\..\Libraries\FBXSDK\2011.3.1\lib\vs2010;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\Libraries\FBXSDK\2011.3.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <AdditionalDependencies>fbxsdk_20113_1.lib</AdditionalDependencies>
+      <AdditionalDependencies>fbxsdk_mt2010.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
