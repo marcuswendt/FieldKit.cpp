@@ -1,6 +1,7 @@
 syntax: glob
 
 lib/*
+*.orig
 
 # OSX
 .DS_Store
@@ -10,14 +11,16 @@ xcode/build/*
 *.pbxuser
 *.perspectivev3
 *.mode1v3
-glob:*.sdf
-glob:vc9/FieldKit.ncb
-glob:vc9/FieldKit.suo
-glob:vc9/FieldKit.vcproj.David-PC.David.user
-glob:*.orig
-glob:*/Debug/*
-glob:*/Release/*
-glob:*.user
-glob:vc10/ipch*
-glob:vc10/*.opensdf
-glob:*.suo
+*.user
+
+# XCode4
+*.xcuserdatad
+*.xcworkspace
+
+# Visual Studio
+*.sdf
+*.suo
+*.opensdf
+*/ipch*
+*/Debug/*
+*/Release/*
