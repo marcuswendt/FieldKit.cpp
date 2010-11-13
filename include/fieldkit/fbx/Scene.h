@@ -37,6 +37,12 @@ namespace fieldkit { namespace fbx {
 
 		KFbxXMatrix getPoseMatrix(KFbxPose* pose, int nodeIndex);
 
+		KFbxScene* getFBXScene() { return fbxScene;};
+		
+		KTime		getCurrentTime() { return currentTime;};
+		
+		KTime		getEndTime() { return stop;};
+		
 		KFbxXMatrix getGeometry(KFbxNode* node);
 
 		KFbxCamera* getCurrentCamera(KTime time);

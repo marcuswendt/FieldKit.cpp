@@ -14,22 +14,28 @@ using namespace fieldkit::fbx;
 Scene* SceneImporter::load(const string &fileName_)
 {
 	// Create the scene
+	LOG_INFO("fieldkit::fbx::SceneImporter::load " << fileName_);
+	
 	Scene* scene = new Scene();
+	
 	scene->init();
 
 	KFbxScene* fbxScene = scene->fbxScene;
 	KFbxSdkManager* sdkManager = scene->sdkManager;
 
 	// Create the importer.
+	LOG_INFO("fieldkit::fbx::SceneImporter::load - Create the importer 1");
 	int fileFormat = -1;
 	KScopedPtr<KString, fbx::DeletionPolicy<KString> > fileName;
 	fileName.Reset(new KString());
 
 	*fileName = fileName_.c_str();
 
+	LOG_INFO("fieldkit::fbx::SceneImporter::load - Create the importer 2");
 	KFbxImporter* importer = KFbxImporter::Create(sdkManager,"");
 	if(!sdkManager->GetIOPluginRegistry()->DetectReaderFileFormat(*fileName, fileFormat) ) {
 		// Unrecognizable file format. Try to fall back to KFbxImporter::eFBX_BINARY
+		LOG_INFO("fieldkit::fbx::SceneImporter::load - Create the importer 3");
 		fileFormat = sdkManager->GetIOPluginRegistry()->FindReaderIDByDescription("FBX binary (*.fbx)");
 	}
 

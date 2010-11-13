@@ -13,7 +13,9 @@
 using namespace fieldkit::fbx;
 
 // -- Constructor --------------------------------------------------------------
-Scene::Scene() {}
+Scene::Scene() {
+	LOG_INFO("fieldkit::fbx::Scene::Scene");
+}
 
 Scene::~Scene()
 {
@@ -33,8 +35,12 @@ Scene::~Scene()
 
 // -- Init ---------------------------------------------------------------------
 void Scene::init() {
+	LOG_INFO("fieldkit::fbx::Scene::init");
+
 	// The first thing to do is to create the FBX SDK manager which is the 
     // object allocator for almost all the classes in the SDK.
+	LOG_INFO("fieldkit::fbx::Scene::init - creating KFbxSdkManager");
+	
     sdkManager = KFbxSdkManager::Create();
 	
     if (!sdkManager) {
@@ -42,6 +48,7 @@ void Scene::init() {
         exit(-1000);
     }
 	
+	LOG_INFO("fieldkit::fbx::Scene::init - creating KFbxIOSettings");
 	// create an IOSettings object
 	KFbxIOSettings * ios = KFbxIOSettings::Create(sdkManager, IOSROOT);
 	sdkManager->SetIOSettings(ios);
@@ -55,17 +62,19 @@ void Scene::init() {
 		KString lExtension = "so";
 	#endif
 	
-	#if defined(KARCH_ENV_WIN)
-		KString lPath = KFbxGetApplicationDirectory();
-		sdkManager->LoadPluginsDirectory(lPath.Buffer(), lExtension.Buffer());
-	
-	#elif defined(KARCH_ENV_MACOSX)
-		char* lPath = (char*)ci::app::getAppPath().c_str();
-		sdkManager->LoadPluginsDirectory(lPath, lExtension.Buffer());
-	
-	#endif	
+//	LOG_INFO("fieldkit::fbx::Scene::init - loading plugins");
+//	#if defined(KARCH_ENV_WIN)
+//		KString lPath = KFbxGetApplicationDirectory();
+//		sdkManager->LoadPluginsDirectory(lPath.Buffer(), lExtension.Buffer());
+//	
+//	#elif defined(KARCH_ENV_MACOSX)
+//		char* lPath = (char*)ci::app::getAppPath().c_str();
+//		sdkManager->LoadPluginsDirectory(lPath, lExtension.Buffer());
+//	
+//	#endif	
 
     // Create the entity that will hold the scene.
+	LOG_INFO("fieldkit::fbx::Scene::init - KFbxScene::Create");
     fbxScene = KFbxScene::Create(sdkManager,"");
 }
 
