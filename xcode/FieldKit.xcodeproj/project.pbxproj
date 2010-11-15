@@ -18,6 +18,7 @@
 				2CA8347111DBBE8E00D5B37B /* PBXTargetDependency */,
 				2C240EE611CFC4F400856329 /* PBXTargetDependency */,
 				2C240EE811CFC4F600856329 /* PBXTargetDependency */,
+				2C7D807C12914734003653C1 /* PBXTargetDependency */,
 			);
 			name = "All Libraries";
 			productName = All;
@@ -121,6 +122,23 @@
 		2C55A3F111B0610F00041C25 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		2C6F1CFF11E85BE1007EFB61 /* BoundingVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */; };
+		2C7D805212914614003653C1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		2C7D805312914614003653C1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
+		2C7D805412914614003653C1 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
+		2C7D805512914614003653C1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
+		2C7D805612914614003653C1 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
+		2C7D805712914614003653C1 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0097E3E40F3E9819005A4392 /* QuickTime.framework */; };
+		2C7D805812914614003653C1 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
+		2C7D805912914614003653C1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
+		2C7D805A12914614003653C1 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
+		2C7D805B12914614003653C1 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
+		2C7D806F12914653003653C1 /* Binding.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806B12914653003653C1 /* Binding.h */; };
+		2C7D807012914653003653C1 /* LoggerBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806C12914653003653C1 /* LoggerBindings.h */; };
+		2C7D807112914653003653C1 /* ProxyClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806D12914653003653C1 /* ProxyClass.h */; };
+		2C7D807212914653003653C1 /* Script.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806E12914653003653C1 /* Script.h */; };
+		2C7D80761291465F003653C1 /* Binding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80731291465F003653C1 /* Binding.cpp */; };
+		2C7D80771291465F003653C1 /* ProxyClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80741291465F003653C1 /* ProxyClass.cpp */; };
+		2C7D80781291465F003653C1 /* Script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80751291465F003653C1 /* Script.cpp */; };
 		2CA833D911DB99EE00D5B37B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2CA833DA11DB99EE00D5B37B /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
 		2CA833DB11DB99EE00D5B37B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -215,6 +233,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2C240D6F11CFC11600856329;
 			remoteInfo = VisionKit;
+		};
+		2C7D807B12914734003653C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C7D804812914614003653C1 /* ScriptKit */;
+			remoteInfo = ScriptKit;
 		};
 		2CA8347011DBBE8E00D5B37B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -314,6 +339,14 @@
 		2C49644D11FDC1D000749B68 /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
 		2C55A26211B0608700041C25 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
+		2C7D805F12914614003653C1 /* libScriptKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libScriptKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C7D806B12914653003653C1 /* Binding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Binding.h; path = script/Binding.h; sourceTree = "<group>"; };
+		2C7D806C12914653003653C1 /* LoggerBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerBindings.h; path = script/LoggerBindings.h; sourceTree = "<group>"; };
+		2C7D806D12914653003653C1 /* ProxyClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProxyClass.h; path = script/ProxyClass.h; sourceTree = "<group>"; };
+		2C7D806E12914653003653C1 /* Script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Script.h; path = script/Script.h; sourceTree = "<group>"; };
+		2C7D80731291465F003653C1 /* Binding.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Binding.cpp; path = script/Binding.cpp; sourceTree = "<group>"; };
+		2C7D80741291465F003653C1 /* ProxyClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProxyClass.cpp; path = script/ProxyClass.cpp; sourceTree = "<group>"; };
+		2C7D80751291465F003653C1 /* Script.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Script.cpp; path = script/Script.cpp; sourceTree = "<group>"; };
 		2CA833E611DB99EE00D5B37B /* libGLKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhysicsKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA8340E11DBBDA400D5B37B /* GLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLKit.h; path = ../../FieldKit.cpp/include/fieldkit/gl/GLKit.h; sourceTree = SOURCE_ROOT; };
@@ -425,6 +458,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2C7D805112914614003653C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C7D805212914614003653C1 /* Cocoa.framework in Frameworks */,
+				2C7D805312914614003653C1 /* OpenGL.framework in Frameworks */,
+				2C7D805412914614003653C1 /* Carbon.framework in Frameworks */,
+				2C7D805512914614003653C1 /* CoreVideo.framework in Frameworks */,
+				2C7D805612914614003653C1 /* QTKit.framework in Frameworks */,
+				2C7D805712914614003653C1 /* QuickTime.framework in Frameworks */,
+				2C7D805812914614003653C1 /* Accelerate.framework in Frameworks */,
+				2C7D805912914614003653C1 /* AudioToolbox.framework in Frameworks */,
+				2C7D805A12914614003653C1 /* AudioUnit.framework in Frameworks */,
+				2C7D805B12914614003653C1 /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CA833D811DB99EE00D5B37B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -505,6 +555,7 @@
 				2C240DB011CFC11600856329 /* libVisionKit_d.a */,
 				2CA833E611DB99EE00D5B37B /* libGLKit_d.a */,
 				2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */,
+				2C7D805F12914614003653C1 /* libScriptKit_d.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -556,8 +607,8 @@
 				2CA8340711DBBD8100D5B37B /* gl */,
 				2C240DE111CFC1CD00856329 /* math */,
 				2C240DE511CFC1CD00856329 /* physics */,
-				2C240DF911CFC1CD00856329 /* tweak */,
 				2C7D8011129144F0003653C1 /* script */,
+				2C240DF911CFC1CD00856329 /* tweak */,
 				2C240DFC11CFC1CD00856329 /* vision */,
 			);
 			name = fieldkit;
@@ -687,8 +738,8 @@
 				2CA8340811DBBD8B00D5B37B /* gl */,
 				2C240E1D11CFC1DF00856329 /* math */,
 				2C240E2011CFC1DF00856329 /* physics */,
-				2C240E3211CFC1DF00856329 /* tweak */,
 				2C7D8010129144D3003653C1 /* script */,
+				2C240E3211CFC1DF00856329 /* tweak */,
 				2C240E3511CFC1DF00856329 /* vision */,
 			);
 			name = fieldkit;
@@ -819,6 +870,9 @@
 		2C7D8010129144D3003653C1 /* script */ = {
 			isa = PBXGroup;
 			children = (
+				2C7D80731291465F003653C1 /* Binding.cpp */,
+				2C7D80741291465F003653C1 /* ProxyClass.cpp */,
+				2C7D80751291465F003653C1 /* Script.cpp */,
 			);
 			name = script;
 			sourceTree = "<group>";
@@ -826,6 +880,10 @@
 		2C7D8011129144F0003653C1 /* script */ = {
 			isa = PBXGroup;
 			children = (
+				2C7D806B12914653003653C1 /* Binding.h */,
+				2C7D806C12914653003653C1 /* LoggerBindings.h */,
+				2C7D806D12914653003653C1 /* ProxyClass.h */,
+				2C7D806E12914653003653C1 /* Script.h */,
 			);
 			name = script;
 			sourceTree = "<group>";
@@ -971,6 +1029,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2C7D804912914614003653C1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C7D806F12914653003653C1 /* Binding.h in Headers */,
+				2C7D807012914653003653C1 /* LoggerBindings.h in Headers */,
+				2C7D807112914653003653C1 /* ProxyClass.h in Headers */,
+				2C7D807212914653003653C1 /* Script.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2CA833C811DB99EE00D5B37B /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1069,6 +1138,23 @@
 			productReference = 2C55A26211B0608700041C25 /* libFieldKit_d.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		2C7D804812914614003653C1 /* ScriptKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C7D805C12914614003653C1 /* Build configuration list for PBXNativeTarget "ScriptKit" */;
+			buildPhases = (
+				2C7D804912914614003653C1 /* Headers */,
+				2C7D804D12914614003653C1 /* Sources */,
+				2C7D805112914614003653C1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScriptKit;
+			productName = FieldKit;
+			productReference = 2C7D805F12914614003653C1 /* libScriptKit_d.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		2CA833C711DB99EE00D5B37B /* GLKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CA833E311DB99EE00D5B37B /* Build configuration list for PBXNativeTarget "GLKit" */;
@@ -1128,6 +1214,7 @@
 				2CA833C711DB99EE00D5B37B /* GLKit */,
 				2CA833E711DB99F100D5B37B /* PhysicsKit */,
 				2C240D6F11CFC11600856329 /* VisionKit */,
+				2C7D804812914614003653C1 /* ScriptKit */,
 			);
 		};
 /* End PBXProject section */
@@ -1175,6 +1262,16 @@
 				2C16CBE111D944D70038C163 /* Logger.cpp in Sources */,
 				2C49642511FDB74100749B68 /* Ray.cpp in Sources */,
 				2C49644E11FDC1D000749B68 /* Line.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C7D804D12914614003653C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C7D80761291465F003653C1 /* Binding.cpp in Sources */,
+				2C7D80771291465F003653C1 /* ProxyClass.cpp in Sources */,
+				2C7D80781291465F003653C1 /* Script.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1235,6 +1332,11 @@
 			target = 2C240D6F11CFC11600856329 /* VisionKit */;
 			targetProxy = 2C240EE711CFC4F600856329 /* PBXContainerItemProxy */;
 		};
+		2C7D807C12914734003653C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C7D804812914614003653C1 /* ScriptKit */;
+			targetProxy = 2C7D807B12914734003653C1 /* PBXContainerItemProxy */;
+		};
 		2CA8347111DBBE8E00D5B37B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2CA833E711DB99F100D5B37B /* PhysicsKit */;
@@ -1277,7 +1379,13 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(CINDER_PATH)/boost",
+					"$(CINDER_PATH)/include",
+					"$(OPENCV_PATH)/include",
+				);
 				MACH_O_TYPE = staticlib;
+				OPENCV_PATH = ../../OpenCV;
 				PREBINDING = NO;
 				PRODUCT_NAME = VisionKit_d;
 				SYMROOT = ../lib;
@@ -1292,7 +1400,13 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(CINDER_PATH)/boost",
+					"$(CINDER_PATH)/include",
+					"$(OPENCV_PATH)/include",
+				);
 				MACH_O_TYPE = staticlib;
+				OPENCV_PATH = ../../OpenCV;
 				PREBINDING = NO;
 				PRODUCT_NAME = VisionKit;
 				SYMROOT = ../lib;
@@ -1309,6 +1423,12 @@
 				FBXSDK_PATH = ../../FBXSDK;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(FBXSDK_PATH)/include",
+					"$(CINDER_PATH)/boost",
+					"$(CINDER_PATH)/include",
+					"$(OPENCV_PATH)/include",
+				);
 				MACH_O_TYPE = staticlib;
 				PREBINDING = NO;
 				PRODUCT_NAME = FBXKit_d;
@@ -1325,6 +1445,12 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FBXSDK_PATH = ../../FBXSDK;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(FBXSDK_PATH)/include",
+					"$(CINDER_PATH)/boost",
+					"$(CINDER_PATH)/include",
+					"$(OPENCV_PATH)/include",
+				);
 				MACH_O_TYPE = staticlib;
 				PREBINDING = NO;
 				PRODUCT_NAME = FBXKit;
@@ -1358,6 +1484,49 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = FieldKit;
 				SYMROOT = ../lib;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		2C7D805D12914614003653C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(CINDER_PATH)/boost",
+					"$(CINDER_PATH)/include",
+					"$(V8_PATH)/include",
+				);
+				MACH_O_TYPE = staticlib;
+				PREBINDING = NO;
+				PRODUCT_NAME = ScriptKit_d;
+				SYMROOT = ../lib;
+				V8_PATH = ../../v8;
+			};
+			name = Debug;
+		};
+		2C7D805E12914614003653C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(CINDER_PATH)/boost",
+					"$(CINDER_PATH)/include",
+					"$(V8_PATH)/include",
+				);
+				MACH_O_TYPE = staticlib;
+				PREBINDING = NO;
+				PRODUCT_NAME = ScriptKit;
+				SYMROOT = ../lib;
+				V8_PATH = ../../v8;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1430,18 +1599,13 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
 				CINDER_PATH = ../../cinder;
-				FBXSDK_PATH = /Applications/Autodesk/FBXSDK20113;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(CINDER_PATH)/boost",
 					"$(CINDER_PATH)/include",
-					"$(OPENCV_PATH)/include",
-					"$(FBXSDK_PATH)/include",
 				);
-				OPENCV_PATH = ../../opencv;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
 				USER_HEADER_SEARCH_PATHS = ../include;
 				VALID_ARCHS = "i386 x86_64";
 			};
@@ -1453,19 +1617,14 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
 				CINDER_PATH = ../../cinder;
-				FBXSDK_PATH = /Applications/Autodesk/FBXSDK20113;
 				GCC_MODEL_TUNING = G5;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(CINDER_PATH)/boost",
 					"$(CINDER_PATH)/include",
-					"$(OPENCV_PATH)/include",
-					"$(FBXSDK_PATH)/include",
 				);
-				OPENCV_PATH = ../../opencv;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
 				USER_HEADER_SEARCH_PATHS = ../include;
 				VALID_ARCHS = "i386 x86_64";
 			};
@@ -1506,6 +1665,15 @@
 			buildConfigurations = (
 				2C55A26311B0608800041C25 /* Debug */,
 				2C55A26411B0608800041C25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C7D805C12914614003653C1 /* Build configuration list for PBXNativeTarget "ScriptKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C7D805D12914614003653C1 /* Debug */,
+				2C7D805E12914614003653C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
