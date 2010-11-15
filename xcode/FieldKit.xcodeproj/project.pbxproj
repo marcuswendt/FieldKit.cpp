@@ -1502,6 +1502,7 @@
 					"$(V8_PATH)/include",
 				);
 				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "$(V8_PATH)/libv8_g.a";
 				PREBINDING = NO;
 				PRODUCT_NAME = ScriptKit_d;
 				SYMROOT = ../lib;
@@ -1523,6 +1524,7 @@
 					"$(V8_PATH)/include",
 				);
 				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "$(V8_PATH)/libv8.a";
 				PREBINDING = NO;
 				PRODUCT_NAME = ScriptKit;
 				SYMROOT = ../lib;
