@@ -12,8 +12,6 @@
 // FieldKit
 #include "fieldkit/FieldKit.h"
 
-using namespace fk;
-
 // Autodesk FBX SDK
 #include <fbxsdk.h>
 #include <fbxfilesdk/kfbxplugins/kfbxtexture.h>

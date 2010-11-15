@@ -4,19 +4,23 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *	 Created by Marcus Wendt on 15/11/2010.
+ *	 Created by Marcus Wendt on 28/06/2010.
  */
 
 #pragma once
 
-#include <v8.h>
 #include "fieldkit/FieldKit.h"
+
+// -----------------------------------------------------------------------------
+
+#include <v8.h>
 
 namespace fieldkit { namespace script {
 	
 	//
-	// Typedefs
+	// Typedefs - mostly typing savers
 	//
+	
 	// basic types
 	typedef v8::String String;
 	typedef v8::Handle<v8::String> StringPtr;
@@ -55,40 +59,15 @@ namespace fieldkit { namespace script {
 	const std::string ToStdString(v8::Handle<v8::String> handle);
 	
 	//! Converts a regular C-String to a v8::String
-	#define ToString(value) String::New(value)
-
+#define ToString(value) String::New(value)
 	
-	//
-	// Script class; A context using several bindings to execute a javascript file
-	//
-	
-	// Forward declaration for script binding definitions
-	class Binding;
+} } // namespace fieldkit::script
 
-	// JavaScript execution class based on Google's V8 engine
-	class Script {
-	public:
-		Script () {};
-		~Script();
-		
-		// adds another script binding
-		void add(Binding* binding);
-		
-		// clears all script bindings
-		void clear();
+// -----------------------------------------------------------------------------
 
-		// executes the given script
-		void run(std::string file);
-		
-	protected:
-		std::vector<Binding*> bindings;
-		
-		StringPtr readFile(std::string path);
-		
-		bool executeString(StringPtr source, ValuePtr name, 
-						   bool print_result, bool report_exceptions);
-		
-		void reportException(v8::TryCatch* handler);
-	};
-	
-} } // fieldkit::scripting
+// Core classes
+#include "fieldkit/script/Binding.h"
+#include "fieldkit/script/ScriptContext.h"
+
+// Bindings
+#include "fieldkit/script/LoggerBindings.h"

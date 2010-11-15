@@ -7,22 +7,22 @@
  *	 Created by Marcus Wendt on 15/11/2010.
  */
 
-#include "fieldkit/script/Script.h"
+#include "fieldkit/script/ScriptContext.h"
 #include "fieldkit/script/Binding.h"
 
 using namespace fieldkit::script;
 
-Script::~Script()
+ScriptContext::~ScriptContext()
 {
 	clear();
 }
 
-void Script::add(Binding* binding)
+void ScriptContext::add(Binding* binding)
 {
 	bindings.push_back(binding);
 }
 
-void Script::clear()
+void ScriptContext::clear()
 {
 	BOOST_FOREACH(Binding* b, bindings) {
 		delete b;
@@ -30,9 +30,9 @@ void Script::clear()
 	bindings.clear();
 }
 
-void Script::run(std::string _file) 
+void ScriptContext::run(std::string _file) 
 {
-	LOG_INFO("Script::run '"<< _file <<"'");
+	LOG_INFO("ScriptContext::run '"<< _file <<"'");
 	
 	HandleScope handleScope;
 
@@ -81,7 +81,7 @@ void Script::run(std::string _file)
 // -- Helpers ------------------------------------------------------------------
 
 // Reads a file into a v8 string.
-StringPtr Script::readFile(std::string path) {
+StringPtr ScriptContext::readFile(std::string path) {
 	FILE* file = fopen(path.c_str(), "rb");
 	if (file == NULL) return StringPtr();
 	
@@ -104,7 +104,7 @@ StringPtr Script::readFile(std::string path) {
 
 
 // Executes a string within the current v8 context.
-bool Script::executeString(StringPtr source, ValuePtr name,
+bool ScriptContext::executeString(StringPtr source, ValuePtr name,
 						   bool print_result, bool report_exceptions) {
 	HandleScope handle_scope;
 	v8::TryCatch try_catch;
@@ -134,7 +134,7 @@ bool Script::executeString(StringPtr source, ValuePtr name,
 	}
 }
 
-void Script::reportException(v8::TryCatch* try_catch)
+void ScriptContext::reportException(v8::TryCatch* try_catch)
 {
 	HandleScope handle_scope;
 	String::Utf8Value exception(try_catch->Exception());
