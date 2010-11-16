@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GLKit", "GLKit.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PhysicsKit", "PhysicsKit.vcxproj", "{FD7C08E4-317D-4B03-AFCD-6F3BC88EB168}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScriptKit", "ScriptKit.vcxproj", "{07FD41AD-93FC-416D-8E8D-44093FA8D41D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,6 +39,10 @@ Global
 		{FD7C08E4-317D-4B03-AFCD-6F3BC88EB168}.Debug|Win32.Build.0 = Debug|Win32
 		{FD7C08E4-317D-4B03-AFCD-6F3BC88EB168}.Release|Win32.ActiveCfg = Release|Win32
 		{FD7C08E4-317D-4B03-AFCD-6F3BC88EB168}.Release|Win32.Build.0 = Release|Win32
+		{07FD41AD-93FC-416D-8E8D-44093FA8D41D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{07FD41AD-93FC-416D-8E8D-44093FA8D41D}.Debug|Win32.Build.0 = Debug|Win32
+		{07FD41AD-93FC-416D-8E8D-44093FA8D41D}.Release|Win32.ActiveCfg = Release|Win32
+		{07FD41AD-93FC-416D-8E8D-44093FA8D41D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
