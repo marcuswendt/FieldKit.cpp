@@ -124,11 +124,6 @@
 		2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		2C579B90129169D2001E7796 /* LoggerBindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C579B8F129169D2001E7796 /* LoggerBindings.cpp */; };
 		2C6F1CFF11E85BE1007EFB61 /* BoundingVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */; };
-		2C722FA81291FC6500610431 /* cproxyv8.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C722FA71291FC6500610431 /* cproxyv8.cpp */; };
-		2C722FAD1291FC7600610431 /* cproxyv8-class.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C722FA91291FC7600610431 /* cproxyv8-class.h */; };
-		2C722FAE1291FC7600610431 /* cproxyv8-function.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C722FAA1291FC7600610431 /* cproxyv8-function.h */; };
-		2C722FAF1291FC7600610431 /* cproxyv8-property.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C722FAB1291FC7600610431 /* cproxyv8-property.h */; };
-		2C722FB01291FC7600610431 /* cproxyv8.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C722FAC1291FC7600610431 /* cproxyv8.h */; };
 		2C7D805212914614003653C1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2C7D805312914614003653C1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
 		2C7D805412914614003653C1 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -347,11 +342,6 @@
 		2C55A26211B0608700041C25 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C579B8F129169D2001E7796 /* LoggerBindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoggerBindings.cpp; path = script/LoggerBindings.cpp; sourceTree = "<group>"; };
 		2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
-		2C722FA71291FC6500610431 /* cproxyv8.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = cproxyv8.cpp; path = script/cproxyv8/cproxyv8.cpp; sourceTree = "<group>"; };
-		2C722FA91291FC7600610431 /* cproxyv8-class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "cproxyv8-class.h"; path = "script/cproxyv8/cproxyv8-class.h"; sourceTree = "<group>"; };
-		2C722FAA1291FC7600610431 /* cproxyv8-function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "cproxyv8-function.h"; path = "script/cproxyv8/cproxyv8-function.h"; sourceTree = "<group>"; };
-		2C722FAB1291FC7600610431 /* cproxyv8-property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "cproxyv8-property.h"; path = "script/cproxyv8/cproxyv8-property.h"; sourceTree = "<group>"; };
-		2C722FAC1291FC7600610431 /* cproxyv8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cproxyv8.h; path = script/cproxyv8/cproxyv8.h; sourceTree = "<group>"; };
 		2C7D805F12914614003653C1 /* libScriptKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libScriptKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7D806B12914653003653C1 /* Binding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Binding.h; path = script/Binding.h; sourceTree = "<group>"; };
 		2C7D806C12914653003653C1 /* LoggerBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerBindings.h; path = script/LoggerBindings.h; sourceTree = "<group>"; };
@@ -879,29 +869,9 @@
 			name = strategy;
 			sourceTree = "<group>";
 		};
-		2C722FA21291FB9300610431 /* cproxyv8 */ = {
-			isa = PBXGroup;
-			children = (
-				2C722FA91291FC7600610431 /* cproxyv8-class.h */,
-				2C722FAA1291FC7600610431 /* cproxyv8-function.h */,
-				2C722FAB1291FC7600610431 /* cproxyv8-property.h */,
-				2C722FAC1291FC7600610431 /* cproxyv8.h */,
-			);
-			name = cproxyv8;
-			sourceTree = "<group>";
-		};
-		2C722FA31291FB9C00610431 /* cproxyv8 */ = {
-			isa = PBXGroup;
-			children = (
-				2C722FA71291FC6500610431 /* cproxyv8.cpp */,
-			);
-			name = cproxyv8;
-			sourceTree = "<group>";
-		};
 		2C7D8010129144D3003653C1 /* script */ = {
 			isa = PBXGroup;
 			children = (
-				2C722FA31291FB9C00610431 /* cproxyv8 */,
 				2C7D80741291465F003653C1 /* ProxyClass.cpp */,
 				2C7D80751291465F003653C1 /* ScriptContext.cpp */,
 				2C579B8F129169D2001E7796 /* LoggerBindings.cpp */,
@@ -912,7 +882,6 @@
 		2C7D8011129144F0003653C1 /* script */ = {
 			isa = PBXGroup;
 			children = (
-				2C722FA21291FB9300610431 /* cproxyv8 */,
 				2C37A1FE12915B9800D89B24 /* ScriptKit.h */,
 				2C7D806E12914653003653C1 /* ScriptContext.h */,
 				2C7D806B12914653003653C1 /* Binding.h */,
@@ -1072,10 +1041,6 @@
 				2C7D807112914653003653C1 /* ProxyClass.h in Headers */,
 				2C7D807212914653003653C1 /* ScriptContext.h in Headers */,
 				2C37A1FF12915B9800D89B24 /* ScriptKit.h in Headers */,
-				2C722FAD1291FC7600610431 /* cproxyv8-class.h in Headers */,
-				2C722FAE1291FC7600610431 /* cproxyv8-function.h in Headers */,
-				2C722FAF1291FC7600610431 /* cproxyv8-property.h in Headers */,
-				2C722FB01291FC7600610431 /* cproxyv8.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1311,7 +1276,6 @@
 				2C7D80771291465F003653C1 /* ProxyClass.cpp in Sources */,
 				2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */,
 				2C579B90129169D2001E7796 /* LoggerBindings.cpp in Sources */,
-				2C722FA81291FC6500610431 /* cproxyv8.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
