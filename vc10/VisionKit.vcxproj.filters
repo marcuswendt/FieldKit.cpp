@@ -5,143 +5,131 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\fieldkit">
-      <UniqueIdentifier>{2f3eeea5-63dd-4dca-958b-e4622d9521ba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\fieldkit\vision">
-      <UniqueIdentifier>{a33c002a-16eb-4747-a26e-498ed70e83a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\fieldkit\vision\camera">
-      <UniqueIdentifier>{0f3e7743-9dcb-4f09-acc6-45896f36b7a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\fieldkit\vision\camera\implementations">
-      <UniqueIdentifier>{55982d68-7261-480d-9e1b-21a65cc71a3b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\fieldkit\vision\vision">
-      <UniqueIdentifier>{4d256568-6258-40e6-b470-0eb0e32d5c2e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\fieldkit\vision\vision\processors">
-      <UniqueIdentifier>{21b5f29d-dce6-45e3-b7d0-352458b25f8c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Header Files\fieldkit">
-      <UniqueIdentifier>{f9b571d2-c8d6-4583-a2fe-159b98d7105b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\fieldkit\vision">
-      <UniqueIdentifier>{39fa095b-c171-440f-8741-2cf7f0625050}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\fieldkit\vision\vision">
-      <UniqueIdentifier>{366cac67-5d2a-4b93-bb6c-de3af844fb3a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\fieldkit\vision\vision\processors">
-      <UniqueIdentifier>{717b5753-01ee-4aff-93bb-92008da8de09}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\fieldkit\vision\camera">
-      <UniqueIdentifier>{08564574-58c9-487a-a630-8cf0a30b1d7f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\fieldkit\vision\camera\implementations">
-      <UniqueIdentifier>{bcb1a105-ebdb-4c6d-bfae-5bba60f76e06}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Header Files\camera">
+      <UniqueIdentifier>{08564574-58c9-487a-a630-8cf0a30b1d7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\camera\implementations">
+      <UniqueIdentifier>{bcb1a105-ebdb-4c6d-bfae-5bba60f76e06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\vision">
+      <UniqueIdentifier>{366cac67-5d2a-4b93-bb6c-de3af844fb3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\vision\processors">
+      <UniqueIdentifier>{717b5753-01ee-4aff-93bb-92008da8de09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision">
+      <UniqueIdentifier>{4d256568-6258-40e6-b470-0eb0e32d5c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\vision\processors">
+      <UniqueIdentifier>{21b5f29d-dce6-45e3-b7d0-352458b25f8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\camera">
+      <UniqueIdentifier>{0f3e7743-9dcb-4f09-acc6-45896f36b7a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\camera\implementations">
+      <UniqueIdentifier>{55982d68-7261-480d-9e1b-21a65cc71a3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\fieldkit\vision\camera\Camera.cpp">
-      <Filter>Source Files\fieldkit\vision\camera</Filter>
+      <Filter>Source Files\camera</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\vision\camera\implementations\CinderCamera.cpp">
-      <Filter>Source Files\fieldkit\vision\camera\implementations</Filter>
+      <Filter>Source Files\camera\implementations</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\vision\camera\implementations\CinderVideoFileCapture.cpp">
-      <Filter>Source Files\fieldkit\vision\camera\implementations</Filter>
+      <Filter>Source Files\camera\implementations</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\vision\camera\implementations\OpenCVCamera.cpp">
-      <Filter>Source Files\fieldkit\vision\camera\implementations</Filter>
+      <Filter>Source Files\camera\implementations</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\vision\vision\CVFrameProcessor.cpp">
-      <Filter>Source Files\fieldkit\vision\vision</Filter>
+      <Filter>Source Files\vision</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\vision\vision\CVImageCache.cpp">
-      <Filter>Source Files\fieldkit\vision\vision</Filter>
+      <Filter>Source Files\vision</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\vision\vision\Vision.cpp">
-      <Filter>Source Files\fieldkit\vision\vision</Filter>
+      <Filter>Source Files\vision</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\vision\vision\processors\CVBlobDetector.cpp">
-      <Filter>Source Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Source Files\vision\processors</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\vision\vision\processors\CVStereoBlobDetector.cpp">
-      <Filter>Source Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Source Files\vision\processors</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\vision\vision\processors\GestureTracker.cpp">
-      <Filter>Source Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Source Files\vision\processors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\fieldkit\vision\vision\CVFrameProcessor.h">
-      <Filter>Header Files\fieldkit\vision\vision</Filter>
+      <Filter>Header Files\vision</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\CVImageCache.h">
-      <Filter>Header Files\fieldkit\vision\vision</Filter>
+      <Filter>Header Files\vision</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\CVProperty.h">
-      <Filter>Header Files\fieldkit\vision\vision</Filter>
+      <Filter>Header Files\vision</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\Vision.h">
-      <Filter>Header Files\fieldkit\vision\vision</Filter>
+      <Filter>Header Files\vision</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\Blob.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\BlobEvent.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\BlobEventDispatcher.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\BlobEventListener.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\CVBlobDetector.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\CVStereoBlobDetector.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\Gesture.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\GestureEvent.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\GestureEventDispatcher.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\GestureEventListener.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\vision\processors\GestureTracker.h">
-      <Filter>Header Files\fieldkit\vision\vision\processors</Filter>
+      <Filter>Header Files\vision\processors</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\camera\Camera.h">
-      <Filter>Header Files\fieldkit\vision\camera</Filter>
+      <Filter>Header Files\camera</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\camera\implementations\CinderCamera.h">
-      <Filter>Header Files\fieldkit\vision\camera\implementations</Filter>
+      <Filter>Header Files\camera\implementations</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\camera\implementations\CinderVideoFileCapture.h">
-      <Filter>Header Files\fieldkit\vision\camera\implementations</Filter>
+      <Filter>Header Files\camera\implementations</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\camera\implementations\OpenCVCamera.h">
-      <Filter>Header Files\fieldkit\vision\camera\implementations</Filter>
+      <Filter>Header Files\camera\implementations</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\vision\VisionKit.h">
-      <Filter>Header Files\fieldkit\vision</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

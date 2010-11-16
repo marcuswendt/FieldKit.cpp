@@ -5,21 +5,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\fieldkit">
-      <UniqueIdentifier>{e15743a4-ed6e-4903-802c-08df186e159b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\fieldkit\gl">
-      <UniqueIdentifier>{cfbdbb23-b78a-4803-8a00-ad70f2c30732}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Header Files\fieldkit">
-      <UniqueIdentifier>{8f45a983-d81b-4953-8c89-b1107621e3e1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\fieldkit\gl">
-      <UniqueIdentifier>{867ffa92-837f-4153-9a22-7ecc99794b14}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
@@ -28,24 +16,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\fieldkit\gl\GLKit.cpp">
-      <Filter>Source Files\fieldkit\gl</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\fieldkit\gl\PointCloud.cpp">
-      <Filter>Source Files\fieldkit\gl</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\gl\PointDataFormat.cpp">
-      <Filter>Source Files\fieldkit\gl</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\gl\PointCloud.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\fieldkit\gl\GLKit.h">
-      <Filter>Header Files\fieldkit\gl</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\gl\PointCloud.h">
-      <Filter>Header Files\fieldkit\gl</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\gl\PointDataFormat.h">
-      <Filter>Header Files\fieldkit\gl</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\gl\PointCloud.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

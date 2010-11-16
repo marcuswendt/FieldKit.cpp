@@ -5,21 +5,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\fieldkit">
-      <UniqueIdentifier>{a4967e68-547f-497f-ad1e-9a6ccc2a29b2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\fieldkit\fbx">
-      <UniqueIdentifier>{7eed7a16-4a41-458e-8117-772d80ba0e3b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Header Files\fieldkit">
-      <UniqueIdentifier>{b002cbb5-5c25-4cfa-9991-0ef95285e545}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\fieldkit\fbx">
-      <UniqueIdentifier>{2baa6713-bfd4-430c-a380-c83d7b44cf11}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
@@ -28,48 +16,48 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\fieldkit\fbx\CinderRenderer.cpp">
-      <Filter>Source Files\fieldkit\fbx</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\fieldkit\fbx\Renderer.cpp">
-      <Filter>Source Files\fieldkit\fbx</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\fieldkit\fbx\Scene.cpp">
-      <Filter>Source Files\fieldkit\fbx</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\fieldkit\fbx\SceneController.cpp">
-      <Filter>Source Files\fieldkit\fbx</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\fbx\SceneImporter.cpp">
-      <Filter>Source Files\fieldkit\fbx</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\fbx\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\fbx\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\fbx\SceneController.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\fieldkit\fbx\CinderRenderer.h">
-      <Filter>Header Files\fieldkit\fbx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\fbx\Common.h">
-      <Filter>Header Files\fieldkit\fbx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\fbx\FBXKit.h">
-      <Filter>Header Files\fieldkit\fbx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\fbx\Renderer.h">
-      <Filter>Header Files\fieldkit\fbx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\fbx\RendererDelegates.h">
-      <Filter>Header Files\fieldkit\fbx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\fbx\Scene.h">
-      <Filter>Header Files\fieldkit\fbx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\fbx\SceneController.h">
-      <Filter>Header Files\fieldkit\fbx</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\fbx\SceneImporter.h">
-      <Filter>Header Files\fieldkit\fbx</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\fbx\Texture.h">
-      <Filter>Header Files\fieldkit\fbx</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\fbx\Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\fbx\FBXKit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\fbx\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\fbx\RendererDelegates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\fbx\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\fbx\SceneController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\fbx\SceneImporter.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

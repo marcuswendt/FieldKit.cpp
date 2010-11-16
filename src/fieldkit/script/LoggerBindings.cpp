@@ -9,6 +9,8 @@
 
 #include "fieldkit/script/LoggerBindings.h"
 
+#include <cinder/app/App.h>
+
 using namespace fieldkit::script;
 
 void LoggerBindings::prepare(HObjectTemplate global) 
@@ -37,11 +39,10 @@ HValue LoggerBindings::print(Arguments const& args)
 			printf(" ");
 		}
 		v8::String::Utf8Value str(args[i]);
-		const char* cstr = ToCString(str);
-		printf("%s", cstr);
+		ci::app::console() << ToCString(str);
 	}
-	printf("\n");
-	fflush(stdout);
+	
+	ci::app::console() << std::endl;
 	return v8::Undefined();
 }
 
