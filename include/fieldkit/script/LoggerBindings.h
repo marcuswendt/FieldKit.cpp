@@ -17,12 +17,12 @@ namespace fieldkit { namespace script {
 	// LOG_INFO, LOG_WARN, LOG_ERROR 
 	class LoggerBindings : public Binding {
 		
-		void prepare(ObjectTemplatePtr global);
+		void prepare(HObjectTemplate global);
 		
-		static ValuePtr print(Arguments const& args);		
-		static ValuePtr info(Arguments const& args);
-		static ValuePtr warn(Arguments const& args);
-		static ValuePtr error(Arguments const& args);
+		static HValue print(Arguments const& args);		
+		static HValue info(Arguments const& args);
+		static HValue warn(Arguments const& args);
+		static HValue error(Arguments const& args);
 	};
 	
 } } // fieldkit::scripting

@@ -20,10 +20,10 @@ namespace fieldkit { namespace script {
 		~Binding() {};	
 		
 		// called before a script context is created
-		virtual void prepare(ObjectTemplatePtr global) {};
+		virtual void prepare(v8::Handle<v8::ObjectTemplate> global) {};
 		
 		// called after the context is created and before the script is run
-		virtual void init(ContextPtr context) {};
+		virtual void init(v8::Handle<v8::Context> context) {};
 	};
 
 } } // fieldkit::script

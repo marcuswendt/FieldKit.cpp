@@ -13,35 +13,34 @@
 
 namespace fieldkit { namespace script {
 	
-	
 	//
 	// Script class; A context using several bindings to execute a javascript file
 	//
 
-	// JavaScript execution class based on Google's V8 engine
+	//! Allows to run JavaScript files within a set number of C++ to JS bindings using Google's V8 engine
 	class ScriptContext {
 	public:
 		ScriptContext() {};
 		~ScriptContext();
 		
-		// adds another script binding
+		//! adds another c++/js script binding
 		void add(Binding* binding);
 		
-		// clears all script bindings
+		//! clears all script bindings
 		void clear();
 
-		// executes the given script
-		void run(std::string file);
+		//! runs the given script and returns true on success
+		bool execute(std::string file);
 		
 	protected:
 		std::vector<Binding*> bindings;
 		
-		StringPtr readFile(std::string path);
+		HString readFile(std::string path);
 		
-		bool executeString(StringPtr source, ValuePtr name, 
+		bool executeString(HString source, HValue name, 
 						   bool print_result, bool report_exceptions);
 		
-		void reportException(v8::TryCatch* handler);
+		void reportException(TryCatch* handler);
 	};
 	
-} } // fieldkit::scripting
+} } // fieldkit::script

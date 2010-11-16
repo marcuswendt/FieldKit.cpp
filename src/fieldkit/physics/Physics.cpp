@@ -31,10 +31,14 @@ Physics::Physics(Space* space)
 	springUpdate = NULL;
 	neighbourUpdate = NULL;
 
-	setParticleAllocator(new ParticleAllocator());
-	setParticleUpdate(new ParticleUpdate());
-	setSpringUpdate(new SpringUpdate());
+//	setParticleAllocator(new ParticleAllocator());
+//	setParticleUpdate(new ParticleUpdate());
+//	setSpringUpdate(new SpringUpdate());
 	// no neighbour update strategy by default
+	
+	particleAllocator = new ParticleAllocator();
+	particleUpdate = new ParticleUpdate();
+	springUpdate = new SpringUpdate();
 }
 
 Physics::~Physics() 

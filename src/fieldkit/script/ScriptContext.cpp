@@ -15,6 +15,7 @@ using namespace fieldkit::script;
 ScriptContext::~ScriptContext()
 {
 	clear();
+	v8::V8::Dispose();
 }
 
 void ScriptContext::add(Binding* binding)
@@ -30,60 +31,61 @@ void ScriptContext::clear()
 	bindings.clear();
 }
 
-void ScriptContext::run(std::string _file) 
+bool ScriptContext::execute(std::string _file) 
 {
-	LOG_INFO("ScriptContext::run '"<< _file <<"'");
+	// make sure v8 is still active
+	if(v8::V8::IsDead())
+		return false;
 	
 	HandleScope handleScope;
 
 	// -- Create Context --
 	
 	// Create a template for the global object.
-	ObjectTemplatePtr global = ObjectTemplate::New();
+	HObjectTemplate global = ObjectTemplate::New();
 	
 	BOOST_FOREACH(Binding* b, bindings) {
 		b->prepare(global);
 	}
 	
 	// Create a new execution environment containing the built-in functions
-	ContextPtr context = Context::New(NULL, global);
+	HContext context = Context::New(NULL, global);
 	
 	// Enter the newly created execution environment.
 	Context::Scope context_scope(context);
-	
 	
 	// -- Expose Script Objects --
 	BOOST_FOREACH(Binding* b, bindings) {
 		b->init(context);
 	}
 	
-	
 	// -- Execute Script --
 	
 	//HandleScope handle_scope;
-	StringPtr fileName = String::New(_file.c_str());
-	StringPtr source = readFile(_file.c_str());
+	HString fileName = String::New(_file.c_str());
+	HString source = readFile(_file.c_str());
 	if (source.IsEmpty()) {
-        printf("Error reading '%s'\n", _file.c_str());
-        //return 1;
+        LOG_ERROR("Error reading '"<< _file <<"'");
+		return false;
 	}
-	if (!executeString(source, fileName, false, true)) {
-        printf("Error executing script \n");
-       //return 1;
-	}
-
 	
-	// -- Cleanup --
-	v8::V8::Dispose();
+	if (!executeString(source, fileName, false, true)) {
+        LOG_ERROR("Error executing script");
+		return false;
+	}
+	
+//	v8::V8::Dispose();
+	
+	return true;
 }
 
 
 // -- Helpers ------------------------------------------------------------------
 
 // Reads a file into a v8 string.
-StringPtr ScriptContext::readFile(std::string path) {
+HString ScriptContext::readFile(std::string path) {
 	FILE* file = fopen(path.c_str(), "rb");
-	if (file == NULL) return StringPtr();
+	if (file == NULL) return HString();
 	
 	fseek(file, 0, SEEK_END);
 	int size = ftell(file);
@@ -96,15 +98,14 @@ StringPtr ScriptContext::readFile(std::string path) {
 		i += read;
 	}
 	fclose(file);
-	StringPtr result = String::New(chars, size);
+	HString result = String::New(chars, size);
 	delete[] chars;
 	return result;
 }
 
 
-
 // Executes a string within the current v8 context.
-bool ScriptContext::executeString(StringPtr source, ValuePtr name,
+bool ScriptContext::executeString(HString source, HValue name,
 						   bool print_result, bool report_exceptions) {
 	HandleScope handle_scope;
 	v8::TryCatch try_catch;
@@ -115,7 +116,7 @@ bool ScriptContext::executeString(StringPtr source, ValuePtr name,
 			reportException(&try_catch);
 		return false;
 	} else {
-		ValuePtr result = script->Run();
+		HValue result = script->Run();
 		if (result.IsEmpty()) {
 			// Print errors that happened during execution.
 			if (report_exceptions)
@@ -134,7 +135,7 @@ bool ScriptContext::executeString(StringPtr source, ValuePtr name,
 	}
 }
 
-void ScriptContext::reportException(v8::TryCatch* try_catch)
+void ScriptContext::reportException(TryCatch* try_catch)
 {
 	HandleScope handle_scope;
 	String::Utf8Value exception(try_catch->Exception());
@@ -184,7 +185,7 @@ namespace fieldkit { namespace script {
 	}
 
 	// Converts a v8::String to a std::string
-	const std::string ToStdString(StringPtr handle)
+	const std::string ToStdString(HString handle)
 	{
 		return std::string( *String::AsciiValue(handle) );
 	}

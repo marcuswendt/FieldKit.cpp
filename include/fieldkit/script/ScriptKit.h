@@ -11,59 +11,42 @@
 
 #include "fieldkit/FieldKit.h"
 
-// -----------------------------------------------------------------------------
-
 #include <v8.h>
 
 namespace fieldkit { namespace script {
+
+	// shorthand versions of common v8 types
+	#define td(name) \
+		typedef v8::name name;
 	
-	//
-	// Typedefs - mostly typing savers
-	//
+	#define tdhlp(name) \
+		typedef v8::name name; \
+		typedef v8::Handle<name> H##name; \
+		typedef v8::Local<name> L##name; \
+		typedef v8::Persistent<name> P##name;
 	
-	// basic types
-	typedef v8::String String;
-	typedef v8::Handle<v8::String> StringPtr;
-	typedef v8::Local<v8::String> StringLocal;
+	tdhlp(String);	
+	tdhlp(Value);	
+	tdhlp(ObjectTemplate);
+	tdhlp(FunctionTemplate);
+	tdhlp(Object);
+	tdhlp(Arguments);
+	tdhlp(Context);
 	
-	typedef v8::Integer Integer;
-	
-	typedef v8::Value Value;
-	typedef v8::Handle<v8::Value> ValuePtr;
-	
-	typedef v8::ObjectTemplate ObjectTemplate;
-	typedef v8::Handle<v8::ObjectTemplate> ObjectTemplatePtr;
-	
-	typedef v8::FunctionTemplate FunctionTemplate;
-	typedef v8::Handle<v8::FunctionTemplate> FunctionTemplatePtr;
-	
-	typedef v8::Handle<v8::Object> ObjectPtr;
-	typedef v8::Local<v8::Object> ObjectLocal;
-	
-	// binding tools
-	typedef v8::Context Context;
-	typedef v8::Handle<v8::Context> ContextPtr;
-	
-	typedef v8::HandleScope HandleScope;
-	
-	typedef v8::AccessorInfo AccessorInfo;
-	
-	typedef v8::Arguments Arguments;
-	
+	td(TryCatch);
+	td(HandleScope);	
 	
 	//
 	// Static Functions
 	//
-	const char* ToCString(const v8::String::Utf8Value& value);
+	const char* ToCString(const String::Utf8Value& value);
 	
-	const std::string ToStdString(v8::Handle<v8::String> handle);
+	const std::string ToStdString(HString handle);
 	
 	//! Converts a regular C-String to a v8::String
-#define ToString(value) String::New(value)
+	#define ToString(value) String::New(value)
 	
 } } // namespace fieldkit::script
-
-// -----------------------------------------------------------------------------
 
 // Core classes
 #include "fieldkit/script/Binding.h"

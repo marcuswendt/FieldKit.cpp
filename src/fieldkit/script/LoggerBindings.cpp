@@ -11,12 +11,12 @@
 
 using namespace fieldkit::script;
 
-void LoggerBindings::prepare(ObjectTemplatePtr global) 
+void LoggerBindings::prepare(HObjectTemplate global) 
 {
-	global->Set(ToString("print"), v8::FunctionTemplate::New(LoggerBindings::print));
-	global->Set(ToString("info"), v8::FunctionTemplate::New(LoggerBindings::info));
-	global->Set(ToString("warn"), v8::FunctionTemplate::New(LoggerBindings::warn));
-	global->Set(ToString("error"), v8::FunctionTemplate::New(LoggerBindings::error));
+	global->Set(ToString("print"), FunctionTemplate::New(LoggerBindings::print));
+	global->Set(ToString("info"), FunctionTemplate::New(LoggerBindings::info));
+	global->Set(ToString("warn"), FunctionTemplate::New(LoggerBindings::warn));
+	global->Set(ToString("error"), FunctionTemplate::New(LoggerBindings::error));
 	
 //	defineGlobalFunction("print", LoggerBindings::print);
 //	defineGlobalFunction("info", LoggerBindings::info);
@@ -26,7 +26,7 @@ void LoggerBindings::prepare(ObjectTemplatePtr global)
 
 
 // Prints its arguments on stdout separated by spaces and ending with a newline.
-ValuePtr LoggerBindings::print(Arguments const& args) 
+HValue LoggerBindings::print(Arguments const& args) 
 {
 	bool first = true;
 	for (int i = 0; i < args.Length(); i++) {
@@ -45,7 +45,7 @@ ValuePtr LoggerBindings::print(Arguments const& args)
 	return v8::Undefined();
 }
 
-ValuePtr LoggerBindings::info(Arguments const& args) 
+HValue LoggerBindings::info(Arguments const& args) 
 {	
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
@@ -57,7 +57,7 @@ ValuePtr LoggerBindings::info(Arguments const& args)
 	return v8::Undefined();
 }
 
-ValuePtr LoggerBindings::warn(Arguments const& args) 
+HValue LoggerBindings::warn(Arguments const& args) 
 {	
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
@@ -69,7 +69,7 @@ ValuePtr LoggerBindings::warn(Arguments const& args)
 	return v8::Undefined();
 }
 
-ValuePtr LoggerBindings::error(Arguments const& args) 
+HValue LoggerBindings::error(Arguments const& args) 
 {	
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
