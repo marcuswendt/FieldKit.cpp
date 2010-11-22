@@ -24,6 +24,8 @@ namespace fieldkit { namespace script {
 		
 		// called after the context is created and before the script is run
 		virtual void init(v8::Handle<v8::Context> context) {};
+		
+		virtual void deinit(v8::Handle<v8::Context> context) {};
 	};
 
 } } // fieldkit::script

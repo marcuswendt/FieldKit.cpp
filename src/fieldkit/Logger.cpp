@@ -20,13 +20,13 @@ Logger::Logger() {
 Logger::~Logger() {
 	for(unsigned int i = 0; i < outputs.size(); i++) {
 		delete outputs[i];
+		outputs[i] = NULL;
 	}
 }
 
 Logger &Logger::getInstance() {
 	static Logger instance;
 	return instance;
-
 }
 
 void Logger::addLogOutput(LogOutput *logOutput) {
@@ -44,7 +44,8 @@ std::string Logger::getLevelName(LogLevel level) {
 
 void Logger::flush() {
 	for(unsigned int i = 0; i < outputs.size(); i++) {
-		outputs[i]->output(logstream.str());
+		if(outputs[i])
+			outputs[i]->output(logstream.str());
 	}
 	logstream.str(std::string());
 }

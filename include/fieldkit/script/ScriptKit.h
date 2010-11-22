@@ -25,26 +25,32 @@ namespace fieldkit { namespace script {
 		typedef v8::Local<name> L##name; \
 		typedef v8::Persistent<name> P##name;
 	
-	tdhlp(String);	
+	tdhlp(String);
+	tdhlp(Integer);
 	tdhlp(Value);	
 	tdhlp(ObjectTemplate);
 	tdhlp(FunctionTemplate);
 	tdhlp(Object);
-	tdhlp(Arguments);
 	tdhlp(Context);
-	
-	td(TryCatch);
+
+	td(Arguments);
+	td(External);
 	td(HandleScope);	
+	td(AccessorInfo);
+	td(TryCatch);
 	
 	//
 	// Static Functions
 	//
+	
+	//! Converts a regular C-String to a v8::String
+	const LString ToV8String(const char* value);
+	
+	const LString ToV8String(std::string value);
+	
 	const char* ToCString(const String::Utf8Value& value);
 	
 	const std::string ToStdString(HString handle);
-	
-	//! Converts a regular C-String to a v8::String
-	#define ToString(value) String::New(value)
 	
 } } // namespace fieldkit::script
 

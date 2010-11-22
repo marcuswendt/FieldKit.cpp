@@ -15,10 +15,10 @@ using namespace fieldkit::script;
 
 void LoggerBindings::prepare(HObjectTemplate global) 
 {
-	global->Set(ToString("print"), FunctionTemplate::New(LoggerBindings::print));
-	global->Set(ToString("info"), FunctionTemplate::New(LoggerBindings::info));
-	global->Set(ToString("warn"), FunctionTemplate::New(LoggerBindings::warn));
-	global->Set(ToString("error"), FunctionTemplate::New(LoggerBindings::error));
+	global->Set(ToV8String("print"), FunctionTemplate::New(LoggerBindings::print));
+	global->Set(ToV8String("info"), FunctionTemplate::New(LoggerBindings::info));
+	global->Set(ToV8String("warn"), FunctionTemplate::New(LoggerBindings::warn));
+	global->Set(ToV8String("error"), FunctionTemplate::New(LoggerBindings::error));
 	
 //	defineGlobalFunction("print", LoggerBindings::print);
 //	defineGlobalFunction("info", LoggerBindings::info);

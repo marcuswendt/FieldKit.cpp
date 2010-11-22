@@ -52,7 +52,7 @@ bool ScriptContext::execute(std::string _file)
 	HContext context = Context::New(NULL, global);
 	
 	// Enter the newly created execution environment.
-	Context::Scope context_scope(context);
+	Context::Scope contextScope(context);
 	
 	// -- Expose Script Objects --
 	BOOST_FOREACH(Binding* b, bindings) {
@@ -60,8 +60,6 @@ bool ScriptContext::execute(std::string _file)
 	}
 	
 	// -- Execute Script --
-	
-	//HandleScope handle_scope;
 	HString fileName = String::New(_file.c_str());
 	HString source = readFile(_file.c_str());
 	if (source.IsEmpty()) {
@@ -72,6 +70,11 @@ bool ScriptContext::execute(std::string _file)
 	if (!executeString(source, fileName, false, true)) {
         LOG_ERROR("Error executing script");
 		return false;
+	}
+
+	// Deinitialise bindings
+	BOOST_FOREACH(Binding* b, bindings) {
+		b->deinit(context);
 	}
 	
 //	v8::V8::Dispose();
@@ -172,22 +175,3 @@ void ScriptContext::reportException(TryCatch* try_catch)
 		}
 	}
 }
-
-
-// -- Functions ----------------------------------------------------------------
-
-namespace fieldkit { namespace script {
-	
-	// Extracts a C string from a V8 Utf8Value.
-	const char* ToCString(const String::Utf8Value& value) 
-	{
-		return *value ? *value : "<string conversion failed>";
-	}
-
-	// Converts a v8::String to a std::string
-	const std::string ToStdString(HString handle)
-	{
-		return std::string( *String::AsciiValue(handle) );
-	}
-
-} } // fieldkit::script
