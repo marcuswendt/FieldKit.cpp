@@ -12,13 +12,15 @@
 using namespace fieldkit::physics;
 
 // -- Point --------------------------------------------------------------------
-void AttractorPoint::prepare(float dt) {
+void AttractorPoint::setRange(float value) 
+{
+	range = value;
 	rangeAbs = space->toAbsolute(range);
 	rangeAbsSq = rangeAbs * rangeAbs;
 }
 
-void AttractorPoint::apply(Particle* p) {
-
+void AttractorPoint::apply(Particle* p) 
+{
 	Vec3f delta = position - p->position;
 	float distSq = delta.lengthSquared();
 
@@ -28,4 +30,4 @@ void AttractorPoint::apply(Particle* p) {
 		// normalize and inverse proportional weight
 		p->force += (delta / dist) * (1.0f - dist/ rangeAbs) * weight;
 	}
-};
+}

@@ -150,7 +150,7 @@ void PointCloud::draw()
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_POINT_SPRITE);
 	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
-	glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
+//	glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
 	
 	glEnableClientState(GL_VERTEX_ARRAY);
 
