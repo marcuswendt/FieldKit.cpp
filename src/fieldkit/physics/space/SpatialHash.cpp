@@ -66,7 +66,7 @@ void SpatialHash::clear()
 void SpatialHash::insert(Spatial* spatial) 
 {
 	// find position in cell space
-	Vec3f p = spatial->getPosition();
+	Vec3f p = spatial->getPosition() - (this->position - this->extent);
 	int hashX = hash(p.x);
 	int hashY = hash(p.y);
 	
@@ -79,7 +79,7 @@ void SpatialHash::insert(Spatial* spatial)
 void SpatialHash::select(BoundingVolume* volume, SpatialListPtr result)
 {
 	// find search center position in cell space
-	Vec3f p = volume->getPosition();
+	Vec3f p = volume->getPosition() - (this->position - this->extent);
 	int hashX = hash(p.x);
 	int hashY = hash(p.y);
 	
