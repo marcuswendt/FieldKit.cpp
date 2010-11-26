@@ -86,7 +86,8 @@ bool ScriptContext::execute(std::string _file)
 // -- Helpers ------------------------------------------------------------------
 
 // Reads a file into a v8 string.
-HString ScriptContext::readFile(std::string path) {
+HString ScriptContext::readFile(std::string path) 
+{
 	FILE* file = fopen(path.c_str(), "rb");
 	if (file == NULL) return HString();
 	
@@ -109,7 +110,8 @@ HString ScriptContext::readFile(std::string path) {
 
 // Executes a string within the current v8 context.
 bool ScriptContext::executeString(HString source, HValue name,
-						   bool print_result, bool report_exceptions) {
+						   bool print_result, bool report_exceptions) 
+{
 	HandleScope handle_scope;
 	v8::TryCatch try_catch;
 	v8::Handle<v8::Script> script = v8::Script::Compile(source, name);

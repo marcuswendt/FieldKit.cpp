@@ -21,7 +21,6 @@
 #include "fieldkit/FieldKit.h"
 
 #include "fieldkit/math/MathKit.h"
-using namespace fieldkit::math;
 
 // space
 #include "fieldkit/physics/space/Spatial.h"

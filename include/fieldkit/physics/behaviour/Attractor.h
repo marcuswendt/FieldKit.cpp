@@ -13,6 +13,7 @@
 
 namespace fieldkit { namespace physics {
 	
+	//! Drags the particle towards a point in space
 	class AttractorPoint : public WeightedBehaviour {
 	public:
 		AttractorPoint(Space* space) : WeightedBehaviour(space) {
@@ -20,13 +21,12 @@ namespace fieldkit { namespace physics {
 			position = Vec3f::zero();
 		};
 		
-		void prepare(float dt);
 		void apply(Particle* p);
 		
 		void setPosition(Vec3f location) { position.set(location); }
 		Vec3f getPosition() { return position; }
 		
-		void setRange(float value) { range = value; }
+		void setRange(float value);
 		float getRange() { return range; }
 		
 		float getRangeAbs() { return rangeAbs; }
