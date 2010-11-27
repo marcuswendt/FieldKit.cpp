@@ -29,6 +29,16 @@ namespace fieldkit { namespace math {
 
 	bool flipCoin(float chance);
 	
+	
+	inline float lerp(float a, float b, float t) {
+		return a + (b-a)*t;
+	}
+	
+	inline double lerp(double a, double b, double t) {
+		return a + (b-a)*t;
+	}
+	
+	
 } } // namespace fieldkit::math
 
 
