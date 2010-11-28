@@ -17,7 +17,7 @@ using namespace fieldkit::math;
 bool Ray2f::findIntersection(Ray2f const& ray, Vec2f* result)
 {	
 	Vec2f p1 = origin;
-	Vec2f p2 = p2 + direction;
+	Vec2f p2 = p1 + direction;
 	
 	Vec2f p3 = ray.origin;
 	Vec2f p4 = p3 + ray.direction;
