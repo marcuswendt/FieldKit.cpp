@@ -18,10 +18,15 @@ namespace fieldkit { namespace physics {
 	
 	class CollisionConstraint : public Constraint {
 	public:
-		CollisionConstraint() {};
+		CollisionConstraint() : bouncyness(1.0f) { };
 		~CollisionConstraint() {};
 		
 		void apply(Particle* p);
+    
+		float getBouncyness() { return bouncyness; }
+		void setBouncyness(float b) { bouncyness = b; }
+	private:
+		float bouncyness;
 	};
 	
 } } // namespace fieldkit::physics

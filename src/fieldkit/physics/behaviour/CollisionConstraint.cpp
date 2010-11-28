@@ -49,7 +49,7 @@ void CollisionConstraint::apply(Particle* p)
 		// check whether spatials collide
 		if(distSq < radiusSq) {
 			dist = sqrtf(distSq);
-			delta *= (dist - radius)/ radius * 0.5f;
+			delta *= (dist - radius)/ radius * 0.5f * bouncyness;
 			p->setPosition(p->getPosition() + delta);
 			n->setPosition(n->getPosition() - delta);
 		}		
