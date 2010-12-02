@@ -27,9 +27,9 @@
 
 
 #define LOG_OUTPUT(LEVEL, MSG) \
-	if(fk::Logger::getInstance().getLogLevel() <= LEVEL) { \
-		fk::Logger::getInstance().getStream() << fk::Logger::getInstance().getLevelName(LEVEL) << ": " << MSG; \
-		fk::Logger::getInstance().flush(); \
+	if(fk::Logger::Instance()->getLogLevel() <= LEVEL) { \
+		fk::Logger::Instance()->getStream() << fk::Logger::Instance()->getLevelName(LEVEL) << ": " << MSG; \
+		fk::Logger::Instance()->flush(); \
 	}
 
 #define LOG_INFO(MSG) LOG_OUTPUT(fk::LOGLEVEL_INFO, MSG)
@@ -54,32 +54,23 @@ namespace fieldkit {
 	
 	class Logger {
 	public:
-		std::stringstream& getStream();
+		//! singleton accessor
+		static Logger* Instance();
 
+		std::stringstream& getStream();
 		void flush();
 
-		/**
-		 * Add as many outputs as you like here
-		 */
+		//! Add as many outputs as you like here
 		void addLogOutput(LogOutput *logOutput);
 		
-		
-		// singleton
-		static Logger &getInstance();
-
-		/**
-		 * Set your log level here.
-		 */
+		//! Set your log level here.
 		void setLogLevel(LogLevel logLevel) { currLevel = logLevel; }
-		
-		
 		LogLevel getLogLevel() { return currLevel; }
 		std::string getLevelName(LogLevel logLevel);
 
-		
 	private:
+		static Logger* instance;
 		std::vector<LogOutput*> outputs;
-		
 		std::stringstream logstream;
 		
 		Logger();

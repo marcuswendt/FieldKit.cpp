@@ -41,5 +41,8 @@
     <ClCompile Include="..\src\fieldkit\script\ProxyClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\fieldkit\script\ScriptKit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

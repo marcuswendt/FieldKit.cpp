@@ -21,6 +21,7 @@
     <ClCompile Include="..\src\fieldkit\script\LoggerBindings.cpp" />
     <ClCompile Include="..\src\fieldkit\script\ProxyClass.cpp" />
     <ClCompile Include="..\src\fieldkit\script\ScriptContext.cpp" />
+    <ClCompile Include="..\src\fieldkit\script\ScriptKit.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{07FD41AD-93FC-416D-8E8D-44093FA8D41D}</ProjectGuid>

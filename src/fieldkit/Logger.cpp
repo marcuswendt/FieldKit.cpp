@@ -11,6 +11,8 @@
 
 using namespace fieldkit;
 
+Logger* Logger::instance = NULL;
+
 Logger::Logger() {
 	currContext = "";
 	currLevel = LOGLEVEL_INFO;
@@ -24,8 +26,10 @@ Logger::~Logger() {
 	}
 }
 
-Logger &Logger::getInstance() {
-	static Logger instance;
+Logger* Logger::Instance() {
+	if(instance == NULL) {
+		instance = new Logger();
+	}
 	return instance;
 }
 
