@@ -101,8 +101,8 @@ void Physics::update(float dt)
 Particle* Physics::createParticle() 
 {
 	numParticles++;
-	BOOST_FOREACH(Particle* p, particles) {
-		if(!p->isAlive) return p;
+	for (vector<Particle*>::iterator pit = particles.begin(); pit != particles.end(); pit++) {
+		if(!(*pit)->isAlive) return *pit;
 	}
 	
 	if(particleAllocator != NULL)
