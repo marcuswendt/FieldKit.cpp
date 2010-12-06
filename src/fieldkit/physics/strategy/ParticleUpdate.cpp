@@ -14,6 +14,7 @@ using namespace fieldkit::physics;
 //! updates all particles by applying all behaviours and constraints
 void ParticleUpdate::apply(Physics* physics, float dt) 
 {	
+#ifndef ENABLE_OPENMP
 	vector<Particle*>::iterator pbegin = physics->particles.begin();
 	vector<Particle*>::iterator pend = physics->particles.end();
 
@@ -23,7 +24,9 @@ void ParticleUpdate::apply(Physics* physics, float dt)
 		b->prepare(dt);
 
 		for (vector<Particle*>::iterator pit = pbegin; pit != pend; pit++) {
-			b->apply(*pit);
+			Particle* p = *pit;
+			if(p->isAlive)
+				b->apply(p);
 		}
 	}
 
@@ -31,11 +34,10 @@ void ParticleUpdate::apply(Physics* physics, float dt)
 	int numAlive = 0;
 	for (vector<Particle*>::iterator pit = pbegin; pit != pend; pit++) {
 		Particle* p = *pit;
+		if(!p->isAlive) 
+			continue;
 		p->update(dt);
-
-		// particle just died
-		if(p->isAlive)
-			numAlive++;
+		numAlive++;
 	}
 	physics->numParticles = numAlive;
 
@@ -48,60 +50,58 @@ void ParticleUpdate::apply(Physics* physics, float dt)
 				c->prepare(dt);
 
 			for (vector<Particle*>::iterator pit = pbegin; pit != pend; pit++) {
-				c->apply(*pit);
+				Particle* p = *pit;
+				if(p->isAlive)
+					c->apply(p);
 			}
 		}
 	}
+#else
+	//
+	// NOTE: OpenMP support is still quite experimental - can cause crashes!
+	//
+	int psize = physics->particles.size();
 
-	/*
-	// prepare behaviours & constraints
-	BOOST_FOREACH(Behaviour* b, physics->behaviours) {
-	b->prepare(dt);
+	// apply behaviours
+	for (list<Behaviour*>::iterator bit = physics->behaviours.begin(); bit != physics->behaviours.end(); bit++) {
+		Behaviour* b = *bit;
+		b->prepare(dt);
+
+		#pragma omp parallel for
+		for(int i=0; i < psize; i++) {
+			Particle* p = physics->particles[i];
+			if(p->isAlive)
+				b->apply(p);
+		}
 	}
 
-	BOOST_FOREACH(Constraint* c, physics->constraints) {
-	c->prepare(dt);
-	}
-
-
-
-	// Parallel For
-	#ifdef ENABLE_OPENMP
-	vector<Particle*>::iterator it;
-	int size = physics->particles.size();
-
-	#pragma omp parallel for
-	for(int i=0; i<size; i++) {
+	// update all particles
+	int numAlive = 0;
+	//#pragma omp parallel for
+	for(int i=0; i < psize; i++) {
 		Particle* p = physics->particles[i];
-
-	// Single threaded
-	#else
-	 for (vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
-		Particle* p = *it;
-	#endif
-
-		// Body
-		if(p->isAlive) {
-			// apply behaviours
-			for (list<Behaviour*>::iterator bit = physics->behaviours.begin(); bit != physics->behaviours.end(); bit++) {
-				(*bit)->apply(p);
-			}
-
-			// apply constraints
-			for (int i=0; i<constraintIterations; i++) {
-				for (list<Constraint*>::iterator cit = physics->constraints.begin(); cit != physics->constraints.end(); cit++) {
-					(*cit)->apply(p);
-				}
-			}	
-
-			// update particle
-			p->update(dt);
-
-			// particle just has died
-			if(!p->isAlive) {
-				physics->numParticles--;
-			}
-		} // isAlive
+		if(!p->isAlive) 
+			continue;
+		p->update(dt);
+		numAlive++;
 	}
-	*/
+	physics->numParticles = numAlive;
+
+	// apply constraints
+	for (int i=0; i<constraintIterations; i++) {
+		for (list<Constraint*>::iterator cit = physics->constraints.begin(); cit != physics->constraints.end(); cit++) {
+			Constraint* c = *cit;
+
+			if(i==0) 
+				c->prepare(dt);
+
+			#pragma omp parallel for
+			for(int i=0; i < psize; i++) {
+				Particle* p = physics->particles[i];
+				if(p->isAlive)
+					c->apply(p);
+			}
+		}
+	}
+#endif
 }
