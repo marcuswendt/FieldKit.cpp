@@ -149,31 +149,40 @@ void ScriptContext::reportException(TryCatch* try_catch)
 	if (message.IsEmpty()) {
 		// V8 didn't provide any extra information about this error; just
 		// print the exception.
-		printf("%s\n", exception_string);
+		LOG_WARN(exception_string);
+
 	} else {
 		// Print (filename):(line number): (message).
 		String::Utf8Value filename(message->GetScriptResourceName());
 		const char* filename_string = ToCString(filename);
 		int linenum = message->GetLineNumber();
-		printf("%s:%i: %s\n", filename_string, linenum, exception_string);
+
+		ostringstream ss;
+		ss << filename_string <<":"<< linenum <<" "<< exception_string << std::endl;
+
 		// Print line of source code.
 		String::Utf8Value sourceline(message->GetSourceLine());
 		const char* sourceline_string = ToCString(sourceline);
-		printf("%s\n", sourceline_string);
+
+		ss << sourceline_string << std::endl;
+
 		// Print wavy underline (GetUnderline is deprecated).
 		int start = message->GetStartColumn();
 		for (int i = 0; i < start; i++) {
-			printf(" ");
+			ss << " ";
 		}
 		int end = message->GetEndColumn();
 		for (int i = start; i < end; i++) {
-			printf("^");
+			ss << "^";
 		}
-		printf("\n");
+		ss << std::endl;
+
 		String::Utf8Value stack_trace(try_catch->StackTrace());
 		if (stack_trace.length() > 0) {
 			const char* stack_trace_string = ToCString(stack_trace);
-			printf("%s\n", stack_trace_string);
+			ss << stack_trace_string;
 		}
+
+		LOG_WARN(ss.str());
 	}
 }
