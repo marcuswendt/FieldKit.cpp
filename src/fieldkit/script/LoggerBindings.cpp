@@ -13,7 +13,7 @@
 
 using namespace fieldkit::script;
 
-void LoggerBindings::prepare(HObjectTemplate global) 
+void LoggerBindings::prepare(v8::Handle<ObjectTemplate> global) 
 {
 	global->Set(ToV8String("print"), FunctionTemplate::New(LoggerBindings::print));
 	global->Set(ToV8String("info"), FunctionTemplate::New(LoggerBindings::info));
@@ -28,7 +28,7 @@ void LoggerBindings::prepare(HObjectTemplate global)
 
 
 // Prints its arguments on stdout separated by spaces and ending with a newline.
-HValue LoggerBindings::print(Arguments const& args) 
+v8::Handle<Value> LoggerBindings::print(Arguments const& args) 
 {
 	bool first = true;
 	for (int i = 0; i < args.Length(); i++) {
@@ -46,7 +46,7 @@ HValue LoggerBindings::print(Arguments const& args)
 	return v8::Undefined();
 }
 
-HValue LoggerBindings::info(Arguments const& args) 
+v8::Handle<Value> LoggerBindings::info(Arguments const& args) 
 {	
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
@@ -58,7 +58,7 @@ HValue LoggerBindings::info(Arguments const& args)
 	return v8::Undefined();
 }
 
-HValue LoggerBindings::warn(Arguments const& args) 
+v8::Handle<Value> LoggerBindings::warn(Arguments const& args) 
 {	
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
@@ -70,7 +70,7 @@ HValue LoggerBindings::warn(Arguments const& args)
 	return v8::Undefined();
 }
 
-HValue LoggerBindings::error(Arguments const& args) 
+v8::Handle<Value> LoggerBindings::error(Arguments const& args) 
 {	
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
@@ -81,3 +81,4 @@ HValue LoggerBindings::error(Arguments const& args)
 	LOG_ERROR(ss.str());	
 	return v8::Undefined();
 }
+

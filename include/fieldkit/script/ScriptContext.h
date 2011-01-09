@@ -13,6 +13,8 @@
 
 namespace fieldkit { namespace script {
 	
+	using v8::Handle;
+	
 	//
 	// Script class; A context using several bindings to execute a javascript file
 	//
@@ -35,9 +37,9 @@ namespace fieldkit { namespace script {
 	protected:
 		std::vector<Binding*> bindings;
 		
-		HString readFile(std::string path);
+		Handle<String> readFile(std::string path);
 		
-		bool executeString(HString source, HValue name, 
+		bool executeString(Handle<String> source, Handle<Value> name, 
 						   bool print_result, bool report_exceptions);
 		
 		void reportException(TryCatch* handler);

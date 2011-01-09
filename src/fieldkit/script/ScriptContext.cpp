@@ -42,14 +42,14 @@ bool ScriptContext::execute(std::string _file)
 	// -- Create Context --
 	
 	// Create a template for the global object.
-	HObjectTemplate global = ObjectTemplate::New();
+	Handle<ObjectTemplate> global = ObjectTemplate::New();
 	
 	BOOST_FOREACH(Binding* b, bindings) {
 		b->prepare(global);
 	}
 	
 	// Create a new execution environment containing the built-in functions
-	HContext context = Context::New(NULL, global);
+	Handle<Context> context = Context::New(NULL, global);
 	
 	// Enter the newly created execution environment.
 	Context::Scope contextScope(context);
@@ -60,8 +60,8 @@ bool ScriptContext::execute(std::string _file)
 	}
 	
 	// -- Execute Script --
-	HString fileName = String::New(_file.c_str());
-	HString source = readFile(_file.c_str());
+	Handle<String> fileName = String::New(_file.c_str());
+	Handle<String> source = readFile(_file.c_str());
 	if (source.IsEmpty()) {
         LOG_ERROR("Error reading '"<< _file <<"'");
 		return false;
@@ -86,10 +86,10 @@ bool ScriptContext::execute(std::string _file)
 // -- Helpers ------------------------------------------------------------------
 
 // Reads a file into a v8 string.
-HString ScriptContext::readFile(std::string path) 
+Handle<String> ScriptContext::readFile(std::string path) 
 {
 	FILE* file = fopen(path.c_str(), "rb");
-	if (file == NULL) return HString();
+	if (file == NULL) return Handle<String>();
 	
 	fseek(file, 0, SEEK_END);
 	int size = ftell(file);
@@ -102,14 +102,14 @@ HString ScriptContext::readFile(std::string path)
 		i += read;
 	}
 	fclose(file);
-	HString result = String::New(chars, size);
+	Handle<String> result = String::New(chars, size);
 	delete[] chars;
 	return result;
 }
 
 
 // Executes a string within the current v8 context.
-bool ScriptContext::executeString(HString source, HValue name,
+bool ScriptContext::executeString(Handle<String> source, Handle<Value> name,
 						   bool print_result, bool report_exceptions) 
 {
 	HandleScope handle_scope;
@@ -121,7 +121,7 @@ bool ScriptContext::executeString(HString source, HValue name,
 			reportException(&try_catch);
 		return false;
 	} else {
-		HValue result = script->Run();
+		Handle<Value> result = script->Run();
 		if (result.IsEmpty()) {
 			// Print errors that happened during execution.
 			if (report_exceptions)
