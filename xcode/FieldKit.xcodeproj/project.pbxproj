@@ -33,13 +33,9 @@
 		2C240E7D11CFC25400856329 /* AABB.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE211CFC1CD00856329 /* AABB.h */; };
 		2C240E8211CFC25400856329 /* BoundingVolume.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE311CFC1CD00856329 /* BoundingVolume.h */; };
 		2C240E8511CFC25400856329 /* FieldKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DDF11CFC1CD00856329 /* FieldKit.h */; };
-		2C240E8811CFC25400856329 /* Model.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DFA11CFC1CD00856329 /* Model.h */; };
 		2C240E9011CFC25400856329 /* SphereBound.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DE411CFC1CD00856329 /* SphereBound.h */; };
-		2C240E9311CFC25400856329 /* Tweak.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DFB11CFC1CD00856329 /* Tweak.h */; };
 		2C240E9411CFC26B00856329 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1E11CFC1DF00856329 /* AABB.cpp */; };
-		2C240E9B11CFC26B00856329 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E3311CFC1DF00856329 /* Model.cpp */; };
 		2C240EA311CFC26B00856329 /* SphereBound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1F11CFC1DF00856329 /* SphereBound.cpp */; };
-		2C240EA611CFC26B00856329 /* Tweak.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E3411CFC1DF00856329 /* Tweak.cpp */; };
 		2C240EA711CFC28C00856329 /* CinderRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD611CFC1CD00856329 /* CinderRenderer.h */; };
 		2C240EA811CFC28C00856329 /* Common.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD711CFC1CD00856329 /* Common.h */; };
 		2C240EAA11CFC28C00856329 /* Renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD911CFC1CD00856329 /* Renderer.h */; };
@@ -82,6 +78,8 @@
 		2C55A3F111B0610F00041C25 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		2C579B90129169D2001E7796 /* LoggerBindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C579B8F129169D2001E7796 /* LoggerBindings.cpp */; };
+		2C6C534712DC7065008616B3 /* ConfigDict.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C6C534612DC7065008616B3 /* ConfigDict.h */; };
+		2C6C534A12DC70B5008616B3 /* ConfigDict.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C6C534912DC70B5008616B3 /* ConfigDict.cpp */; };
 		2C6F1CFF11E85BE1007EFB61 /* BoundingVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */; };
 		2C7D805212914614003653C1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2C7D805312914614003653C1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
@@ -244,8 +242,6 @@
 		2C240DE211CFC1CD00856329 /* AABB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABB.h; sourceTree = "<group>"; };
 		2C240DE311CFC1CD00856329 /* BoundingVolume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundingVolume.h; sourceTree = "<group>"; };
 		2C240DE411CFC1CD00856329 /* SphereBound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SphereBound.h; path = ../../../../FieldKit.cpp/include/fieldkit/math/SphereBound.h; sourceTree = "<group>"; };
-		2C240DFA11CFC1CD00856329 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		2C240DFB11CFC1CD00856329 /* Tweak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweak.h; sourceTree = "<group>"; };
 		2C240E1811CFC1DF00856329 /* CinderRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CinderRenderer.cpp; sourceTree = "<group>"; };
 		2C240E1911CFC1DF00856329 /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		2C240E1A11CFC1DF00856329 /* Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scene.cpp; sourceTree = "<group>"; };
@@ -253,9 +249,7 @@
 		2C240E1C11CFC1DF00856329 /* SceneImporter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneImporter.cpp; sourceTree = "<group>"; };
 		2C240E1E11CFC1DF00856329 /* AABB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AABB.cpp; sourceTree = "<group>"; };
 		2C240E1F11CFC1DF00856329 /* SphereBound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SphereBound.cpp; path = ../../../../FieldKit.cpp/src/fieldkit/math/SphereBound.cpp; sourceTree = "<group>"; };
-		2C240E3311CFC1DF00856329 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Model.cpp; sourceTree = "<group>"; };
-		2C240E3411CFC1DF00856329 /* Tweak.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tweak.cpp; sourceTree = "<group>"; };
-		2C2BEC0511CFB45C00868B71 /* libFBXKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C2BEC0511CFB45C00868B71 /* libFBXKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C37A1FE12915B9800D89B24 /* ScriptKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScriptKit.h; path = script/ScriptKit.h; sourceTree = "<group>"; };
 		2C48C4B211F5FAD800C5E77C /* SpatialHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpatialHash.h; sourceTree = "<group>"; };
 		2C48C4B411F5FE0700C5E77C /* SpatialHash.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpatialHash.cpp; sourceTree = "<group>"; };
@@ -265,18 +259,20 @@
 		2C49642411FDB74100749B68 /* Ray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ray.cpp; sourceTree = "<group>"; };
 		2C49644C11FDC1B600749B68 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		2C49644D11FDC1D000749B68 /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
-		2C55A26211B0608700041C25 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C55A26211B0608700041C25 /* libFieldKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C579B8F129169D2001E7796 /* LoggerBindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoggerBindings.cpp; path = script/LoggerBindings.cpp; sourceTree = "<group>"; };
+		2C6C534612DC7065008616B3 /* ConfigDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigDict.h; sourceTree = "<group>"; };
+		2C6C534912DC70B5008616B3 /* ConfigDict.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigDict.cpp; sourceTree = "<group>"; };
 		2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
-		2C7D805F12914614003653C1 /* libScriptKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libScriptKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C7D805F12914614003653C1 /* libScriptKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libScriptKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7D806B12914653003653C1 /* Binding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Binding.h; path = script/Binding.h; sourceTree = "<group>"; };
 		2C7D806C12914653003653C1 /* LoggerBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerBindings.h; path = script/LoggerBindings.h; sourceTree = "<group>"; };
 		2C7D806D12914653003653C1 /* ProxyClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProxyClass.h; path = script/ProxyClass.h; sourceTree = "<group>"; };
 		2C7D806E12914653003653C1 /* ScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScriptContext.h; path = script/ScriptContext.h; sourceTree = "<group>"; };
 		2C7D80741291465F003653C1 /* ProxyClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProxyClass.cpp; path = script/ProxyClass.cpp; sourceTree = "<group>"; };
 		2C7D80751291465F003653C1 /* ScriptContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptContext.cpp; path = script/ScriptContext.cpp; sourceTree = "<group>"; };
-		2CA833E611DB99EE00D5B37B /* libGLKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhysicsKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA833E611DB99EE00D5B37B /* libGLKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGLKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA8340611DB99F100D5B37B /* libPhysicsKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPhysicsKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA8340E11DBBDA400D5B37B /* GLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLKit.h; path = ../../FieldKit.cpp/include/fieldkit/gl/GLKit.h; sourceTree = SOURCE_ROOT; };
 		2CA8340F11DBBDA400D5B37B /* PointCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointCloud.h; path = ../../FieldKit.cpp/include/fieldkit/gl/PointCloud.h; sourceTree = SOURCE_ROOT; };
 		2CA8341011DBBDA400D5B37B /* PointDataFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointDataFormat.h; path = ../../FieldKit.cpp/include/fieldkit/gl/PointDataFormat.h; sourceTree = SOURCE_ROOT; };
@@ -466,11 +462,11 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C55A26211B0608700041C25 /* libFieldKit_d.a */,
-				2C2BEC0511CFB45C00868B71 /* libFBXKit_d.a */,
-				2CA833E611DB99EE00D5B37B /* libGLKit_d.a */,
-				2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */,
-				2C7D805F12914614003653C1 /* libScriptKit_d.a */,
+				2C55A26211B0608700041C25 /* libFieldKit.a */,
+				2C2BEC0511CFB45C00868B71 /* libFBXKit.a */,
+				2CA833E611DB99EE00D5B37B /* libGLKit.a */,
+				2CA8340611DB99F100D5B37B /* libPhysicsKit.a */,
+				2C7D805F12914614003653C1 /* libScriptKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -516,14 +512,14 @@
 		2C240DD411CFC1CD00856329 /* fieldkit */ = {
 			isa = PBXGroup;
 			children = (
-				2C16CBE211D944E30038C163 /* Logger.h */,
-				2C240DDF11CFC1CD00856329 /* FieldKit.h */,
 				2C240DD511CFC1CD00856329 /* fbx */,
 				2CA8340711DBBD8100D5B37B /* gl */,
 				2C240DE111CFC1CD00856329 /* math */,
 				2C240DE511CFC1CD00856329 /* physics */,
 				2C7D8011129144F0003653C1 /* script */,
-				2C240DF911CFC1CD00856329 /* tweak */,
+				2C16CBE211D944E30038C163 /* Logger.h */,
+				2C240DDF11CFC1CD00856329 /* FieldKit.h */,
+				2C6C534612DC7065008616B3 /* ConfigDict.h */,
 			);
 			name = fieldkit;
 			path = ../include/fieldkit;
@@ -576,25 +572,16 @@
 			path = physics;
 			sourceTree = "<group>";
 		};
-		2C240DF911CFC1CD00856329 /* tweak */ = {
-			isa = PBXGroup;
-			children = (
-				2C240DFA11CFC1CD00856329 /* Model.h */,
-				2C240DFB11CFC1CD00856329 /* Tweak.h */,
-			);
-			path = tweak;
-			sourceTree = "<group>";
-		};
 		2C240E1611CFC1DF00856329 /* fieldkit */ = {
 			isa = PBXGroup;
 			children = (
-				2C16CBE011D944D70038C163 /* Logger.cpp */,
 				2C240E1711CFC1DF00856329 /* fbx */,
 				2CA8340811DBBD8B00D5B37B /* gl */,
 				2C240E1D11CFC1DF00856329 /* math */,
 				2C240E2011CFC1DF00856329 /* physics */,
 				2C7D8010129144D3003653C1 /* script */,
-				2C240E3211CFC1DF00856329 /* tweak */,
+				2C16CBE011D944D70038C163 /* Logger.cpp */,
+				2C6C534912DC70B5008616B3 /* ConfigDict.cpp */,
 			);
 			name = fieldkit;
 			path = ../src/fieldkit;
@@ -638,15 +625,6 @@
 				2CA8342211DBBE0D00D5B37B /* Spring.cpp */,
 			);
 			path = physics;
-			sourceTree = "<group>";
-		};
-		2C240E3211CFC1DF00856329 /* tweak */ = {
-			isa = PBXGroup;
-			children = (
-				2C240E3311CFC1DF00856329 /* Model.cpp */,
-				2C240E3411CFC1DF00856329 /* Tweak.cpp */,
-			);
-			path = tweak;
 			sourceTree = "<group>";
 		};
 		2C49600511FC336400749B68 /* strategy */ = {
@@ -828,12 +806,11 @@
 				2C240E7D11CFC25400856329 /* AABB.h in Headers */,
 				2C240E8211CFC25400856329 /* BoundingVolume.h in Headers */,
 				2C240E8511CFC25400856329 /* FieldKit.h in Headers */,
-				2C240E8811CFC25400856329 /* Model.h in Headers */,
 				2C240E9011CFC25400856329 /* SphereBound.h in Headers */,
-				2C240E9311CFC25400856329 /* Tweak.h in Headers */,
 				2C16CBDB11D944B10038C163 /* MathKit.h in Headers */,
 				2C16CBE311D944E30038C163 /* Logger.h in Headers */,
 				2C49642311FDB72F00749B68 /* Ray.h in Headers */,
+				2C6C534712DC7065008616B3 /* ConfigDict.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,7 +891,7 @@
 			);
 			name = FBXKit;
 			productName = FieldKit;
-			productReference = 2C2BEC0511CFB45C00868B71 /* libFBXKit_d.a */;
+			productReference = 2C2BEC0511CFB45C00868B71 /* libFBXKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		2C55A26111B0608700041C25 /* FieldKit */ = {
@@ -931,7 +908,7 @@
 			);
 			name = FieldKit;
 			productName = FieldKit;
-			productReference = 2C55A26211B0608700041C25 /* libFieldKit_d.a */;
+			productReference = 2C55A26211B0608700041C25 /* libFieldKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		2C7D804812914614003653C1 /* ScriptKit */ = {
@@ -948,7 +925,7 @@
 			);
 			name = ScriptKit;
 			productName = FieldKit;
-			productReference = 2C7D805F12914614003653C1 /* libScriptKit_d.a */;
+			productReference = 2C7D805F12914614003653C1 /* libScriptKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		2CA833C711DB99EE00D5B37B /* GLKit */ = {
@@ -965,7 +942,7 @@
 			);
 			name = GLKit;
 			productName = FieldKit;
-			productReference = 2CA833E611DB99EE00D5B37B /* libGLKit_d.a */;
+			productReference = 2CA833E611DB99EE00D5B37B /* libGLKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		2CA833E711DB99F100D5B37B /* PhysicsKit */ = {
@@ -982,7 +959,7 @@
 			);
 			name = PhysicsKit;
 			productName = FieldKit;
-			productReference = 2CA8340611DB99F100D5B37B /* libPhysicsKit_d.a */;
+			productReference = 2CA8340611DB99F100D5B37B /* libPhysicsKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -1036,13 +1013,12 @@
 			files = (
 				2C6F1CFF11E85BE1007EFB61 /* BoundingVolume.cpp in Sources */,
 				2C240E9411CFC26B00856329 /* AABB.cpp in Sources */,
-				2C240E9B11CFC26B00856329 /* Model.cpp in Sources */,
 				2C240EA311CFC26B00856329 /* SphereBound.cpp in Sources */,
-				2C240EA611CFC26B00856329 /* Tweak.cpp in Sources */,
 				2C16CBDD11D944BD0038C163 /* MathKit.cpp in Sources */,
 				2C16CBE111D944D70038C163 /* Logger.cpp in Sources */,
 				2C49642511FDB74100749B68 /* Ray.cpp in Sources */,
 				2C49644E11FDC1D000749B68 /* Line.cpp in Sources */,
+				2C6C534A12DC70B5008616B3 /* ConfigDict.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
