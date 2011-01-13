@@ -7,7 +7,7 @@
  *	 Created by Marcus Wendt on 11/01/2011.
  */
 
-#include "ConfigDict.h"
+#include "fieldkit/ConfigDict.h"
 
 #include "fieldkit/FieldKit.h"
 #include "cinder/Xml.h"

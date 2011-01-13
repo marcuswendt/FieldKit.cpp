@@ -105,6 +105,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\fieldkit\ConfigDict.cpp" />
     <ClCompile Include="..\src\fieldkit\Logger.cpp" />
     <ClCompile Include="..\src\fieldkit\math\AABB.cpp" />
     <ClCompile Include="..\src\fieldkit\math\BoundingVolume.cpp" />
@@ -112,10 +113,9 @@
     <ClCompile Include="..\src\fieldkit\math\MathKit.cpp" />
     <ClCompile Include="..\src\fieldkit\math\Ray.cpp" />
     <ClCompile Include="..\src\fieldkit\math\SphereBound.cpp" />
-    <ClCompile Include="..\src\fieldkit\tweak\Model.cpp" />
-    <ClCompile Include="..\src\fieldkit\tweak\Tweak.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\fieldkit\ConfigDict.h" />
     <ClInclude Include="..\include\fieldkit\FieldKit.h" />
     <ClInclude Include="..\include\fieldkit\Logger.h" />
     <ClInclude Include="..\include\fieldkit\math\AABB.h" />
@@ -124,8 +124,6 @@
     <ClInclude Include="..\include\fieldkit\math\MathKit.h" />
     <ClInclude Include="..\include\fieldkit\math\Ray.h" />
     <ClInclude Include="..\include\fieldkit\math\SphereBound.h" />
-    <ClInclude Include="..\include\fieldkit\tweak\Model.h" />
-    <ClInclude Include="..\include\fieldkit\tweak\Tweak.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.txt" />

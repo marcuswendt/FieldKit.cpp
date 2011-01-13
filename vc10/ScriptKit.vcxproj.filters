@@ -13,32 +13,50 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
+    <Filter Include="Header Files\binding">
+      <UniqueIdentifier>{5441d01e-d570-41d3-a652-2e4d0c40be9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\proxy">
+      <UniqueIdentifier>{f831e501-c7dd-4c1f-84e2-9f30c122b9e8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\fieldkit\script\ScriptContext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\fieldkit\script\ScriptKit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\script\Binding.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\binding</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\script\LoggerBindings.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\binding</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\Accessor.h">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\InstanceHandle.h">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\Property.h">
+      <Filter>Header Files\proxy</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\script\ProxyClass.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\proxy</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\fieldkit\script\ScriptContext.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\include\fieldkit\script\Type.h">
+      <Filter>Header Files\proxy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\fieldkit\script\LoggerBindings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\fieldkit\script\ScriptContext.cpp">
+    <ClCompile Include="..\src\fieldkit\script\ProxyClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\fieldkit\script\ProxyClass.cpp">
+    <ClCompile Include="..\src\fieldkit\script\ScriptContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\script\ScriptKit.cpp">

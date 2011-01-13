@@ -11,11 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\fieldkit\script\Accessor.h" />
     <ClInclude Include="..\include\fieldkit\script\Binding.h" />
+    <ClInclude Include="..\include\fieldkit\script\InstanceHandle.h" />
     <ClInclude Include="..\include\fieldkit\script\LoggerBindings.h" />
+    <ClInclude Include="..\include\fieldkit\script\Property.h" />
     <ClInclude Include="..\include\fieldkit\script\ProxyClass.h" />
     <ClInclude Include="..\include\fieldkit\script\ScriptContext.h" />
     <ClInclude Include="..\include\fieldkit\script\ScriptKit.h" />
+    <ClInclude Include="..\include\fieldkit\script\Type.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\fieldkit\script\LoggerBindings.cpp" />

@@ -16,14 +16,8 @@
     <Filter Include="Source Files\math">
       <UniqueIdentifier>{ea76adfe-ac01-4ea1-b6dd-8c3a9e1a7762}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\tweak">
-      <UniqueIdentifier>{daccb5cd-06a8-46f2-a684-81d9249a6ae6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\math">
       <UniqueIdentifier>{0b14d083-57bf-4bec-915e-35611f8e76a9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\tweak">
-      <UniqueIdentifier>{703bc063-96db-4c01-bd3c-64e6b298eafb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -45,13 +39,10 @@
     <ClCompile Include="..\src\fieldkit\math\SphereBound.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\fieldkit\tweak\Model.cpp">
-      <Filter>Source Files\tweak</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\fieldkit\tweak\Tweak.cpp">
-      <Filter>Source Files\tweak</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\fieldkit\Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\ConfigDict.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,16 +65,13 @@
     <ClInclude Include="..\include\fieldkit\math\SphereBound.h">
       <Filter>Header Files\math</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\fieldkit\tweak\Model.h">
-      <Filter>Header Files\tweak</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\tweak\Tweak.h">
-      <Filter>Header Files\tweak</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\fieldkit\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\FieldKit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\ConfigDict.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
