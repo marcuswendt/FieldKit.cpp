@@ -65,6 +65,9 @@ void ConfigDict::print()
 		LOG_INFO("* " << (*it).first << " = " << (*it).second);
 }
 
+
+// -- Getters ------------------------------------------------------------------
+
 Vec2f ConfigDict::get2f(const string key, Vec2f alt)
 {
 	string value = gets(key);
@@ -100,3 +103,21 @@ Vec3f ConfigDict::get3f(const string key, Vec3f alt)
 		return alt;
 	}
 }
+
+Vec2i ConfigDict::get2i(const string key, Vec2i alt)
+{
+	string value = gets(key);
+	
+	std::vector<std::string> parts;
+	boost::split(parts, value, boost::is_any_of(","));
+	
+	if(parts.size() == 2) {
+		float x = fromString<float>(parts[0], 0.0f);
+		float y = fromString<float>(parts[1], 0.0f);
+		return Vec2i(x,y);
+		
+	} else {
+		return alt;
+	}
+}
+

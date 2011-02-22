@@ -25,6 +25,7 @@ namespace fieldkit {
 
 using ci::Vec2f;
 using ci::Vec3f;
+using ci::Vec2i;
 	
 //! A simple configuration dictionary - loads XML
 class ConfigDict {
@@ -41,6 +42,7 @@ public:
 	
 	Vec2f get2f(const string key, Vec2f alt=Vec2f::zero());
 	Vec3f get3f(const string key, Vec3f alt=Vec3f::zero());
+	Vec2i get2i(const string key, Vec2i alt=Vec2i::zero());
 	
 private:
 	map<string, string> settings;
