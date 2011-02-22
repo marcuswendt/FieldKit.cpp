@@ -67,6 +67,8 @@
 		2C49642311FDB72F00749B68 /* Ray.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C49642211FDB72F00749B68 /* Ray.h */; };
 		2C49642511FDB74100749B68 /* Ray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C49642411FDB74100749B68 /* Ray.cpp */; };
 		2C49644E11FDC1D000749B68 /* Line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C49644D11FDC1D000749B68 /* Line.cpp */; };
+		2C5075701313F69B00F850EA /* MathKit_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C50756F1313F69B00F850EA /* MathKit_Prefix.h */; };
+		2C5075A61313F9C400F850EA /* PhysicsKit_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5075A51313F9C400F850EA /* PhysicsKit_Prefix.h */; };
 		2C55A3E911B0610F00041C25 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2C55A3EA11B0610F00041C25 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
 		2C55A3EB11B0610F00041C25 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -259,6 +261,8 @@
 		2C49642411FDB74100749B68 /* Ray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ray.cpp; sourceTree = "<group>"; };
 		2C49644C11FDC1B600749B68 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		2C49644D11FDC1D000749B68 /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
+		2C50756F1313F69B00F850EA /* MathKit_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathKit_Prefix.h; sourceTree = "<group>"; };
+		2C5075A51313F9C400F850EA /* PhysicsKit_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsKit_Prefix.h; sourceTree = "<group>"; };
 		2C55A26211B0608700041C25 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C579B8F129169D2001E7796 /* LoggerBindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoggerBindings.cpp; path = script/LoggerBindings.cpp; sourceTree = "<group>"; };
 		2C6C534612DC7065008616B3 /* ConfigDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigDict.h; sourceTree = "<group>"; };
@@ -545,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				2C16CBDA11D944B10038C163 /* MathKit.h */,
+				2C50756F1313F69B00F850EA /* MathKit_Prefix.h */,
 				2C240DE311CFC1CD00856329 /* BoundingVolume.h */,
 				2C240DE411CFC1CD00856329 /* SphereBound.h */,
 				2C240DE211CFC1CD00856329 /* AABB.h */,
@@ -560,13 +565,14 @@
 				2CA8345711DBBE6400D5B37B /* space */,
 				2CA8344611DBBE5E00D5B37B /* behaviour */,
 				2C49600711FC337B00749B68 /* strategy */,
+				2CA8346611DBBE6D00D5B37B /* PhysicsKit.h */,
+				2C5075A51313F9C400F850EA /* PhysicsKit_Prefix.h */,
 				2CA8346011DBBE6D00D5B37B /* Behaviour.h */,
 				2CA8346111DBBE6D00D5B37B /* Behavioural.h */,
 				2CA8346211DBBE6D00D5B37B /* Constraint.h */,
 				2CA8346311DBBE6D00D5B37B /* Emitter.h */,
 				2CA8346411DBBE6D00D5B37B /* Particle.h */,
 				2CA8346511DBBE6D00D5B37B /* Physics.h */,
-				2CA8346611DBBE6D00D5B37B /* PhysicsKit.h */,
 				2CA8346711DBBE6D00D5B37B /* Spring.h */,
 			);
 			path = physics;
@@ -811,6 +817,7 @@
 				2C16CBE311D944E30038C163 /* Logger.h in Headers */,
 				2C49642311FDB72F00749B68 /* Ray.h in Headers */,
 				2C6C534712DC7065008616B3 /* ConfigDict.h in Headers */,
+				2C5075701313F69B00F850EA /* MathKit_Prefix.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,6 +878,7 @@
 				2CD7DAFF122304F4003DE1B7 /* ParticleUpdate.h in Headers */,
 				2CD7DB00122304F4003DE1B7 /* PhysicsStrategy.h in Headers */,
 				2CD7DB01122304F4003DE1B7 /* SpringUpdate.h in Headers */,
+				2C5075A61313F9C400F850EA /* PhysicsKit_Prefix.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

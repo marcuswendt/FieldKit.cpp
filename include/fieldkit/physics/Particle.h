@@ -11,9 +11,6 @@
 
 #include "fieldkit/physics/space/Spatial.h"
 
-#include "fieldkit/math/MathKit.h"
-using namespace fieldkit::math;
-
 namespace fieldkit { namespace physics {
 	
 	class Particle : public Spatial {

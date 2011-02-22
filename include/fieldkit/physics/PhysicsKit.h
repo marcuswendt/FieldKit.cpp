@@ -17,10 +17,7 @@
 	#include <omp.h>
 #endif
 
-// Dependencies
-#include "fieldkit/FieldKit.h"
-
-#include "fieldkit/math/MathKit.h"
+#include "fieldkit/physics/PhysicsKit_Prefix.h"
 
 // space
 #include "fieldkit/physics/space/Spatial.h"

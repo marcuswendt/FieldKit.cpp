@@ -11,6 +11,10 @@
 
 #include "cinder/Rand.h"
 
+namespace fieldkit { namespace math {
+	
+using ci::Vec3f;
+
 float invSqrt(float x) {
 	float xhalf = 0.5f * x;
 	int i = *(int*)&x; // store floating-point bits in integer
@@ -20,46 +24,48 @@ float invSqrt(float x) {
 	return x;
 }
 
-bool fieldkit::math::flipCoin( float chance )
+bool flipCoin( float chance )
 {
 	return randFloat() > chance;
 }
 
 
 // -- Random Float ----------------------------------------------------------
-float fieldkit::math::randFloat() 
+float randFloat() 
 {
 	return ci::Rand::randFloat();
 }
 
-float fieldkit::math::randFloat( float range )
+float randFloat( float range )
 {
 	return ci::Rand::randFloat(range);
 }
 
-float fieldkit::math::randFloat( float from, float to )
+float randFloat( float from, float to )
 {
 	return ci::Rand::randFloat(from, to);
 }
 
 
 // -- Random Vec3 -----------------------------------------------------------
-Vec3f fieldkit::math::randVec3f()
+Vec3f randVec3f()
 {
 	return Vec3f(randFloat(), randFloat(), randFloat());
 }
 
-Vec3f fieldkit::math::randVec3f( float range )
+Vec3f randVec3f( float range )
 {
 	return Vec3f(randFloat(range), randFloat(range), randFloat(range));
 }
 
-Vec3f fieldkit::math::randVec3f( float from, float to )
+Vec3f randVec3f( float from, float to )
 {
 	return Vec3f(randFloat(from, to), randFloat(from, to), randFloat(from, to));
 }
 
-Vec3f fieldkit::math::randNormal()
+Vec3f randNormal()
 {
 	return randVec3f(-1.0f, 1.0f);
 }
+
+} } // fieldkit::math

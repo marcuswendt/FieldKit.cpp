@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "fieldkit/FieldKit.h"
+#include "fieldkit/math/MathKit_Prefix.h"
 #include "fieldkit/math/BoundingVolume.h"
 
 namespace fieldkit { namespace math {
