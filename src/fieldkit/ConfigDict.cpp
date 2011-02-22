@@ -10,16 +10,25 @@
 #include "fieldkit/ConfigDict.h"
 
 #include "fieldkit/FieldKit.h"
+
 #include "cinder/Xml.h"
+#include "rapidxml/rapidxml.hpp"
 
 using namespace fieldkit;
 using namespace cinder;
 
 void ConfigDict::loadXML(DataSourceRef source)
 {
-	// LOG_INFO("Config::loadXML "<< source->getFilePathHint());
+	XmlTree doc;
+	try {
+		doc = XmlTree(source);	
+	} catch(rapidxml::parse_error &e) {
+		LOG_ERROR("ConfigDict::loadXML - couldnt parse XML data ("<< 
+				  "error: "<< e.what() <<" "<<
+				  "file: "<< source->getFilePathHint() <<
+				  ")");
+	}
 	
-	XmlTree doc = XmlTree(source);
 	XmlTree root = *doc.begin();
 	
 	for(XmlTree::ConstIter setting = root.begin(); setting != root.end(); ++setting) 
