@@ -56,6 +56,15 @@ void ConfigDict::overrideWith(const std::vector<std::string>& args)
 	}
 }
 
+void ConfigDict::print()
+{
+	LOG_INFO("Settings:");
+	
+	map<string, string>::iterator it;
+	for(it=settings.begin() ; it != settings.end(); it++ )
+		LOG_INFO("* " << (*it).first << " = " << (*it).second);
+}
+
 Vec2f ConfigDict::get2f(const string key, Vec2f alt)
 {
 	string value = gets(key);
@@ -65,7 +74,7 @@ Vec2f ConfigDict::get2f(const string key, Vec2f alt)
 	
 	if(parts.size() == 2) {
 		float x = fromString<float>(parts[0], 0.0f);
-		float y = fromString<float>(parts[0], 0.0f);
+		float y = fromString<float>(parts[1], 0.0f);
 		return Vec2f(x,y);
 		
 	} else {
@@ -73,11 +82,21 @@ Vec2f ConfigDict::get2f(const string key, Vec2f alt)
 	}
 }
 
-void ConfigDict::print()
+
+Vec3f ConfigDict::get3f(const string key, Vec3f alt)
 {
-	LOG_INFO("Settings:");
+	string value = gets(key);
 	
-	map<string, string>::iterator it;
-	for(it=settings.begin() ; it != settings.end(); it++ )
-		LOG_INFO("* " << (*it).first << " = " << (*it).second);
+	std::vector<std::string> parts;
+	boost::split(parts, value, boost::is_any_of(","));
+	
+	if(parts.size() == 3) {
+		float x = fromString<float>(parts[0], 0.0f);
+		float y = fromString<float>(parts[1], 0.0f);
+		float z = fromString<float>(parts[2], 0.0f);
+		return Vec3f(x,y,z);
+		
+	} else {
+		return alt;
+	}
 }
