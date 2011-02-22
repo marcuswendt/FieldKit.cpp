@@ -18,9 +18,13 @@ using std::map;
 using std::string;
 
 #include <boost/lexical_cast.hpp>
-
+#include <boost/algorithm/string.hpp>
+#include "cinder/Vector.h"
 
 namespace fieldkit {
+
+using ci::Vec2f;
+using ci::Vec3f;
 	
 //! A simple configuration dictionary - loads XML
 class ConfigDict {
@@ -35,6 +39,9 @@ public:
 	float getf(const string key, float alt=0.0f) { return get<float>(key, alt); };	
 	double getd(const string key, double alt=0.0) { return get<double>(key, alt); };	
 	
+	Vec2f get2f(const string key, Vec2f alt=Vec2f::zero());
+	Vec3f get3f(const string key, Vec3f alt=Vec3f::zero());
+	
 private:
 	map<string, string> settings;
 	
@@ -45,15 +52,21 @@ private:
 		map<string, string>::iterator it;
 		it = settings.find(key);
 		if(it != settings.end()) {
-			try {
-				return boost::lexical_cast<T>( (*it).second );
-			} catch(boost::bad_lexical_cast &) {
-				return defaultValue;
-			}
+			return fromString<T>((*it).second, defaultValue);
 		} else {
 			return defaultValue;
 		}
 	};
+	
+	template <typename T>
+	T fromString(const string value, const T defaultValue) 
+	{
+		try {
+			return boost::lexical_cast<T>(value);
+		} catch(boost::bad_lexical_cast &) {
+			return defaultValue;
+		}
+	}
 };
 
 } // namespace fieldkit

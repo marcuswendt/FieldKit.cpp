@@ -12,8 +12,6 @@
 #include "fieldkit/FieldKit.h"
 #include "cinder/Xml.h"
 
-#include <boost/algorithm/string.hpp>
-
 using namespace fieldkit;
 using namespace cinder;
 
@@ -46,6 +44,23 @@ void ConfigDict::overrideWith(const std::vector<std::string>& args)
 			if(key.substr(0,1) == "-") key = key.substr(1);
 			settings[key] = strs[1];
 		}
+	}
+}
+
+Vec2f ConfigDict::get2f(const string key, Vec2f alt)
+{
+	string value = gets(key);
+	
+	std::vector<std::string> parts;
+	boost::split(parts, value, boost::is_any_of(","));
+	
+	if(parts.size() == 2) {
+		float x = fromString<float>(parts[0], 0.0f);
+		float y = fromString<float>(parts[0], 0.0f);
+		return Vec2f(x,y);
+		
+	} else {
+		return alt;
 	}
 }
 
