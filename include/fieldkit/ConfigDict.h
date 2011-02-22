@@ -26,6 +26,7 @@ namespace fieldkit {
 class ConfigDict {
 public:
 	void loadXML(ci::DataSourceRef source);
+	void overrideWith(const std::vector<std::string>& args);
 	void print();
 	
 	string gets(const string key, string alt="") { return get<string>(key, alt); };
@@ -44,7 +45,11 @@ private:
 		map<string, string>::iterator it;
 		it = settings.find(key);
 		if(it != settings.end()) {
-			return boost::lexical_cast<T>( (*it).second );
+			try {
+				return boost::lexical_cast<T>( (*it).second );
+			} catch(boost::bad_lexical_cast &) {
+				return defaultValue;
+			}
 		} else {
 			return defaultValue;
 		}
