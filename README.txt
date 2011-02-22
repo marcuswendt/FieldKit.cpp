@@ -2,7 +2,7 @@
                                                                            
       _____  __  _____  __     ____                                   
      / ___/ / / /____/ / /    /    \   FieldKit
-    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
+    / ___/ /_/ /____/ / /__  /  /  /   (c) 2011, FIELD. All rights reserved.              
    /_/        /____/ /____/ /_____/    http://www.field.io           
 
    
@@ -24,17 +24,12 @@ professional-quality creative coding in C++"
 
 === FieldKit ===
 
-Provides core math, animation and persistance utilities;
+Provides core math and animation utilities;
 
 * Physics; An extendible verlet particle system that comes with 
   a growing library of animation behaviours.
   
 * Math: Common geometry and math utilities that are not already implemented in Cinder.
-
-* Tweak: A simple solution to define an application data model. Used to create 
-  an abstraction layer between graphical interface and application allowing to 
-  load/save an applications configuration/ state.
-
 
 - Requirements -
 
@@ -60,25 +55,7 @@ To make sure all headers and libraries can be found by Xcode/Visual Studio place
 ~/Documents/Development/Libraries/Cinder (latest version from github)
 ~/Documents/Development/Libraries/FBXSDK (link to /Applications/Autodesk/FBXSDK2011_3)
 ~/Documents/Development/Libraries/OpenCV
-
-
-=== Vision Kit ===
-
-Aims to provide a robust and extendible solution to common computer-vision problems;
-Blob detection, blob tracking, contouring and finger tip detection.
-
-
-- Requirements -
-
-* FieldKit
-* OpenCV 2.1
-  Windows
-  http://sourceforge.net/projects/opencvlibrary/files/opencv-win/2.1/OpenCV-2.1.0-win32-vs2008.exe/download
-  
-  Mac OSX
-  http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.1/OpenCV-2.1.0.tar.bz2/download
-
-  
+ 
 
   
 === FBX Kit ===
