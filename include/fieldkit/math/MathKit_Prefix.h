@@ -13,8 +13,8 @@
 
 #include "fieldkit/FieldKit.h"
 
-#include <cinder/CinderMath.h>
-#include <cinder/Vector.h>
+#include "cinder/CinderMath.h"
+#include "cinder/Vector.h"
 
 // Global math helper methods
 namespace fieldkit { namespace math {

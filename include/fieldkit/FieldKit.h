@@ -9,20 +9,25 @@
 
 #pragma once
 
-//! FieldKit globals
+// -- DEPENDENCIES -------------------------------------------------------------
+
+// STL
+#include <list>
+#include <vector>
+#include <string>
+using namespace std;
+
+// BOOST
+#include <boost/foreach.hpp>
+
+
+
+// -- FIELDKIT -----------------------------------------------------------------
+
 namespace fieldkit {};
 
 // Create a namepace alias as shorthand for fieldkit::
 namespace fk = fieldkit;
 
 #include "fieldkit/Logger.h"
-
-// DEPENDENCIES
-// stl
-#include <list>
-#include <vector>
-#include <string>
-using namespace std;
-
-// boost
-#include <boost/foreach.hpp>
+#include "fieldkit/ConfigDict.h"

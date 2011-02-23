@@ -27,7 +27,7 @@ using ci::Vec2f;
 using ci::Vec3f;
 using ci::Vec2i;
 	
-//! A simple configuration dictionary - loads XML
+//! A simple configuration dictionary
 class ConfigDict {
 public:
 	void loadXML(ci::DataSourceRef source);
