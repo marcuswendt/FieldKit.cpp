@@ -56,6 +56,15 @@ void ConfigDict::overrideWith(const std::vector<std::string>& args)
 	}
 }
 
+void ConfigDict::overrideWith(int argc, const char* argv[])
+{
+    std::vector<std::string> args;
+    for(int arg = 0; arg < argc; ++arg)
+		args.push_back(std::string(argv[arg]));
+    
+    overrideWith(args);
+}
+
 void ConfigDict::print()
 {
 	LOG_INFO("Settings:");

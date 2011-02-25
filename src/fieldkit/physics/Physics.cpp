@@ -89,7 +89,7 @@ void Physics::update(float dt)
 	if(particleUpdate != NULL)
 		particleUpdate->apply(this, dt);
 
-	if(springUpdate = NULL)
+	if(springUpdate != NULL)
 		springUpdate->apply(this);
 
 	if(neighbourUpdate != NULL)

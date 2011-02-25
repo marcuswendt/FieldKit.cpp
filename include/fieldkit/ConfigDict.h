@@ -31,7 +31,10 @@ using ci::Vec2i;
 class ConfigDict {
 public:
 	void loadXML(ci::DataSourceRef source);
+    //! override with cinder-style args
 	void overrideWith(const std::vector<std::string>& args);
+    //! override with c style args
+    void overrideWith(int argc, const char* argv[]);
 	void print();
 	
 	string gets(const string key, string alt="") { return get<string>(key, alt); };
@@ -65,7 +68,7 @@ private:
 	{
 		try {
 			return boost::lexical_cast<T>(value);
-		} catch(boost::bad_lexical_cast &) {
+		} catch(boost::bad_lexical_cast &e) {
 			return defaultValue;
 		}
 	}

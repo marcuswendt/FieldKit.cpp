@@ -72,7 +72,7 @@ void SpatialHash::insert(Spatial* spatial)
 	
 	// make sure the spatial lies within the cell space
 	unsigned int index = hashY * cellsX + hashX;
-	if(index < 0 || index >= cells.size()) return;
+	if(index >= cells.size()) return;
 	cells[index].push_back(spatial);
 }
 
