@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "cinder/CinderMath.h"
+//#include "cinder/CinderMath.h"
 #include "fieldkit/math/Vector.h"
 
 // Global math helper methods
