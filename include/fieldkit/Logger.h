@@ -27,14 +27,14 @@
 
 
 #define LOG_OUTPUT(LEVEL, MSG) \
-	if(fk::Logger::Instance()->getLogLevel() <= LEVEL) { \
-		fk::Logger::Instance()->getStream() << fk::Logger::Instance()->getLevelName(LEVEL) << ": " << MSG; \
-		fk::Logger::Instance()->flush(); \
+	if(fieldkit::Logger::Instance()->getLogLevel() <= LEVEL) { \
+		fieldkit::Logger::Instance()->getStream() << fieldkit::Logger::Instance()->getLevelName(LEVEL) << ": " << MSG; \
+		fieldkit::Logger::Instance()->flush(); \
 	}
 
-#define LOG_INFO(MSG) LOG_OUTPUT(fk::LOGLEVEL_INFO, MSG)
-#define LOG_WARN(MSG) LOG_OUTPUT(fk::LOGLEVEL_WARN, MSG)
-#define LOG_ERROR(MSG) LOG_OUTPUT(fk::LOGLEVEL_ERROR, MSG)
+#define LOG_INFO(MSG) LOG_OUTPUT(fieldkit::LOGLEVEL_INFO, MSG)
+#define LOG_WARN(MSG) LOG_OUTPUT(fieldkit::LOGLEVEL_WARN, MSG)
+#define LOG_ERROR(MSG) LOG_OUTPUT(fieldkit::LOGLEVEL_ERROR, MSG)
 
 namespace fieldkit {
 
