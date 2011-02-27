@@ -9,12 +9,15 @@
 
 #pragma once
 
-#include "fieldkit/script/ScriptKit.h"
+#include "fieldkit/script/ScriptKit_Prefix.h"
+#include <vector>
 
 namespace fieldkit { namespace script {
 	
 	using v8::Handle;
 	
+    class Binding;
+    
 	//
 	// Script class; A context using several bindings to execute a javascript file
 	//

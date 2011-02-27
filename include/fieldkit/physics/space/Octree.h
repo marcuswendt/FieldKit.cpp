@@ -52,7 +52,7 @@ namespace fieldkit { namespace physics {
 		
 		class Branch : public Node {
 		public:
-			vector<NodePtr> children;
+            std::vector<NodePtr> children;
 			
 			Branch();
 			~Branch();

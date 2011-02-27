@@ -8,12 +8,17 @@
 */
 
 #include "fieldkit/physics/strategy/ParticleUpdate.h"
+#include "fieldkit/physics/Physics.h"
+#include "fieldkit/physics/Particle.h"
 
 using namespace fieldkit::physics;
 
 //! updates all particles by applying all behaviours and constraints
 void ParticleUpdate::apply(Physics* physics, float dt) 
 {	
+    using std::vector;
+    using std::list;
+    
 #ifndef ENABLE_OPENMP
 	vector<Particle*>::iterator pbegin = physics->particles.begin();
 	vector<Particle*>::iterator pend = physics->particles.end();

@@ -67,7 +67,7 @@ namespace fieldkit { namespace script {
 	T* InstanceHandle<T>::operator->()
 	{
 		if (!t_ && toBeCreated_) {
-			LOG_INFO("InstanceHandle<T>::operator toBeCreated");
+			//LOG_INFO("InstanceHandle<T>::operator toBeCreated");
 			t_ = Type::New((T*)NULL);
 			toBeCreated_ = false;
 		}

@@ -113,12 +113,12 @@ void Particle::setWeight(float value)
 	this->invWeight = 1.0f / value;
 }
 
-Vec3f fk::physics::Particle::getVelocity()
+Vec3f Particle::getVelocity()
 {
 	return position - prev;
 }
 
-float fk::physics::Particle::getSpeed()
+float Particle::getSpeed()
 {
 	return getVelocity().length();
 }

@@ -9,6 +9,8 @@
 
 #include "fieldkit/script/ScriptContext.h"
 #include "fieldkit/script/Binding.h"
+#include <boost/foreach.hpp>
+#include <sstream>
 
 using namespace fieldkit::script;
 
@@ -63,12 +65,12 @@ bool ScriptContext::execute(std::string _file)
 	Handle<String> fileName = String::New(_file.c_str());
 	Handle<String> source = readFile(_file.c_str());
 	if (source.IsEmpty()) {
-        LOG_ERROR("Error reading '"<< _file <<"'");
+        throw "Error reading '"+ _file +"'";
 		return false;
 	}
 	
 	if (!executeString(source, fileName, false, true)) {
-        LOG_ERROR("Error executing script");
+        throw "Error executing script";
 		return false;
 	}
 
@@ -149,7 +151,7 @@ void ScriptContext::reportException(TryCatch* try_catch)
 	if (message.IsEmpty()) {
 		// V8 didn't provide any extra information about this error; just
 		// print the exception.
-		LOG_WARN(exception_string);
+		throw exception_string;
 
 	} else {
 		// Print (filename):(line number): (message).
@@ -157,7 +159,7 @@ void ScriptContext::reportException(TryCatch* try_catch)
 		const char* filename_string = ToCString(filename);
 		int linenum = message->GetLineNumber();
 
-		ostringstream ss;
+        std::stringstream ss;
 		ss << filename_string <<":"<< linenum <<" "<< exception_string << std::endl;
 
 		// Print line of source code.
@@ -183,6 +185,6 @@ void ScriptContext::reportException(TryCatch* try_catch)
 			ss << stack_trace_string;
 		}
 
-		LOG_WARN(ss.str());
+		throw ss.str();
 	}
 }

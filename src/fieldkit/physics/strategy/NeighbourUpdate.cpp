@@ -8,6 +8,7 @@
 */
 
 #include "fieldkit/physics/strategy/NeighbourUpdate.h"
+#include "fieldkit/physics/Physics.h"
 
 using namespace fieldkit::physics;
 
@@ -16,7 +17,7 @@ void FixedRadiusNeighbourUpdate::apply(Physics* physics)
 	if(emptySpaceOnUpdate) 
 		physics->space->clear();
 
-	for (vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
+	for (std::vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
 		Particle* p = *it;
 		if(p->isAlive)
 			physics->space->insert(p);
@@ -34,7 +35,7 @@ void FixedRadiusNeighbourUpdate::apply(Physics* physics)
 
 	// Single threaded
 	#else
-	for (vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
+        for (std::vector<Particle*>::iterator it = physics->particles.begin(); it != physics->particles.end(); it++) {
 		Particle* p = *it;
 	#endif
 		// Body

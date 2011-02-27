@@ -25,16 +25,21 @@
 #include <sstream>
 #include <fstream>
 
+#define LOG_INST fieldkit::Logger::Instance()
+
+#define LOG_OUT(MSG) \
+    LOG_INST->getStream() << MSG;
 
 #define LOG_OUTPUT(LEVEL, MSG) \
-	if(fieldkit::Logger::Instance()->getLogLevel() <= LEVEL) { \
-		fieldkit::Logger::Instance()->getStream() << fieldkit::Logger::Instance()->getLevelName(LEVEL) << ": " << MSG; \
-		fieldkit::Logger::Instance()->flush(); \
+	if(LOG_INST->getLogLevel() <= LEVEL) { \
+		LOG_INST->getStream() << LOG_INST->getLevelName(LEVEL) << ": " << MSG; \
+		LOG_INST->flush(); \
 	}
 
 #define LOG_INFO(MSG) LOG_OUTPUT(fieldkit::LOGLEVEL_INFO, MSG)
 #define LOG_WARN(MSG) LOG_OUTPUT(fieldkit::LOGLEVEL_WARN, MSG)
 #define LOG_ERROR(MSG) LOG_OUTPUT(fieldkit::LOGLEVEL_ERROR, MSG)
+
 
 namespace fieldkit {
 
@@ -106,4 +111,4 @@ namespace fieldkit {
 		std::string path;
 	};
 	
-};
+} // namespace fieldkit

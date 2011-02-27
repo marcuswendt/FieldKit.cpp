@@ -9,10 +9,7 @@
 
 #pragma once
 
-#include "fieldkit/physics/PhysicsKit.h"
-#include "fieldkit/math/MathKit.h"
-
-using namespace fieldkit::math;
+#include "fieldkit/physics/Constraint.h"
 
 namespace fieldkit { namespace physics {
 	

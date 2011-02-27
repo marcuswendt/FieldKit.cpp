@@ -8,9 +8,7 @@
  */
 
 #include "fieldkit/physics/behaviour/Random.h"
-#include "fieldkit/math/MathKit.h"
 
-using namespace fieldkit::math;
 using namespace fieldkit::physics;
 
 void BoxRandom::apply(Particle* p) {

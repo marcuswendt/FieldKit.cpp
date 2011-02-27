@@ -8,6 +8,7 @@
  */
 
 #include "fieldkit/fbx/SceneController.h"
+#include "fieldkit/Logger.h"
 
 using namespace fieldkit::fbx;
 

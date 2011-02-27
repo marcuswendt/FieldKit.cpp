@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "fieldkit/physics/PhysicsKit.h"
+#include "fieldkit/physics/strategy/PhysicsStrategy.h"
 
 namespace fieldkit { namespace physics {
 	

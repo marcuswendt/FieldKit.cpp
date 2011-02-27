@@ -1,6 +1,6 @@
 /*                                                                           
  *      _____  __  _____  __     ____                                   
- *     / ___/ / / /____/ / /    /    \   Flow
+ *     / ___/ / / /____/ / /    /    \   FieldKit
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
@@ -8,7 +8,9 @@
  */
 
 #include "fieldkit/gl/PointDataFormat.h"
+#include <boost/lexical_cast.hpp>
 
+using std::string;
 using namespace fieldkit::gl;
 
 void PointDataFormat::clear()
@@ -28,7 +30,7 @@ void PointDataFormat::addAttribute(string name, int size, int type)
 		typeBytes = sizeof(GLfloat);
 		
 	} else {
-		LOG_WARN( "WARN: Invalid type "<< type);
+		throw string("WARN: Invalid type ") + boost::lexical_cast<string>(type);
 	}
 	
 	a.name = name;

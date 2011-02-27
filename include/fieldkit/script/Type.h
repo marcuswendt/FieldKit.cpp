@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <string>
+
 namespace fieldkit { namespace script { namespace Type {
 	
 	/** Constructor C++ */

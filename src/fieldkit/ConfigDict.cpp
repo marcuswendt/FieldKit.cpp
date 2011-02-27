@@ -9,8 +9,7 @@
 
 #include "fieldkit/ConfigDict.h"
 
-#include "fieldkit/FieldKit.h"
-
+#include "fieldkit/Logger.h"
 #include "cinder/Xml.h"
 #include "rapidxml/rapidxml.hpp"
 

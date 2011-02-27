@@ -8,6 +8,7 @@
  */
 
 #include "fieldkit/physics/strategy/ParticleAllocator.h"
+#include "fieldkit/physics/Physics.h"
 
 using namespace fieldkit::physics;
 

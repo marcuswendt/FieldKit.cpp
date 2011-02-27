@@ -11,7 +11,7 @@
 
 #pragma once
 
-#include "fieldkit/physics/PhysicsKit.h"
+#include "fieldkit/physics/Behaviour.h"
 
 namespace fieldkit { namespace physics {
 	

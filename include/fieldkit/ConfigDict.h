@@ -9,24 +9,18 @@
 
 #pragma once
 
-#include "cinder/DataSource.h"
-
 #include <map>
-using std::map;
-
 #include <string>
-using std::string;
-
 #include <boost/lexical_cast.hpp>
 #include <boost/algorithm/string.hpp>
-#include "cinder/Vector.h"
+#include "cinder/DataSource.h"
+#include "fieldkit/math/Vector.h"
 
 namespace fieldkit {
+	    
+using std::map;
+using std::string;
 
-using ci::Vec2f;
-using ci::Vec3f;
-using ci::Vec2i;
-	
 //! A simple configuration dictionary
 class ConfigDict {
 public:

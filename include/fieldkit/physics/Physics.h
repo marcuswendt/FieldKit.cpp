@@ -9,12 +9,16 @@
 
 #pragma once
 
-#include "fieldkit/physics/PhysicsKit.h"
+#include <vector>
+#include "fieldkit/physics/PhysicsKit_Prefix.h"
+#include "fieldkit/physics/Behavioural.h"
 
 namespace fieldkit { namespace physics {
 
 	// FWD
+    class Space;
 	class Emitter;
+    class Spring;
 	class ParticleAllocator;
 	class SpringUpdate;
 	class NeighbourUpdate;
@@ -36,7 +40,7 @@ namespace fieldkit { namespace physics {
 		virtual void update(float dt);
 	
 		// Particles
-		vector<Particle*> particles;
+        std::vector<Particle*> particles;
 		
 		void allocParticles(int count);
 		int getNumAllocated() { return numAllocated; }
@@ -46,7 +50,7 @@ namespace fieldkit { namespace physics {
 		void destroyParticles();
 
 		// Springs
-		vector<Spring*> springs;
+        std::vector<Spring*> springs;
 
 		void addSpring(Spring* spring);
 		void removeSpring(Spring* spring);

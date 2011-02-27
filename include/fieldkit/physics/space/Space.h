@@ -9,11 +9,9 @@
 
 #pragma once
 
-#include "fieldkit/FieldKit.h"
-#include "fieldkit/math/MathKit.h"
-using namespace fieldkit::math;
-
+#include "fieldkit/physics/PhysicsKit_Prefix.h"
 #include "fieldkit/physics/space/Spatial.h"
+#include "fieldkit/math/AABB.h"
 
 namespace fieldkit { namespace physics {
 	

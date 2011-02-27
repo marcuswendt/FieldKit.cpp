@@ -37,7 +37,7 @@ namespace fieldkit { namespace physics {
 		void select(BoundingVolume* volume, SpatialListPtr result);
 		
 	protected:
-		vector< vector<Spatial*> > cells;
+        std::vector< std::vector<Spatial*> > cells;
 		int cellsX;
 		int cellsY;
 		float cellSize;

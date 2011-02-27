@@ -8,9 +8,7 @@
  */
 
 #include "fieldkit/physics/space/SpatialHash.h"
-
-#include "fieldkit/math/MathKit.h"
-using namespace fieldkit::math;
+#include "fieldkit/math/SphereBound.h"
 
 using namespace fieldkit::physics;
 

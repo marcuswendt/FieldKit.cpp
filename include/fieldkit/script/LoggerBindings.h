@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "fieldkit/script/ScriptKit.h"
+#include "fieldkit/script/Binding.h"
 
 namespace fieldkit { namespace script {
 	

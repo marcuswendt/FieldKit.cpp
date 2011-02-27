@@ -9,8 +9,9 @@
 
 #pragma once
 
-#include "fieldkit/FieldKit.h"
+#include "fieldkit/script/ScriptKit_Prefix.h"
 #include <v8.h>
+#include <list>
 
 // --- Prerequesites -----------------------------------------------------------
 namespace fieldkit { namespace script {

@@ -1,10 +1,10 @@
-/*
- *  BoundingVolume.cpp
- *  FieldKit
- *
- *  Created by Marcus Wendt on 10/07/2010.
- *  Copyright 2010 FIELD. All rights reserved.
- *
+/*                                                                           
+ *      _____  __  _____  __     ____                                   
+ *     / ___/ / / /____/ / /    /    \   FieldKit
+ *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
+ *   /_/        /____/ /____/ /_____/    http://www.field.io           
+ *   
+ *	 Created by Marcus Wendt on 23/05/2010.
  */
 
 #include "fieldkit/math/BoundingVolume.h"
@@ -12,7 +12,7 @@
 #include "fieldkit/math/AABB.h"
 #include "fieldkit/math/SphereBound.h"
 
-using namespace fieldkit::math;
+using namespace fieldkit;
 
 bool BoundingVolume::intersects(BoundingVolume* volume) {
 
@@ -50,7 +50,7 @@ bool BoundingVolume::intersects(BoundingVolume* volume) {
 		}
 	}
 
-	LOG_WARN("Unsupported intersection type!");
+	throw "Unsupported intersection type!";
 	return false;
 }
 

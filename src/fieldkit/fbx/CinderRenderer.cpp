@@ -11,6 +11,7 @@
 
 #include "cinder/Camera.h"
 #include "cinder/app/App.h"
+#include "fieldkit/Logger.h"
 
 using namespace ci;
 using namespace fieldkit::fbx;

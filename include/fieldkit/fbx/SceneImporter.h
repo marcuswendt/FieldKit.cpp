@@ -19,7 +19,7 @@ namespace fieldkit { namespace fbx {
 		SceneImporter() {};
 		~SceneImporter() {};
 
-		static Scene* load(const string &fileName);
+		static Scene* load(const std::string &fileName);
 
 	protected:
 		static void convertNurbsAndPatch(KFbxSdkManager* sdkManager, KFbxScene* fbxScene);

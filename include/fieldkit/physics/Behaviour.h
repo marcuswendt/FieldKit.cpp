@@ -10,12 +10,10 @@
 #pragma once
 
 #include "fieldkit/physics/Particle.h"
+#include "fieldkit/physics/space/Space.h"
 
 namespace fieldkit { namespace physics {
 
-	// FWD
-	class Space;
-	
 	// Base class for all physics behaviours
 	class Behaviour {
 	public:

@@ -8,6 +8,7 @@
  */
 
 #include "fieldkit/fbx/Scene.h"
+#include "fieldkit/Logger.h"
 #include <cinder/app/App.h>
 
 using namespace fieldkit::fbx;

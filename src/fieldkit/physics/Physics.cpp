@@ -9,6 +9,9 @@
 
 #include "fieldkit/physics/Physics.h"
 
+#include "fieldkit/physics/space/Space.h"
+#include "fieldkit/physics/Emitter.h"
+#include "fieldkit/physics/Spring.h"
 #include "fieldkit/physics/strategy/ParticleAllocator.h"
 #include "fieldkit/physics/strategy/ParticleUpdate.h"
 #include "fieldkit/physics/strategy/SpringUpdate.h"
@@ -101,7 +104,7 @@ void Physics::update(float dt)
 Particle* Physics::createParticle() 
 {
 	numParticles++;
-	for (vector<Particle*>::iterator pit = particles.begin(); pit != particles.end(); pit++) {
+	for (std::vector<Particle*>::iterator pit = particles.begin(); pit != particles.end(); pit++) {
 		if(!(*pit)->isAlive) return *pit;
 	}
 	

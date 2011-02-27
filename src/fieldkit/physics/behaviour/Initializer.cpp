@@ -8,9 +8,7 @@
  */
 
 #include "fieldkit/physics/behaviour/Initializer.h"
-#include "fieldkit/math/MathKit.h"
 
-using namespace fieldkit::math;
 using namespace fieldkit::physics;
 
 Initializer::Initializer() {
@@ -36,7 +34,8 @@ Initializer::Initializer() {
 }
 
 
-void Initializer::apply(Particle* p) {
+void Initializer::apply(Particle* p) 
+{
 	p->lifeTime = getVariant(lifeTime, lifeTimeVariance);
 	p->setSize( getVariant(size, sizeVariance) );
 	p->setWeight( getVariant(weight, weightVariance) );

@@ -8,8 +8,7 @@
  */
 
 #include "fieldkit/script/LoggerBindings.h"
-
-#include <cinder/app/App.h>
+#include "fieldkit/Logger.h"
 
 using namespace fieldkit::script;
 
@@ -39,10 +38,9 @@ v8::Handle<Value> LoggerBindings::print(Arguments const& args)
 			printf(" ");
 		}
 		v8::String::Utf8Value str(args[i]);
-		ci::app::console() << ToCString(str);
+        LOG_OUT(ToCString(str));
 	}
-	
-	ci::app::console() << std::endl;
+    LOG_INST->flush();
 	return v8::Undefined();
 }
 

@@ -9,25 +9,8 @@
 
 #pragma once
 
-// -- DEPENDENCIES -------------------------------------------------------------
-
-// STL
-#include <list>
-#include <vector>
-#include <string>
-using namespace std;
-
-// BOOST
-#include <boost/foreach.hpp>
-
-
-
-// -- FIELDKIT -----------------------------------------------------------------
-
+// FIELDKIT
 namespace fieldkit {};
 
 // Create a namepace alias as shorthand for fieldkit::
 namespace fk = fieldkit;
-
-#include "fieldkit/Logger.h"
-#include "fieldkit/ConfigDict.h"

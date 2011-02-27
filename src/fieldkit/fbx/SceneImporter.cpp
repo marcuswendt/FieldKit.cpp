@@ -8,7 +8,9 @@
  */
 
 #include "fieldkit/fbx/SceneImporter.h"
+#include "fieldkit/Logger.h"
 
+using std::string;
 using namespace fieldkit::fbx;
 
 Scene* SceneImporter::load(const string &fileName_)

@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "fieldkit/FieldKit.h"
-
+#include <string>
+#include <vector>
 #include <cinder/gl/GL.h>
 using namespace ci::gl;
 
@@ -22,12 +22,12 @@ namespace fieldkit { namespace gl {
 		~PointDataFormat() {};
 		
 		void clear();
-		void addAttribute(string name, int size, int type=GL_FLOAT);
+		void addAttribute(std::string name, int size, int type=GL_FLOAT);
 						  
 //	protected:
 		//! defines a single attribute
 		struct Attribute {
-			string name;
+            std::string name;
 			
 			//! variable type of this attribute (GL_INT, GL_FLOAT)
 			int type;
@@ -39,6 +39,6 @@ namespace fieldkit { namespace gl {
 			int bytes;
 		};
 
-		vector<PointDataFormat::Attribute> attributes;
+        std::vector<PointDataFormat::Attribute> attributes;
 	};
 } } // namespace fieldkit::gl

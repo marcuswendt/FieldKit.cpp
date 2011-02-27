@@ -11,11 +11,9 @@
 
 #pragma once
 
-#include "fieldkit/FieldKit.h"
 #include "fieldkit/math/MathKit.h"
+#include <boost/foreach.hpp>
 
 namespace fieldkit { namespace physics {
-	using namespace fieldkit::math;
-//	using ci::Vec2f;
-//	using ci::Vec3f;
+	using namespace fieldkit;
 } }

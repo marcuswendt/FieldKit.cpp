@@ -9,29 +9,7 @@
 
 #pragma once
 
-#include "fieldkit/FieldKit.h"
-
-#include <v8.h>
-
-namespace fieldkit { namespace script {
-	
-	using namespace v8;
-	using v8::Handle;
-	
-	//
-	// Static Functions
-	//
-	
-	//! Converts a regular C-String to a v8::String
-	const Local<String> ToV8String(const char* value);
-	
-	const Local<String> ToV8String(std::string value);
-	
-	const char* ToCString(const String::Utf8Value& value);
-	
-	const std::string ToStdString(Handle<String> handle);
-	
-} } // namespace fieldkit::script
+#include "fieldkit/script/ScriptKit_Prefix.h"
 
 // Core classes
 #include "fieldkit/script/Binding.h"

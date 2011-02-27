@@ -8,6 +8,8 @@
  */
 
 #include "fieldkit/gl/PointCloud.h"
+#include "fieldkit/Logger.h"
+#include <boost/foreach.hpp>
 
 using namespace fieldkit::gl;
 

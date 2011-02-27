@@ -9,6 +9,9 @@
 
 #include "fieldkit/physics/strategy/SpringUpdate.h"
 
+#include "fieldkit/physics/Physics.h"
+#include "fieldkit/physics/Spring.h"
+
 using namespace fieldkit::physics;
 
 //! updates all spring connections based on new particle positions

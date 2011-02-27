@@ -9,13 +9,14 @@
 
 #pragma once
 
+#include <vector>
 #include "fieldkit/physics/PhysicsKit_Prefix.h"
 
 namespace fieldkit { namespace physics {
 
 	//! typedefs
 	class Spatial;
-	typedef vector<Spatial*> SpatialList;
+	typedef std::vector<Spatial*> SpatialList;
 	typedef SpatialList* SpatialListPtr;
 	
 	//! interface for all types of elements that can be put into a space

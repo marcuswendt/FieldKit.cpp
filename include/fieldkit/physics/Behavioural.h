@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "fieldkit/FieldKit.h"
+#include <list>
 #include "fieldkit/physics/Behaviour.h"
 #include "fieldkit/physics/Constraint.h"
 
@@ -17,8 +17,8 @@ namespace fieldkit { namespace physics {
 	
 	class Behavioural {
 	public:
-		list<Behaviour*> behaviours;
-		list<Constraint*> constraints;
+        std::list<Behaviour*> behaviours;
+		std::list<Constraint*> constraints;
 		
 		Behavioural();
 		virtual ~Behavioural();

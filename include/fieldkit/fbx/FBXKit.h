@@ -9,9 +9,6 @@
 
 #pragma once
 
-// FieldKit
-#include "fieldkit/FieldKit.h"
-
 // Autodesk FBX SDK
 #include <fbxsdk.h>
 #include <fbxfilesdk/kfbxplugins/kfbxtexture.h>
