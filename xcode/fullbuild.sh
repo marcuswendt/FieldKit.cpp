@@ -1,4 +1,4 @@
 #!/bin/bash
 
-xcodebuild -project FieldKit.xcodeproj -target "All Libraries" -configuration Debug
-xcodebuild -project FieldKit.xcodeproj -target "All Libraries" -configuration Release
+xcodebuild -project FieldKit.xcodeproj -alltargets -configuration Debug -parallelizeTargets
+xcodebuild -project FieldKit.xcodeproj -alltargets -configuration Release -parallelizeTargets
