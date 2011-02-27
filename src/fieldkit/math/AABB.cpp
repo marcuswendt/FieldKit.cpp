@@ -10,7 +10,7 @@
 #include "fieldkit/math/AABB.h"
 #include "fieldkit/math/SphereBound.h"
 
-using namespace fieldkit::math;
+using namespace fieldkit;
 
 // initialise to normalised box within [0,1] range
 AABB::AABB() : BoundingVolume() 

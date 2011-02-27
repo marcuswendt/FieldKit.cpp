@@ -11,7 +11,7 @@
 
 #include "fieldkit/math/Ray.h"
 
-using namespace fieldkit::math;
+using namespace fieldkit;
 
 void Line2f::set(Vec2f from, Vec2f to)
 {

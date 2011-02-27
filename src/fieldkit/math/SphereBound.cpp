@@ -9,7 +9,7 @@
 
 #include "fieldkit/math/SphereBound.h"
 
-using namespace fieldkit::math;
+using namespace fieldkit;
 
 SphereBound::SphereBound(float radius_) : radius(radius_) 
 {

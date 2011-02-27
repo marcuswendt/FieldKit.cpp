@@ -9,10 +9,9 @@
 
 #pragma once
 
-#include "fieldkit/math/MathKit_Prefix.h"
 #include "fieldkit/math/BoundingVolume.h"
 
-namespace fieldkit { namespace math {
+namespace fieldkit {
 	
 	//! An axis aligned bounding box
 	class AABB : public BoundingVolume {
@@ -53,4 +52,4 @@ namespace fieldkit { namespace math {
 		
 	};
 	
-} } // namespace fieldkit::math
+} // namespace fieldkit

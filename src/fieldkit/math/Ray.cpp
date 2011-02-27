@@ -11,7 +11,7 @@
 
 #include "fieldkit/math/Line.h"
 
-using namespace fieldkit::math;
+using namespace fieldkit;
 
 //! Calculates the intersection between two rays and checks for parallel rays.
 bool Ray2f::findIntersection(Ray2f const& ray, Vec2f* result)

@@ -8,12 +8,9 @@
  */
 
 #include "fieldkit/math/MathKit.h"
-
 #include "cinder/Rand.h"
 
-namespace fieldkit { namespace math {
-	
-using ci::Vec3f;
+namespace fieldkit {	
 
 float invSqrt(float x) {
 	float xhalf = 0.5f * x;
@@ -68,4 +65,4 @@ Vec3f randNormal()
 	return randVec3f(-1.0f, 1.0f);
 }
 
-} } // fieldkit::math
+} // fieldkit

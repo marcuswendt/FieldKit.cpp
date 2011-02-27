@@ -9,9 +9,9 @@
 
 #pragma once
 
-#include "fieldkit/math/MathKit_Prefix.h"
+#include "fieldkit/math/Vector.h"
 
-namespace fieldkit { namespace math {
+namespace fieldkit {
 
 	class Ray2f;
 	
@@ -46,4 +46,4 @@ namespace fieldkit { namespace math {
 
 	};
 	
-} } // namespace fieldkit::math
+} // namespace fieldkit

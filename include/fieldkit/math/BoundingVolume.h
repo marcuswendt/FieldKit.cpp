@@ -4,15 +4,14 @@
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2010, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *   BoundingVolume.h
  *	 Created by Marcus Wendt on 23/05/2010.
  */
 
 #pragma once
 
-#include "fieldkit/math/MathKit_Prefix.h"
+#include "fieldkit/math/Vector.h"
 
-namespace fieldkit { namespace math {
+namespace fieldkit {
 
 	//! forward declarations
 	class AABB;
@@ -42,4 +41,4 @@ namespace fieldkit { namespace math {
 		inline bool intersectAABBxSphere(AABB* a, SphereBound* b);
 	};
 
-} } // namespace fieldkit::math
+} // namespace fieldkit
