@@ -55,7 +55,7 @@ void ConfigDict::overrideWith(const std::vector<std::string>& args)
 	}
 }
 
-void ConfigDict::overrideWith(int argc, const char* argv[])
+void ConfigDict::overrideWith(int argc, char* const argv[])
 {
     std::vector<std::string> args;
     for(int arg = 0; arg < argc; ++arg)

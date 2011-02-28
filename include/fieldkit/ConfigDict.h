@@ -28,7 +28,7 @@ public:
     //! override with cinder-style args
 	void overrideWith(const std::vector<std::string>& args);
     //! override with c style args
-    void overrideWith(int argc, const char* argv[]);
+    void overrideWith(int argc, char * const argv[]);
 	void print();
 	
 	string gets(const string key, string alt="");
