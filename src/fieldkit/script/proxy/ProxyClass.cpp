@@ -7,10 +7,8 @@
  *	 Created by Marcus Wendt on 15/11/2010.
  */
 
-#include "fieldkit/script/ProxyClass.h"
+#include "fieldkit/script/proxy/ProxyClass.h"
 #include <string.h>
-
-#include "fieldkit/script/ScriptKit.h"
 
 namespace fieldkit { namespace script {
 		

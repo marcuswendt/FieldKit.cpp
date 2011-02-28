@@ -90,15 +90,10 @@
 		2C7D805B12914614003653C1 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		2C7D806F12914653003653C1 /* Binding.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806B12914653003653C1 /* Binding.h */; };
 		2C7D807012914653003653C1 /* LoggerBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806C12914653003653C1 /* LoggerBindings.h */; };
-		2C7D807112914653003653C1 /* ProxyClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806D12914653003653C1 /* ProxyClass.h */; };
 		2C7D807212914653003653C1 /* ScriptContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806E12914653003653C1 /* ScriptContext.h */; };
-		2C7D80771291465F003653C1 /* ProxyClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80741291465F003653C1 /* ProxyClass.cpp */; };
 		2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80751291465F003653C1 /* ScriptContext.cpp */; };
 		2CCB51C41295575800AD51C3 /* ScriptKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB51C31295575800AD51C3 /* ScriptKit.cpp */; };
-		2CECEC5E12DA1C060052BE81 /* Accessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CECEC5A12DA1C060052BE81 /* Accessor.h */; };
-		2CECEC5F12DA1C060052BE81 /* InstanceHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CECEC5B12DA1C060052BE81 /* InstanceHandle.h */; };
-		2CECEC6012DA1C060052BE81 /* Property.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CECEC5C12DA1C060052BE81 /* Property.h */; };
-		2CECEC6112DA1C060052BE81 /* Type.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CECEC5D12DA1C060052BE81 /* Type.h */; };
+		2CF8C8C8131AD4C800ED15F5 /* ProxyClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8C8C7131AD4C800ED15F5 /* ProxyClass.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,13 +117,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 00CFD9E11135C3520091E310;
 			remoteInfo = cinder_iphone_sim;
-		};
-		2CADA508131A83DB0069A6A6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C660B44131A598C0047CE1E /* cinder.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = cinder;
 		};
 		2CADA50A131A83E30069A6A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -201,9 +189,7 @@
 		2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
 		2C7D806B12914653003653C1 /* Binding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Binding.h; path = script/Binding.h; sourceTree = "<group>"; };
 		2C7D806C12914653003653C1 /* LoggerBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerBindings.h; path = script/LoggerBindings.h; sourceTree = "<group>"; };
-		2C7D806D12914653003653C1 /* ProxyClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProxyClass.h; path = script/ProxyClass.h; sourceTree = "<group>"; };
 		2C7D806E12914653003653C1 /* ScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScriptContext.h; path = script/ScriptContext.h; sourceTree = "<group>"; };
-		2C7D80741291465F003653C1 /* ProxyClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProxyClass.cpp; path = script/ProxyClass.cpp; sourceTree = "<group>"; };
 		2C7D80751291465F003653C1 /* ScriptContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptContext.cpp; path = script/ScriptContext.cpp; sourceTree = "<group>"; };
 		2CA0478C131A9077007A2316 /* libFBXKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA0478D131A9077007A2316 /* libScriptKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libScriptKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,11 +251,13 @@
 		2CD7DAFA122304F4003DE1B7 /* ParticleUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleUpdate.h; path = ../../FieldKit.cpp/include/fieldkit/physics/strategy/ParticleUpdate.h; sourceTree = SOURCE_ROOT; };
 		2CD7DAFB122304F4003DE1B7 /* PhysicsStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsStrategy.h; path = ../../FieldKit.cpp/include/fieldkit/physics/strategy/PhysicsStrategy.h; sourceTree = SOURCE_ROOT; };
 		2CD7DAFC122304F4003DE1B7 /* SpringUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpringUpdate.h; path = ../../FieldKit.cpp/include/fieldkit/physics/strategy/SpringUpdate.h; sourceTree = SOURCE_ROOT; };
-		2CECEC5A12DA1C060052BE81 /* Accessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Accessor.h; path = script/Accessor.h; sourceTree = "<group>"; };
-		2CECEC5B12DA1C060052BE81 /* InstanceHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InstanceHandle.h; path = script/InstanceHandle.h; sourceTree = "<group>"; };
-		2CECEC5C12DA1C060052BE81 /* Property.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Property.h; path = script/Property.h; sourceTree = "<group>"; };
-		2CECEC5D12DA1C060052BE81 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Type.h; path = script/Type.h; sourceTree = "<group>"; };
 		2CF00B6C11DF227100AD0E7C /* GLKit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLKit.cpp; path = ../../FieldKit.cpp/src/fieldkit/gl/GLKit.cpp; sourceTree = SOURCE_ROOT; };
+		2CF8C8C7131AD4C800ED15F5 /* ProxyClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProxyClass.cpp; path = script/proxy/ProxyClass.cpp; sourceTree = "<group>"; };
+		2CF8C8D0131AD5AA00ED15F5 /* Accessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Accessor.h; sourceTree = "<group>"; };
+		2CF8C8D1131AD5AA00ED15F5 /* InstanceHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstanceHandle.h; sourceTree = "<group>"; };
+		2CF8C8D2131AD5AA00ED15F5 /* Property.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Property.h; sourceTree = "<group>"; };
+		2CF8C8D3131AD5AA00ED15F5 /* ProxyClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProxyClass.h; sourceTree = "<group>"; };
+		2CF8C8D4131AD5AA00ED15F5 /* Type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		53E3CDFB0E86099300238D2B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -588,11 +576,12 @@
 		2C7D8011129144F0003653C1 /* script */ = {
 			isa = PBXGroup;
 			children = (
-				2CECEC5912DA1BDE0052BE81 /* binding */,
-				2CCB54ED1295F85B00AD51C3 /* proxy */,
+				2CF8C8CF131AD5AA00ED15F5 /* proxy */,
 				2C37A1FE12915B9800D89B24 /* ScriptKit.h */,
 				2C147E32131AC9A30037E44C /* ScriptKit_Prefix.h */,
 				2C7D806E12914653003653C1 /* ScriptContext.h */,
+				2C7D806B12914653003653C1 /* Binding.h */,
+				2C7D806C12914653003653C1 /* LoggerBindings.h */,
 			);
 			name = script;
 			sourceTree = "<group>";
@@ -676,33 +665,25 @@
 			path = ../../FieldKit.cpp/include/fieldkit/physics/space;
 			sourceTree = SOURCE_ROOT;
 		};
-		2CCB54ED1295F85B00AD51C3 /* proxy */ = {
-			isa = PBXGroup;
-			children = (
-				2CECEC5A12DA1C060052BE81 /* Accessor.h */,
-				2CECEC5B12DA1C060052BE81 /* InstanceHandle.h */,
-				2CECEC5C12DA1C060052BE81 /* Property.h */,
-				2CECEC5D12DA1C060052BE81 /* Type.h */,
-				2C7D806D12914653003653C1 /* ProxyClass.h */,
-			);
-			name = proxy;
-			sourceTree = "<group>";
-		};
 		2CCB54EE1295F86000AD51C3 /* proxy */ = {
 			isa = PBXGroup;
 			children = (
-				2C7D80741291465F003653C1 /* ProxyClass.cpp */,
+				2CF8C8C7131AD4C800ED15F5 /* ProxyClass.cpp */,
 			);
 			name = proxy;
 			sourceTree = "<group>";
 		};
-		2CECEC5912DA1BDE0052BE81 /* binding */ = {
+		2CF8C8CF131AD5AA00ED15F5 /* proxy */ = {
 			isa = PBXGroup;
 			children = (
-				2C7D806B12914653003653C1 /* Binding.h */,
-				2C7D806C12914653003653C1 /* LoggerBindings.h */,
+				2CF8C8D0131AD5AA00ED15F5 /* Accessor.h */,
+				2CF8C8D1131AD5AA00ED15F5 /* InstanceHandle.h */,
+				2CF8C8D2131AD5AA00ED15F5 /* Property.h */,
+				2CF8C8D3131AD5AA00ED15F5 /* ProxyClass.h */,
+				2CF8C8D4131AD5AA00ED15F5 /* Type.h */,
 			);
-			name = binding;
+			name = proxy;
+			path = script/proxy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -739,13 +720,8 @@
 			files = (
 				2C7D806F12914653003653C1 /* Binding.h in Headers */,
 				2C7D807012914653003653C1 /* LoggerBindings.h in Headers */,
-				2C7D807112914653003653C1 /* ProxyClass.h in Headers */,
 				2C7D807212914653003653C1 /* ScriptContext.h in Headers */,
 				2C37A1FF12915B9800D89B24 /* ScriptKit.h in Headers */,
-				2CECEC5E12DA1C060052BE81 /* Accessor.h in Headers */,
-				2CECEC5F12DA1C060052BE81 /* InstanceHandle.h in Headers */,
-				2CECEC6012DA1C060052BE81 /* Property.h in Headers */,
-				2CECEC6112DA1C060052BE81 /* Type.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,7 +757,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2CADA509131A83DB0069A6A6 /* PBXTargetDependency */,
 			);
 			name = FieldKit;
 			productName = FieldKit;
@@ -922,21 +897,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C7D80771291465F003653C1 /* ProxyClass.cpp in Sources */,
 				2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */,
 				2C579B90129169D2001E7796 /* LoggerBindings.cpp in Sources */,
 				2CCB51C41295575800AD51C3 /* ScriptKit.cpp in Sources */,
+				2CF8C8C8131AD4C800ED15F5 /* ProxyClass.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2CADA509131A83DB0069A6A6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = cinder;
-			targetProxy = 2CADA508131A83DB0069A6A6 /* PBXContainerItemProxy */;
-		};
 		2CADA50B131A83E30069A6A6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2C55A26111B0608700041C25 /* FieldKit */;

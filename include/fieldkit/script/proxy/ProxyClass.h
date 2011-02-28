@@ -39,10 +39,11 @@ namespace fieldkit { namespace script {
 
 } }; // namespace fieldkit::script
 
-#include "fieldkit/script/Type.h"
-#include "fieldkit/script/InstanceHandle.h"
-#include "fieldkit/script/Accessor.h"
-#include "fieldkit/script/Property.h"
+
+#include "fieldkit/script/proxy/Type.h"
+#include "fieldkit/script/proxy/InstanceHandle.h"
+#include "fieldkit/script/proxy/Accessor.h"
+#include "fieldkit/script/proxy/Property.h"
 
 
 // --- Proxy Class -------------------------------------------------------------

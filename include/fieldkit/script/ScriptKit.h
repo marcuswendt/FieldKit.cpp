@@ -10,13 +10,11 @@
 #pragma once
 
 #include "fieldkit/script/ScriptKit_Prefix.h"
-
-// Core classes
 #include "fieldkit/script/Binding.h"
 #include "fieldkit/script/ScriptContext.h"
 
 // Proxy 
-#include "fieldkit/script/ProxyClass.h"
+#include "fieldkit/script/proxy/ProxyClass.h"
 
 // Bindings
 #include "fieldkit/script/LoggerBindings.h"
