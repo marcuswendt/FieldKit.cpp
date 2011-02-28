@@ -75,6 +75,34 @@ void ConfigDict::print()
 
 
 // -- Getters ------------------------------------------------------------------
+string ConfigDict::gets(const string key, string alt) 
+{ 
+    return get<string>(key, alt); 
+}
+
+bool ConfigDict::getb(const string key, bool alt) 
+{
+    return get<bool>(key, alt); 
+}
+
+
+int ConfigDict::geti(const string key, int alt) 
+{ 
+    return get<int>(key, alt); 
+}
+
+
+double ConfigDict::getd(const string key, double alt) 
+{ 
+    return get<double>(key, alt); 
+}
+
+
+float ConfigDict::getf(const string key, float alt) 
+{ 
+    return get<float>(key, alt); 
+}
+
 
 Vec2f ConfigDict::get2f(const string key, Vec2f alt)
 {

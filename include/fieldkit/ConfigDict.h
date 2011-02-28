@@ -31,11 +31,11 @@ public:
     void overrideWith(int argc, const char* argv[]);
 	void print();
 	
-	string gets(const string key, string alt="") { return get<string>(key, alt); };
-	bool getb(const string key, bool alt=false) { return get<bool>(key, alt); };
-	int geti(const string key, int alt=0) { return get<int>(key, alt); };
-	float getf(const string key, float alt=0.0f) { return get<float>(key, alt); };	
-	double getd(const string key, double alt=0.0) { return get<double>(key, alt); };	
+	string gets(const string key, string alt="");
+	bool getb(const string key, bool alt=false);
+	int geti(const string key, int alt=0);
+	float getf(const string key, float alt=0.0f);
+	double getd(const string key, double alt=0.0);
 	
 	Vec2f get2f(const string key, Vec2f alt=Vec2f::zero());
 	Vec3f get3f(const string key, Vec3f alt=Vec3f::zero());

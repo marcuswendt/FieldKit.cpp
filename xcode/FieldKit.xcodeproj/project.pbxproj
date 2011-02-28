@@ -113,6 +113,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2C4B0489131BBDD10002D876 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C660B44131A598C0047CE1E /* cinder.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = cinder;
+		};
 		2C660B4D131A598D0047CE1E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2C660B44131A598C0047CE1E /* cinder.xcodeproj */;
@@ -794,6 +801,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2C4B048A131BBDD10002D876 /* PBXTargetDependency */,
 			);
 			name = FieldKit;
 			productName = FieldKit;
@@ -945,6 +953,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2C4B048A131BBDD10002D876 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = cinder;
+			targetProxy = 2C4B0489131BBDD10002D876 /* PBXContainerItemProxy */;
+		};
 		2C9EE98A131BB9A10078FFEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2C55A26111B0608700041C25 /* FieldKit */;
@@ -1180,6 +1193,7 @@
 				2C9EE988131BB9960078FFEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FieldKit" */ = {
 			isa = XCConfigurationList;
