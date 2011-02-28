@@ -11,11 +11,11 @@ lib/*
 xcode/build/*
 *.pbxuser
 *.perspectivev3
-*.mode1v3
-*.user
+# *.mode1v3
+# *.user
 
 # XCode4
-*.xcuserdatad
+# *.xcuserdatad
 
 # Visual Studio
 *.sdf
