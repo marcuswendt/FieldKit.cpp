@@ -16,7 +16,6 @@ xcode/build/*
 
 # XCode4
 *.xcuserdatad
-*.xcworkspace
 
 # Visual Studio
 *.sdf
