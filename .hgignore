@@ -15,7 +15,7 @@ xcode/build/*
 # *.user
 
 # XCode4
-# *.xcuserdatad
+*xcuserdatad
 
 # Visual Studio
 *.sdf

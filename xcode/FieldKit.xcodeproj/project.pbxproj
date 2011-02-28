@@ -6,6 +6,22 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		2C9EE985131BB9960078FFEA /* FieldKit All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2C9EE986131BB9960078FFEA /* Build configuration list for PBXAggregateTarget "FieldKit All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				2C9EE98A131BB9A10078FFEA /* PBXTargetDependency */,
+				2C9EE98C131BB9A10078FFEA /* PBXTargetDependency */,
+				2C9EE98E131BB9A10078FFEA /* PBXTargetDependency */,
+			);
+			name = "FieldKit All";
+			productName = "FieldKit All";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		2C0E69B311D16DC00035A10C /* FBXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B211D16DC00035A10C /* FBXKit.h */; };
 		2C147E31131AC4510037E44C /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C147E30131AC4510037E44C /* Vector.h */; };
@@ -117,6 +133,27 @@
 			proxyType = 2;
 			remoteGlobalIDString = 00CFD9E11135C3520091E310;
 			remoteInfo = cinder_iphone_sim;
+		};
+		2C9EE989131BB9A10078FFEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C55A26111B0608700041C25;
+			remoteInfo = FieldKit;
+		};
+		2C9EE98B131BB9A10078FFEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C2BEBC411CFB45C00868B71;
+			remoteInfo = FBXKit;
+		};
+		2C9EE98D131BB9A10078FFEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C7D804812914614003653C1;
+			remoteInfo = ScriptKit;
 		};
 		2CADA50A131A83E30069A6A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -555,9 +592,9 @@
 		2C660B45131A598C0047CE1E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C660B4E131A598D0047CE1E /* libcinder.a */,
-				2C660B50131A598D0047CE1E /* libcinder-iphone.a */,
-				2C660B52131A598D0047CE1E /* libcinder-iphone-sim.a */,
+				2C660B4E131A598D0047CE1E /* libcinder_d.a */,
+				2C660B50131A598D0047CE1E /* libcinder-iphone_d.a */,
+				2C660B52131A598D0047CE1E /* libcinder-iphone-sim_d.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -809,6 +846,7 @@
 			);
 			projectRoot = "";
 			targets = (
+				2C9EE985131BB9960078FFEA /* FieldKit All */,
 				2C55A26111B0608700041C25 /* FieldKit */,
 				2C2BEBC411CFB45C00868B71 /* FBXKit */,
 				2C7D804812914614003653C1 /* ScriptKit */,
@@ -817,24 +855,24 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2C660B4E131A598D0047CE1E /* libcinder.a */ = {
+		2C660B4E131A598D0047CE1E /* libcinder_d.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = libcinder.a;
+			path = libcinder_d.a;
 			remoteRef = 2C660B4D131A598D0047CE1E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2C660B50131A598D0047CE1E /* libcinder-iphone.a */ = {
+		2C660B50131A598D0047CE1E /* libcinder-iphone_d.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = "libcinder-iphone.a";
+			path = "libcinder-iphone_d.a";
 			remoteRef = 2C660B4F131A598D0047CE1E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2C660B52131A598D0047CE1E /* libcinder-iphone-sim.a */ = {
+		2C660B52131A598D0047CE1E /* libcinder-iphone-sim_d.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
-			path = "libcinder-iphone-sim.a";
+			path = "libcinder-iphone-sim_d.a";
 			remoteRef = 2C660B51131A598D0047CE1E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -907,6 +945,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2C9EE98A131BB9A10078FFEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C55A26111B0608700041C25 /* FieldKit */;
+			targetProxy = 2C9EE989131BB9A10078FFEA /* PBXContainerItemProxy */;
+		};
+		2C9EE98C131BB9A10078FFEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C2BEBC411CFB45C00868B71 /* FBXKit */;
+			targetProxy = 2C9EE98B131BB9A10078FFEA /* PBXContainerItemProxy */;
+		};
+		2C9EE98E131BB9A10078FFEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C7D804812914614003653C1 /* ScriptKit */;
+			targetProxy = 2C9EE98D131BB9A10078FFEA /* PBXContainerItemProxy */;
+		};
 		2CADA50B131A83E30069A6A6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2C55A26111B0608700041C25 /* FieldKit */;
@@ -1037,6 +1090,20 @@
 			};
 			name = Release;
 		};
+		2C9EE987131BB9960078FFEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2C9EE988131BB9960078FFEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1105,6 +1172,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		2C9EE986131BB9960078FFEA /* Build configuration list for PBXAggregateTarget "FieldKit All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C9EE987131BB9960078FFEA /* Debug */,
+				2C9EE988131BB9960078FFEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FieldKit" */ = {
 			isa = XCConfigurationList;
