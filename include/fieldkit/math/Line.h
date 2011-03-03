@@ -10,10 +10,9 @@
 #pragma once
 
 #include "fieldkit/math/Vector.h"
+#include "fieldkit/math/Line.h"
 
 namespace fieldkit {
-
-	class Ray2f;
 	
 	//! A 2-dimensional line
 	class Line2f {
@@ -32,7 +31,6 @@ namespace fieldkit {
 		~Line2f() {};
 
 		bool findIntersection(Line2f const& line, Vec2f* result=NULL);
-		//bool findIntersection(Ray2f const& ray, Vec2f* result=NULL);
 		
 		void set(Vec2f from, Vec2f to);
 		

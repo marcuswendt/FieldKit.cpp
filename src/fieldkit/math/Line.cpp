@@ -9,8 +9,6 @@
 
 #include "fieldkit/math/Line.h"
 
-#include "fieldkit/math/Ray.h"
-
 using namespace fieldkit;
 
 void Line2f::set(Vec2f from, Vec2f to)
