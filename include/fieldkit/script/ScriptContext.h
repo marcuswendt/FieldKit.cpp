@@ -31,17 +31,18 @@ namespace fieldkit { namespace script {
 		//! adds another c++/js script binding
 		void add(Binding* binding);
 		
-		//! clears all script bindings
-		void clear();
+		//! removes all script bindings
+		void reset();
 
 		//! runs the given script and returns true on success
 		bool execute(std::string file);
 		
+        Persistent<Context> getContext() { return context; }
+        
 	protected:
 		std::vector<Binding*> bindings;
-		
-		Handle<String> readFile(std::string path);
-		
+        Persistent<Context> context;
+        
 		bool executeString(Handle<String> source, Handle<Value> name, 
 						   bool print_result, bool report_exceptions);
 		

@@ -9,14 +9,43 @@
 
 #include "fieldkit/script/ScriptContext.h"
 #include "fieldkit/script/Binding.h"
+#include "fieldkit/Logger.h"
 #include <boost/foreach.hpp>
 #include <sstream>
 
 using namespace fieldkit::script;
 
+
+// Reads a file into a v8 string.
+Handle<String> ReadScriptFile(std::string path) 
+{
+	FILE* file = fopen(path.c_str(), "rb");
+	if (file == NULL) return Handle<String>();
+	
+	fseek(file, 0, SEEK_END);
+	int size = ftell(file);
+	rewind(file);
+	
+	char* chars = new char[size + 1];
+	chars[size] = '\0';
+	for (int i = 0; i < size;) {
+		int read = fread(&chars[i], 1, size - i, file);
+		i += read;
+	}
+	fclose(file);
+	Handle<String> result = String::New(chars, size);
+	delete[] chars;
+	return result;
+}
+
+
+
+// -- Script Context ----------------------------------------------------------
 ScriptContext::~ScriptContext()
 {
-	clear();
+	reset();
+    
+    LOG_INFO("ScriptContext::~ScriptContext - V8 dispose");
 	v8::V8::Dispose();
 }
 
@@ -25,7 +54,7 @@ void ScriptContext::add(Binding* binding)
 	bindings.push_back(binding);
 }
 
-void ScriptContext::clear()
+void ScriptContext::reset()
 {
 	BOOST_FOREACH(Binding* b, bindings) {
 		delete b;
@@ -51,7 +80,7 @@ bool ScriptContext::execute(std::string _file)
 	}
 	
 	// Create a new execution environment containing the built-in functions
-	Handle<Context> context = Context::New(NULL, global);
+    context = Context::New(NULL, global);
 	
 	// Enter the newly created execution environment.
 	Context::Scope contextScope(context);
@@ -63,7 +92,7 @@ bool ScriptContext::execute(std::string _file)
 	
 	// -- Execute Script --
 	Handle<String> fileName = String::New(_file.c_str());
-	Handle<String> source = readFile(_file.c_str());
+	Handle<String> source = ReadScriptFile(_file.c_str());
 	if (source.IsEmpty()) {
         throw "Error reading '"+ _file +"'";
 		return false;
@@ -79,36 +108,11 @@ bool ScriptContext::execute(std::string _file)
 		b->deinit(context);
 	}
 	
-//	v8::V8::Dispose();
-	
 	return true;
 }
 
 
 // -- Helpers ------------------------------------------------------------------
-
-// Reads a file into a v8 string.
-Handle<String> ScriptContext::readFile(std::string path) 
-{
-	FILE* file = fopen(path.c_str(), "rb");
-	if (file == NULL) return Handle<String>();
-	
-	fseek(file, 0, SEEK_END);
-	int size = ftell(file);
-	rewind(file);
-	
-	char* chars = new char[size + 1];
-	chars[size] = '\0';
-	for (int i = 0; i < size;) {
-		int read = fread(&chars[i], 1, size - i, file);
-		i += read;
-	}
-	fclose(file);
-	Handle<String> result = String::New(chars, size);
-	delete[] chars;
-	return result;
-}
-
 
 // Executes a string within the current v8 context.
 bool ScriptContext::executeString(Handle<String> source, Handle<Value> name,
