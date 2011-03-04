@@ -73,7 +73,7 @@ namespace fieldkit { namespace script {
 		void exposeClass(Handle<ObjectTemplate> context);
 		
 		Handle<Value> exposeObject(T* t, bool withDestroy);
-		
+        
 		void exposeObject(Handle<Object> context, T* t, 
 						  const char* name, bool withDestroy);
 		
@@ -155,7 +155,7 @@ namespace fieldkit { namespace script {
 			functionTemplate->SetClassName(className);
 			
 			// Instance template from which T objects are based on
-			objectTemplate = functionTemplate->InstanceTemplate();
+            objectTemplate = Persistent<ObjectTemplate>::New(functionTemplate->InstanceTemplate());
 			objectTemplate->SetInternalFieldCount(1); // create an internal field for the C++ object
 //		}
 		
@@ -240,7 +240,6 @@ namespace fieldkit { namespace script {
 		// Handle scope for temporary handles.
 		HandleScope handleScope;
 		
-		//Handle<ObjectTemplate> templ = objectTemplate;
 		Handle<Object> object = objectTemplate->NewInstance();
 		
 		// Wrap the raw C++ pointer in an External so it can be referenced
