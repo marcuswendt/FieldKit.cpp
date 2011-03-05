@@ -118,4 +118,4 @@ namespace fieldkit { namespace script { namespace Type {
 //		return ProxyClass<T>::instance()->ExposeObject(&t, true);
 //	};
 	
-} } }; // fieldkit::script::Type
+} } } // fieldkit::script::Type

@@ -12,15 +12,15 @@
 #include "fieldkit/Logger.h"
 #include <boost/foreach.hpp>
 #include <sstream>
+#include <stdexcept>
 
 using namespace fieldkit::script;
 
-
-// Reads a file into a v8 string.
-Handle<String> ReadScriptFile(std::string path) 
+// Reads a file into a stl string.
+std::string ReadScriptFile(std::string path) 
 {
 	FILE* file = fopen(path.c_str(), "rb");
-	if (file == NULL) return Handle<String>();
+	if (file == NULL) return "";
 	
 	fseek(file, 0, SEEK_END);
 	int size = ftell(file);
@@ -33,20 +33,15 @@ Handle<String> ReadScriptFile(std::string path)
 		i += read;
 	}
 	fclose(file);
-	Handle<String> result = String::New(chars, size);
-	delete[] chars;
-	return result;
+    
+    return std::string(chars, size);
 }
-
-
 
 // -- Script Context ----------------------------------------------------------
 ScriptContext::~ScriptContext()
 {
 	reset();
-    
-    LOG_INFO("ScriptContext::~ScriptContext - V8 dispose");
-	v8::V8::Dispose();
+//    V8::Dispose();
 }
 
 void ScriptContext::add(Binding* binding)
@@ -56,20 +51,22 @@ void ScriptContext::add(Binding* binding)
 
 void ScriptContext::reset()
 {
+    context.Dispose();
+    
 	BOOST_FOREACH(Binding* b, bindings) {
 		delete b;
 	}
 	bindings.clear();
 }
 
-bool ScriptContext::execute(std::string _file) 
+bool ScriptContext::execute(std::string _source) 
 {
-	// make sure v8 is still active
-	if(v8::V8::IsDead())
+    // make sure v8 is still active
+	if(V8::IsDead())
 		return false;
 	
 	HandleScope handleScope;
-
+    
 	// -- Create Context --
 	
 	// Create a template for the global object.
@@ -91,47 +88,75 @@ bool ScriptContext::execute(std::string _file)
 	}
 	
 	// -- Execute Script --
-	Handle<String> fileName = String::New(_file.c_str());
-	Handle<String> source = ReadScriptFile(_file.c_str());
-	if (source.IsEmpty()) {
-        throw "Error reading '"+ _file +"'";
-		return false;
-	}
-	
-	if (!executeString(source, fileName, false, true)) {
-        throw "Error executing script";
-		return false;
-	}
+    Handle<String> source = String::New(_source.c_str());
 
+	if(!executeString(source, false, true)) {
+        //throw std::runtime_error("Error executing script");
+		return false;
+	}
+    
 	// Deinitialise bindings
 	BOOST_FOREACH(Binding* b, bindings) {
 		b->deinit(context);
 	}
 	
 	return true;
+
+}
+
+bool ScriptContext::executeFile(std::string file) 
+{
+    std::string source = ReadScriptFile(file);
+    if(source == "") {
+        throw std::runtime_error("Error reading '"+ file +"'");
+        return false;
+    }
+    return execute(source);
+}
+
+Handle<Object> ScriptContext::newInstance(Handle<Object> localContext, Handle<String> name) {
+    HandleScope handleScope;
+    
+    Handle<Value> value = localContext->Get(name);
+    Handle<Function> func = Handle<Function>::Cast(value);
+    Handle<Value> result = func->NewInstance(0, NULL);
+    
+    return handleScope.Close(Handle<Object>::Cast(result));
+}
+
+Handle<Value> ScriptContext::call(Handle<Object> localContext, const char* name)
+{
+    return call(localContext, String::New(name));
+}
+
+Handle<Value> ScriptContext::call(Handle<Object> localContext, Handle<String> name) {
+    HandleScope handleScope;
+    Handle<Value> value = localContext->Get(name);
+    Handle<Function> func = Handle<Function>::Cast(value);
+    Handle<Value> result = func->Call(context->Global(), 0, NULL);
+    return handleScope.Close(result);
 }
 
 
 // -- Helpers ------------------------------------------------------------------
 
 // Executes a string within the current v8 context.
-bool ScriptContext::executeString(Handle<String> source, Handle<Value> name,
-						   bool print_result, bool report_exceptions) 
+bool ScriptContext::executeString(Handle<String> source, bool print_result, bool report_exceptions) 
 {
-	HandleScope handle_scope;
-	v8::TryCatch try_catch;
-	v8::Handle<v8::Script> script = v8::Script::Compile(source, name);
+	HandleScope handleScope;
+	TryCatch tryCatch;
+	Handle<Script> script = Script::Compile(source);
 	if (script.IsEmpty()) {
 		// Print errors that happened during compilation.
 		if (report_exceptions)
-			reportException(&try_catch);
+			reportException(&tryCatch);
 		return false;
 	} else {
 		Handle<Value> result = script->Run();
 		if (result.IsEmpty()) {
 			// Print errors that happened during execution.
 			if (report_exceptions)
-				reportException(&try_catch);
+				reportException(&tryCatch);
 			return false;
 		} else {
 			if (print_result && !result->IsUndefined()) {
@@ -146,12 +171,14 @@ bool ScriptContext::executeString(Handle<String> source, Handle<Value> name,
 	}
 }
 
-void ScriptContext::reportException(TryCatch* try_catch)
+void ScriptContext::reportException(TryCatch* tryCatch)
 {
-	HandleScope handle_scope;
-	String::Utf8Value exception(try_catch->Exception());
+	HandleScope handleScope;
+    
+	String::Utf8Value exception(tryCatch->Exception());
 	const char* exception_string = ToCString(exception);
-	v8::Handle<v8::Message> message = try_catch->Message();
+	Handle<Message> message = tryCatch->Message();
+    
 	if (message.IsEmpty()) {
 		// V8 didn't provide any extra information about this error; just
 		// print the exception.
@@ -183,12 +210,13 @@ void ScriptContext::reportException(TryCatch* try_catch)
 		}
 		ss << std::endl;
 
-		String::Utf8Value stack_trace(try_catch->StackTrace());
+		String::Utf8Value stack_trace(tryCatch->StackTrace());
 		if (stack_trace.length() > 0) {
 			const char* stack_trace_string = ToCString(stack_trace);
 			ss << stack_trace_string;
 		}
-
-		throw ss.str();
+        
+        LOG_ERROR( ss.str() );
+//        throw ss.str();
 	}
 }

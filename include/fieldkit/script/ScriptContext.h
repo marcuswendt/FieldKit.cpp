@@ -34,17 +34,28 @@ namespace fieldkit { namespace script {
 		//! removes all script bindings
 		void reset();
 
-		//! runs the given script and returns true on success
-		bool execute(std::string file);
+        //! runs the given script and returns true on success
+        bool execute(std::string source);
+        
+		//! runs the given script file and returns true on success
+		bool executeFile(std::string file);
 		
         Persistent<Context> getContext() { return context; }
+        
+        //! creates a new javascript object instance
+        Handle<Object> newInstance(Handle<Object> localContext, Handle<String> name);
+
+        //! calls the javascript function within the given context
+        Handle<Value> call(Handle<Object> localContext, const char* name);
+        
+        //! calls the javascript function within the given context
+        Handle<Value> call(Handle<Object> localContext, Handle<String> name);
         
 	protected:
 		std::vector<Binding*> bindings;
         Persistent<Context> context;
         
-		bool executeString(Handle<String> source, Handle<Value> name, 
-						   bool print_result, bool report_exceptions);
+		bool executeString(Handle<String> source, bool print_result, bool report_exceptions);
 		
 		void reportException(TryCatch* handler);
 	};

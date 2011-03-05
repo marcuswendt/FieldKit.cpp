@@ -81,7 +81,8 @@ namespace fieldkit { namespace script {
 		T* unwrapObject(Local<Value> value);
 		
 		Handle<FunctionTemplate> getFunctionTemplate() { return functionTemplate; }
-		
+        Handle<ObjectTemplate> getObjectTemplate() { return objectTemplate; }
+        
 	private:
 		//! Single ProxyClass<T>
 		ProxyClass() {};
