@@ -134,7 +134,7 @@ Handle<Value> ScriptContext::call(Handle<Object> localContext, Handle<String> na
     HandleScope handleScope;
     Handle<Value> value = localContext->Get(name);
     Handle<Function> func = Handle<Function>::Cast(value);
-    Handle<Value> result = func->Call(context->Global(), argc, argv);
+    Handle<Value> result = func->Call(localContext, argc, argv);
     return handleScope.Close(result);
 }
 
