@@ -114,26 +114,27 @@ bool ScriptContext::executeFile(std::string file)
     return execute(source);
 }
 
-Handle<Object> ScriptContext::newInstance(Handle<Object> localContext, Handle<String> name) {
+Handle<Object> ScriptContext::newInstance(Handle<Object> localContext, Handle<String> name, int argc, Handle<Value>* argv) 
+{
     HandleScope handleScope;
     
     Handle<Value> value = localContext->Get(name);
     Handle<Function> func = Handle<Function>::Cast(value);
-    Handle<Value> result = func->NewInstance(0, NULL);
+    Handle<Value> result = func->NewInstance(argc, argv);
     
     return handleScope.Close(Handle<Object>::Cast(result));
 }
 
-Handle<Value> ScriptContext::call(Handle<Object> localContext, const char* name)
+Handle<Value> ScriptContext::call(Handle<Object> localContext, const char* name, int argc, Handle<Value>* argv)
 {
-    return call(localContext, String::New(name));
+    return call(localContext, String::New(name), argc, argv);
 }
 
-Handle<Value> ScriptContext::call(Handle<Object> localContext, Handle<String> name) {
+Handle<Value> ScriptContext::call(Handle<Object> localContext, Handle<String> name, int argc, Handle<Value>* argv) {
     HandleScope handleScope;
     Handle<Value> value = localContext->Get(name);
     Handle<Function> func = Handle<Function>::Cast(value);
-    Handle<Value> result = func->Call(context->Global(), 0, NULL);
+    Handle<Value> result = func->Call(context->Global(), argc, argv);
     return handleScope.Close(result);
 }
 

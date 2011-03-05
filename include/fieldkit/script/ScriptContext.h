@@ -43,13 +43,13 @@ namespace fieldkit { namespace script {
         Persistent<Context> getContext() { return context; }
         
         //! creates a new javascript object instance
-        Handle<Object> newInstance(Handle<Object> localContext, Handle<String> name);
+        Handle<Object> newInstance(Handle<Object> localContext, Handle<String> name, int argc = 0, Handle<Value>* argv = NULL);
 
         //! calls the javascript function within the given context
-        Handle<Value> call(Handle<Object> localContext, const char* name);
+        Handle<Value> call(Handle<Object> localContext, const char* name, int argc = 0, Handle<Value>* argv = NULL);
         
         //! calls the javascript function within the given context
-        Handle<Value> call(Handle<Object> localContext, Handle<String> name);
+        Handle<Value> call(Handle<Object> localContext, Handle<String> name, int argc = 0, Handle<Value>* argv = NULL);
         
 	protected:
 		std::vector<Binding*> bindings;
