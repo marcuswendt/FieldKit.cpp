@@ -90,7 +90,7 @@ bool ScriptContext::execute(std::string _source)
 	// -- Execute Script --
     Handle<String> source = String::New(_source.c_str());
 
-	if(!executeString(source, false, true)) {
+	if(!executeString(source)) {
         //throw std::runtime_error("Error executing script");
 		return false;
 	}
@@ -117,10 +117,14 @@ bool ScriptContext::executeFile(std::string file)
 Handle<Object> ScriptContext::newInstance(Handle<Object> localContext, Handle<String> name, int argc, Handle<Value>* argv) 
 {
     HandleScope handleScope;
+    TryCatch tryCatch;
     
     Handle<Value> value = localContext->Get(name);
     Handle<Function> func = Handle<Function>::Cast(value);
     Handle<Value> result = func->NewInstance(argc, argv);
+    
+    if(result.IsEmpty())
+        reportException(&tryCatch);
     
     return handleScope.Close(Handle<Object>::Cast(result));
 }
@@ -130,11 +134,18 @@ Handle<Value> ScriptContext::call(Handle<Object> localContext, const char* name,
     return call(localContext, String::New(name), argc, argv);
 }
 
-Handle<Value> ScriptContext::call(Handle<Object> localContext, Handle<String> name, int argc, Handle<Value>* argv) {
+Handle<Value> ScriptContext::call(Handle<Object> localContext, Handle<String> name, int argc, Handle<Value>* argv) 
+{
     HandleScope handleScope;
+    TryCatch tryCatch;
+    
     Handle<Value> value = localContext->Get(name);
     Handle<Function> func = Handle<Function>::Cast(value);
     Handle<Value> result = func->Call(localContext, argc, argv);
+    
+    if(result.IsEmpty())
+        reportException(&tryCatch);
+    
     return handleScope.Close(result);
 }
 
@@ -142,25 +153,25 @@ Handle<Value> ScriptContext::call(Handle<Object> localContext, Handle<String> na
 // -- Helpers ------------------------------------------------------------------
 
 // Executes a string within the current v8 context.
-bool ScriptContext::executeString(Handle<String> source, bool print_result, bool report_exceptions) 
+bool ScriptContext::executeString(Handle<String> source) 
 {
-	HandleScope handleScope;
+//	HandleScope handleScope;
 	TryCatch tryCatch;
+    
 	Handle<Script> script = Script::Compile(source);
+    
 	if (script.IsEmpty()) {
-		// Print errors that happened during compilation.
-		if (report_exceptions)
-			reportException(&tryCatch);
+        reportException(&tryCatch);
 		return false;
+        
 	} else {
 		Handle<Value> result = script->Run();
 		if (result.IsEmpty()) {
-			// Print errors that happened during execution.
-			if (report_exceptions)
-				reportException(&tryCatch);
+            reportException(&tryCatch);
 			return false;
+            
 		} else {
-			if (print_result && !result->IsUndefined()) {
+			if(!result->IsUndefined()) {
 				// If all went well and the result wasn't undefined then print
 				// the returned value.
 				String::Utf8Value str(result);
@@ -174,25 +185,31 @@ bool ScriptContext::executeString(Handle<String> source, bool print_result, bool
 
 void ScriptContext::reportException(TryCatch* tryCatch)
 {
-	HandleScope handleScope;
+//	HandleScope handleScope;
     
 	String::Utf8Value exception(tryCatch->Exception());
-	const char* exception_string = ToCString(exception);
+	const char* exceptionString = ToCString(exception);
 	Handle<Message> message = tryCatch->Message();
     
 	if (message.IsEmpty()) {
 		// V8 didn't provide any extra information about this error; just
 		// print the exception.
-		throw exception_string;
+		throw  std::runtime_error("Unknown error "+ std::string(exceptionString));
 
 	} else {
 		// Print (filename):(line number): (message).
 		String::Utf8Value filename(message->GetScriptResourceName());
-		const char* filename_string = ToCString(filename);
+		const char* filenameString = ToCString(filename);
 		int linenum = message->GetLineNumber();
 
         std::stringstream ss;
-		ss << filename_string <<":"<< linenum <<" "<< exception_string << std::endl;
+        
+        // Print filename and linenum if applicable
+        if(!message->GetScriptResourceName()->IsUndefined()) {
+            ss << filenameString <<":"<< linenum <<" ";
+        }
+        
+		ss << exceptionString << std::endl;
 
 		// Print line of source code.
 		String::Utf8Value sourceline(message->GetSourceLine());
@@ -217,7 +234,6 @@ void ScriptContext::reportException(TryCatch* tryCatch)
 			ss << stack_trace_string;
 		}
         
-        LOG_ERROR( ss.str() );
-//        throw ss.str();
+        throw std::runtime_error(ss.str());
 	}
 }

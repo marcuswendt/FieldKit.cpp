@@ -55,7 +55,7 @@ namespace fieldkit { namespace script {
 		std::vector<Binding*> bindings;
         Persistent<Context> context;
         
-		bool executeString(Handle<String> source, bool print_result, bool report_exceptions);
+		bool executeString(Handle<String> source);
 		
 		void reportException(TryCatch* handler);
 	};
