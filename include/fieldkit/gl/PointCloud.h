@@ -9,8 +9,10 @@
 
 #pragma once
 
-#include "fieldkit/gl/GLKit.h"
+#include "fieldkit/gl/GLKit_Prefix.h"
 #include "fieldkit/gl/PointDataFormat.h"
+#include "cinder/gl/GlslProg.h"
+#include "cinder/gl/Vbo.h"
 
 namespace fieldkit { namespace gl {
 

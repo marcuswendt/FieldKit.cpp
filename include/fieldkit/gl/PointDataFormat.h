@@ -9,10 +9,9 @@
 
 #pragma once
 
+#include "fieldkit/gl/GLKit_Prefix.h"
 #include <string>
 #include <vector>
-#include <cinder/gl/GL.h>
-using namespace ci::gl;
 
 namespace fieldkit { namespace gl {
 

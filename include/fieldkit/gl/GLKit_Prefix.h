@@ -9,12 +9,18 @@
 
 #pragma once
 
-#include "fieldkit/gl/GLKit_Prefix.h"
-#include "fieldkit/gl/PointDataFormat.h"
-#include "fieldkit/gl/PointCloud.h"
+#include "fieldkit/FieldKit.h"
+#include "fieldkit/math/MathKit.h"
+
+// CINDER
+#include "cinder/Color.h"
+#include "cinder/gl/GL.h"
 
 namespace fieldkit { namespace gl {
 
-	void drawCube(Vec3f const& center, Vec3f const& size);
-	
+    using namespace fieldkit;
+    
+    using namespace ci;
+    using namespace ci::gl;
+    
 } }

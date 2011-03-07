@@ -235,6 +235,7 @@
 		2C7D806C12914653003653C1 /* LoggerBindings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerBindings.h; path = script/LoggerBindings.h; sourceTree = "<group>"; };
 		2C7D806E12914653003653C1 /* ScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScriptContext.h; path = script/ScriptContext.h; sourceTree = "<group>"; };
 		2C7D80751291465F003653C1 /* ScriptContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptContext.cpp; path = script/ScriptContext.cpp; sourceTree = "<group>"; };
+		2C8CC76313250BB4003D34FC /* GLKit_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLKit_Prefix.h; path = gl/GLKit_Prefix.h; sourceTree = "<group>"; };
 		2CA0478C131A9077007A2316 /* libFBXKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA0478D131A9077007A2316 /* libScriptKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libScriptKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA8340E11DBBDA400D5B37B /* GLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLKit.h; path = ../../FieldKit.cpp/include/fieldkit/gl/GLKit.h; sourceTree = SOURCE_ROOT; };
@@ -636,6 +637,7 @@
 				2CA8340E11DBBDA400D5B37B /* GLKit.h */,
 				2CA8340F11DBBDA400D5B37B /* PointCloud.h */,
 				2CA8341011DBBDA400D5B37B /* PointDataFormat.h */,
+				2C8CC76313250BB4003D34FC /* GLKit_Prefix.h */,
 			);
 			name = gl;
 			sourceTree = "<group>";
