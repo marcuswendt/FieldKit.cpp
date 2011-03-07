@@ -109,7 +109,6 @@ void PointCloud::draw()
 	// upload data
 	vbo.bufferSubData(0, size * bytesPerParticle, data);
 	
-	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_POINT_SPRITE);
 	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
 	glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
@@ -142,7 +141,6 @@ void PointCloud::draw()
 	glDisableClientState(GL_VERTEX_ARRAY);
 	glDisable(GL_VERTEX_PROGRAM_POINT_SIZE);
 	glDisable(GL_POINT_SPRITE);
-	glEnable(GL_DEPTH_TEST);
 
 	vbo.unbind();
 	shader.unbind();
