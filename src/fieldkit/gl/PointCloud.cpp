@@ -33,11 +33,12 @@ PointCloud::~PointCloud()
 	ptr = NULL;
 }
 
-void PointCloud::init(PointDataFormat format, int capacity, GlslProg shader)
+void PointCloud::init(PointDataFormat const format, int capacity, GlslProg const shader)
 {
 	this->format = format;
 	this->capacity = capacity;
-	
+	this->shader = shader;
+    
 	// calculate buffer size
 	bytesPerParticle = 0;
 	BOOST_FOREACH(PointDataFormat::Attribute attr, format.attributes) {
@@ -54,42 +55,6 @@ void PointCloud::init(PointDataFormat format, int capacity, GlslProg shader)
 	vbo = Vbo(GL_ARRAY_BUFFER);
 	vbo.bufferData(bytesTotal, data, GL_DYNAMIC_DRAW); // or GL_STREAM_DRAW
 	vbo.unbind();
-
-	// when shader programm was given, try to load them
-	if(shader != NULL) {
-		this->shader = shader;
-
-	// load default shaders
-	} else {
-		LOG_INFO( "PointCloud::init using default shaders");
-		
-		const char* POINTCLOUD_DEFAULT_VS = "\
-		attribute vec3 InVertex;\
-		attribute vec4 InColor;\
-		attribute float InSize;\
-		void main() {\
-			vec4 vertex = vec4(InVertex, 1.0);\
-			vec4 position = gl_ProjectionMatrix * gl_ModelViewMatrix * vertex;\
-			gl_Position = position;\
-			gl_PointSize = InSize;\
-			gl_FrontColor = InColor;\
-		}";
-		
-		const char* POINTCLOUD_DEFAULT_FS = "\
-		void main() { \
-			#ifdef __GLSL_CG_DATA_TYPES \
-				vec2 tc = gl_TexCoord[0].st; \
-			#else \
-				vec2 tc = gl_PointCoord.st; \
-			#endif \
-			\
-			float dist = distance(vec2(0.5, 0.5), tc);\
-			if(dist > 0.5) discard;\
-			gl_FragColor = gl_Color;\
-		}";
-		
-		this->shader = GlslProg(POINTCLOUD_DEFAULT_VS, POINTCLOUD_DEFAULT_FS);
-	}
 }
 
 void PointCloud::clear() 
@@ -102,11 +67,6 @@ void PointCloud::insert()
 {
 	size += 1;
 }
-
-//void PointCloud::put(float const& v)
-//{
-//	_put(v);
-//}
 
 void PointCloud::put(Vec2f const& v)
 {
@@ -152,7 +112,7 @@ void PointCloud::draw()
 	glDisable(GL_DEPTH_TEST);
 	glEnable(GL_POINT_SPRITE);
 	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
-//	glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
+	glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
 	
 	glEnableClientState(GL_VERTEX_ARRAY);
 

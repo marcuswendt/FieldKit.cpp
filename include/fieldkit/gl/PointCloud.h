@@ -14,15 +14,45 @@
 #include "cinder/gl/GlslProg.h"
 #include "cinder/gl/Vbo.h"
 
-namespace fieldkit { namespace gl {
+#define POINTCLOUD_DEFAULT_VS "\
+attribute vec3 InVertex;\
+attribute vec4 InColor;\
+attribute float InSize;\
+void main() {\
+    vec4 vertex = vec4(InVertex, 1.0);\
+    vec4 position = gl_ProjectionMatrix * gl_ModelViewMatrix * vertex;\
+    gl_Position = position;\
+    gl_PointSize = InSize;\
+    gl_FrontColor = InColor;\
+}"
 
+#define POINTCLOUD_DEFAULT_FS "\
+float smoothstepVar(float edge1, float edge2, float curve, float value) { \
+    float width = edge2 - edge1; \
+    float phase = (value - edge1) / width; \
+    phase = clamp(phase,0.0,1.0);  \
+    curve = (curve + 0.025) * 99.075;  \
+    float outValue = pow(phase,curve);  \
+    return outValue; \
+} \
+void main() { \
+    vec2 tc = gl_TexCoord[0].st; \
+    float dist = distance(tc, vec2(0.5, 0.5)); \
+    float d = 1.0 - smoothstepVar(0.0, 0.5, 0.5, dist); \
+    if(dist > 0.5) discard; \
+    gl_FragColor = gl_Color * d; \
+} \
+"
+
+namespace fieldkit { namespace gl {
+    
 	class PointCloud {
 	public:
 		PointCloud();
 		~PointCloud();
 		
 		//! initializes this clouds buffer to a certain format
-		void init(PointDataFormat format, int capacity, GlslProg shader=NULL);
+		void init(PointDataFormat const format, int capacity, GlslProg const shader);
 		
 		//! clears the buffer data
 		void clear();
