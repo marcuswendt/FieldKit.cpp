@@ -11,8 +11,6 @@
 
 // Autodesk FBX SDK
 #include <fbxsdk.h>
-#include <fbxfilesdk/kfbxplugins/kfbxtexture.h>
-#include <fbxfilesdk/kfbxio/kfbxiosettings.h>
 
 // Core FBX Kit classes
 #include "fieldkit/fbx/Common.h"
