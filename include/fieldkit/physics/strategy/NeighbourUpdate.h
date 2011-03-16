@@ -17,6 +17,8 @@ namespace fieldkit { namespace physics {
 	//! base class for all neighbour update strategies
 	class NeighbourUpdate : public PhysicsStrategy {
 	public:
+        NeighbourUpdate() {}
+        ~NeighbourUpdate() {}
 		virtual void apply(Physics* physics) = 0;
 	};
 
@@ -25,16 +27,15 @@ namespace fieldkit { namespace physics {
 		FixedRadiusNeighbourUpdate() {
 			emptySpaceOnUpdate = true;
 			setRadius(10.0f);
-		};
-		
-		~FixedRadiusNeighbourUpdate() {};
+		}		
+		~FixedRadiusNeighbourUpdate() {}
 		
 		void apply(Physics* physics);
 		
 		// Accessors
 		void setRadius(float radius) { query.setRadius(radius); }
-		void setEmptySpaceOnUpdate(bool enabled) { emptySpaceOnUpdate = enabled; };
-		bool getEmptySpaceOnUpdate() { return emptySpaceOnUpdate; };
+		void setEmptySpaceOnUpdate(bool enabled) { emptySpaceOnUpdate = enabled; }
+		bool getEmptySpaceOnUpdate() { return emptySpaceOnUpdate; }
 
 	protected:
 		bool emptySpaceOnUpdate;

@@ -17,5 +17,6 @@ namespace fieldkit {
     typedef ci::Vec2f Vec2f;
     typedef ci::Vec2i Vec2i;
     typedef ci::Vec3f Vec3f;
+    typedef ci::Vec4f Vec4f;
 
 }
