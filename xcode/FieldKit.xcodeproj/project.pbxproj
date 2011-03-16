@@ -113,34 +113,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C4B0489131BBDD10002D876 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C660B44131A598C0047CE1E /* cinder.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = cinder;
-		};
-		2C660B4D131A598D0047CE1E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C660B44131A598C0047CE1E /* cinder.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = cinder;
-		};
-		2C660B4F131A598D0047CE1E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C660B44131A598C0047CE1E /* cinder.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 007050BE1114F93F003FCAE4;
-			remoteInfo = cinder_iphone;
-		};
-		2C660B51131A598D0047CE1E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2C660B44131A598C0047CE1E /* cinder.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 00CFD9E11135C3520091E310;
-			remoteInfo = cinder_iphone_sim;
-		};
 		2C9EE989131BB9A10078FFEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -227,7 +199,6 @@
 		2C49644D11FDC1D000749B68 /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
 		2C5075A51313F9C400F850EA /* PhysicsKit_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsKit_Prefix.h; sourceTree = "<group>"; };
 		2C579B8F129169D2001E7796 /* LoggerBindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoggerBindings.cpp; path = script/LoggerBindings.cpp; sourceTree = "<group>"; };
-		2C660B44131A598C0047CE1E /* cinder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cinder.xcodeproj; path = ../../Cinder/xcode/cinder.xcodeproj; sourceTree = "<group>"; };
 		2C6C534612DC7065008616B3 /* ConfigDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigDict.h; sourceTree = "<group>"; };
 		2C6C534912DC70B5008616B3 /* ConfigDict.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigDict.cpp; sourceTree = "<group>"; };
 		2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
@@ -418,7 +389,6 @@
 		29B97314FDCFA39411CA2CEA /* FieldKit */ = {
 			isa = PBXGroup;
 			children = (
-				2C660B44131A598C0047CE1E /* cinder.xcodeproj */,
 				29B97315FDCFA39411CA2CEA /* Headers */,
 				080E96DDFE201D6D7F000001 /* Source */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -595,16 +565,6 @@
 				2CD7DAFC122304F4003DE1B7 /* SpringUpdate.h */,
 			);
 			name = strategy;
-			sourceTree = "<group>";
-		};
-		2C660B45131A598C0047CE1E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2C660B4E131A598D0047CE1E /* libcinder_d.a */,
-				2C660B50131A598D0047CE1E /* libcinder-iphone_d.a */,
-				2C660B52131A598D0047CE1E /* libcinder-iphone-sim_d.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		2C7D8010129144D3003653C1 /* script */ = {
@@ -803,7 +763,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2C4B048A131BBDD10002D876 /* PBXTargetDependency */,
 			);
 			name = FieldKit;
 			productName = FieldKit;
@@ -848,12 +807,6 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* FieldKit */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2C660B45131A598C0047CE1E /* Products */;
-					ProjectRef = 2C660B44131A598C0047CE1E /* cinder.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2C9EE985131BB9960078FFEA /* FieldKit All */,
@@ -863,30 +816,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2C660B4E131A598D0047CE1E /* libcinder_d.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libcinder_d.a;
-			remoteRef = 2C660B4D131A598D0047CE1E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2C660B50131A598D0047CE1E /* libcinder-iphone_d.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libcinder-iphone_d.a";
-			remoteRef = 2C660B4F131A598D0047CE1E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2C660B52131A598D0047CE1E /* libcinder-iphone-sim_d.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libcinder-iphone-sim_d.a";
-			remoteRef = 2C660B51131A598D0047CE1E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C2BEBDA11CFB45C00868B71 /* Sources */ = {
@@ -955,11 +884,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2C4B048A131BBDD10002D876 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = cinder;
-			targetProxy = 2C4B0489131BBDD10002D876 /* PBXContainerItemProxy */;
-		};
 		2C9EE98A131BB9A10078FFEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2C55A26111B0608700041C25 /* FieldKit */;
@@ -1125,7 +1049,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = i386;
 				CINDER_PATH = ../../cinder;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -1145,7 +1069,7 @@
 				ARCHS = i386;
 				CINDER_PATH = ../../cinder;
 				GCC_MODEL_TUNING = G5;
-				GCC_VERSION = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
