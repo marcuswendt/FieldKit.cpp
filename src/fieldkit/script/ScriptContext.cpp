@@ -105,8 +105,49 @@ void ScriptContext::add(Binding* binding)
 	bindings.push_back(binding);
 }
 
-bool ScriptContext::execute(std::string _source) 
+bool ScriptContext::execute(std::string sourceOrFile) 
 {
+    // check if arguments are valid
+    if(sourceOrFile == "" && filePath == "") {
+        throw std::runtime_error("Calling execute without arguments requires to set a filepath before!");
+        return false;
+    }
+    
+    
+    // check if argument is a path to a script file
+    std::string source = "";
+    
+    namespace fs = boost::filesystem;
+    if(fs::exists(sourceOrFile)) {
+        this->filePath = sourceOrFile;
+        this->parentPath = boost::filesystem::path(filePath).parent_path().string();
+        
+    // if not and its not empty - its probably a javascript source string
+    } else if(sourceOrFile != "") {
+        this->filePath = "";
+        this->parentPath = "";
+        source = sourceOrFile;
+    }
+    
+    
+    // when filePath is set - load source from file
+    if(filePath != "") {
+        LOG_INFO("loading script from path "<< parentPath);
+        
+        // load main script file and resolve includes
+        source = LoadFile(filePath);
+        ResolveIncludes(parentPath, source);
+        
+        // remember newest write time to see if any file has changed later
+        newestWriteTime = GetNewestFileWriteTime(parentPath);
+        
+        if(source == "") {
+            throw std::runtime_error("Error reading '"+ filePath +"'");
+            return false;
+        }
+    }
+    
+    
     // make sure v8 is still active
 	if(V8::IsDead())
 		return false;
@@ -137,9 +178,9 @@ bool ScriptContext::execute(std::string _source)
 	}
 	
 	// -- Execute Script --
-    Handle<String> source = String::New(_source.c_str());
+    Handle<String> _source = String::New(source.c_str());
 
-	if(!executeString(source)) {
+	if(!executeString(_source)) {
         //throw std::runtime_error("Error executing script");
 		return false;
 	}
@@ -150,31 +191,6 @@ bool ScriptContext::execute(std::string _source)
 	}
 	
 	return true;
-
-}
-
-void ScriptContext::setFile(std::string file) 
-{
-    this->filePath = file;
-    this->parentPath = boost::filesystem::path(file).parent_path().string();
-}
-
-bool ScriptContext::reloadAndExecute()
-{
-    if(filePath == "") return false;
-    
-    // load main script file and resolve includes
-    std::string source = LoadFile(filePath);
-    ResolveIncludes(parentPath, source);
-
-    // remember newest write time to see if any file has changed later
-    newestWriteTime = GetNewestFileWriteTime(parentPath);
-    
-    if(source == "") {
-        throw std::runtime_error("Error reading '"+ filePath +"'");
-        return false;
-    }
-    return execute(source);
 }
 
 bool ScriptContext::filesModified()

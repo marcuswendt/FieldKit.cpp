@@ -33,13 +33,7 @@ namespace fieldkit { namespace script {
 		void add(Binding* binding);
 
         //! runs the given script and returns true on success
-        bool execute(std::string source);
-        
-		//! runs the given script file and returns true on success
-		void setFile(std::string file);
-        
-        //! reloads and executes the script previously set by executeFile
-        bool reloadAndExecute();
+        bool execute(std::string sourceOrFile = "");
         
 		//! returns true when any of the .js files in the previously defined parent path have been modified
         bool filesModified();
