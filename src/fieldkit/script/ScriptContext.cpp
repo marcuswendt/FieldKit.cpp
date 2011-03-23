@@ -132,7 +132,7 @@ bool ScriptContext::execute(std::string sourceOrFile)
     
     // when filePath is set - load source from file
     if(filePath != "") {
-        LOG_INFO("loading script from path "<< parentPath);
+//        LOG_INFO("loading script from path "<< parentPath);
         
         // load main script file and resolve includes
         source = LoadFile(filePath);
@@ -235,13 +235,19 @@ Handle<Value> ScriptContext::call(Handle<Object> localContext, Handle<String> na
     TryCatch tryCatch;
     
     Handle<Value> value = localContext->Get(name);
-    Handle<Function> func = Handle<Function>::Cast(value);
-    Handle<Value> result = func->Call(localContext, argc, argv);
     
-    if(result.IsEmpty())
-        reportException(&tryCatch);
+    // check if function exists within given context
+    if(!value->IsUndefined()) {
+        Handle<Function> func = Handle<Function>::Cast(value);
+        Handle<Value> result = func->Call(localContext, argc, argv);
+        
+        if(result.IsEmpty())
+            reportException(&tryCatch);
+        
+        return handleScope.Close(result);
+    }
     
-    return handleScope.Close(result);
+    return Undefined();
 }
 
 
