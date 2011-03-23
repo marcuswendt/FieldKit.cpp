@@ -13,16 +13,18 @@
 #include <list>
 
 #include "fieldkit/physics/Physics.h"
-#include "fieldkit/physics/behaviours/Random.h"
-#include "fieldkit/physics/behaviours/Attractor.h"
-#include "fieldkit/physics/behaviours/Boundary.h"
-#include "fieldkit/physics/behaviours/Force.h"
-#include "fieldkit/physics/behaviours/Flocking.h"
+#include "fieldkit/physics/behaviour/Random.h"
+#include "fieldkit/physics/behaviour/Attractor.h"
+#include "fieldkit/physics/behaviour/Boundary.h"
+#include "fieldkit/physics/behaviour/Force.h"
+#include "fieldkit/physics/behaviour/Flocking.h"
+#include "fieldkit/physics/space/BasicSpace.h"
+#include "fieldkit/physics/Emitter.h"
 
 using namespace ci;
 using namespace ci::app;
 using namespace std;
-using namespace fk::physics;
+using namespace fieldkit::physics;
 
 class FlockingParticlesApp : public AppBasic {
 public:
@@ -56,7 +58,7 @@ void FlockingParticlesApp::setup() {
 	timer = new Timer();
 	
 	// init physics
-	Space* space = new Space(getWindowWidth(), getWindowHeight(), 0);
+	BasicSpace* space = new BasicSpace(Vec3f::zero(), Vec3f(getWindowWidth(), getWindowHeight(), 0));
 	printf("init space %f %f %f\n", space->getWidth(), space->getHeight(), space->getDepth());
 	
 	physics = new Physics(space);
@@ -112,7 +114,7 @@ void FlockingParticlesApp::testParticleCreation() {
 	timer->stop();
 	timer->start();
 	
-	Space* space = new Space(getWindowWidth(), getWindowHeight(), 0);
+	BasicSpace* space = new BasicSpace(Vec3f::zero(), Vec3f(getWindowWidth(), getWindowHeight(), 0));
 	Physics* physics = new Physics(space);
 	
 	Emitter* emitter = new Emitter(physics);
@@ -147,9 +149,9 @@ void FlockingParticlesApp::update() {
 	
 	// copy particle positions into vbo
 	gl::VboMesh::VertexIter iter = vboParticles.mapVertexBuffer();
-	for(ParticlePtr p = physics->particles.begin(); p != physics->particles.end(); p++) {
-		if(!p->isAlive) continue;
-		iter.setPosition(p->position.x, p->position.y, p->position.z);
+	for(vector<Particle*>::iterator p = physics->particles.begin(); p != physics->particles.end(); p++) {
+		if(!(*p)->isAlive) continue;
+		iter.setPosition((*p)->position.x, (*p)->position.y, (*p)->position.z);
 		++iter;
 	}
 }

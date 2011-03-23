@@ -54,7 +54,7 @@ To make sure all headers and libraries can be found by Xcode/Visual Studio place
 ~/Documents/Development/Libraries/fieldkit.cpp
 ~/Documents/Development/Libraries/Cinder (latest version from github)
 ~/Documents/Development/Libraries/FBXSDK (link to /Applications/Autodesk/FBXSDK2011_3)
-~/Documents/Development/Libraries/OpenCV
+~/Documents/Development/Libraries/v8
  
 
   
@@ -83,5 +83,21 @@ b) Or create a symbolic link to the current SDK next to your fieldkit.cpp folder
 
 
 
+=== ScriptKit ===
 
+- Requirements -
+
+* v8 JavaScript Engine
+
+- Installation Mac OSX -
+
+To make sure Xcode can find the header and library files set either:
+a) Edit the V8_PATH user-defined setting in the ScriptKit target (if you built v8 previously)
+b) Or build v8 next to your fieldkit.cpp folder e.g.
+   Open Terminal.app
+   $ /path/to/fieldkit.cpp/..
+   $ svn checkout http://v8.googlecode.com/svn/trunk/ v8
+   $ cd v8/
+   $ scons
+   $ scons mode=debug
 
