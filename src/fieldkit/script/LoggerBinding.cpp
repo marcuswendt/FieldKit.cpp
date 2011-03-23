@@ -7,27 +7,13 @@
  *	 Created by Marcus Wendt on 15/11/2010.
  */
 
-#include "fieldkit/script/LoggerBindings.h"
+#include "fieldkit/script/LoggerBinding.h"
 #include "fieldkit/Logger.h"
 
 using namespace fieldkit::script;
 
-void LoggerBindings::prepare(v8::Handle<ObjectTemplate> global) 
-{
-	global->Set(ToV8String("print"), FunctionTemplate::New(LoggerBindings::print));
-	global->Set(ToV8String("info"), FunctionTemplate::New(LoggerBindings::info));
-	global->Set(ToV8String("warn"), FunctionTemplate::New(LoggerBindings::warn));
-	global->Set(ToV8String("error"), FunctionTemplate::New(LoggerBindings::error));
-	
-//	defineGlobalFunction("print", LoggerBindings::print);
-//	defineGlobalFunction("info", LoggerBindings::info);
-//	defineGlobalFunction("warn", LoggerBindings::warn);
-//	defineGlobalFunction("error", LoggerBindings::error);
-}
-
-
 // Prints its arguments on stdout separated by spaces and ending with a newline.
-v8::Handle<Value> LoggerBindings::print(Arguments const& args) 
+v8::Handle<Value> LogPrint(Arguments const& args) 
 {
 	bool first = true;
 	for (int i = 0; i < args.Length(); i++) {
@@ -44,7 +30,7 @@ v8::Handle<Value> LoggerBindings::print(Arguments const& args)
 	return v8::Undefined();
 }
 
-v8::Handle<Value> LoggerBindings::info(Arguments const& args) 
+v8::Handle<Value> LogInfo(Arguments const& args) 
 {	
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
@@ -56,7 +42,7 @@ v8::Handle<Value> LoggerBindings::info(Arguments const& args)
 	return v8::Undefined();
 }
 
-v8::Handle<Value> LoggerBindings::warn(Arguments const& args) 
+v8::Handle<Value> LogWarn(Arguments const& args) 
 {	
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
@@ -68,7 +54,7 @@ v8::Handle<Value> LoggerBindings::warn(Arguments const& args)
 	return v8::Undefined();
 }
 
-v8::Handle<Value> LoggerBindings::error(Arguments const& args) 
+v8::Handle<Value> LogError(Arguments const& args) 
 {	
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
@@ -78,5 +64,14 @@ v8::Handle<Value> LoggerBindings::error(Arguments const& args)
 	}
 	LOG_ERROR(ss.str());	
 	return v8::Undefined();
+}
+
+
+void LoggerBinding::prepare(v8::Handle<ObjectTemplate> global) 
+{
+	global->Set(ToV8String("print"), FunctionTemplate::New(LogPrint));
+	global->Set(ToV8String("info"), FunctionTemplate::New(LogInfo));
+	global->Set(ToV8String("warn"), FunctionTemplate::New(LogWarn));
+	global->Set(ToV8String("error"), FunctionTemplate::New(LogError));
 }
 

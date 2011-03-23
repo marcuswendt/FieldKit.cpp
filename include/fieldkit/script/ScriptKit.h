@@ -17,4 +17,5 @@
 #include "fieldkit/script/proxy/ProxyClass.h"
 
 // Bindings
-#include "fieldkit/script/LoggerBindings.h"
+#include "fieldkit/script/LoggerBinding.h"
+#include "fieldkit/script/RandBinding.h"

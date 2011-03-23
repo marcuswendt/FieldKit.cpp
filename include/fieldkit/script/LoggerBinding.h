@@ -13,16 +13,10 @@
 
 namespace fieldkit { namespace script {
 	
-	// Provides bindings for the fieldkit::Logger functions 
-	// LOG_INFO, LOG_WARN, LOG_ERROR 
-	class LoggerBindings : public Binding {
-		
+	//! Provides bindings for the fieldkit::Logger functions 
+	// e.g. LOG_INFO, LOG_WARN, LOG_ERROR 
+	class LoggerBinding : public Binding {
 		void prepare(Handle<ObjectTemplate> global);
-		
-		static Handle<Value> print(Arguments const& args);		
-		static Handle<Value> info(Arguments const& args);
-		static Handle<Value> warn(Arguments const& args);
-		static Handle<Value> error(Arguments const& args);
 	};
 	
-} } // namespace fieldkit::script
+} }
