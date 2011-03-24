@@ -1,4 +1,4 @@
-// V8 Typed Array implementation.
+//  Typed Array implementation.
 // (c) Dean McNamee <dean@gmail.com>, 2011.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -55,8 +55,7 @@ namespace {
                 return ft_cache;
             
             v8::HandleScope scope;
-            ft_cache = v8::Persistent<v8::FunctionTemplate>::New(
-                                                                 v8::FunctionTemplate::New(&ArrayBuffer::V8New));
+            ft_cache = v8::Persistent<v8::FunctionTemplate>::New(v8::FunctionTemplate::New(&ArrayBuffer::V8New));
             ft_cache->SetClassName(v8::String::New("ArrayBuffer"));
             v8::Local<v8::ObjectTemplate> instance = ft_cache->InstanceTemplate();
             instance->SetInternalFieldCount(1);  // Buffer.
@@ -75,7 +74,7 @@ namespace {
             
             void* ptr = obj->GetIndexedPropertiesExternalArrayData();
             int element_size = fks::TypedArray::SizeOfArrayElementForType(
-                                                                         obj->GetIndexedPropertiesExternalArrayDataType());
+                                obj->GetIndexedPropertiesExternalArrayDataType());
             int size =
             obj->GetIndexedPropertiesExternalArrayDataLength() * element_size;
             
@@ -115,8 +114,7 @@ namespace {
             // the ArrayBuffer.  However, it currently simplifies some handling in our
             // implementation, so we make ArrayView operator[] act like an Uint8Array.
             // , This allows DataView to work with both ArrayBuffers and TypedArrays.
-            args.This()->SetIndexedPropertiesToExternalArrayData(
-                                                                 buf, v8::kExternalUnsignedByteArray, num_bytes);
+            args.This()->SetIndexedPropertiesToExternalArrayData(buf, v8::kExternalUnsignedByteArray, num_bytes);
             
             v8::V8::AdjustAmountOfExternalAllocatedMemory(num_bytes);
             
@@ -141,8 +139,7 @@ namespace {
                 return ft_cache;
             
             v8::HandleScope scope;
-            ft_cache = v8::Persistent<v8::FunctionTemplate>::New(
-                                                                 v8::FunctionTemplate::New(&TypedArray<TBytes, TEAType>::V8New));
+            ft_cache = v8::Persistent<v8::FunctionTemplate>::New(v8::FunctionTemplate::New(&TypedArray<TBytes, TEAType>::V8New));
             v8::Local<v8::ObjectTemplate> instance = ft_cache->InstanceTemplate();
             instance->SetInternalFieldCount(0);
             
@@ -217,8 +214,7 @@ namespace {
                 
                 // TODO(deanm): Error check.
                 void* buf = buffer->GetPointerFromInternalField(0);
-                args.This()->SetIndexedPropertiesToExternalArrayData(
-                                                                     reinterpret_cast<char*>(buf) + byte_offset, TEAType, length);
+                args.This()->SetIndexedPropertiesToExternalArrayData(reinterpret_cast<char*>(buf) + byte_offset, TEAType, length);
             } else if (args[0]->IsObject()) {  // TypedArray / type[] constructor.
                 v8::Local<v8::Object> obj = v8::Local<v8::Object>::Cast(args[0]);
                 length = obj->Get(v8::String::New("length"))->Uint32Value();
@@ -621,7 +617,7 @@ namespace {
             bool little_endian = args[1]->BooleanValue();
             // TODO(deanm): All of these things should be cacheable.
             int element_size = fks::TypedArray::SizeOfArrayElementForType(
-                                                                         args.This()->GetIndexedPropertiesExternalArrayDataType());
+                                                                          args.This()->GetIndexedPropertiesExternalArrayDataType());
             int size = args.This()->GetIndexedPropertiesExternalArrayDataLength() *
             element_size;
             
@@ -641,7 +637,7 @@ namespace {
             bool little_endian = args[2]->BooleanValue();
             // TODO(deanm): All of these things should be cacheable.
             int element_size = fks::TypedArray::SizeOfArrayElementForType(
-                                                                         args.This()->GetIndexedPropertiesExternalArrayDataType());
+                                                                          args.This()->GetIndexedPropertiesExternalArrayDataType());
             int size = args.This()->GetIndexedPropertiesExternalArrayDataLength() *
             element_size;
             
@@ -723,40 +719,31 @@ namespace {
 
 namespace fieldkit { namespace script {
     
-    void TypedArray::attach(v8::Handle<v8::ObjectTemplate> obj) 
+    void TypedArray::attach(Handle<ObjectTemplate> obj) 
     {
-        obj->Set(v8::String::New("ArrayBuffer"),
-                 ArrayBuffer::GetTemplate()->GetFunction());
-        obj->Set(v8::String::New("Int8Array"),
-                 Int8Array::GetTemplate()->GetFunction());
-        obj->Set(v8::String::New("Uint8Array"),
-                 Uint8Array::GetTemplate()->GetFunction());
-        obj->Set(v8::String::New("Int16Array"),
-                 Int16Array::GetTemplate()->GetFunction());
-        obj->Set(v8::String::New("Uint16Array"),
-                 Uint16Array::GetTemplate()->GetFunction());
-        obj->Set(v8::String::New("Int32Array"),
-                 Int32Array::GetTemplate()->GetFunction());
-        obj->Set(v8::String::New("Uint32Array"),
-                 Uint32Array::GetTemplate()->GetFunction());
-        obj->Set(v8::String::New("Float32Array"),
-                 Float32Array::GetTemplate()->GetFunction());
-        obj->Set(v8::String::New("DataView"),
-                 DataView::GetTemplate()->GetFunction());
+        obj->Set(String::New("ArrayBuffer"),ArrayBuffer::GetTemplate());
+        obj->Set(String::New("Int8Array"),Int8Array::GetTemplate());
+        obj->Set(String::New("Uint8Array"),Uint8Array::GetTemplate());
+        obj->Set(String::New("Int16Array"),Int16Array::GetTemplate());
+        obj->Set(String::New("Uint16Array"),Uint16Array::GetTemplate());
+        obj->Set(String::New("Int32Array"),Int32Array::GetTemplate());
+        obj->Set(String::New("Uint32Array"),Uint32Array::GetTemplate());
+        obj->Set(String::New("Float32Array"),Float32Array::GetTemplate());
+        obj->Set(String::New("DataView"), DataView::GetTemplate());
     }
     
-    int TypedArray::SizeOfArrayElementForType(v8::ExternalArrayType type) 
+    int TypedArray::SizeOfArrayElementForType(ExternalArrayType type) 
     {
         switch (type) {
-            case v8::kExternalByteArray:
-            case v8::kExternalUnsignedByteArray:
+            case kExternalByteArray:
+            case kExternalUnsignedByteArray:
                 return 1;
-            case v8::kExternalShortArray:
-            case v8::kExternalUnsignedShortArray:
+            case kExternalShortArray:
+            case kExternalUnsignedShortArray:
                 return 2;
-            case v8::kExternalIntArray:
-            case v8::kExternalUnsignedIntArray:
-            case v8::kExternalFloatArray:
+            case kExternalIntArray:
+            case kExternalUnsignedIntArray:
+            case kExternalFloatArray:
                 return 4;
             default:
                 return 0;

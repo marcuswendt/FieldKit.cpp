@@ -19,3 +19,4 @@
 // Bindings
 #include "fieldkit/script/binding/LoggerFunctions.h"
 #include "fieldkit/script/binding/RandObject.h"
+#include "fieldkit/script/binding/TypedArray.h"
