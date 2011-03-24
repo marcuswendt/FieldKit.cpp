@@ -15,8 +15,8 @@ namespace fieldkit { namespace script {
 	
 	//! Provides bindings for the fieldkit::Logger functions 
 	// e.g. LOG_INFO, LOG_WARN, LOG_ERROR 
-	class LoggerBinding : public Binding {
-		void prepare(Handle<ObjectTemplate> global);
+	class LoggerFunctions : public Binding {
+		void attach(Handle<ObjectTemplate> global);
 	};
 	
 } }

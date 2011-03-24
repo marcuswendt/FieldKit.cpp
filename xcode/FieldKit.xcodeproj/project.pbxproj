@@ -66,7 +66,6 @@
 		2C55A3F011B0610F00041C25 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		2C55A3F111B0610F00041C25 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C55A3F211B0610F00041C25 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		2C579B90129169D2001E7796 /* LoggerBinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C579B8F129169D2001E7796 /* LoggerBinding.cpp */; };
 		2C660B53131A5AF90047CE1E /* GLKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF00B6C11DF227100AD0E7C /* GLKit.cpp */; };
 		2C660B54131A5AF90047CE1E /* PointCloud.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8341611DBBDC200D5B37B /* PointCloud.cpp */; };
 		2C660B55131A5AF90047CE1E /* PointDataFormat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA8341711DBBDC200D5B37B /* PointDataFormat.cpp */; };
@@ -105,11 +104,14 @@
 		2C7D805A12914614003653C1 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C7D805B12914614003653C1 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
 		2C7D806F12914653003653C1 /* Binding.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806B12914653003653C1 /* Binding.h */; };
-		2C7D807012914653003653C1 /* LoggerBinding.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806C12914653003653C1 /* LoggerBinding.h */; };
 		2C7D807212914653003653C1 /* ScriptContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806E12914653003653C1 /* ScriptContext.h */; };
 		2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80751291465F003653C1 /* ScriptContext.cpp */; };
-		2CB4E60A133A18B800E8ED30 /* RandBinding.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB4E609133A18B800E8ED30 /* RandBinding.h */; };
-		2CB4E60D133A18D000E8ED30 /* RandBinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E60C133A18D000E8ED30 /* RandBinding.cpp */; };
+		2CB4E629133B730500E8ED30 /* LoggerFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E626133B730500E8ED30 /* LoggerFunctions.cpp */; };
+		2CB4E62A133B730500E8ED30 /* RandObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E627133B730500E8ED30 /* RandObject.cpp */; };
+		2CB4E62B133B730500E8ED30 /* TypedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E628133B730500E8ED30 /* TypedArray.cpp */; };
+		2CB4E62F133B730D00E8ED30 /* LoggerFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB4E62C133B730D00E8ED30 /* LoggerFunctions.h */; };
+		2CB4E630133B730D00E8ED30 /* RandObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB4E62D133B730D00E8ED30 /* RandObject.h */; };
+		2CB4E631133B730D00E8ED30 /* TypedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB4E62E133B730D00E8ED30 /* TypedArray.h */; };
 		2CCB51C41295575800AD51C3 /* ScriptKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB51C31295575800AD51C3 /* ScriptKit.cpp */; };
 		2CF8C8C8131AD4C800ED15F5 /* ProxyClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8C8C7131AD4C800ED15F5 /* ProxyClass.cpp */; };
 /* End PBXBuildFile section */
@@ -200,12 +202,10 @@
 		2C49644C11FDC1B600749B68 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		2C49644D11FDC1D000749B68 /* Line.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Line.cpp; sourceTree = "<group>"; };
 		2C5075A51313F9C400F850EA /* PhysicsKit_Prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsKit_Prefix.h; sourceTree = "<group>"; };
-		2C579B8F129169D2001E7796 /* LoggerBinding.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoggerBinding.cpp; path = script/LoggerBinding.cpp; sourceTree = "<group>"; };
 		2C6C534612DC7065008616B3 /* ConfigDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigDict.h; sourceTree = "<group>"; };
 		2C6C534912DC70B5008616B3 /* ConfigDict.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigDict.cpp; sourceTree = "<group>"; };
 		2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoundingVolume.cpp; sourceTree = "<group>"; };
 		2C7D806B12914653003653C1 /* Binding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Binding.h; path = script/Binding.h; sourceTree = "<group>"; };
-		2C7D806C12914653003653C1 /* LoggerBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerBinding.h; path = script/LoggerBinding.h; sourceTree = "<group>"; };
 		2C7D806E12914653003653C1 /* ScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScriptContext.h; path = script/ScriptContext.h; sourceTree = "<group>"; };
 		2C7D80751291465F003653C1 /* ScriptContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptContext.cpp; path = script/ScriptContext.cpp; sourceTree = "<group>"; };
 		2C8CC76313250BB4003D34FC /* GLKit_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLKit_Prefix.h; path = gl/GLKit_Prefix.h; sourceTree = "<group>"; };
@@ -259,8 +259,12 @@
 		2CA85A67131A63DF0010129E /* libScriptKit_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libScriptKit_d.a; path = ../lib/libScriptKit_d.a; sourceTree = "<group>"; };
 		2CA85A68131A63DF0010129E /* libScriptKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libScriptKit.a; path = ../lib/libScriptKit.a; sourceTree = "<group>"; };
 		2CADA50E131A8A850069A6A6 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CB4E609133A18B800E8ED30 /* RandBinding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandBinding.h; path = script/RandBinding.h; sourceTree = "<group>"; };
-		2CB4E60C133A18D000E8ED30 /* RandBinding.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RandBinding.cpp; path = script/RandBinding.cpp; sourceTree = "<group>"; };
+		2CB4E626133B730500E8ED30 /* LoggerFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LoggerFunctions.cpp; path = script/binding/LoggerFunctions.cpp; sourceTree = "<group>"; };
+		2CB4E627133B730500E8ED30 /* RandObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RandObject.cpp; path = script/binding/RandObject.cpp; sourceTree = "<group>"; };
+		2CB4E628133B730500E8ED30 /* TypedArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TypedArray.cpp; path = script/binding/TypedArray.cpp; sourceTree = "<group>"; };
+		2CB4E62C133B730D00E8ED30 /* LoggerFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerFunctions.h; path = script/binding/LoggerFunctions.h; sourceTree = "<group>"; };
+		2CB4E62D133B730D00E8ED30 /* RandObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RandObject.h; path = script/binding/RandObject.h; sourceTree = "<group>"; };
+		2CB4E62E133B730D00E8ED30 /* TypedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypedArray.h; path = script/binding/TypedArray.h; sourceTree = "<group>"; };
 		2CCB51C31295575800AD51C3 /* ScriptKit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptKit.cpp; path = script/ScriptKit.cpp; sourceTree = "<group>"; };
 		2CD7DAF0122304B9003DE1B7 /* NeighbourUpdate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NeighbourUpdate.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/strategy/NeighbourUpdate.cpp; sourceTree = SOURCE_ROOT; };
 		2CD7DAF1122304B9003DE1B7 /* ParticleAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleAllocator.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/strategy/ParticleAllocator.cpp; sourceTree = SOURCE_ROOT; };
@@ -574,11 +578,10 @@
 		2C7D8010129144D3003653C1 /* script */ = {
 			isa = PBXGroup;
 			children = (
+				2CB4E625133B728A00E8ED30 /* binding */,
 				2CCB54EE1295F86000AD51C3 /* proxy */,
 				2CCB51C31295575800AD51C3 /* ScriptKit.cpp */,
 				2C7D80751291465F003653C1 /* ScriptContext.cpp */,
-				2C579B8F129169D2001E7796 /* LoggerBinding.cpp */,
-				2CB4E60C133A18D000E8ED30 /* RandBinding.cpp */,
 			);
 			name = script;
 			sourceTree = "<group>";
@@ -586,13 +589,12 @@
 		2C7D8011129144F0003653C1 /* script */ = {
 			isa = PBXGroup;
 			children = (
+				2CB4E624133B727500E8ED30 /* binding */,
 				2CF8C8CF131AD5AA00ED15F5 /* proxy */,
 				2C37A1FE12915B9800D89B24 /* ScriptKit.h */,
 				2C147E32131AC9A30037E44C /* ScriptKit_Prefix.h */,
 				2C7D806E12914653003653C1 /* ScriptContext.h */,
 				2C7D806B12914653003653C1 /* Binding.h */,
-				2C7D806C12914653003653C1 /* LoggerBinding.h */,
-				2CB4E609133A18B800E8ED30 /* RandBinding.h */,
 			);
 			name = script;
 			sourceTree = "<group>";
@@ -677,6 +679,26 @@
 			path = ../../FieldKit.cpp/include/fieldkit/physics/space;
 			sourceTree = SOURCE_ROOT;
 		};
+		2CB4E624133B727500E8ED30 /* binding */ = {
+			isa = PBXGroup;
+			children = (
+				2CB4E62C133B730D00E8ED30 /* LoggerFunctions.h */,
+				2CB4E62D133B730D00E8ED30 /* RandObject.h */,
+				2CB4E62E133B730D00E8ED30 /* TypedArray.h */,
+			);
+			name = binding;
+			sourceTree = "<group>";
+		};
+		2CB4E625133B728A00E8ED30 /* binding */ = {
+			isa = PBXGroup;
+			children = (
+				2CB4E626133B730500E8ED30 /* LoggerFunctions.cpp */,
+				2CB4E627133B730500E8ED30 /* RandObject.cpp */,
+				2CB4E628133B730500E8ED30 /* TypedArray.cpp */,
+			);
+			name = binding;
+			sourceTree = "<group>";
+		};
 		2CCB54EE1295F86000AD51C3 /* proxy */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,10 +753,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C7D806F12914653003653C1 /* Binding.h in Headers */,
-				2C7D807012914653003653C1 /* LoggerBinding.h in Headers */,
 				2C7D807212914653003653C1 /* ScriptContext.h in Headers */,
 				2C37A1FF12915B9800D89B24 /* ScriptKit.h in Headers */,
-				2CB4E60A133A18B800E8ED30 /* RandBinding.h in Headers */,
+				2CB4E62F133B730D00E8ED30 /* LoggerFunctions.h in Headers */,
+				2CB4E630133B730D00E8ED30 /* RandObject.h in Headers */,
+				2CB4E631133B730D00E8ED30 /* TypedArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,10 +905,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */,
-				2C579B90129169D2001E7796 /* LoggerBinding.cpp in Sources */,
 				2CCB51C41295575800AD51C3 /* ScriptKit.cpp in Sources */,
 				2CF8C8C8131AD4C800ED15F5 /* ProxyClass.cpp in Sources */,
-				2CB4E60D133A18D000E8ED30 /* RandBinding.cpp in Sources */,
+				2CB4E629133B730500E8ED30 /* LoggerFunctions.cpp in Sources */,
+				2CB4E62A133B730500E8ED30 /* RandObject.cpp in Sources */,
+				2CB4E62B133B730500E8ED30 /* TypedArray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

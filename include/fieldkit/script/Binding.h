@@ -13,19 +13,12 @@
 
 namespace fieldkit { namespace script {
 	
-	// Base class for c++ to v8 binding adapters
+	//! Interface for C++ to v8 bindings
 	class Binding {
 	public:
 		Binding() {};
-		~Binding() {};	
-		
-		// called before a script context is created
-		virtual void prepare(v8::Handle<v8::ObjectTemplate> global) {};
-		
-		// called after the context is created and before the script is run
-		virtual void init(v8::Handle<v8::Context> context) {};
-		
-		virtual void deinit(v8::Handle<v8::Context> context) {};
+		~Binding() {};
+		virtual void attach(Handle<ObjectTemplate> global) {};
 	};
 
 } } // fieldkit::script

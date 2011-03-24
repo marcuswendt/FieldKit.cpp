@@ -159,23 +159,20 @@ bool ScriptContext::execute(std::string sourceOrFile)
 	// Create a template for the global object.
 	Handle<ObjectTemplate> global = ObjectTemplate::New();
 	
+    
+    // Attach bindings
 	BOOST_FOREACH(Binding* b, bindings) {
-		b->prepare(global);
+		b->attach(global);
 	}
-	
+    
     // Clean up old execution environment if set
     context.Dispose();
     
-	// Create a new execution environment containing the built-in functions
+	// Create a new execution environment containing the attached functions
     context = Context::New(NULL, global);
-	
+    
 	// Enter the newly created execution environment.
 	Context::Scope contextScope(context);
-	
-	// -- Expose Script Objects --
-	BOOST_FOREACH(Binding* b, bindings) {
-		b->init(context);
-	}
 	
 	// -- Execute Script --
     Handle<String> _source = String::New(source.c_str());
@@ -185,11 +182,6 @@ bool ScriptContext::execute(std::string sourceOrFile)
 		return false;
 	}
     
-	// Deinitialise bindings
-	BOOST_FOREACH(Binding* b, bindings) {
-		b->deinit(context);
-	}
-	
 	return true;
 }
 

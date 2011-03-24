@@ -7,7 +7,7 @@
  *	 Created by Marcus Wendt on 23/03/2011.
  */
 
-#include "fieldkit/script/RandBinding.h"
+#include "fieldkit/script/binding/RandObject.h"
 #include "cinder/Rand.h"
 
 using namespace fieldkit::script;
@@ -46,13 +46,13 @@ v8::Handle<Value> RandBool(Arguments const& args)
 }
 
 
-void RandBinding::prepare(v8::Handle<ObjectTemplate> global) 
+void RandObject::attach(Handle<ObjectTemplate> global) 
 {
     // create Rand object template
-    v8::Handle<ObjectTemplate> randObj = ObjectTemplate::New();
+    Handle<ObjectTemplate> randObj = ObjectTemplate::New();
     global->Set(String::New("Rand"), randObj);
     
-    // assign methods to Rand object
+    // assign methods to object
     randObj->Set(String::New("float"), FunctionTemplate::New(RandFloat));
     randObj->Set(String::New("int"), FunctionTemplate::New(RandInt));
     randObj->Set(String::New("bool"), FunctionTemplate::New(RandBool));

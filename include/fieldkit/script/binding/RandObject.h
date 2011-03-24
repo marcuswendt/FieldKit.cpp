@@ -13,9 +13,9 @@
 
 namespace fieldkit { namespace script {
 	
-    //! Provides various functions for random number generation
-	class RandBinding : public Binding {
-		void prepare(Handle<ObjectTemplate> global);
+    //! Provides a Rand javascript object with various functions for random number generation
+	class RandObject : public Binding {
+		void attach(Handle<ObjectTemplate> global);
 	};
 	
 } }
