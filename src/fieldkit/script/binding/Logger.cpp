@@ -7,7 +7,7 @@
  *	 Created by Marcus Wendt on 15/11/2010.
  */
 
-#include "fieldkit/script/binding/LoggerFunctions.h"
+#include "fieldkit/script/binding/Logger.h"
 #include "fieldkit/Logger.h"
 
 using namespace fieldkit::script;
@@ -67,7 +67,7 @@ v8::Handle<Value> LogError(Arguments const& args)
 }
 
 
-void LoggerFunctions::attach(v8::Handle<ObjectTemplate> global) 
+void Logger::attach(v8::Handle<ObjectTemplate> global) 
 {
 	global->Set(String::New("print"), FunctionTemplate::New(LogPrint));
 	global->Set(String::New("info"), FunctionTemplate::New(LogInfo));

@@ -17,6 +17,6 @@
 #include "fieldkit/script/proxy/ProxyClass.h"
 
 // Bindings
-#include "fieldkit/script/binding/LoggerFunctions.h"
-#include "fieldkit/script/binding/RandObject.h"
+#include "fieldkit/script/binding/Logger.h"
+#include "fieldkit/script/binding/Random.h"
 #include "fieldkit/script/binding/TypedArray.h"
