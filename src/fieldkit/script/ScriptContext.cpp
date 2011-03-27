@@ -8,7 +8,7 @@
  */
 
 #include "fieldkit/script/ScriptContext.h"
-#include "fieldkit/script/Binding.h"
+#include "fieldkit/script/Module.h"
 #include "fieldkit/Logger.h"
 #include <boost/foreach.hpp>
 #include <boost/filesystem/operations.hpp>
@@ -94,15 +94,15 @@ ScriptContext::~ScriptContext()
     
     context.Dispose();
     
-	BOOST_FOREACH(Binding* b, bindings) {
-		delete b;
+	BOOST_FOREACH(Module* m, modules) {
+		delete m;
 	}
-	bindings.clear();
+	modules.clear();
 }
 
-void ScriptContext::add(Binding* binding)
+void ScriptContext::add(Module* module)
 {
-	bindings.push_back(binding);
+	modules.push_back(module);
 }
 
 bool ScriptContext::execute(std::string sourceOrFile) 
@@ -159,12 +159,6 @@ bool ScriptContext::execute(std::string sourceOrFile)
 	// Create a template for the global object.
 	Handle<ObjectTemplate> global = ObjectTemplate::New();
 	
-    
-    // Attach bindings
-	BOOST_FOREACH(Binding* b, bindings) {
-		b->attach(global);
-	}
-    
     // Clean up old execution environment if set
     context.Dispose();
     
@@ -173,7 +167,12 @@ bool ScriptContext::execute(std::string sourceOrFile)
     
 	// Enter the newly created execution environment.
 	Context::Scope contextScope(context);
-	
+
+    // Attach bindings
+    BOOST_FOREACH(Module* m, modules) {
+		m->Initialize(context->Global());
+	}
+    
 	// -- Execute Script --
     Handle<String> _source = String::New(source.c_str());
 

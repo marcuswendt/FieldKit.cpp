@@ -14,11 +14,21 @@
 namespace fieldkit { namespace script {
 	
 	//! Interface for C++ to v8 bindings
-	class Binding {
+	class Module {
 	public:
-		Binding() {};
-		~Binding() {};
-		virtual void attach(Handle<ObjectTemplate> global) {};
+		Module() {};
+		~Module() {};
+        
+		virtual void Initialize(v8::Handle<v8::Object> target) {};
+        
+        
+    protected:
+        
+        //! Helper method to attach a c++ callback function to a v8 object
+        void Attach(v8::Handle<v8::Object> target, const char* name, v8::InvocationCallback callback);
+
+        //! Helper method to attach a v8 function template to a v8 object
+        void Attach(v8::Handle<v8::Object> target, const char* name, Handle<FunctionTemplate> functionTemplate);
 	};
 
 } } // fieldkit::script

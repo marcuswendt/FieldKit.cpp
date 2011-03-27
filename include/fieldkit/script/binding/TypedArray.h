@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "fieldkit/script/Binding.h"
+#include "fieldkit/script/Module.h"
 
 namespace fieldkit { namespace script {
 
@@ -36,9 +36,9 @@ namespace fieldkit { namespace script {
 
     
     //! Typed array implemenation merged in from https://github.com/deanm/v8_typed_array
-	class TypedArray : public Binding {
+	class TypedArray : public Module {
     public:
-		void attach(Handle<ObjectTemplate> global);
+		void Initialize(Handle<Object> global);
         static int SizeOfArrayElementForType(v8::ExternalArrayType type);
 	};
 	

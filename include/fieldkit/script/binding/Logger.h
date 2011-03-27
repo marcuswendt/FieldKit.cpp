@@ -9,14 +9,14 @@
 
 #pragma once
 
-#include "fieldkit/script/Binding.h"
+#include "fieldkit/script/Module.h"
 
 namespace fieldkit { namespace script {
 	
 	//! Provides bindings for the fieldkit::Logger functions 
 	// e.g. LOG_INFO, LOG_WARN, LOG_ERROR 
-	class Logger : public Binding {
-		void attach(Handle<ObjectTemplate> global);
+	class Logger : public Module {
+		void Initialize(Handle<Object> target);
 	};
 	
 } }

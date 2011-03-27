@@ -17,7 +17,7 @@ namespace fieldkit { namespace script {
 	
 	using v8::Handle;
 	
-    class Binding;
+    class Module;
     
 	//
 	// Script class; A context using several bindings to execute a javascript file
@@ -30,7 +30,7 @@ namespace fieldkit { namespace script {
 		~ScriptContext();
 		
 		//! adds another c++/js script binding
-		void add(Binding* binding);
+		void add(Module* module);
 
         //! runs the given script and returns true on success
         bool execute(std::string sourceOrFile = "");
@@ -56,7 +56,7 @@ namespace fieldkit { namespace script {
         //! remember the most recent write time of the newest file
         std::time_t newestWriteTime;
 
-		std::vector<Binding*> bindings;
+		std::vector<Module*> modules;
         
         //! the javascript execution context
         Persistent<Context> context;

@@ -9,13 +9,13 @@
 
 #pragma once
 
-#include "fieldkit/script/Binding.h"
+#include "fieldkit/script/Module.h"
 
 namespace fieldkit { namespace script {
 	
     //! Provides a random javascript object with various functions to generate random numbers
-	class Random : public Binding {
-		void attach(Handle<ObjectTemplate> global);
+	class Random : public Module {
+		void Initialize(Handle<Object> global);
 	};
 	
 } }

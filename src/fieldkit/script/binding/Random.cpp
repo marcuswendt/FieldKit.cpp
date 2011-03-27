@@ -46,14 +46,14 @@ v8::Handle<Value> RandBool(Arguments const& args)
 }
 
 
-void Random::attach(Handle<ObjectTemplate> global) 
+void Random::Initialize(Handle<Object> target) 
 {
-    // create Rand object template
-    Handle<ObjectTemplate> holder = ObjectTemplate::New();
-    global->Set(String::New("random"), holder);
+    // create Random.* namespace
+    Handle<FunctionTemplate> ns = FunctionTemplate::New();
+    Attach(target, "Random", ns);
     
-    // assign methods to object
-    holder->Set(String::New("float"), FunctionTemplate::New(RandFloat));
-    holder->Set(String::New("int"), FunctionTemplate::New(RandInt));
-    holder->Set(String::New("bool"), FunctionTemplate::New(RandBool));
+    // assign static methods to Random.* namespace
+    ns->Set(String::New("float"), FunctionTemplate::New(RandFloat));
+    ns->Set(String::New("int"), FunctionTemplate::New(RandInt));
+    ns->Set(String::New("bool"), FunctionTemplate::New(RandBool));
 }

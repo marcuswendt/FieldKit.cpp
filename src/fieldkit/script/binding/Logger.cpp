@@ -67,11 +67,11 @@ v8::Handle<Value> LogError(Arguments const& args)
 }
 
 
-void Logger::attach(v8::Handle<ObjectTemplate> global) 
+void Logger::Initialize(v8::Handle<Object> target) 
 {
-	global->Set(String::New("print"), FunctionTemplate::New(LogPrint));
-	global->Set(String::New("info"), FunctionTemplate::New(LogInfo));
-	global->Set(String::New("warn"), FunctionTemplate::New(LogWarn));
-	global->Set(String::New("error"), FunctionTemplate::New(LogError));
+    Attach(target, "print", LogPrint);
+    Attach(target, "info", LogInfo);
+    Attach(target, "warn", LogWarn);
+    Attach(target, "error", LogError);
 }
 

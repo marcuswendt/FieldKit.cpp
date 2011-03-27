@@ -10,13 +10,14 @@
 #pragma once
 
 #include "fieldkit/script/ScriptKit_Prefix.h"
-#include "fieldkit/script/Binding.h"
 #include "fieldkit/script/ScriptContext.h"
 
-// Proxy 
+// Tools for writing modules
 #include "fieldkit/script/proxy/ProxyClass.h"
+#include "fieldkit/script/ObjectWrap.h"
 
-// Bindings
+// Modules
+#include "fieldkit/script/Module.h"
 #include "fieldkit/script/binding/Logger.h"
 #include "fieldkit/script/binding/Random.h"
 #include "fieldkit/script/binding/TypedArray.h"

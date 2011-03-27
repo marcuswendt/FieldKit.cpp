@@ -118,8 +118,7 @@ namespace {
             
             v8::V8::AdjustAmountOfExternalAllocatedMemory(num_bytes);
             
-            v8::Persistent<v8::Object> persistent =
-            v8::Persistent<v8::Object>::New(args.This());
+            v8::Persistent<v8::Object> persistent = v8::Persistent<v8::Object>::New(args.This());
             persistent.MakeWeak(NULL, &ArrayBuffer::WeakCallback);
             
             return args.This();
@@ -719,17 +718,17 @@ namespace {
 
 namespace fieldkit { namespace script {
     
-    void TypedArray::attach(Handle<ObjectTemplate> obj) 
+    void TypedArray::Initialize(Handle<Object> target) 
     {
-        obj->Set(String::New("ArrayBuffer"),ArrayBuffer::GetTemplate());
-        obj->Set(String::New("Int8Array"),Int8Array::GetTemplate());
-        obj->Set(String::New("Uint8Array"),Uint8Array::GetTemplate());
-        obj->Set(String::New("Int16Array"),Int16Array::GetTemplate());
-        obj->Set(String::New("Uint16Array"),Uint16Array::GetTemplate());
-        obj->Set(String::New("Int32Array"),Int32Array::GetTemplate());
-        obj->Set(String::New("Uint32Array"),Uint32Array::GetTemplate());
-        obj->Set(String::New("Float32Array"),Float32Array::GetTemplate());
-        obj->Set(String::New("DataView"), DataView::GetTemplate());
+        Attach(target, "ArrayBuffer", ArrayBuffer::GetTemplate());
+        Attach(target, "Int8Array", Int8Array::GetTemplate());
+        Attach(target, "Uint8Array", Uint8Array::GetTemplate());
+        Attach(target, "Int16Array", Int16Array::GetTemplate());
+        Attach(target, "Uint16Array", Uint16Array::GetTemplate());
+        Attach(target, "Int32Array", Int32Array::GetTemplate());
+        Attach(target, "Uint32Array", Uint32Array::GetTemplate());
+        Attach(target, "Float32Array", Float32Array::GetTemplate());
+        Attach(target, "DataView", DataView::GetTemplate());
     }
     
     int TypedArray::SizeOfArrayElementForType(ExternalArrayType type) 
