@@ -22,20 +22,6 @@ namespace fieldkit { namespace script {
 	
 	template<class T>
 	class ProxyClass;
-	
-	// Helper Macros
-	#define SCRIPT_CLASS(CLASS) \
-		fk::script::ProxyClass<CLASS>::Instance()->init(""#CLASS"")
-		
-	//#define SCRIPT_PROPERTY_ID(CLASS, PROPERTY, ID, GET, SET) \
-//		fk::script::ProxyClass<CLASS>::Instance()->init(""#CLASS""); \
-//		fk::script::ProxyClass<CLASS>::Instance()->expose(&CLASS::PROPERTY23, ""#ID"", SET, GET)
-//	
-	#define SCRIPT_CALLBACK_FUNC(name) \
-		v8::Handle<v8::Value> name(v8::Arguments const& args)
-	
-	#define SCRIPT_CALLBACK(template, name, callback) \
-		template->Set(name, v8::FunctionTemplate::New(callback))
 
 } }; // namespace fieldkit::script
 

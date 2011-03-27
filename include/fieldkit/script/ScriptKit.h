@@ -13,7 +13,7 @@
 #include "fieldkit/script/ScriptContext.h"
 
 // Tools for writing modules
-#include "fieldkit/script/proxy/ProxyClass.h"
+//#include "fieldkit/script/proxy/ProxyClass.h" // deprecated
 #include "fieldkit/script/ObjectWrap.h"
 
 // Modules
