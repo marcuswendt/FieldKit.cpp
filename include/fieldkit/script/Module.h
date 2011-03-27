@@ -12,23 +12,13 @@
 #include "fieldkit/script/ScriptKit_Prefix.h"
 
 namespace fieldkit { namespace script {
-	
+    
 	//! Interface for C++ to v8 bindings
 	class Module {
 	public:
 		Module() {};
 		~Module() {};
-        
 		virtual void Initialize(v8::Handle<v8::Object> target) {};
-        
-        
-    protected:
-        
-        //! Helper method to attach a c++ callback function to a v8 object
-        void Attach(v8::Handle<v8::Object> target, const char* name, v8::InvocationCallback callback);
-
-        //! Helper method to attach a v8 function template to a v8 object
-        void Attach(v8::Handle<v8::Object> target, const char* name, Handle<FunctionTemplate> functionTemplate);
 	};
 
 } } // fieldkit::script

@@ -24,7 +24,7 @@
 
 #include <v8.h>
 
-#include "fieldkit/script/binding/TypedArray.h"
+#include "fieldkit/script/module/TypedArray.h"
 
 namespace fks = fieldkit::script;
 
@@ -720,15 +720,15 @@ namespace fieldkit { namespace script {
     
     void TypedArray::Initialize(Handle<Object> target) 
     {
-        Attach(target, "ArrayBuffer", ArrayBuffer::GetTemplate());
-        Attach(target, "Int8Array", Int8Array::GetTemplate());
-        Attach(target, "Uint8Array", Uint8Array::GetTemplate());
-        Attach(target, "Int16Array", Int16Array::GetTemplate());
-        Attach(target, "Uint16Array", Uint16Array::GetTemplate());
-        Attach(target, "Int32Array", Int32Array::GetTemplate());
-        Attach(target, "Uint32Array", Uint32Array::GetTemplate());
-        Attach(target, "Float32Array", Float32Array::GetTemplate());
-        Attach(target, "DataView", DataView::GetTemplate());
+        target->Set(String::NewSymbol("ArrayBuffer"), ArrayBuffer::GetTemplate()->GetFunction());
+        target->Set(String::NewSymbol("Int8Array"), Int8Array::GetTemplate()->GetFunction());
+        target->Set(String::NewSymbol("Uint8Array"), Uint8Array::GetTemplate()->GetFunction());
+        target->Set(String::NewSymbol("Int16Array"), Int16Array::GetTemplate()->GetFunction());
+        target->Set(String::NewSymbol("Uint16Array"), Uint16Array::GetTemplate()->GetFunction());
+        target->Set(String::NewSymbol("Int32Array"), Int32Array::GetTemplate()->GetFunction());
+        target->Set(String::NewSymbol("Uint32Array"), Uint32Array::GetTemplate()->GetFunction());
+        target->Set(String::NewSymbol("Float32Array"), Float32Array::GetTemplate()->GetFunction());
+        target->Set(String::NewSymbol("DataView"), DataView::GetTemplate()->GetFunction());
     }
     
     int TypedArray::SizeOfArrayElementForType(ExternalArrayType type) 

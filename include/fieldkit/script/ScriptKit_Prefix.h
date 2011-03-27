@@ -15,8 +15,25 @@
 namespace fieldkit { namespace script {
 	
 	using namespace v8;
-	using v8::Handle;
     using std::string;
+    
+    
+    //
+    // Macros
+    //
+#define SET_METHOD(obj, name, callback) \
+    obj->Set(v8::String::NewSymbol(name), v8::FunctionTemplate::New(callback)->GetFunction())
+    
+#define SET_PROTOTYPE_METHOD(templ, name, callback) \
+do { \
+    v8::Local<v8::Signature> __callback##_SIG = v8::Signature::New(templ); \
+    v8::Local<v8::FunctionTemplate> __callback##_TEM = \
+    v8::FunctionTemplate::New(callback, v8::Handle<v8::Value>(), \
+    __callback##_SIG); \
+    templ->PrototypeTemplate()->Set(v8::String::NewSymbol(name), \
+    __callback##_TEM); \
+} while (0)
+    
     
 	//
 	// Static Functions

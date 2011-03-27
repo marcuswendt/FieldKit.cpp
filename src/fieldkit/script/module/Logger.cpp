@@ -7,7 +7,7 @@
  *	 Created by Marcus Wendt on 15/11/2010.
  */
 
-#include "fieldkit/script/binding/Logger.h"
+#include "fieldkit/script/module/Logger.h"
 #include "fieldkit/Logger.h"
 
 using namespace fieldkit::script;
@@ -69,9 +69,9 @@ v8::Handle<Value> LogError(Arguments const& args)
 
 void Logger::Initialize(v8::Handle<Object> target) 
 {
-    Attach(target, "print", LogPrint);
-    Attach(target, "info", LogInfo);
-    Attach(target, "warn", LogWarn);
-    Attach(target, "error", LogError);
+    SET_METHOD(target, "print", LogPrint);
+    SET_METHOD(target, "info", LogInfo);
+    SET_METHOD(target, "warn", LogWarn);
+    SET_METHOD(target, "error", LogError);
 }
 

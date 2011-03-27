@@ -106,36 +106,10 @@
 		2C7D806F12914653003653C1 /* Module.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806B12914653003653C1 /* Module.h */; };
 		2C7D807212914653003653C1 /* ScriptContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806E12914653003653C1 /* ScriptContext.h */; };
 		2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80751291465F003653C1 /* ScriptContext.cpp */; };
-		2C802FD1133F4D5000E00678 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C16CBE011D944D70038C163 /* Logger.cpp */; };
-		2C86C0EC133F85560071CF24 /* Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C86C0EA133F85550071CF24 /* Module.cpp */; };
-		2C86C0EE133F87230071CF24 /* Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C86C0EA133F85550071CF24 /* Module.cpp */; };
-		2C9E5E18133F4EC200D43112 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		2CB4E629133B730500E8ED30 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E626133B730500E8ED30 /* Logger.cpp */; };
-		2CB4E62A133B730500E8ED30 /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E627133B730500E8ED30 /* Random.cpp */; };
-		2CB4E62B133B730500E8ED30 /* TypedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E628133B730500E8ED30 /* TypedArray.cpp */; };
-		2CB4E62F133B730D00E8ED30 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB4E62C133B730D00E8ED30 /* Logger.h */; };
-		2CB4E630133B730D00E8ED30 /* Random.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB4E62D133B730D00E8ED30 /* Random.h */; };
-		2CB4E631133B730D00E8ED30 /* TypedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CB4E62E133B730D00E8ED30 /* TypedArray.h */; };
 		2CCB51C41295575800AD51C3 /* ScriptKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB51C31295575800AD51C3 /* ScriptKit.cpp */; };
-		2CCE69FF133F4EE400D05080 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97324FDCFA39411CA2CEA /* AppKit.framework */; };
-		2CCE6A00133F4EE400D05080 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E42FB307B3F0F600E4EEF1 /* CoreData.framework */; };
-		2CCE6A01133F4EE400D05080 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B97325FDCFA39411CA2CEA /* Foundation.framework */; };
-		2CCE6A02133F4EED00D05080 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784AF0FF439BC000DE1D7 /* Accelerate.framework */; };
-		2CCE6A03133F4EED00D05080 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
-		2CCE6A05133F4EED00D05080 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		2CCE6A06133F4EED00D05080 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0097E3E40F3E9819005A4392 /* QuickTime.framework */; };
-		2CCE6A07133F4EED00D05080 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
-		2CCE6A08133F4EED00D05080 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
-		2CCE6A09133F4EED00D05080 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
-		2CCE6A0A133F4EED00D05080 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091D8F80E81B9330029341E /* OpenGL.framework */; };
-		2CCE6A0B133F4EFF00D05080 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
-		2CCE6A0C133F4F3C00D05080 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E626133B730500E8ED30 /* Logger.cpp */; };
-		2CCE6A0D133F4F3C00D05080 /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E627133B730500E8ED30 /* Random.cpp */; };
-		2CCE6A0E133F4F3C00D05080 /* TypedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4E628133B730500E8ED30 /* TypedArray.cpp */; };
-		2CCE6A0F133F4F3C00D05080 /* ProxyClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8C8C7131AD4C800ED15F5 /* ProxyClass.cpp */; };
-		2CCE6A10133F4F3C00D05080 /* ScriptKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB51C31295575800AD51C3 /* ScriptKit.cpp */; };
-		2CCE6A11133F4F3C00D05080 /* ScriptContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80751291465F003653C1 /* ScriptContext.cpp */; };
-		2CDA258B133F490E00B764B0 /* ProxyClassTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CDA258A133F490E00B764B0 /* ProxyClassTest.cpp */; };
+		2CF1A41B133F8C9800678863 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1A418133F8C9800678863 /* Logger.cpp */; };
+		2CF1A41C133F8C9800678863 /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1A419133F8C9800678863 /* Random.cpp */; };
+		2CF1A41D133F8C9800678863 /* TypedArray.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1A41A133F8C9800678863 /* TypedArray.cpp */; };
 		2CF8C8C8131AD4C800ED15F5 /* ProxyClass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8C8C7131AD4C800ED15F5 /* ProxyClass.cpp */; };
 /* End PBXBuildFile section */
 
@@ -176,18 +150,6 @@
 			remoteInfo = FieldKit;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		2CDA257F133F490200B764B0 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0091D8F80E81B9330029341E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
@@ -243,7 +205,6 @@
 		2C7D806B12914653003653C1 /* Module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Module.h; path = script/Module.h; sourceTree = "<group>"; };
 		2C7D806E12914653003653C1 /* ScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScriptContext.h; path = script/ScriptContext.h; sourceTree = "<group>"; };
 		2C7D80751291465F003653C1 /* ScriptContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptContext.cpp; path = script/ScriptContext.cpp; sourceTree = "<group>"; };
-		2C86C0EA133F85550071CF24 /* Module.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Module.cpp; path = script/Module.cpp; sourceTree = "<group>"; };
 		2C86C0EF133F897B0071CF24 /* ObjectWrap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjectWrap.h; path = script/ObjectWrap.h; sourceTree = "<group>"; };
 		2C8CC76313250BB4003D34FC /* GLKit_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLKit_Prefix.h; path = gl/GLKit_Prefix.h; sourceTree = "<group>"; };
 		2CA0478C131A9077007A2316 /* libFBXKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,12 +257,6 @@
 		2CA85A67131A63DF0010129E /* libScriptKit_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libScriptKit_d.a; path = ../lib/libScriptKit_d.a; sourceTree = "<group>"; };
 		2CA85A68131A63DF0010129E /* libScriptKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libScriptKit.a; path = ../lib/libScriptKit.a; sourceTree = "<group>"; };
 		2CADA50E131A8A850069A6A6 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CB4E626133B730500E8ED30 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = script/binding/Logger.cpp; sourceTree = "<group>"; };
-		2CB4E627133B730500E8ED30 /* Random.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Random.cpp; path = script/binding/Random.cpp; sourceTree = "<group>"; };
-		2CB4E628133B730500E8ED30 /* TypedArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TypedArray.cpp; path = script/binding/TypedArray.cpp; sourceTree = "<group>"; };
-		2CB4E62C133B730D00E8ED30 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = script/binding/Logger.h; sourceTree = "<group>"; };
-		2CB4E62D133B730D00E8ED30 /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Random.h; path = script/binding/Random.h; sourceTree = "<group>"; };
-		2CB4E62E133B730D00E8ED30 /* TypedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TypedArray.h; path = script/binding/TypedArray.h; sourceTree = "<group>"; };
 		2CCB51C31295575800AD51C3 /* ScriptKit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptKit.cpp; path = script/ScriptKit.cpp; sourceTree = "<group>"; };
 		2CD7DAF0122304B9003DE1B7 /* NeighbourUpdate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NeighbourUpdate.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/strategy/NeighbourUpdate.cpp; sourceTree = SOURCE_ROOT; };
 		2CD7DAF1122304B9003DE1B7 /* ParticleAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleAllocator.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/strategy/ParticleAllocator.cpp; sourceTree = SOURCE_ROOT; };
@@ -312,11 +267,15 @@
 		2CD7DAFA122304F4003DE1B7 /* ParticleUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParticleUpdate.h; path = ../../FieldKit.cpp/include/fieldkit/physics/strategy/ParticleUpdate.h; sourceTree = SOURCE_ROOT; };
 		2CD7DAFB122304F4003DE1B7 /* PhysicsStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhysicsStrategy.h; path = ../../FieldKit.cpp/include/fieldkit/physics/strategy/PhysicsStrategy.h; sourceTree = SOURCE_ROOT; };
 		2CD7DAFC122304F4003DE1B7 /* SpringUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpringUpdate.h; path = ../../FieldKit.cpp/include/fieldkit/physics/strategy/SpringUpdate.h; sourceTree = SOURCE_ROOT; };
-		2CDA2581133F490200B764B0 /* ProxyClassTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ProxyClassTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDA2584133F490200B764B0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2CDA2586133F490200B764B0 /* ProxyClassTest.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ProxyClassTest.1; sourceTree = "<group>"; };
-		2CDA258A133F490E00B764B0 /* ProxyClassTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProxyClassTest.cpp; path = ../src/test/script/ProxyClassTest.cpp; sourceTree = "<group>"; };
 		2CF00B6C11DF227100AD0E7C /* GLKit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GLKit.cpp; path = ../../FieldKit.cpp/src/fieldkit/gl/GLKit.cpp; sourceTree = SOURCE_ROOT; };
+		2CF1A418133F8C9800678863 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Logger.cpp; sourceTree = "<group>"; };
+		2CF1A419133F8C9800678863 /* Random.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Random.cpp; sourceTree = "<group>"; };
+		2CF1A41A133F8C9800678863 /* TypedArray.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TypedArray.cpp; sourceTree = "<group>"; };
+		2CF1A41F133F8CA900678863 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		2CF1A420133F8CA900678863 /* Random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
+		2CF1A421133F8CA900678863 /* TypedArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypedArray.h; sourceTree = "<group>"; };
 		2CF8C8C7131AD4C800ED15F5 /* ProxyClass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProxyClass.cpp; path = script/proxy/ProxyClass.cpp; sourceTree = "<group>"; };
 		2CF8C8D0131AD5AA00ED15F5 /* Accessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Accessor.h; sourceTree = "<group>"; };
 		2CF8C8D1131AD5AA00ED15F5 /* InstanceHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstanceHandle.h; sourceTree = "<group>"; };
@@ -381,33 +340,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2CDA257E133F490200B764B0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2CCE69FF133F4EE400D05080 /* AppKit.framework in Frameworks */,
-				2CCE6A00133F4EE400D05080 /* CoreData.framework in Frameworks */,
-				2CCE6A01133F4EE400D05080 /* Foundation.framework in Frameworks */,
-				2CCE6A02133F4EED00D05080 /* Accelerate.framework in Frameworks */,
-				2CCE6A03133F4EED00D05080 /* AudioToolbox.framework in Frameworks */,
-				2CCE6A0B133F4EFF00D05080 /* AudioUnit.framework in Frameworks */,
-				2CCE6A05133F4EED00D05080 /* CoreAudio.framework in Frameworks */,
-				2CCE6A06133F4EED00D05080 /* QuickTime.framework in Frameworks */,
-				2CCE6A07133F4EED00D05080 /* QTKit.framework in Frameworks */,
-				2CCE6A08133F4EED00D05080 /* CoreVideo.framework in Frameworks */,
-				2CCE6A09133F4EED00D05080 /* Carbon.framework in Frameworks */,
-				2CCE6A0A133F4EED00D05080 /* OpenGL.framework in Frameworks */,
-				2C9E5E18133F4EC200D43112 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2CDA258A133F490E00B764B0 /* ProxyClassTest.cpp */,
 				2C240E1611CFC1DF00856329 /* fieldkit */,
 			);
 			name = Source;
@@ -452,7 +390,6 @@
 				2CADA50E131A8A850069A6A6 /* libFieldKit_d.a */,
 				2CA0478C131A9077007A2316 /* libFBXKit_d.a */,
 				2CA0478D131A9077007A2316 /* libScriptKit_d.a */,
-				2CDA2581133F490200B764B0 /* ProxyClassTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -642,11 +579,10 @@
 		2C7D8010129144D3003653C1 /* script */ = {
 			isa = PBXGroup;
 			children = (
-				2CB4E625133B728A00E8ED30 /* binding */,
+				2CF1A417133F8C9800678863 /* module */,
 				2CCB54EE1295F86000AD51C3 /* proxy */,
 				2CCB51C31295575800AD51C3 /* ScriptKit.cpp */,
 				2C7D80751291465F003653C1 /* ScriptContext.cpp */,
-				2C86C0EA133F85550071CF24 /* Module.cpp */,
 			);
 			name = script;
 			sourceTree = "<group>";
@@ -654,7 +590,7 @@
 		2C7D8011129144F0003653C1 /* script */ = {
 			isa = PBXGroup;
 			children = (
-				2CB4E624133B727500E8ED30 /* module */,
+				2CF1A41E133F8CA900678863 /* module */,
 				2CF8C8CF131AD5AA00ED15F5 /* proxy */,
 				2C37A1FE12915B9800D89B24 /* ScriptKit.h */,
 				2C147E32131AC9A30037E44C /* ScriptKit_Prefix.h */,
@@ -745,26 +681,6 @@
 			path = ../../FieldKit.cpp/include/fieldkit/physics/space;
 			sourceTree = SOURCE_ROOT;
 		};
-		2CB4E624133B727500E8ED30 /* module */ = {
-			isa = PBXGroup;
-			children = (
-				2CB4E62C133B730D00E8ED30 /* Logger.h */,
-				2CB4E62D133B730D00E8ED30 /* Random.h */,
-				2CB4E62E133B730D00E8ED30 /* TypedArray.h */,
-			);
-			name = module;
-			sourceTree = "<group>";
-		};
-		2CB4E625133B728A00E8ED30 /* binding */ = {
-			isa = PBXGroup;
-			children = (
-				2CB4E626133B730500E8ED30 /* Logger.cpp */,
-				2CB4E627133B730500E8ED30 /* Random.cpp */,
-				2CB4E628133B730500E8ED30 /* TypedArray.cpp */,
-			);
-			name = binding;
-			sourceTree = "<group>";
-		};
 		2CCB54EE1295F86000AD51C3 /* proxy */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +696,28 @@
 				2CDA2586133F490200B764B0 /* ProxyClassTest.1 */,
 			);
 			path = ProxyClassTest;
+			sourceTree = "<group>";
+		};
+		2CF1A417133F8C9800678863 /* module */ = {
+			isa = PBXGroup;
+			children = (
+				2CF1A418133F8C9800678863 /* Logger.cpp */,
+				2CF1A419133F8C9800678863 /* Random.cpp */,
+				2CF1A41A133F8C9800678863 /* TypedArray.cpp */,
+			);
+			name = module;
+			path = script/module;
+			sourceTree = "<group>";
+		};
+		2CF1A41E133F8CA900678863 /* module */ = {
+			isa = PBXGroup;
+			children = (
+				2CF1A41F133F8CA900678863 /* Logger.h */,
+				2CF1A420133F8CA900678863 /* Random.h */,
+				2CF1A421133F8CA900678863 /* TypedArray.h */,
+			);
+			name = module;
+			path = script/module;
 			sourceTree = "<group>";
 		};
 		2CF8C8CF131AD5AA00ED15F5 /* proxy */ = {
@@ -830,9 +768,6 @@
 				2C7D806F12914653003653C1 /* Module.h in Headers */,
 				2C7D807212914653003653C1 /* ScriptContext.h in Headers */,
 				2C37A1FF12915B9800D89B24 /* ScriptKit.h in Headers */,
-				2CB4E62F133B730D00E8ED30 /* Logger.h in Headers */,
-				2CB4E630133B730D00E8ED30 /* Random.h in Headers */,
-				2CB4E631133B730D00E8ED30 /* TypedArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,23 +827,6 @@
 			productReference = 2CA0478D131A9077007A2316 /* libScriptKit_d.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		2CDA2580133F490200B764B0 /* ProxyClassTest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2CDA2587133F490200B764B0 /* Build configuration list for PBXNativeTarget "ProxyClassTest" */;
-			buildPhases = (
-				2CDA257D133F490200B764B0 /* Sources */,
-				2CDA257E133F490200B764B0 /* Frameworks */,
-				2CDA257F133F490200B764B0 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ProxyClassTest;
-			productName = ProxyClassTest;
-			productReference = 2CDA2581133F490200B764B0 /* ProxyClassTest */;
-			productType = "com.apple.product-type.tool";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -935,7 +853,6 @@
 				2C55A26111B0608700041C25 /* FieldKit */,
 				2C2BEBC411CFB45C00868B71 /* FBXKit */,
 				2C7D804812914614003653C1 /* ScriptKit */,
-				2CDA2580133F490200B764B0 /* ProxyClassTest */,
 			);
 		};
 /* End PBXProject section */
@@ -1000,26 +917,9 @@
 				2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */,
 				2CCB51C41295575800AD51C3 /* ScriptKit.cpp in Sources */,
 				2CF8C8C8131AD4C800ED15F5 /* ProxyClass.cpp in Sources */,
-				2CB4E629133B730500E8ED30 /* Logger.cpp in Sources */,
-				2CB4E62A133B730500E8ED30 /* Random.cpp in Sources */,
-				2CB4E62B133B730500E8ED30 /* TypedArray.cpp in Sources */,
-				2C86C0EC133F85560071CF24 /* Module.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2CDA257D133F490200B764B0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2CCE6A0C133F4F3C00D05080 /* Logger.cpp in Sources */,
-				2CCE6A0D133F4F3C00D05080 /* Random.cpp in Sources */,
-				2CCE6A0E133F4F3C00D05080 /* TypedArray.cpp in Sources */,
-				2CCE6A0F133F4F3C00D05080 /* ProxyClass.cpp in Sources */,
-				2CCE6A10133F4F3C00D05080 /* ScriptKit.cpp in Sources */,
-				2CCE6A11133F4F3C00D05080 /* ScriptContext.cpp in Sources */,
-				2C86C0EE133F87230071CF24 /* Module.cpp in Sources */,
-				2CDA258B133F490E00B764B0 /* ProxyClassTest.cpp in Sources */,
-				2C802FD1133F4D5000E00678 /* Logger.cpp in Sources */,
+				2CF1A41B133F8C9800678863 /* Logger.cpp in Sources */,
+				2CF1A41C133F8C9800678863 /* Random.cpp in Sources */,
+				2CF1A41D133F8C9800678863 /* TypedArray.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1185,58 +1085,6 @@
 			};
 			name = Release;
 		};
-		2CDA2588133F490200B764B0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(CINDER_PATH)/boost",
-					"$(CINDER_PATH)/include",
-					"$(V8_PATH)/include",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					../../v8/libv8_g.a,
-					"$(CINDER_PATH)/lib/libcinder_d.a",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				V8_PATH = ../../v8;
-			};
-			name = Debug;
-		};
-		2CDA2589133F490200B764B0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(CINDER_PATH)/boost",
-					"$(CINDER_PATH)/include",
-					"$(V8_PATH)/include",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				V8_PATH = ../../v8;
-			};
-			name = Release;
-		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1311,15 +1159,6 @@
 			buildConfigurations = (
 				2C9EE987131BB9960078FFEA /* Debug */,
 				2C9EE988131BB9960078FFEA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2CDA2587133F490200B764B0 /* Build configuration list for PBXNativeTarget "ProxyClassTest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2CDA2588133F490200B764B0 /* Debug */,
-				2CDA2589133F490200B764B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

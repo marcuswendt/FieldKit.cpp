@@ -18,6 +18,6 @@
 
 // Modules
 #include "fieldkit/script/Module.h"
-#include "fieldkit/script/binding/Logger.h"
-#include "fieldkit/script/binding/Random.h"
-#include "fieldkit/script/binding/TypedArray.h"
+#include "fieldkit/script/module/Logger.h"
+#include "fieldkit/script/module/Random.h"
+#include "fieldkit/script/module/TypedArray.h"
