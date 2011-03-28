@@ -129,7 +129,6 @@ bool ScriptContext::execute(std::string sourceOrFile)
         source = sourceOrFile;
     }
     
-    
     // when filePath is set - load source from file
     if(filePath != "") {
 //        LOG_INFO("loading script from path "<< parentPath);
@@ -147,41 +146,37 @@ bool ScriptContext::execute(std::string sourceOrFile)
         }
     }
     
-    
     // make sure v8 is still active
 	if(V8::IsDead())
 		return false;
-	
+    
+    // clean up old execution environment if set
+    if(Context::InContext()) {
+        context->Exit();
+        context.Dispose();
+    }
+    
 	HandleScope handleScope;
     
-	// -- Create Context --
-	
-	// Create a template for the global object.
+	// create a template for the global object.
 	Handle<ObjectTemplate> global = ObjectTemplate::New();
-	
-    // Clean up old execution environment if set
-    context.Dispose();
-    
-	// Create a new execution environment containing the attached functions
-    context = Context::New(NULL, global);
-    
-	// Enter the newly created execution environment.
-	Context::Scope contextScope(context);
 
-    // Attach bindings
+	// create a new execution environment containing the attached functions
+    // TODO Context::New seems to be leaking memory, 
+    context = Context::New(NULL, global);
+    context->Enter();
+    
+	// enter the newly created execution environment.
+	Context::Scope contextScope(context);
+    
+    // attach bindings
     BOOST_FOREACH(Module* m, modules) {
 		m->Initialize(context->Global());
 	}
     
-	// -- Execute Script --
+	// execute script
     Handle<String> _source = String::New(source.c_str());
-
-	if(!executeString(_source)) {
-        //throw std::runtime_error("Error executing script");
-		return false;
-	}
-    
-	return true;
+    return executeString(_source);
 }
 
 bool ScriptContext::filesModified()
@@ -269,6 +264,7 @@ bool ScriptContext::executeString(Handle<String> source)
 				String::Utf8Value str(result);
 				const char* cstr = ToCString(str);
 				printf("%s\n", cstr);
+                delete cstr;
 			}
 			return true;
 		}
