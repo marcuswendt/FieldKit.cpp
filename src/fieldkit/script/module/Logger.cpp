@@ -15,9 +15,9 @@ using namespace fieldkit::script;
 // Prints its arguments on stdout separated by spaces and ending with a newline.
 v8::Handle<Value> LogPrint(Arguments const& args) 
 {
+    HandleScope handleScope;
 	bool first = true;
 	for (int i = 0; i < args.Length(); i++) {
-		HandleScope handle_scope;
 		if (first) {
 			first = false;
 		} else {
@@ -32,9 +32,9 @@ v8::Handle<Value> LogPrint(Arguments const& args)
 
 v8::Handle<Value> LogInfo(Arguments const& args) 
 {	
+    HandleScope handleScope;
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
-		HandleScope handle_scope;
 		v8::String::Utf8Value str(args[i]);
 		ss << ToCString(str);
 	}
@@ -44,9 +44,9 @@ v8::Handle<Value> LogInfo(Arguments const& args)
 
 v8::Handle<Value> LogWarn(Arguments const& args) 
 {	
+    HandleScope handleScope;
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
-		HandleScope handle_scope;
 		v8::String::Utf8Value str(args[i]);
 		ss << ToCString(str);
 	}
@@ -56,9 +56,9 @@ v8::Handle<Value> LogWarn(Arguments const& args)
 
 v8::Handle<Value> LogError(Arguments const& args) 
 {	
+    HandleScope handleScope;
 	std::stringstream ss;	
 	for (int i = 0; i < args.Length(); i++) {
-		HandleScope handle_scope;
 		v8::String::Utf8Value str(args[i]);
 		ss << ToCString(str);
 	}
