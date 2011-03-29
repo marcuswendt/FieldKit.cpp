@@ -1034,11 +1034,13 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(CINDER_PATH)/boost",
 					"$(CINDER_PATH)/include",
 					"$(V8_PATH)/include",
 				);
+				KEEP_PRIVATE_EXTERNS = YES;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "$(V8_PATH)/libv8_g.a";
 				PREBINDING = NO;
@@ -1056,11 +1058,13 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(CINDER_PATH)/boost",
 					"$(CINDER_PATH)/include",
 					"$(V8_PATH)/include",
 				);
+				KEEP_PRIVATE_EXTERNS = YES;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "$(V8_PATH)/libv8.a";
 				PREBINDING = NO;

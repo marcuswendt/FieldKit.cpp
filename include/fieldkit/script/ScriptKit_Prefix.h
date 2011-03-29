@@ -21,6 +21,9 @@ namespace fieldkit { namespace script {
     //
     // Macros
     //
+#define SET_PROPERTY(obj, name, value) \
+    obj->Set(v8::String::NewSymbol(name), value);
+
 #define SET_METHOD(obj, name, callback) \
     obj->Set(v8::String::NewSymbol(name), v8::FunctionTemplate::New(callback)->GetFunction())
     

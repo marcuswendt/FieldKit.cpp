@@ -164,7 +164,6 @@ bool ScriptContext::execute(std::string sourceOrFile)
 	// create a new execution environment containing the attached functions
     // TODO Context::New seems to be leaking memory, 
     context = Context::New(NULL, global);
-    context->Enter();
     
 	// enter the newly created execution environment.
 	Context::Scope contextScope(context);
@@ -186,7 +185,7 @@ bool ScriptContext::filesModified()
     
     std::time_t writeTime = GetNewestFileWriteTime(parentPath);
     if(writeTime > newestWriteTime) {
-        LOG_INFO("Script file modification detected");
+//        LOG_INFO("Script file modification detected");
         newestWriteTime = writeTime;
         return true;
         
