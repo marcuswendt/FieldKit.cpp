@@ -11,7 +11,10 @@
 
 #include "cinder/Color.h"
 #include "cinder/gl/GL.h"
-#include "cinder/CinderMath.h"
+#include "cinder/Font.h"
+
+#include "fieldkit/Logger.h"
+#include "fieldkit/math/MathKit.h"
 #include "fieldkit/script/ObjectWrap.h"
 
 namespace fieldkit { namespace script {
@@ -26,6 +29,8 @@ namespace fieldkit { namespace script {
         bool fillEnabled_;
         ColorA fill_;
 
+        ci::Font font_;
+        
         Graphics2DImpl() 
         {
             strokeEnabled_ = false;
@@ -33,6 +38,8 @@ namespace fieldkit { namespace script {
             
             fillEnabled_ = true;
             fill_ = ColorA(1,1,1,1);
+            
+            font_ = ci::Font("Arial", 12);
         }
         
         // -- Color ------------------------------------------------------------
@@ -178,20 +185,32 @@ namespace fieldkit { namespace script {
         }
         
         
-//        // -- OpenGL -----------------------------------------------------------
-//        void EnableAlphaBlending(bool premultiplied=false)
-//        {
-//            glEnable(GL_BLEND);
-//            if(!premultiplied)
-//                glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-//            else
-//                glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-//        }
-//        
-//        void DisableAlphaBlending()
-//        {
-//            glDisable(GL_BLEND);
-//        }
+        // -- Text -------------------------------------------------------------
+        void TextFont(std::string const& name, float size)
+        {
+            font_ = ci::Font(name, size);
+        }
+        
+        void Text(std::string const& text, float x, float y)
+        {
+            ci::gl::drawString(text, Vec2f(x,y), fill_, font_);
+        }
+        
+        
+        // -- OpenGL -----------------------------------------------------------
+        void EnableAlphaBlending(bool premultiplied=false)
+        {
+            glEnable(GL_BLEND);
+            if(!premultiplied)
+                glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            else
+                glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+        }
+        
+        void DisableAlphaBlending()
+        {
+            glDisable(GL_BLEND);
+        }
     };
     
     
@@ -224,6 +243,10 @@ namespace fieldkit { namespace script {
             SET_PROTOTYPE_METHOD(classTemplate, "ellipse", Graphics2DWrap::Ellipse);
             SET_PROTOTYPE_METHOD(classTemplate, "line", Graphics2DWrap::Line);
             SET_PROTOTYPE_METHOD(classTemplate, "rect", Graphics2DWrap::Rect);
+            
+            // Text
+            SET_PROTOTYPE_METHOD(classTemplate, "textFont", Graphics2DWrap::TextFont);
+            SET_PROTOTYPE_METHOD(classTemplate, "text", Graphics2DWrap::Text);
             
             // GL
             SET_PROTOTYPE_METHOD(classTemplate, "enableAlphaBlending", Graphics2DWrap::EnableAlphaBlending);
@@ -373,20 +396,40 @@ namespace fieldkit { namespace script {
         }
 
         
+        // -- Text Wrappers ----------------------------------------------------
+        static Handle<Value> TextFont(Arguments const& args) 
+        {
+            if(args.Length() == 2) {
+                std::string name = *String::AsciiValue(args[0]);
+                float size = args[1]->NumberValue();
+                Impl(args).TextFont(name, size);
+            }
+            return Undefined();
+        }
+        
+        static Handle<Value> Text(Arguments const& args) 
+        {
+            if(args.Length() == 3) {
+                std::string text = *String::AsciiValue(args[0]);
+                float x = args[1]->NumberValue();
+                float y = args[2]->NumberValue();
+                Impl(args).Text(text, x, y);
+            }
+            return Undefined();
+        }
+        
         // -- GL Wrappers ------------------------------------------------------
         static Handle<Value> EnableAlphaBlending(Arguments const& args) 
         {
             bool premultiplied=false;
             if(args.Length() == 1) premultiplied = args[0]->BooleanValue();
-            ci::gl::enableAlphaBlending(premultiplied);
-//            Impl(args).EnableAlphaBlending(premultiplied);
+            Impl(args).EnableAlphaBlending(premultiplied);
             return Undefined();
         }
         
         static Handle<Value> DisableAlphaBlending(Arguments const& args) 
         {
-            ci::gl::disableAlphaBlending();
-//            Impl(args).DisableAlphaBlending();
+            Impl(args).DisableAlphaBlending();
             return Undefined();
         }
     };
