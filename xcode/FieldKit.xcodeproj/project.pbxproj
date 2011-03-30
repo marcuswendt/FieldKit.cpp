@@ -28,6 +28,7 @@
 		2C147E33131AC9A50037E44C /* ScriptKit_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C147E32131AC9A30037E44C /* ScriptKit_Prefix.h */; };
 		2C16CBDD11D944BD0038C163 /* MathKit_Prefix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C16CBDC11D944BD0038C163 /* MathKit_Prefix.cpp */; };
 		2C16CBE111D944D70038C163 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C16CBE011D944D70038C163 /* Logger.cpp */; };
+		2C232DAD134332AB00451E0F /* Graphics2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C232DAC134332AB00451E0F /* Graphics2D.cpp */; };
 		2C240E9411CFC26B00856329 /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1E11CFC1DF00856329 /* AABB.cpp */; };
 		2C240EA311CFC26B00856329 /* SphereBound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1F11CFC1DF00856329 /* SphereBound.cpp */; };
 		2C240EA711CFC28C00856329 /* CinderRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C240DD611CFC1CD00856329 /* CinderRenderer.h */; };
@@ -170,6 +171,8 @@
 		2C16CBDC11D944BD0038C163 /* MathKit_Prefix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MathKit_Prefix.cpp; path = ../../FieldKit.cpp/src/fieldkit/math/MathKit_Prefix.cpp; sourceTree = SOURCE_ROOT; };
 		2C16CBE011D944D70038C163 /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = ../../FieldKit.cpp/src/fieldkit/Logger.cpp; sourceTree = SOURCE_ROOT; };
 		2C16CBE211D944E30038C163 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = ../../FieldKit.cpp/include/fieldkit/Logger.h; sourceTree = SOURCE_ROOT; };
+		2C232DAC134332AB00451E0F /* Graphics2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Graphics2D.cpp; sourceTree = "<group>"; };
+		2C232DAF134332C400451E0F /* Graphics2D.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Graphics2D.h; sourceTree = "<group>"; };
 		2C240DD611CFC1CD00856329 /* CinderRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CinderRenderer.h; sourceTree = "<group>"; };
 		2C240DD711CFC1CD00856329 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		2C240DD911CFC1CD00856329 /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
@@ -704,6 +707,7 @@
 				2CF1A418133F8C9800678863 /* Logger.cpp */,
 				2CF1A419133F8C9800678863 /* Random.cpp */,
 				2CF1A41A133F8C9800678863 /* TypedArray.cpp */,
+				2C232DAC134332AB00451E0F /* Graphics2D.cpp */,
 			);
 			name = module;
 			path = script/module;
@@ -715,6 +719,7 @@
 				2CF1A41F133F8CA900678863 /* Logger.h */,
 				2CF1A420133F8CA900678863 /* Random.h */,
 				2CF1A421133F8CA900678863 /* TypedArray.h */,
+				2C232DAF134332C400451E0F /* Graphics2D.h */,
 			);
 			name = module;
 			path = script/module;
@@ -920,6 +925,7 @@
 				2CF1A41B133F8C9800678863 /* Logger.cpp in Sources */,
 				2CF1A41C133F8C9800678863 /* Random.cpp in Sources */,
 				2CF1A41D133F8C9800678863 /* TypedArray.cpp in Sources */,
+				2C232DAD134332AB00451E0F /* Graphics2D.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
