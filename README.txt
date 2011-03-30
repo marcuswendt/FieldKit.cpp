@@ -17,7 +17,7 @@ graphic design applications.
 
 For example uses see: http://www.field.io
 
-The library itself builds on top of the Cinder "open source library for 
+The library itself builds heavily on top of the Cinder "open source library for 
 professional-quality creative coding in C++"
 
 
@@ -35,8 +35,7 @@ Provides core math and animation utilities;
 
 * MS Windows 7 + MS Visual Studio 2008 + Service Pack 1
 * Apple Mac OSX 10.6.4+ + Apple XCode 3.2
-* Cinder V0.81+
-  http://libcinder.org
+* Cinder - latest version from github
   http://github.com/cinder/Cinder
 
   
@@ -98,6 +97,16 @@ b) Or build v8 next to your fieldkit.cpp folder e.g.
    $ /path/to/fieldkit.cpp/..
    $ svn checkout http://v8.googlecode.com/svn/trunk/ v8
    $ cd v8/
-   $ scons
-   $ scons mode=debug
+   $ scons mode=release library=static arch=ia32
+   $ scons mode=debug library=static arch=ia32
+
+
+
+
+= Thanks =
+
+* Andrew Bell & Cinder Team - http://libcinder.org
+* Dean McNamee - V8 tricks and TypedArrays implementation https://github.com/deanm + http://www.deanmcnamee.com
+* Karsten Schmidt - great resource & inspiration http://toxiclibs.org
+* many more :)
 
