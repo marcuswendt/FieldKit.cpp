@@ -7,7 +7,7 @@
  *	 Created by Marcus Wendt on 23/03/2011.
  */
 
-#include "Graphics2D.h"
+#include "fieldkit/script/module/Graphics2D.h"
 
 #include "cinder/Color.h"
 #include "cinder/gl/GL.h"
@@ -79,7 +79,7 @@ namespace fieldkit { namespace script {
         // -- Shapes -----------------------------------------------------------
         void Ellipse(float x, float y, float w, float h)
         {
-            int numSamples = 6 + (int)(w*0.45);
+            int numSamples = 6 + (int)(abs(w)*0.45); // abs in case w is negative
             if(numSamples > 64) numSamples = 64;
             
             int numVertices = numSamples + 1;
