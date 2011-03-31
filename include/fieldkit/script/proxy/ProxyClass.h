@@ -56,7 +56,7 @@ namespace fieldkit { namespace script {
 					AccessorProperty* accessor, bool getter, bool setter);
 		
 		//! Registers the class represented by this Proxy within the given context
-		void exposeClass(Handle<ObjectTemplate> context);
+		void exposeClass(Handle<Object> target);
 		
 		Handle<Value> exposeObject(T* t, bool withDestroy);
         
@@ -216,9 +216,9 @@ namespace fieldkit { namespace script {
 	}
 	
 	template<class T>
-	void ProxyClass<T>::exposeClass(Handle<ObjectTemplate> context)
+	void ProxyClass<T>::exposeClass(Handle<Object> target)
 	{
-		context->Set(className, getFunctionTemplate());	
+		target->Set(className, getFunctionTemplate()->GetFunction());	
 	}
 	
 	template<class T>
