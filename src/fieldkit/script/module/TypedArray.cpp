@@ -25,6 +25,7 @@
 #include <v8.h>
 
 #include "fieldkit/script/module/TypedArray.h"
+#include "fieldkit/Logger.h"
 
 namespace fks = fieldkit::script;
 
@@ -538,8 +539,7 @@ namespace {
             if (!buffer->HasIndexedPropertiesInExternalArrayData())
                 return ThrowError("Object must be an ArrayBuffer.");
             
-            unsigned int byte_length =
-            buffer->GetIndexedPropertiesExternalArrayDataLength();
+            unsigned int byte_length = buffer->GetIndexedPropertiesExternalArrayDataLength();
             unsigned int byte_offset = args[1]->Uint32Value();
             
             if (args[1]->Int32Value() < 0 || byte_offset >= byte_length)

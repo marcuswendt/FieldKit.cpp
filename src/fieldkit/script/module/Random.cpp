@@ -30,6 +30,7 @@ public:
         
         // instance methods (e.g. working with an instance of var r = new Random; r.X())
         SET_PROTOTYPE_METHOD(classTemplate, "seed", RandomWrap::ISeed);
+        SET_PROTOTYPE_METHOD(classTemplate, "randomize", RandomWrap::IRandomize);
         SET_PROTOTYPE_METHOD(classTemplate, "float", RandomWrap::IFloat);
         SET_PROTOTYPE_METHOD(classTemplate, "int", RandomWrap::IInt);
         SET_PROTOTYPE_METHOD(classTemplate, "bool", RandomWrap::IBool);
@@ -93,6 +94,14 @@ private:
             uint32_t seed = args[0]->Int32Value();
             wrap->rand.randSeed(seed);
         }
+        return Undefined();
+    }
+    
+    static Handle<Value> IRandomize(Arguments const& args)
+    {
+        HandleScope scope;
+        RandomWrap* wrap = ObjectWrap::Unwrap<RandomWrap>(args.This());
+        wrap->rand.randomize();
         return Undefined();
     }
 
