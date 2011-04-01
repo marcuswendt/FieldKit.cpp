@@ -43,12 +43,12 @@ do { \
 	//
 	
 	//! Converts a regular C-String to a v8::String
-	const Local<String> ToV8String(const char* value);
+	const v8::Local<v8::String> ToV8String(const char* value);
 	
-	const Local<String> ToV8String(std::string value);
+	const v8::Local<v8::String> ToV8String(std::string value);
 	
-	const char* ToCString(const String::Utf8Value& value);
+	const char* ToCString(const v8::String::Utf8Value& value);
 	
-	const std::string ToStdString(Handle<String> handle);
+	const std::string ToStdString(v8::Handle<v8::String> handle);
 	
 } } // namespace fieldkit::script
