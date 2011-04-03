@@ -92,7 +92,7 @@ private:
             HandleScope scope;
             RandomWrap* wrap = ObjectWrap::Unwrap<RandomWrap>(args.This());
             uint32_t seed = args[0]->Int32Value();
-            wrap->rand.randSeed(seed);
+            wrap->rand.seed(seed);
         }
         return Undefined();
     }

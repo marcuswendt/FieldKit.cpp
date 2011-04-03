@@ -58,7 +58,7 @@ static void ResolveIncludes(string const& path, string& source)
     string content = LoadFile(path +"/" + file);
     
     if(content == "") 
-        content = " print(\"ERROR: Couldnt include file '"+ file +"')";
+        content = " print(\"ERROR: Couldnt include file '"+ file +"'\")";
     
     source.replace(match, end - match +1, content);
     
