@@ -134,8 +134,11 @@ private:
             b = args[1]->NumberValue();
         
         HandleScope scope;
-        RandomWrap* wrap = ObjectWrap::Unwrap<RandomWrap>(args.This());
-        int value = wrap->rand.nextInt(a,b);
+        int value = a;
+        if(a != b) {
+            RandomWrap* wrap = ObjectWrap::Unwrap<RandomWrap>(args.This());
+            value = wrap->rand.nextInt(a,b);
+        }
         return scope.Close(Number::New(value));
     }
     
