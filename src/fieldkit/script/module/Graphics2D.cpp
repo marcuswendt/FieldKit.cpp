@@ -197,6 +197,32 @@ namespace fieldkit { namespace script {
         }
         
         
+        // -- Transform --------------------------------------------------------
+        void PopMatrix()
+        {
+            glPopMatrix();
+        }
+        
+        void PushMatrix()
+        {
+            glPushMatrix();
+        }
+        
+        void Rotate(float angle, float x, float y, float z)
+        {
+            glRotatef(angle, x, y, z);
+        }
+        
+        void Scale(float x, float y, float z)
+        {
+            glScalef(x,y,z);
+        }
+        
+        void Translate(float x, float y, float z)
+        {
+            glTranslatef(x,y,z);
+        }
+        
         // -- OpenGL -----------------------------------------------------------
         void EnableAlphaBlending(bool premultiplied=false)
         {
@@ -247,6 +273,13 @@ namespace fieldkit { namespace script {
             // Text
             SET_PROTOTYPE_METHOD(classTemplate, "textFont", Graphics2DWrap::TextFont);
             SET_PROTOTYPE_METHOD(classTemplate, "text", Graphics2DWrap::Text);
+            
+            // Transform
+            SET_PROTOTYPE_METHOD(classTemplate, "popMatrix", Graphics2DWrap::PopMatrix);
+            SET_PROTOTYPE_METHOD(classTemplate, "pushMatrix", Graphics2DWrap::PushMatrix);
+            SET_PROTOTYPE_METHOD(classTemplate, "scale", Graphics2DWrap::Scale);
+            SET_PROTOTYPE_METHOD(classTemplate, "rotate", Graphics2DWrap::Rotate);
+            SET_PROTOTYPE_METHOD(classTemplate, "translate", Graphics2DWrap::Translate);
             
             // GL
             SET_PROTOTYPE_METHOD(classTemplate, "enableAlphaBlending", Graphics2DWrap::EnableAlphaBlending);
@@ -417,6 +450,92 @@ namespace fieldkit { namespace script {
             }
             return Undefined();
         }
+        
+        // -- Transform --------------------------------------------------------
+        static Handle<Value> PopMatrix(Arguments const& args) 
+        {
+            Impl(args).PopMatrix();
+            return Undefined();
+        }
+        
+        static Handle<Value> PushMatrix(Arguments const& args) 
+        {
+            Impl(args).PushMatrix();
+            return Undefined();
+        }
+        
+        static Handle<Value> Scale(Arguments const& args) 
+        {
+            float tmp;
+            switch(args.Length()) {
+                // scale x,y,z
+                case 1:                          
+                    tmp = args[0]->NumberValue();
+                    Impl(args).Scale(tmp, tmp, tmp);
+                    break;
+                    
+                // scale x,y
+                case 2:
+                    Impl(args).Scale(args[0]->NumberValue(), 
+                                     args[1]->NumberValue(), 
+                                     1.0);
+                    break;
+                    
+                case 3:
+                    Impl(args).Scale(args[0]->NumberValue(), 
+                                     args[1]->NumberValue(), 
+                                     args[2]->NumberValue());
+                    break;
+            }
+            return Undefined();
+        }
+        
+        static Handle<Value> Rotate(Arguments const& args) 
+        {
+            switch(args.Length()) {
+                // rotate around z
+                case 1:                    
+                    Impl(args).Rotate(args[0]->NumberValue(), 0, 0, 1);    
+                    break;
+            
+                // rotate around x,y,z
+                case 3:
+                    Impl(args).Rotate(args[0]->NumberValue(), 1, 0, 0);    
+                    Impl(args).Rotate(args[1]->NumberValue(), 0, 1, 0);
+                    Impl(args).Rotate(args[2]->NumberValue(), 0, 0, 1);
+                    break;
+                    
+                // rotate around custom axis
+                case 4:
+                    Impl(args).Rotate(args[0]->NumberValue(),
+                                      args[1]->NumberValue(),
+                                      args[2]->NumberValue(),
+                                      args[3]->NumberValue());
+                    break;
+            }
+            return Undefined();
+        }
+        
+        static Handle<Value> Translate(Arguments const& args) 
+        {
+            switch(args.Length()) {
+                // translate x,y
+                case 2:
+                    Impl(args).Translate(args[0]->NumberValue(), 
+                                         args[1]->NumberValue(), 
+                                         0.0);
+                    break;
+
+                // translate x,y,z
+                case 3:
+                    Impl(args).Translate(args[0]->NumberValue(), 
+                                         args[1]->NumberValue(), 
+                                         args[2]->NumberValue());
+                    break;
+            }
+            return Undefined();
+        }
+        
         
         // -- GL Wrappers ------------------------------------------------------
         static Handle<Value> EnableAlphaBlending(Arguments const& args) 
