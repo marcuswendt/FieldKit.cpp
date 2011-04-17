@@ -18,8 +18,6 @@ PointCloud::PointCloud()
 	capacity = 0;
 	bytesPerParticle = 0;
 	size = 0;
-
-	data = NULL;
 	ptr = NULL;
 }
 
@@ -27,9 +25,6 @@ PointCloud::~PointCloud()
 {
 	vbo.reset();
 	shader.reset();
-
-	delete data;
-	data = NULL;
 	ptr = NULL;
 }
 
@@ -48,53 +43,30 @@ void PointCloud::init(PointDataFormat const format, int capacity, GlslProg const
 	int bytesTotal = bytesPerParticle * capacity;
 	
 	// create buffer
-	data = (GLfloat*)malloc(bytesTotal);
-	clear();
+    GLfloat* data = (GLfloat*)malloc(bytesTotal);
 
 	// create gl objects
 	vbo = Vbo(GL_ARRAY_BUFFER);
 	vbo.bufferData(bytesTotal, data, GL_DYNAMIC_DRAW); // or GL_STREAM_DRAW
 	vbo.unbind();
+    
+    delete data;
 }
 
-void PointCloud::clear() 
+void PointCloud::map()
 {
-	size = 0;
-	ptr = data;
+    size = 0;
+    ptr = reinterpret_cast<GLfloat*>( vbo.map(GL_WRITE_ONLY) );
+}
+
+void PointCloud::unmap()
+{
+    vbo.unmap();
 }
 
 void PointCloud::insert()
 {
 	size += 1;
-}
-
-void PointCloud::put(Vec2f const& v)
-{
-	put(v.x); 
-	put(v.y);
-}
-
-void PointCloud::put(Vec3f const& v)
-{
-	put(v.x); 
-	put(v.y);
-	put(v.z);
-}
-
-void PointCloud::put(Vec4f const& v)
-{
-	put(v.x);
-	put(v.y);
-	put(v.z);
-	put(v.w);
-}
-
-void PointCloud::put(ColorAf const& v)
-{
-	put(v.r);
-	put(v.g);
-	put(v.b);
-	put(v.a);
 }
 
 void PointCloud::draw()
@@ -105,9 +77,6 @@ void PointCloud::draw()
 	// enable states
 	shader.bind();
 	vbo.bind();
-	
-	// upload data
-	vbo.bufferSubData(0, size * bytesPerParticle, data);
 	
 	glEnable(GL_POINT_SPRITE);
 	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);

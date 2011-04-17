@@ -56,6 +56,12 @@ namespace fieldkit { namespace gl {
 		
 		//! clears the buffer data
 		void clear();
+        
+        //! maps the buffer for writing
+        void map();
+        
+        //! unmaps the buffer 
+        void unmap();
 
 		//! inserts a float attribute for the current particle
 		void inline put(float const& value) 
@@ -64,16 +70,31 @@ namespace fieldkit { namespace gl {
 		}
 		
 		//! inserts a 2d vector attribute for the current particle
-		void put(Vec2f const& v);
+        void inline put(Vec2f const& value) 
+        {
+            *(reinterpret_cast<Vec2f*>(ptr)) = value; ptr += 2;
+            //        ptr += sizeof(Vec2f);
+        }
 		
 		//! inserts a 3d vector attribute for the current particle
-		void put(Vec3f const& v);
+        void inline put(Vec3f const& value) 
+        {
+            *(reinterpret_cast<Vec3f*>(ptr)) = value; ptr += 3;
+        }
 		
 		//! inserts a 4d vector attribute for the current particle
-		void put(Vec4f const& v);
+        void inline put(Vec4f const& value) 
+        {
+            *(reinterpret_cast<Vec4f*>(ptr)) = value;
+            ptr += 4;
+        }
 		
 		//! inserts a color attribute for the current particle
-		void put(ColorAf const& v);
+        void inline put(ci::ColorA const& value) 
+        {
+            *(reinterpret_cast<ci::ColorA*>(ptr)) = value;
+            ptr += 4;
+        }
 		
 		//! call this when all data for a single particle was inserted
 		void insert();
@@ -85,7 +106,6 @@ namespace fieldkit { namespace gl {
 		PointDataFormat format;
 		int capacity;
 		int bytesPerParticle;
-		GLfloat* data;
 		
 		int size;
 		GLfloat* ptr;
