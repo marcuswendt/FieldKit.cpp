@@ -84,8 +84,8 @@ namespace fieldkit { namespace script {
             
             int numVertices = numSamples + 1;
             
-            GLfloat textureCoords[numVertices * 2];
-            GLfloat vertices[numVertices * 2];
+            GLfloat* textureCoords = new GLfloat[numVertices * 2];
+            GLfloat* vertices = new GLfloat[numVertices * 2];
             
             // center point
             textureCoords[0] = 0.5f;
@@ -126,6 +126,9 @@ namespace fieldkit { namespace script {
             // cleanup
             glDisableClientState(GL_VERTEX_ARRAY);
             glDisableClientState(GL_TEXTURE_COORD_ARRAY);    
+
+			delete[] textureCoords;
+			delete[] vertices;
         }
         
         void Line(float x1, float y1, float x2, float y2)
