@@ -12,11 +12,10 @@
 #include "cinder/Vector.h"
 
 namespace fieldkit {
-    
-    // aliases for Vector classes in case we want to switch to our own implementation later
-    typedef ci::Vec2f Vec2f;
-    typedef ci::Vec2i Vec2i;
-    typedef ci::Vec3f Vec3f;
-    typedef ci::Vec4f Vec4f;
+
+	using ci::Vec2f;
+	using ci::Vec2i;
+	using ci::Vec3f;
+	using ci::Vec4f;
 
 }
