@@ -13,7 +13,8 @@
 #include "cinder/Xml.h"
 #include "rapidxml/rapidxml.hpp"
 
-using namespace fieldkit;
+namespace fieldkit {
+
 using namespace cinder;
 
 void ConfigDict::loadXML(DataSourceRef source)
@@ -157,3 +158,4 @@ Vec2i ConfigDict::get2i(const string key, Vec2i alt)
 	}
 }
 
+}
