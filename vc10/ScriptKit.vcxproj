@@ -11,19 +11,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\fieldkit\script\Accessor.h" />
-    <ClInclude Include="..\include\fieldkit\script\Binding.h" />
-    <ClInclude Include="..\include\fieldkit\script\InstanceHandle.h" />
-    <ClInclude Include="..\include\fieldkit\script\LoggerBindings.h" />
-    <ClInclude Include="..\include\fieldkit\script\Property.h" />
-    <ClInclude Include="..\include\fieldkit\script\ProxyClass.h" />
+    <ClInclude Include="..\include\fieldkit\script\Module.h" />
+    <ClInclude Include="..\include\fieldkit\script\module\Graphics2D.h" />
+    <ClInclude Include="..\include\fieldkit\script\module\Logger.h" />
+    <ClInclude Include="..\include\fieldkit\script\module\Random.h" />
+    <ClInclude Include="..\include\fieldkit\script\module\TypedArray.h" />
+    <ClInclude Include="..\include\fieldkit\script\ObjectWrap.h" />
+    <ClInclude Include="..\include\fieldkit\script\proxy\Accessor.h" />
+    <ClInclude Include="..\include\fieldkit\script\proxy\InstanceHandle.h" />
+    <ClInclude Include="..\include\fieldkit\script\proxy\Property.h" />
+    <ClInclude Include="..\include\fieldkit\script\proxy\ProxyClass.h" />
+    <ClInclude Include="..\include\fieldkit\script\proxy\Type.h" />
     <ClInclude Include="..\include\fieldkit\script\ScriptContext.h" />
     <ClInclude Include="..\include\fieldkit\script\ScriptKit.h" />
-    <ClInclude Include="..\include\fieldkit\script\Type.h" />
+    <ClInclude Include="..\include\fieldkit\script\ScriptKit_Prefix.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\fieldkit\script\LoggerBindings.cpp" />
-    <ClCompile Include="..\src\fieldkit\script\ProxyClass.cpp" />
+    <ClCompile Include="..\src\fieldkit\script\module\Graphics2D.cpp" />
+    <ClCompile Include="..\src\fieldkit\script\module\Logger.cpp" />
+    <ClCompile Include="..\src\fieldkit\script\module\Random.cpp" />
+    <ClCompile Include="..\src\fieldkit\script\module\TypedArray.cpp" />
+    <ClCompile Include="..\src\fieldkit\script\proxy\ProxyClass.cpp" />
     <ClCompile Include="..\src\fieldkit\script\ScriptContext.cpp" />
     <ClCompile Include="..\src\fieldkit\script\ScriptKit.cpp" />
   </ItemGroup>

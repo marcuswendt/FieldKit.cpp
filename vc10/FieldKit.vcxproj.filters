@@ -21,6 +21,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\fieldkit\Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\ConfigDict.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\fieldkit\math\AABB.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
@@ -30,7 +36,7 @@
     <ClCompile Include="..\src\fieldkit\math\Line.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\fieldkit\math\MathKit.cpp">
+    <ClCompile Include="..\src\fieldkit\math\MathKit_Prefix.cpp">
       <Filter>Source Files\math</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\math\Ray.cpp">
@@ -38,12 +44,6 @@
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\math\SphereBound.cpp">
       <Filter>Source Files\math</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\fieldkit\Logger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\fieldkit\ConfigDict.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

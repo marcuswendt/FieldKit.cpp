@@ -110,7 +110,7 @@
     <ClCompile Include="..\src\fieldkit\math\AABB.cpp" />
     <ClCompile Include="..\src\fieldkit\math\BoundingVolume.cpp" />
     <ClCompile Include="..\src\fieldkit\math\Line.cpp" />
-    <ClCompile Include="..\src\fieldkit\math\MathKit.cpp" />
+    <ClCompile Include="..\src\fieldkit\math\MathKit_Prefix.cpp" />
     <ClCompile Include="..\src\fieldkit\math\Ray.cpp" />
     <ClCompile Include="..\src\fieldkit\math\SphereBound.cpp" />
   </ItemGroup>

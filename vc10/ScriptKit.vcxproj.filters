@@ -13,54 +13,84 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
     </Filter>
-    <Filter Include="Header Files\binding">
-      <UniqueIdentifier>{5441d01e-d570-41d3-a652-2e4d0c40be9e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\proxy">
-      <UniqueIdentifier>{f831e501-c7dd-4c1f-84e2-9f30c122b9e8}</UniqueIdentifier>
+      <UniqueIdentifier>{9041b1c0-ca9a-41b1-b14b-c72ec5e73317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\module">
+      <UniqueIdentifier>{6e31a3f9-90d5-43d6-ac44-61ed0baf7204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\proxy">
+      <UniqueIdentifier>{ff65b323-a6e0-43ca-9270-d7f4738c62c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\module">
+      <UniqueIdentifier>{f68f1d2b-d517-4f4b-b0ec-b1a85573a53f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\fieldkit\script\module\Graphics2D.h">
+      <Filter>Header Files\module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\module\Logger.h">
+      <Filter>Header Files\module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\module\Random.h">
+      <Filter>Header Files\module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\module\TypedArray.h">
+      <Filter>Header Files\module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\proxy\Accessor.h">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\proxy\InstanceHandle.h">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\proxy\Property.h">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\proxy\ProxyClass.h">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\proxy\Type.h">
+      <Filter>Header Files\proxy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\Module.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\fieldkit\script\ObjectWrap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\fieldkit\script\ScriptContext.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\fieldkit\script\ScriptKit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\fieldkit\script\Binding.h">
-      <Filter>Header Files\binding</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\script\LoggerBindings.h">
-      <Filter>Header Files\binding</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\script\Accessor.h">
-      <Filter>Header Files\proxy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\script\InstanceHandle.h">
-      <Filter>Header Files\proxy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\script\Property.h">
-      <Filter>Header Files\proxy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\script\ProxyClass.h">
-      <Filter>Header Files\proxy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\fieldkit\script\Type.h">
-      <Filter>Header Files\proxy</Filter>
+    <ClInclude Include="..\include\fieldkit\script\ScriptKit_Prefix.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\fieldkit\script\LoggerBindings.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\fieldkit\script\ProxyClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\fieldkit\script\ScriptContext.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\src\fieldkit\script\ScriptKit.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\script\proxy\ProxyClass.cpp">
+      <Filter>Source Files\proxy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\script\module\Graphics2D.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\script\module\Logger.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\script\module\Random.cpp">
+      <Filter>Source Files\module</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fieldkit\script\module\TypedArray.cpp">
+      <Filter>Source Files\module</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
