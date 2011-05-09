@@ -107,6 +107,8 @@
 		2C7D806F12914653003653C1 /* Module.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806B12914653003653C1 /* Module.h */; };
 		2C7D807212914653003653C1 /* ScriptContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806E12914653003653C1 /* ScriptContext.h */; };
 		2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80751291465F003653C1 /* ScriptContext.cpp */; };
+		2CADA6A91377F28C001E6719 /* ImageCompressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CADA6A71377F28C001E6719 /* ImageCompressor.cpp */; };
+		2CADA6AD1377F2C0001E6719 /* ImageCompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CADA6AC1377F2C0001E6719 /* ImageCompressor.h */; };
 		2CCB51C41295575800AD51C3 /* ScriptKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB51C31295575800AD51C3 /* ScriptKit.cpp */; };
 		2CF1A41B133F8C9800678863 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1A418133F8C9800678863 /* Logger.cpp */; };
 		2CF1A41C133F8C9800678863 /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1A419133F8C9800678863 /* Random.cpp */; };
@@ -260,6 +262,8 @@
 		2CA85A67131A63DF0010129E /* libScriptKit_d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libScriptKit_d.a; path = ../lib/libScriptKit_d.a; sourceTree = "<group>"; };
 		2CA85A68131A63DF0010129E /* libScriptKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libScriptKit.a; path = ../lib/libScriptKit.a; sourceTree = "<group>"; };
 		2CADA50E131A8A850069A6A6 /* libFieldKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFieldKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CADA6A71377F28C001E6719 /* ImageCompressor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImageCompressor.cpp; path = gl/ImageCompressor.cpp; sourceTree = "<group>"; };
+		2CADA6AC1377F2C0001E6719 /* ImageCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCompressor.h; path = gl/ImageCompressor.h; sourceTree = "<group>"; };
 		2CCB51C31295575800AD51C3 /* ScriptKit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptKit.cpp; path = script/ScriptKit.cpp; sourceTree = "<group>"; };
 		2CD7DAF0122304B9003DE1B7 /* NeighbourUpdate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NeighbourUpdate.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/strategy/NeighbourUpdate.cpp; sourceTree = SOURCE_ROOT; };
 		2CD7DAF1122304B9003DE1B7 /* ParticleAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ParticleAllocator.cpp; path = ../../FieldKit.cpp/src/fieldkit/physics/strategy/ParticleAllocator.cpp; sourceTree = SOURCE_ROOT; };
@@ -607,6 +611,7 @@
 		2CA8340711DBBD8100D5B37B /* gl */ = {
 			isa = PBXGroup;
 			children = (
+				2CADA6AC1377F2C0001E6719 /* ImageCompressor.h */,
 				2CA8340E11DBBDA400D5B37B /* GLKit.h */,
 				2CA8340F11DBBDA400D5B37B /* PointCloud.h */,
 				2CA8341011DBBDA400D5B37B /* PointDataFormat.h */,
@@ -621,6 +626,7 @@
 				2CF00B6C11DF227100AD0E7C /* GLKit.cpp */,
 				2CA8341611DBBDC200D5B37B /* PointCloud.cpp */,
 				2CA8341711DBBDC200D5B37B /* PointDataFormat.cpp */,
+				2CADA6A71377F28C001E6719 /* ImageCompressor.cpp */,
 			);
 			name = gl;
 			sourceTree = "<group>";
@@ -763,6 +769,7 @@
 			files = (
 				2C147E31131AC4510037E44C /* Vector.h in Headers */,
 				2C147E33131AC9A50037E44C /* ScriptKit_Prefix.h in Headers */,
+				2CADA6AD1377F2C0001E6719 /* ImageCompressor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,6 +919,7 @@
 				2C660B69131A5B1E0047CE1E /* Particle.cpp in Sources */,
 				2C660B6A131A5B1E0047CE1E /* Physics.cpp in Sources */,
 				2C660B6B131A5B1E0047CE1E /* Spring.cpp in Sources */,
+				2CADA6A91377F28C001E6719 /* ImageCompressor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
