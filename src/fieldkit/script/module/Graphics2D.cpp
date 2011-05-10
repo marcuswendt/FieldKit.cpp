@@ -486,10 +486,10 @@ namespace fieldkit { namespace script {
             } else if(args.Length() == 6) {            
                 float x1 = args[0]->NumberValue();
                 float y1 = args[1]->NumberValue();
-                float z1 = args[1]->NumberValue();
-                float x2 = args[2]->NumberValue();
-                float y2 = args[3]->NumberValue();
-                float z2 = args[3]->NumberValue();
+                float z1 = args[2]->NumberValue();
+                float x2 = args[3]->NumberValue();
+                float y2 = args[4]->NumberValue();
+                float z2 = args[5]->NumberValue();
                 Impl(args).Line(x1, y1, z1, x2, y2, z2);
             }
             return Undefined();
