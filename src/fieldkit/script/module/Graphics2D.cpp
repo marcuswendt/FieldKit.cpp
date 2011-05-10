@@ -131,14 +131,24 @@ namespace fieldkit { namespace script {
 			delete[] vertices;
         }
         
-        void Line(float x1, float y1, float x2, float y2)
+        void Line(float x1, float y1, float z1, float x2, float y2, float z2)
         {
             if(!strokeEnabled_) return;
             
             glColor4f(stroke_.r, stroke_.g, stroke_.b, stroke_.a);
             glBegin(GL_LINES);
-            glVertex2f(x1, y1);
-            glVertex2f(x2, y2);
+            glVertex3f(x1, y1, z1);
+            glVertex3f(x2, y2, z2);
+            glEnd();
+        }
+        
+        void Point(float x, float y, float z)
+        {
+            if(!strokeEnabled_) return;
+            
+            glColor4f(stroke_.r, stroke_.g, stroke_.b, stroke_.a);
+            glBegin(GL_POINTS);
+            glVertex3f(x, y, z);
             glEnd();
         }
         
@@ -187,6 +197,26 @@ namespace fieldkit { namespace script {
             glDisableClientState(GL_TEXTURE_COORD_ARRAY);    
         }
         
+        void Box(float w, float h, float d)
+        {
+            Vec3f center(0,0,0);
+            Vec3f size(w,h,d);
+            
+            if(fillEnabled_) {
+                glColor4f(fill_.r, fill_.g, fill_.b, fill_.a);
+                ci::gl::drawCube(center, size);
+            }
+            
+            if(strokeEnabled_) {
+                glColor4f(stroke_.r, stroke_.g, stroke_.b, stroke_.a);
+                ci::gl::drawStrokedCube(center, size);
+            }
+        }
+
+        void Sphere(float radius)
+        {
+            ci::gl::drawSphere(Vec3f(0,0,0), radius);
+        }
         
         // -- Text -------------------------------------------------------------
         void TextFont(std::string const& name, float size)
@@ -226,6 +256,14 @@ namespace fieldkit { namespace script {
             glTranslatef(x,y,z);
         }
         
+        
+        // -- Camera -----------------------------------------------------------
+        void Camera(Vec3f const& eye, Vec3f const& center, Vec3f const& up)
+        {
+            // TODO needs implementing
+        }        
+        
+        
         // -- OpenGL -----------------------------------------------------------
         void EnableAlphaBlending(bool premultiplied=false)
         {
@@ -239,6 +277,11 @@ namespace fieldkit { namespace script {
         void DisableAlphaBlending()
         {
             glDisable(GL_BLEND);
+        }
+        
+        void PointSize(float size)
+        {
+            glPointSize(size);
         }
     };
     
@@ -267,11 +310,15 @@ namespace fieldkit { namespace script {
 
             SET_PROTOTYPE_METHOD(classTemplate, "strokeWeight", Graphics2DWrap::StrokeWeight);
             
-            // Shape
             // 2D Primitives
             SET_PROTOTYPE_METHOD(classTemplate, "ellipse", Graphics2DWrap::Ellipse);
             SET_PROTOTYPE_METHOD(classTemplate, "line", Graphics2DWrap::Line);
+            SET_PROTOTYPE_METHOD(classTemplate, "point", Graphics2DWrap::Point);
             SET_PROTOTYPE_METHOD(classTemplate, "rect", Graphics2DWrap::Rect);
+            
+            // 3D Primitives
+            SET_PROTOTYPE_METHOD(classTemplate, "box", Graphics2DWrap::Box);
+            SET_PROTOTYPE_METHOD(classTemplate, "sphere", Graphics2DWrap::Sphere);
             
             // Text
             SET_PROTOTYPE_METHOD(classTemplate, "textFont", Graphics2DWrap::TextFont);
@@ -284,9 +331,13 @@ namespace fieldkit { namespace script {
             SET_PROTOTYPE_METHOD(classTemplate, "rotate", Graphics2DWrap::Rotate);
             SET_PROTOTYPE_METHOD(classTemplate, "translate", Graphics2DWrap::Translate);
             
+            // Camera
+            SET_PROTOTYPE_METHOD(classTemplate, "camera", Graphics2DWrap::Camera);
+            
             // GL
             SET_PROTOTYPE_METHOD(classTemplate, "enableAlphaBlending", Graphics2DWrap::EnableAlphaBlending);
-            SET_PROTOTYPE_METHOD(classTemplate, "disableAlphaBlending", Graphics2DWrap::DisableAlphaBlending);
+            SET_PROTOTYPE_METHOD(classTemplate, "disableAlphaBlending", Graphics2DWrap::DisableAlphaBlending);           
+            SET_PROTOTYPE_METHOD(classTemplate, "pointSize", Graphics2DWrap::PointSize);
             
             target->Set(String::NewSymbol(className), classTemplate->GetFunction());
         }
@@ -407,6 +458,22 @@ namespace fieldkit { namespace script {
             return Undefined();
         }
         
+        static Handle<Value> Point(Arguments const& args) 
+        {
+            if(args.Length() == 2) {            
+                float x = args[0]->NumberValue();
+                float y = args[1]->NumberValue();
+                Impl(args).Point(x, y, 0);
+                
+            } else if(args.Length() == 3) {            
+                float x = args[0]->NumberValue();
+                float y = args[1]->NumberValue();
+                float z = args[2]->NumberValue();
+                Impl(args).Point(x, y, z);
+            }
+            return Undefined();
+        }
+        
         static Handle<Value> Line(Arguments const& args) 
         {
             if(args.Length() == 4) {            
@@ -414,7 +481,16 @@ namespace fieldkit { namespace script {
                 float y1 = args[1]->NumberValue();
                 float x2 = args[2]->NumberValue();
                 float y2 = args[3]->NumberValue();
-                Impl(args).Line(x1, y1, x2, y2);
+                Impl(args).Line(x1, y1, 0, x2, y2, 0);
+                
+            } else if(args.Length() == 6) {            
+                float x1 = args[0]->NumberValue();
+                float y1 = args[1]->NumberValue();
+                float z1 = args[1]->NumberValue();
+                float x2 = args[2]->NumberValue();
+                float y2 = args[3]->NumberValue();
+                float z2 = args[3]->NumberValue();
+                Impl(args).Line(x1, y1, z1, x2, y2, z2);
             }
             return Undefined();
         }
@@ -430,7 +506,30 @@ namespace fieldkit { namespace script {
             }
             return Undefined();
         }
-
+        
+        static Handle<Value> Box(Arguments const& args) 
+        {
+            if(args.Length() == 1) {
+                float s = args[0]->NumberValue();
+                Impl(args).Box(s,s,s);
+                
+            } else if(args.Length() == 3) {
+                float w = args[0]->NumberValue();
+                float h = args[1]->NumberValue();
+                float d = args[2]->NumberValue();
+                Impl(args).Box(w, h, d);
+            }
+            return Undefined();
+        }
+        
+        static Handle<Value> Sphere(Arguments const& args) 
+        {
+            if(args.Length() == 1) {
+                Impl(args).Sphere(args[0]->NumberValue());
+            }
+            return Undefined();
+        }
+        
         
         // -- Text Wrappers ----------------------------------------------------
         static Handle<Value> TextFont(Arguments const& args) 
@@ -540,6 +639,30 @@ namespace fieldkit { namespace script {
         }
         
         
+        // -- Camera -----------------------------------------------------------
+        static Handle<Value> Camera(Arguments const& args) 
+        {
+            if(args.Length() == 9) {
+                Vec3f eye, center, up;
+                
+                eye.x = args[0]->NumberValue();
+                eye.y = args[1]->NumberValue();
+                eye.z = args[2]->NumberValue();
+                
+                center.x = args[3]->NumberValue();
+                center.y = args[4]->NumberValue();
+                center.z = args[5]->NumberValue();
+                
+                up.x = args[6]->NumberValue();
+                up.y = args[7]->NumberValue();
+                up.z = args[8]->NumberValue();
+
+                Impl(args).Camera(eye, center, up);
+            }
+            return Undefined();
+        }
+        
+        
         // -- GL Wrappers ------------------------------------------------------
         static Handle<Value> EnableAlphaBlending(Arguments const& args) 
         {
@@ -552,6 +675,14 @@ namespace fieldkit { namespace script {
         static Handle<Value> DisableAlphaBlending(Arguments const& args) 
         {
             Impl(args).DisableAlphaBlending();
+            return Undefined();
+        }
+        
+        static Handle<Value> PointSize(Arguments const& args) 
+        {
+            if(args.Length() == 1) {            
+                Impl(args).PointSize(args[0]->NumberValue());
+            }
             return Undefined();
         }
     };
