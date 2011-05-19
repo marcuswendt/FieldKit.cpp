@@ -61,11 +61,7 @@ namespace fieldkit { namespace script {
         //! the javascript execution context
         Persistent<Context> context;
         
-        //! executes the given javascript source code
-		bool executeString(Handle<String> source);
-        
-        //! converts a v8 exception into a standard c++ exception
-		void reportException(TryCatch* handler);
+        void attachBindings();
 	};
 	
 } } // fieldkit::script

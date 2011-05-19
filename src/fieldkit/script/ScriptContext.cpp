@@ -17,8 +17,99 @@
 
 using namespace fieldkit::script;
 
+
+// -- Helpers ------------------------------------------------------------------
+
+void ReportException(TryCatch* tryCatch)
+{
+    //	HandleScope handleScope;
+    
+	String::Utf8Value exception(tryCatch->Exception());
+	const char* exceptionString = ToCString(exception);
+	Handle<Message> message = tryCatch->Message();
+    
+	if (message.IsEmpty()) {
+		// V8 didn't provide any extra information about this error; just
+		// print the exception.
+		throw  std::runtime_error("Unknown error "+ std::string(exceptionString));
+        
+	} else {
+		// Print (filename):(line number): (message).
+		String::Utf8Value filename(message->GetScriptResourceName());
+		const char* filenameString = ToCString(filename);
+		int linenum = message->GetLineNumber();
+        
+        std::stringstream ss;
+        
+        // Print filename and linenum if applicable
+        if(!message->GetScriptResourceName()->IsUndefined()) {
+            ss << filenameString <<":"<< linenum <<" ";
+        }
+        
+		ss << exceptionString << std::endl;
+        
+		// Print line of source code.
+		String::Utf8Value sourceline(message->GetSourceLine());
+		const char* sourceline_string = ToCString(sourceline);
+        
+		ss << sourceline_string << std::endl;
+        
+		// Print wavy underline (GetUnderline is deprecated).
+		int start = message->GetStartColumn();
+		for (int i = 0; i < start; i++) {
+			ss << " ";
+		}
+		int end = message->GetEndColumn();
+		for (int i = start; i < end; i++) {
+			ss << "^";
+		}
+		ss << std::endl;
+        
+		String::Utf8Value stack_trace(tryCatch->StackTrace());
+		if (stack_trace.length() > 0) {
+			const char* stack_trace_string = ToCString(stack_trace);
+			ss << stack_trace_string;
+		}
+        
+        throw std::runtime_error(ss.str());
+	}
+}
+
+
+// Executes a string within the current v8 context.
+bool ExecuteString(Handle<String> source) 
+{
+	TryCatch tryCatch;
+    
+	Handle<Script> script = Script::Compile(source);
+    
+	if (script.IsEmpty()) {
+        ReportException(&tryCatch);
+		return false;
+        
+	} else {
+		Handle<Value> result = script->Run();
+		if (result.IsEmpty()) {
+            ReportException(&tryCatch);
+			return false;
+            
+		} else {
+			if(!result->IsUndefined()) {
+				// If all went well and the result wasn't undefined then print
+				// the returned value.
+				String::Utf8Value str(result);
+				const char* cstr = ToCString(str);
+				printf("%s\n", cstr);
+                delete cstr;
+			}
+			return true;
+		}
+	}
+}
+
+
 // Reads a file into a stl string.
-static string LoadFile(string const& path)
+static string ReadFileContents(string const& path)
 {
     FILE* file = fopen(path.c_str(), "rb");
     if (file == NULL) return "";
@@ -41,6 +132,7 @@ static string LoadFile(string const& path)
     return contents;
 }
 
+
 // Parses a given source string for '#include "filename"' macros and replaces these with the actual file contents
 static void ResolveIncludes(string const& path, string& source)
 {
@@ -55,7 +147,7 @@ static void ResolveIncludes(string const& path, string& source)
     size_t len = end - start -1;
     
     string file = source.substr(start+1, len);
-    string content = LoadFile(path +"/" + file);
+    string content = ReadFileContents(path +"/" + file);
     
     if(content == "") 
         content = " print(\"ERROR: Couldnt include file '"+ file +"'\")";
@@ -86,7 +178,32 @@ static std::time_t GetNewestFileWriteTime(string const& _path)
 }
 
 
-// -- Script Context ----------------------------------------------------------
+// -- Core Bindings ------------------------------------------------------------
+static string currentScriptPath = "";
+
+v8::Handle<Value> Require(Arguments const& args) 
+{	
+    if(args.Length() != 1) return Undefined();
+    
+    HandleScope handleScope;
+    
+    String::Utf8Value filePathUTF(args[0]);
+
+    std::stringstream ss;
+    ss << currentScriptPath << "/" << *filePathUTF;    
+    string filePath = ss.str();
+    
+    string fileContents = ReadFileContents(filePath.c_str());
+    
+    // execute script
+    Handle<String> source = String::New(fileContents.c_str());
+    bool success = ExecuteString(source);
+    
+    return Boolean::New(success);
+}
+
+
+// -- Script Context -----------------------------------------------------------
 ScriptContext::~ScriptContext()
 {
     filePath = "";
@@ -133,8 +250,11 @@ bool ScriptContext::execute(std::string sourceOrFile)
     if(filePath != "") {
 //        LOG_INFO("loading script from path "<< parentPath);
         
+        // set global script path
+        currentScriptPath = parentPath;
+        
         // load main script file and resolve includes
-        source = LoadFile(filePath);
+        source = ReadFileContents(filePath);
         ResolveIncludes(parentPath, source);
         
         // remember newest write time to see if any file has changed later
@@ -168,14 +288,20 @@ bool ScriptContext::execute(std::string sourceOrFile)
 	// enter the newly created execution environment.
 	Context::Scope contextScope(context);
     
-    // attach bindings
-    BOOST_FOREACH(Module* m, modules) {
-		m->Initialize(context->Global());
-	}
+    // register core and additional bindings
+    attachBindings();
     
 	// execute script
     Handle<String> _source = String::New(source.c_str());
-    return executeString(_source);
+    return ExecuteString(_source);
+}
+
+void ScriptContext::attachBindings()
+{
+    SET_METHOD(context->Global(), "require", Require);
+    BOOST_FOREACH(Module* m, modules) {
+        m->Initialize(context->Global());
+    }   
 }
 
 bool ScriptContext::filesModified()
@@ -204,7 +330,7 @@ Handle<Object> ScriptContext::newInstance(Handle<Object> localContext, Handle<St
     Handle<Value> result = func->NewInstance(argc, argv);
     
     if(result.IsEmpty())
-        reportException(&tryCatch);
+        ReportException(&tryCatch);
     
     return handleScope.Close(Handle<Object>::Cast(result));
 }
@@ -227,100 +353,10 @@ Handle<Value> ScriptContext::call(Handle<Object> localContext, Handle<String> na
         Handle<Value> result = func->Call(localContext, argc, argv);
         
         if(result.IsEmpty())
-            reportException(&tryCatch);
+            ReportException(&tryCatch);
         
         return handleScope.Close(result);
     }
     
     return Undefined();
-}
-
-
-// -- Helpers ------------------------------------------------------------------
-
-// Executes a string within the current v8 context.
-bool ScriptContext::executeString(Handle<String> source) 
-{
-//	HandleScope handleScope;
-	TryCatch tryCatch;
-    
-	Handle<Script> script = Script::Compile(source);
-    
-	if (script.IsEmpty()) {
-        reportException(&tryCatch);
-		return false;
-        
-	} else {
-		Handle<Value> result = script->Run();
-		if (result.IsEmpty()) {
-            reportException(&tryCatch);
-			return false;
-            
-		} else {
-			if(!result->IsUndefined()) {
-				// If all went well and the result wasn't undefined then print
-				// the returned value.
-				String::Utf8Value str(result);
-				const char* cstr = ToCString(str);
-				printf("%s\n", cstr);
-                delete cstr;
-			}
-			return true;
-		}
-	}
-}
-
-void ScriptContext::reportException(TryCatch* tryCatch)
-{
-//	HandleScope handleScope;
-    
-	String::Utf8Value exception(tryCatch->Exception());
-	const char* exceptionString = ToCString(exception);
-	Handle<Message> message = tryCatch->Message();
-    
-	if (message.IsEmpty()) {
-		// V8 didn't provide any extra information about this error; just
-		// print the exception.
-		throw  std::runtime_error("Unknown error "+ std::string(exceptionString));
-
-	} else {
-		// Print (filename):(line number): (message).
-		String::Utf8Value filename(message->GetScriptResourceName());
-		const char* filenameString = ToCString(filename);
-		int linenum = message->GetLineNumber();
-
-        std::stringstream ss;
-        
-        // Print filename and linenum if applicable
-        if(!message->GetScriptResourceName()->IsUndefined()) {
-            ss << filenameString <<":"<< linenum <<" ";
-        }
-        
-		ss << exceptionString << std::endl;
-
-		// Print line of source code.
-		String::Utf8Value sourceline(message->GetSourceLine());
-		const char* sourceline_string = ToCString(sourceline);
-
-		ss << sourceline_string << std::endl;
-
-		// Print wavy underline (GetUnderline is deprecated).
-		int start = message->GetStartColumn();
-		for (int i = 0; i < start; i++) {
-			ss << " ";
-		}
-		int end = message->GetEndColumn();
-		for (int i = start; i < end; i++) {
-			ss << "^";
-		}
-		ss << std::endl;
-
-		String::Utf8Value stack_trace(tryCatch->StackTrace());
-		if (stack_trace.length() > 0) {
-			const char* stack_trace_string = ToCString(stack_trace);
-			ss << stack_trace_string;
-		}
-        
-        throw std::runtime_error(ss.str());
-	}
 }
