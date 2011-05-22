@@ -94,14 +94,14 @@ bool ExecuteString(Handle<String> source)
 			return false;
             
 		} else {
-			if(!result->IsUndefined()) {
-				// If all went well and the result wasn't undefined then print
-				// the returned value.
-				String::Utf8Value str(result);
-				const char* cstr = ToCString(str);
-				printf("%s\n", cstr);
-                delete cstr;
-			}
+//			if(!result->IsUndefined()) {
+//				// If all went well and the result wasn't undefined then print
+//				// the returned value.
+//				String::Utf8Value str(result);
+//				const char* cstr = ToCString(str);
+//				printf("%s\n", cstr);
+//                delete cstr;
+//			}
 			return true;
 		}
 	}
@@ -195,9 +195,13 @@ v8::Handle<Value> Require(Arguments const& args)
     
     string fileContents = ReadFileContents(filePath.c_str());
     
+    bool success = false;
+    
     // execute script
-    Handle<String> source = String::New(fileContents.c_str());
-    bool success = ExecuteString(source);
+    if(fileContents != "") {
+        Handle<String> source = String::New(fileContents.c_str());
+        success = ExecuteString(source);
+    }
     
     return Boolean::New(success);
 }
