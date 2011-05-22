@@ -46,7 +46,7 @@ namespace fieldkit { namespace script {
         void Background(ColorA color)
         {
             glClearColor(color.r, color.g, color.b, color.a);
-            glClear(GL_COLOR_BUFFER_BIT);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         }
         
         void Stroke(ColorA color)
@@ -265,6 +265,16 @@ namespace fieldkit { namespace script {
         
         
         // -- OpenGL -----------------------------------------------------------
+        void EnableDepthTest()
+        {
+            glEnable(GL_DEPTH_TEST);
+        }
+        
+        void DisableDepthTest()
+        {
+            glDisable(GL_DEPTH_TEST);
+        }
+        
         void EnableAlphaBlending(bool premultiplied=false)
         {
             glEnable(GL_BLEND);
@@ -336,7 +346,9 @@ namespace fieldkit { namespace script {
             
             // GL
             SET_PROTOTYPE_METHOD(classTemplate, "enableAlphaBlending", Graphics2DWrap::EnableAlphaBlending);
-            SET_PROTOTYPE_METHOD(classTemplate, "disableAlphaBlending", Graphics2DWrap::DisableAlphaBlending);           
+            SET_PROTOTYPE_METHOD(classTemplate, "disableAlphaBlending", Graphics2DWrap::DisableAlphaBlending);
+            SET_PROTOTYPE_METHOD(classTemplate, "enableDepthTest", Graphics2DWrap::EnableDepthTest);
+            SET_PROTOTYPE_METHOD(classTemplate, "disableDepthTest", Graphics2DWrap::DisableDepthTest);
             SET_PROTOTYPE_METHOD(classTemplate, "pointSize", Graphics2DWrap::PointSize);
             
             target->Set(String::NewSymbol(className), classTemplate->GetFunction());
@@ -675,6 +687,18 @@ namespace fieldkit { namespace script {
         static Handle<Value> DisableAlphaBlending(Arguments const& args) 
         {
             Impl(args).DisableAlphaBlending();
+            return Undefined();
+        }
+
+        static Handle<Value> EnableDepthTest(Arguments const& args) 
+        {
+            Impl(args).EnableDepthTest();
+            return Undefined();
+        }
+
+        static Handle<Value> DisableDepthTest(Arguments const& args) 
+        {
+            Impl(args).DisableDepthTest();
             return Undefined();
         }
         
