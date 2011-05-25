@@ -107,6 +107,8 @@
 		2C7D806F12914653003653C1 /* Module.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806B12914653003653C1 /* Module.h */; };
 		2C7D807212914653003653C1 /* ScriptContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806E12914653003653C1 /* ScriptContext.h */; };
 		2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80751291465F003653C1 /* ScriptContext.cpp */; };
+		2CA613F5138AC0CB00846432 /* Perlin.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA613F4138AC0CB00846432 /* Perlin.h */; };
+		2CA613F8138AC0DF00846432 /* Perlin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA613F7138AC0DF00846432 /* Perlin.cpp */; };
 		2CADA6A91377F28C001E6719 /* ImageCompressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CADA6A71377F28C001E6719 /* ImageCompressor.cpp */; };
 		2CADA6AD1377F2C0001E6719 /* ImageCompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CADA6AC1377F2C0001E6719 /* ImageCompressor.h */; };
 		2CCB51C41295575800AD51C3 /* ScriptKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB51C31295575800AD51C3 /* ScriptKit.cpp */; };
@@ -214,6 +216,8 @@
 		2C8CC76313250BB4003D34FC /* GLKit_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLKit_Prefix.h; path = gl/GLKit_Prefix.h; sourceTree = "<group>"; };
 		2CA0478C131A9077007A2316 /* libFBXKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA0478D131A9077007A2316 /* libScriptKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libScriptKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CA613F4138AC0CB00846432 /* Perlin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Perlin.h; sourceTree = "<group>"; };
+		2CA613F7138AC0DF00846432 /* Perlin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Perlin.cpp; sourceTree = "<group>"; };
 		2CA8340E11DBBDA400D5B37B /* GLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLKit.h; path = ../../FieldKit.cpp/include/fieldkit/gl/GLKit.h; sourceTree = SOURCE_ROOT; };
 		2CA8340F11DBBDA400D5B37B /* PointCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointCloud.h; path = ../../FieldKit.cpp/include/fieldkit/gl/PointCloud.h; sourceTree = SOURCE_ROOT; };
 		2CA8341011DBBDA400D5B37B /* PointDataFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PointDataFormat.h; path = ../../FieldKit.cpp/include/fieldkit/gl/PointDataFormat.h; sourceTree = SOURCE_ROOT; };
@@ -710,6 +714,7 @@
 		2CF1A417133F8C9800678863 /* module */ = {
 			isa = PBXGroup;
 			children = (
+				2CA613F7138AC0DF00846432 /* Perlin.cpp */,
 				2CF1A418133F8C9800678863 /* Logger.cpp */,
 				2CF1A419133F8C9800678863 /* Random.cpp */,
 				2CF1A41A133F8C9800678863 /* TypedArray.cpp */,
@@ -722,6 +727,7 @@
 		2CF1A41E133F8CA900678863 /* module */ = {
 			isa = PBXGroup;
 			children = (
+				2CA613F4138AC0CB00846432 /* Perlin.h */,
 				2CF1A41F133F8CA900678863 /* Logger.h */,
 				2CF1A420133F8CA900678863 /* Random.h */,
 				2CF1A421133F8CA900678863 /* TypedArray.h */,
@@ -780,6 +786,7 @@
 				2C7D806F12914653003653C1 /* Module.h in Headers */,
 				2C7D807212914653003653C1 /* ScriptContext.h in Headers */,
 				2C37A1FF12915B9800D89B24 /* ScriptKit.h in Headers */,
+				2CA613F5138AC0CB00846432 /* Perlin.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +941,7 @@
 				2CF1A41C133F8C9800678863 /* Random.cpp in Sources */,
 				2CF1A41D133F8C9800678863 /* TypedArray.cpp in Sources */,
 				2C232DAD134332AB00451E0F /* Graphics2D.cpp in Sources */,
+				2CA613F8138AC0DF00846432 /* Perlin.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,3 +22,4 @@
 #include "fieldkit/script/module/Random.h"
 #include "fieldkit/script/module/TypedArray.h"
 #include "fieldkit/script/module/Graphics2D.h"
+#include "fieldkit/script/module/Perlin.h"
