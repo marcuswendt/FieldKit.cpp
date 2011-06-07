@@ -97,7 +97,7 @@ namespace fieldkit { namespace gl {
         }
 		
 		//! call this when all data for a single particle was inserted
-		void insert();
+		void insert() { size++; };
 		
 		//! draws this cloud to screen
 		void draw();

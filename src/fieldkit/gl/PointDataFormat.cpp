@@ -21,7 +21,8 @@ void PointDataFormat::clear()
 void PointDataFormat::addAttribute(string name, int size, int type)
 {
 	PointDataFormat::Attribute a;
-	
+
+#ifndef CINDER_COCOA_TOUCH
 	int typeBytes = 0;
 	if(type == GL_INT) {
 		typeBytes = sizeof(GLint);
@@ -32,7 +33,11 @@ void PointDataFormat::addAttribute(string name, int size, int type)
 	} else {
 		throw string("WARN: Invalid type ") + boost::lexical_cast<string>(type);
 	}
-	
+#else 
+    type = GL_FLOAT;
+	int typeBytes = sizeof(GLfloat);
+#endif
+    
 	a.name = name;
 	a.type = type;
 	a.size = size;

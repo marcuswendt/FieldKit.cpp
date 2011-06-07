@@ -53,6 +53,8 @@ void PointCloud::init(PointDataFormat const format, int capacity, GlslProg const
     delete data;
 }
 
+
+#ifndef CINDER_COCOA_TOUCH
 void PointCloud::map()
 {
     size = 0;
@@ -62,11 +64,6 @@ void PointCloud::map()
 void PointCloud::unmap()
 {
     vbo.unmap();
-}
-
-void PointCloud::insert()
-{
-	size += 1;
 }
 
 void PointCloud::draw()
@@ -114,4 +111,20 @@ void PointCloud::draw()
 	vbo.unbind();
 	shader.unbind();
 }
+
+#else 
+
+void PointCloud::map()
+{
+}
+
+void PointCloud::unmap()
+{
+}
+
+void PointCloud::draw()
+{
+}
+
+#endif
 

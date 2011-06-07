@@ -13,6 +13,7 @@ namespace fieldkit { namespace gl {
 
 	void drawCube(Vec3f const& c, Vec3f const& size)
 	{
+#ifndef CINDER_COCOA_TOUCH
 		GLfloat sx = size.x * 0.5f;
 		GLfloat sy = size.y * 0.5f;
 		GLfloat sz = size.z * 0.5f;
@@ -36,6 +37,7 @@ namespace fieldkit { namespace gl {
 		glVertexPointer(3, GL_FLOAT, 0, vertices);
 		glDrawArrays(GL_QUADS, 0, 24);
 		glDisableClientState(GL_VERTEX_ARRAY);
+#endif
 	}
 
 } }
