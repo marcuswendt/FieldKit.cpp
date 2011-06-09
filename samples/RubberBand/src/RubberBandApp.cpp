@@ -102,10 +102,10 @@ void RubberBandApp::initPhysics()
 
 //	physics->addBehaviour(new Gravity());
 
-//    attractor = new AttractorPoint(space);
-//    attractor->setRange(0.25); // relative to space dimensions
-//    attractor->setWeight(0); // toggled on/off on mouse event
-//    physics->addBehaviour(attractor);
+    attractor = new AttractorPoint(space);
+    attractor->setRange(0.25); // relative to space dimensions
+    attractor->setWeight(0); // toggled on/off on mouse event
+    physics->addBehaviour(attractor);
 
 //    FlockAttract* attr = new FlockAttract(space);
 //    attr->setRange(0.1);
@@ -137,32 +137,45 @@ void RubberBandApp::initSprings()
     points.push_back(Vec3f(sw*0.8, sh*0.5, 0.0));
     BSpline3f spline(points, 1, false, false);
     
-    int res = 2;
+    int res = 10;
     for(int i=0; i<res; i++) {
         Vec3f pos = spline.getPosition( (float)i / (float)res );
         
         Particle* a = new Particle();
+        a->init(pos + Vec3f(0,-width*0.5,0));
         a->lifeTime = Particle::LIFETIME_PERPETUAL;
-        a->setPosition(pos + Vec3f(0,-width*0.5,0));
-        a->clearVelocity();
         a->size = 5;
         physics->addParticle(a);
         
         Particle* b = new Particle();
+        b->init(pos + Vec3f(0,width*0.5,0));
         b->lifeTime = Particle::LIFETIME_PERPETUAL;
-        b->setPosition(pos + Vec3f(0,width*0.5,0));
-        b->clearVelocity();
         b->size = 5;
         physics->addParticle(b);
     }
     
+    #define CREATE_SPRING(p1, p2, weight) \
+        physics->addSpring(new Spring(p1, p2, p1->position.distance(p2->position), weight));    
+    
     // connect particles with springs
     for(int i=0; i<res; i++) {
+        // vertical
         Particle* a = physics->particles[i*2];
         Particle* b = physics->particles[i*2+1];
         
-        Spring* s = new Spring(a, b, a->position.distance(b->position), 0.01);
-        physics->addSpring(s);
+        CREATE_SPRING(a, b, 0.25);
+        
+        // horizontal
+        if(i < res-1) {
+            Particle* a2 = physics->particles[(i+1)*2];
+            Particle* b2 = physics->particles[(i+1)*2+1];
+
+            CREATE_SPRING(a, a2, 0.1);
+            CREATE_SPRING(b, b2, 0.1);
+
+            CREATE_SPRING(a, b2, 0.25);
+            CREATE_SPRING(b, a2, 0.25);
+        }
     }
 }
 
@@ -176,12 +189,10 @@ void RubberBandApp::update()
     
     physics->update(dt);
     
-//    LOG_INFO("-----------------------------");
     int i=0;
     std::vector<Particle*>::iterator pit = physics->particles.begin();
     for(; pit != physics->particles.end(); pit++) {
         Particle* p = (*pit);
-        LOG_INFO("P "<< i <<": "<< p->position);
         i++;
     }
 }
