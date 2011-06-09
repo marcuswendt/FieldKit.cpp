@@ -95,11 +95,7 @@ void RubberBandApp::initPhysics()
     
     physics = new Physics(space);
 
-    // 3. physics behaviours run permanently
-//    BoxWrap* wrap = new BoxWrap(space);
-//    wrap->preserveMomentum = false;
-//    physics->addBehaviour(wrap);
-
+    // 3. behaviours run permanently
 //	physics->addBehaviour(new Gravity());
 
     attractor = new AttractorPoint(space);
@@ -107,6 +103,9 @@ void RubberBandApp::initPhysics()
     attractor->setWeight(0); // toggled on/off on mouse event
     physics->addBehaviour(attractor);
 
+    // 4. constraints
+//    physics->addConstraint(new PlaneConstraint(AXIS_Z, 0.0));
+    
 //    FlockAttract* attr = new FlockAttract(space);
 //    attr->setRange(0.1);
 //    attr->setWeight(0.01);
@@ -129,6 +128,8 @@ void RubberBandApp::initSprings()
 {   
     // create particles
     float width = 100;
+    int res = 15;
+    
     float sw = physics->space->getWidth();
     float sh = physics->space->getHeight();
     
@@ -137,7 +138,6 @@ void RubberBandApp::initSprings()
     points.push_back(Vec3f(sw*0.8, sh*0.5, 0.0));
     BSpline3f spline(points, 1, false, false);
     
-    int res = 10;
     for(int i=0; i<res; i++) {
         Vec3f pos = spline.getPosition( (float)i / (float)res );
         
@@ -155,7 +155,10 @@ void RubberBandApp::initSprings()
     }
     
     #define CREATE_SPRING(p1, p2, weight) \
-        physics->addSpring(new Spring(p1, p2, p1->position.distance(p2->position), weight));    
+        physics->addSpring(new Spring(p1, p2, p1->position.distance(p2->position), weight)); 
+    
+    #define CREATE_SPRING_STRETCHED(p1, p2, weight, scale) \
+        physics->addSpring(new Spring(p1, p2, p1->position.distance(p2->position) * scale, weight)); 
     
     // connect particles with springs
     for(int i=0; i<res; i++) {
@@ -163,20 +166,38 @@ void RubberBandApp::initSprings()
         Particle* a = physics->particles[i*2];
         Particle* b = physics->particles[i*2+1];
         
-        CREATE_SPRING(a, b, 0.25);
+        CREATE_SPRING(a, b, 0.1);
         
-        // horizontal
         if(i < res-1) {
             Particle* a2 = physics->particles[(i+1)*2];
             Particle* b2 = physics->particles[(i+1)*2+1];
 
+            // horizontal
             CREATE_SPRING(a, a2, 0.1);
             CREATE_SPRING(b, b2, 0.1);
 
-            CREATE_SPRING(a, b2, 0.25);
-            CREATE_SPRING(b, a2, 0.25);
+            // diagonal
+            CREATE_SPRING(a, b2, 0.1);
+            CREATE_SPRING(b, a2, 0.1);
         }
     }
+    
+    // add springs between multiple segments
+//    int step = 5;
+//    for(int i=0; i<res-1; i += step) {
+    int i = 0;
+    int step = res-1;
+    
+        Particle* a1 = physics->particles[i*2];
+        Particle* b1 = physics->particles[i*2+1];
+        
+        Particle* a2 = physics->particles[(i+step)*2];
+        Particle* b2 = physics->particles[(i+step)*2+1];
+        
+        CREATE_SPRING_STRETCHED(a1, b2, 0.25, 1.15);
+        CREATE_SPRING_STRETCHED(b1, a2, 0.25, 1.15);
+//    }
+    
 }
 
 
@@ -188,13 +209,6 @@ void RubberBandApp::update()
 	timer.start();
     
     physics->update(dt);
-    
-    int i=0;
-    std::vector<Particle*>::iterator pit = physics->particles.begin();
-    for(; pit != physics->particles.end(); pit++) {
-        Particle* p = (*pit);
-        i++;
-    }
 }
 
 void RubberBandApp::draw() 
