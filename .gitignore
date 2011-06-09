@@ -1,5 +1,9 @@
+*.orig
+*.mode1v3
+*.pbxuser
+
+xcode/build
+xcuserdata*
 
 lib/*.a
 lib/FieldKit.build
-xcode/build
-xcuserdata*
