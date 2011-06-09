@@ -19,6 +19,7 @@ Particle::Particle() : Spatial(),
 	prev = Vec3f::zero();
 	force = Vec3f::zero();	
 	setSize(1.0f);
+    setWeight(1.0f);
 }
 
 Particle::~Particle()
