@@ -24,9 +24,6 @@
 
 /* Begin PBXBuildFile section */
 		2C0E69B311D16DC00035A10C /* FBXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C0E69B211D16DC00035A10C /* FBXKit.h */; };
-		2C11A9C4139ED7E30046AEBB /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C147E30131AC4510037E44C /* Vector.h */; };
-		2C11A9C5139ED7E30046AEBB /* ScriptKit_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C147E32131AC9A30037E44C /* ScriptKit_Prefix.h */; };
-		2C11A9C6139ED7E30046AEBB /* ImageCompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CADA6AC1377F2C0001E6719 /* ImageCompressor.h */; };
 		2C11A9C8139ED7E30046AEBB /* BoundingVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */; };
 		2C11A9C9139ED7E30046AEBB /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1E11CFC1DF00856329 /* AABB.cpp */; };
 		2C11A9CA139ED7E30046AEBB /* SphereBound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1F11CFC1DF00856329 /* SphereBound.cpp */; };
@@ -71,9 +68,6 @@
 		2C11A9F2139ED7E30046AEBB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		2C11A9F3139ED7E30046AEBB /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C11A9F4139ED7E30046AEBB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		2C11AA05139EDCA00046AEBB /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C147E30131AC4510037E44C /* Vector.h */; };
-		2C11AA06139EDCA00046AEBB /* ScriptKit_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C147E32131AC9A30037E44C /* ScriptKit_Prefix.h */; };
-		2C11AA07139EDCA00046AEBB /* ImageCompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CADA6AC1377F2C0001E6719 /* ImageCompressor.h */; };
 		2C11AA09139EDCA00046AEBB /* BoundingVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F1CFE11E85BE1007EFB61 /* BoundingVolume.cpp */; };
 		2C11AA0A139EDCA00046AEBB /* AABB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1E11CFC1DF00856329 /* AABB.cpp */; };
 		2C11AA0B139EDCA00046AEBB /* SphereBound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C240E1F11CFC1DF00856329 /* SphereBound.cpp */; };
@@ -118,8 +112,6 @@
 		2C11AA33139EDCA00046AEBB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		2C11AA34139EDCA00046AEBB /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		2C11AA35139EDCA00046AEBB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		2C147E31131AC4510037E44C /* Vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C147E30131AC4510037E44C /* Vector.h */; };
-		2C147E33131AC9A50037E44C /* ScriptKit_Prefix.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C147E32131AC9A30037E44C /* ScriptKit_Prefix.h */; };
 		2C16CBDD11D944BD0038C163 /* MathKit_Prefix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C16CBDC11D944BD0038C163 /* MathKit_Prefix.cpp */; };
 		2C16CBE111D944D70038C163 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C16CBE011D944D70038C163 /* Logger.cpp */; };
 		2C232DAD134332AB00451E0F /* Graphics2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C232DAC134332AB00451E0F /* Graphics2D.cpp */; };
@@ -201,10 +193,12 @@
 		2C7D806F12914653003653C1 /* Module.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806B12914653003653C1 /* Module.h */; };
 		2C7D807212914653003653C1 /* ScriptContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C7D806E12914653003653C1 /* ScriptContext.h */; };
 		2C7D80781291465F003653C1 /* ScriptContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7D80751291465F003653C1 /* ScriptContext.cpp */; };
+		2C93551D13A38B58003F5811 /* ShaderSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C93551C13A38B58003F5811 /* ShaderSet.cpp */; };
+		2C93551E13A38BCA003F5811 /* ShaderSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C93551C13A38B58003F5811 /* ShaderSet.cpp */; };
+		2C93551F13A38BE2003F5811 /* ShaderSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C93551C13A38B58003F5811 /* ShaderSet.cpp */; };
 		2CA613F5138AC0CB00846432 /* Perlin.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CA613F4138AC0CB00846432 /* Perlin.h */; };
 		2CA613F8138AC0DF00846432 /* Perlin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA613F7138AC0DF00846432 /* Perlin.cpp */; };
 		2CADA6A91377F28C001E6719 /* ImageCompressor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CADA6A71377F28C001E6719 /* ImageCompressor.cpp */; };
-		2CADA6AD1377F2C0001E6719 /* ImageCompressor.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CADA6AC1377F2C0001E6719 /* ImageCompressor.h */; };
 		2CCB51C41295575800AD51C3 /* ScriptKit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB51C31295575800AD51C3 /* ScriptKit.cpp */; };
 		2CF1A41B133F8C9800678863 /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1A418133F8C9800678863 /* Logger.cpp */; };
 		2CF1A41C133F8C9800678863 /* Random.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CF1A419133F8C9800678863 /* Random.cpp */; };
@@ -310,6 +304,8 @@
 		2C7D80751291465F003653C1 /* ScriptContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptContext.cpp; path = script/ScriptContext.cpp; sourceTree = "<group>"; };
 		2C86C0EF133F897B0071CF24 /* ObjectWrap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ObjectWrap.h; path = script/ObjectWrap.h; sourceTree = "<group>"; };
 		2C8CC76313250BB4003D34FC /* GLKit_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLKit_Prefix.h; path = gl/GLKit_Prefix.h; sourceTree = "<group>"; };
+		2C93551913A38B3D003F5811 /* ShaderSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShaderSet.h; path = ../../../../Libraries/FieldKit.cpp/include/fieldkit/gl/ShaderSet.h; sourceTree = "<group>"; };
+		2C93551C13A38B58003F5811 /* ShaderSet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ShaderSet.cpp; path = ../../../../Libraries/FieldKit.cpp/src/fieldkit/gl/ShaderSet.cpp; sourceTree = "<group>"; };
 		2CA0478C131A9077007A2316 /* libFBXKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFBXKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA0478D131A9077007A2316 /* libScriptKit_d.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libScriptKit_d.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA613F4138AC0CB00846432 /* Perlin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Perlin.h; sourceTree = "<group>"; };
@@ -747,11 +743,12 @@
 		2CA8340711DBBD8100D5B37B /* gl */ = {
 			isa = PBXGroup;
 			children = (
-				2CADA6AC1377F2C0001E6719 /* ImageCompressor.h */,
 				2CA8340E11DBBDA400D5B37B /* GLKit.h */,
+				2C8CC76313250BB4003D34FC /* GLKit_Prefix.h */,
 				2CA8340F11DBBDA400D5B37B /* PointCloud.h */,
 				2CA8341011DBBDA400D5B37B /* PointDataFormat.h */,
-				2C8CC76313250BB4003D34FC /* GLKit_Prefix.h */,
+				2CADA6AC1377F2C0001E6719 /* ImageCompressor.h */,
+				2C93551913A38B3D003F5811 /* ShaderSet.h */,
 			);
 			name = gl;
 			sourceTree = "<group>";
@@ -760,6 +757,7 @@
 			isa = PBXGroup;
 			children = (
 				2CF00B6C11DF227100AD0E7C /* GLKit.cpp */,
+				2C93551C13A38B58003F5811 /* ShaderSet.cpp */,
 				2CA8341611DBBDC200D5B37B /* PointCloud.cpp */,
 				2CA8341711DBBDC200D5B37B /* PointDataFormat.cpp */,
 				2CADA6A71377F28C001E6719 /* ImageCompressor.cpp */,
@@ -889,9 +887,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C11A9C4139ED7E30046AEBB /* Vector.h in Headers */,
-				2C11A9C5139ED7E30046AEBB /* ScriptKit_Prefix.h in Headers */,
-				2C11A9C6139ED7E30046AEBB /* ImageCompressor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,9 +894,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C11AA05139EDCA00046AEBB /* Vector.h in Headers */,
-				2C11AA06139EDCA00046AEBB /* ScriptKit_Prefix.h in Headers */,
-				2C11AA07139EDCA00046AEBB /* ImageCompressor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,9 +917,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C147E31131AC4510037E44C /* Vector.h in Headers */,
-				2C147E33131AC9A50037E44C /* ScriptKit_Prefix.h in Headers */,
-				2CADA6AD1377F2C0001E6719 /* ImageCompressor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1103,6 +1092,7 @@
 				2C11A9E7139ED7E30046AEBB /* Physics.cpp in Sources */,
 				2C11A9E8139ED7E30046AEBB /* Spring.cpp in Sources */,
 				2C11A9E9139ED7E30046AEBB /* ImageCompressor.cpp in Sources */,
+				2C93551E13A38BCA003F5811 /* ShaderSet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1143,6 +1133,7 @@
 				2C11AA27139EDCA00046AEBB /* Particle.cpp in Sources */,
 				2C11AA28139EDCA00046AEBB /* Physics.cpp in Sources */,
 				2C11AA29139EDCA00046AEBB /* Spring.cpp in Sources */,
+				2C93551F13A38BE2003F5811 /* ShaderSet.cpp in Sources */,
 				2C11AA2A139EDCA00046AEBB /* ImageCompressor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1197,6 +1188,7 @@
 				2C660B6A131A5B1E0047CE1E /* Physics.cpp in Sources */,
 				2C660B6B131A5B1E0047CE1E /* Spring.cpp in Sources */,
 				2CADA6A91377F28C001E6719 /* ImageCompressor.cpp in Sources */,
+				2C93551D13A38B58003F5811 /* ShaderSet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

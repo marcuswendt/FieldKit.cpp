@@ -12,6 +12,7 @@
 #include "fieldkit/gl/GLKit_Prefix.h"
 #include "fieldkit/gl/PointDataFormat.h"
 #include "fieldkit/gl/PointCloud.h"
+#include "fieldkit/gl/ShaderSet.h"
 
 namespace fieldkit { namespace gl {
 

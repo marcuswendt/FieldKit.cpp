@@ -19,7 +19,6 @@
 namespace fieldkit { namespace gl {
 
     using namespace fieldkit;
-    
     using namespace ci;
     using namespace ci::gl;
     
