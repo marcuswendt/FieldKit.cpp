@@ -9,8 +9,10 @@
 
 #pragma once
 
-// FIELDKIT
-namespace fieldkit {};
+// Core classes
+#include "fieldkit/Logger.h"
+#include "fieldkit/ConfigDict.h"
+#include "fieldkit/math/MathKit.h"
 
 // Create a namepace alias as shorthand for fieldkit::
 namespace fk = fieldkit;
