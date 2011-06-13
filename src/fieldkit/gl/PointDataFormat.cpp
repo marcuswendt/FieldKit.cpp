@@ -22,7 +22,7 @@ void PointDataFormat::addAttribute(string name, int size, int type)
 {
 	PointDataFormat::Attribute a;
 
-#ifndef CINDER_COCOA_TOUCH
+#if !defined(CINDER_GLES)
 	int typeBytes = 0;
 	if(type == GL_INT) {
 		typeBytes = sizeof(GLint);

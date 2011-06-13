@@ -54,7 +54,7 @@ void PointCloud::init(PointDataFormat const format, int capacity, GlslProg const
 }
 
 
-#ifndef CINDER_COCOA_TOUCH
+#if !defined(CINDER_GLES)
 void PointCloud::map()
 {
     size = 0;

@@ -31,13 +31,17 @@ namespace fieldkit { namespace gl {
         //! removes all loaded fragments
         void clear() { fragments.clear(); };
         
-        //! 
+#if defined(CINDER_GLES)
+        ci::gl::GlslProg create(std::string vertexShaderName,
+                                           std::string fragmentShaderName);
+#else
         ci::gl::GlslProg create(std::string vertexShaderName,
                                 std::string fragmentShaderName,
                                 std::string geometryShaderName = "",
                                 GLint geometryInputType = GL_POINTS, 
                                 GLint geometryOutputType = GL_TRIANGLES, 
                                 GLint geometryOutputVertices = 0);
+#endif
         
     private:
         std::string delimiter;
