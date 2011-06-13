@@ -100,8 +100,11 @@ namespace fieldkit { namespace gl {
 		void insert() { size++; };
 		
 		//! draws this cloud to screen
-		void draw();
+		void draw(int mode = GL_POINTS);
 
+        // Accessors
+        int getCapacity() { return capacity; }
+        
 	protected:
 		PointDataFormat format;
 		int capacity;

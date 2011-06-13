@@ -66,7 +66,7 @@ void PointCloud::unmap()
     vbo.unmap();
 }
 
-void PointCloud::draw()
+void PointCloud::draw(int mode)
 {
 	// dont draw when no points were inserted
 	if(size == 0) return;
@@ -75,10 +75,12 @@ void PointCloud::draw()
 	shader.bind();
 	vbo.bind();
 	
-	glEnable(GL_POINT_SPRITE);
-	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
-	glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
-	
+    if(mode == GL_POINTS) {
+        glEnable(GL_POINT_SPRITE);
+        glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
+        glTexEnvi(GL_POINT_SPRITE, GL_COORD_REPLACE, GL_TRUE);
+	}
+    
 	glEnableClientState(GL_VERTEX_ARRAY);
 
 	// set attribute pointers
@@ -95,7 +97,7 @@ void PointCloud::draw()
 	}
 	
 	// draw particles
-	glDrawArrays(GL_POINTS, 0, size);
+	glDrawArrays(mode, 0, size);
 
 	// restore attribute pointers
 	BOOST_FOREACH(PointDataFormat::Attribute attr, format.attributes) {		
@@ -105,9 +107,12 @@ void PointCloud::draw()
 	
 	// restore states
 	glDisableClientState(GL_VERTEX_ARRAY);
-	glDisable(GL_VERTEX_PROGRAM_POINT_SIZE);
-	glDisable(GL_POINT_SPRITE);
-
+    
+    if(mode == GL_POINTS) {
+        glDisable(GL_VERTEX_PROGRAM_POINT_SIZE);
+        glDisable(GL_POINT_SPRITE);
+    }
+    
 	vbo.unbind();
 	shader.unbind();
 }
