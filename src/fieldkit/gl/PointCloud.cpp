@@ -127,7 +127,7 @@ void PointCloud::unmap()
 {
 }
 
-void PointCloud::draw()
+void PointCloud::draw(int mode)
 {
 }
 
