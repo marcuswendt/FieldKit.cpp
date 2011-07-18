@@ -40,14 +40,14 @@ var Sketch = function(width, height)
         g.text("SketchPad "+ Math.round(GetAverageFps()) +"fps", 15, height - 25);
 	};
 	
-    this.mouseDrag = function(x, y, button)
+    this.mouseDrag = function(event)
     {
-        mouse.set2(x,y);
+        mouse.set2(event.x, event.y);
     };
     
-	this.keyDown = function(char, code) 
+	this.keyDown = function(event) 
     {
-        switch(char) {
+        switch(event.char) {
             case ' ':
                 break;
                 

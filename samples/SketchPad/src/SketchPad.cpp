@@ -158,16 +158,32 @@ void SketchPad::draw()
 }
 
 
+// Keyboard Events
+void SendKeyEvent(fk::script::ScriptContext& context, bool isEnabled, v8::Persistent<v8::Object> sketch, 
+                  const char* name, KeyEvent const& event)
+{
+    ENTER_SCOPE;
+    Handle<Object> obj = Object::New();
+    SET_PROPERTY(obj, "char", String::New(string(1, event.getChar()).c_str()));
+    SET_PROPERTY(obj, "code", Integer::New(event.getCode()));
+    
+    
+    SET_PROPERTY(obj, "shift", v8::Boolean::New(event.isShiftDown()));
+    SET_PROPERTY(obj, "alt", v8::Boolean::New(event.isAltDown()));
+    SET_PROPERTY(obj, "control", v8::Boolean::New(event.isControlDown()));
+    //    SET_PROPERTY(obj, "meta", v8::Boolean::New(event.isMetaDown()));
+    SET_PROPERTY(obj, "accel", v8::Boolean::New(event.isAccelDown()));
+    
+    Handle<Value> args[] = { obj };
+    context.call(sketch, name, 1, args);
+    EXIT_SCOPE;    
+}
+
 void SketchPad::keyDown(KeyEvent event)
 {
-	char c[] = { event.getChar(), 0 };
-    int code = event.getCode();
-    
-    ENTER_SCOPE;
-    Handle<Value> args[] = { String::New(c), Integer::New(code) };
-    context.call(sketch, "keyDown", 2, args);
-    EXIT_SCOPE;
+    SendKeyEvent(context, isEnabled, sketch, "keyDown", event);
 }
+
 
 // Mouse Events
 void SendMouseEvent(fk::script::ScriptContext& context, bool isEnabled, v8::Persistent<v8::Object> sketch, 
@@ -183,8 +199,12 @@ void SendMouseEvent(fk::script::ScriptContext& context, bool isEnabled, v8::Pers
     if(event.isControlDown()) button = 2;
     
     ENTER_SCOPE;
-    Handle<Value> args[] = { Integer::New(x), Integer::New(y), Integer::New(button) };
-    context.call(sketch, name, 3, args);
+    Handle<Object> obj = Object::New();
+    SET_PROPERTY(obj, "x", Integer::New(x));
+    SET_PROPERTY(obj, "y", Integer::New(y));
+    SET_PROPERTY(obj, "button", Integer::New(button));         
+    Handle<Value> args[] = { obj };
+    context.call(sketch, name, 1, args);
     EXIT_SCOPE;    
 }
 

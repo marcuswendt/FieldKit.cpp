@@ -39,13 +39,13 @@
 		2C6C533512DC6DF4008616B3 /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
 		2C6C533712DC6E1E008616B3 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = ../resources/Icon.icns; sourceTree = SOURCE_ROOT; };
 		2C7077C31337BBC700C5471F /* config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = config.xml; path = ../resources/config.xml; sourceTree = "<group>"; };
-		2C73748913783E6C0096DE4B /* GoingDeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoingDeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C73748913783E6C0096DE4B /* SketchPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SketchPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA4FD641397CC6700DDF403 /* SketchPad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SketchPad.cpp; path = ../src/SketchPad.cpp; sourceTree = "<group>"; };
 		2CA4FD651397CC6700DDF403 /* SketchPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SketchPad.h; path = ../src/SketchPad.h; sourceTree = "<group>"; };
 		2CA4FD661397CC6700DDF403 /* Utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Utilities.cpp; path = ../src/Utilities.cpp; sourceTree = "<group>"; };
 		2CA4FD671397CC6700DDF403 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utilities.h; path = ../src/Utilities.h; sourceTree = "<group>"; };
-		2CA4FD6B1397CC7F00DDF403 /* FieldKit.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FieldKit.js; sourceTree = "<group>"; };
-		2CA4FD6C1397CC7F00DDF403 /* Sketch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Sketch.js; sourceTree = "<group>"; };
+		2CA4FD6B1397CC7F00DDF403 /* FieldKit.js */ = {isa = PBXFileReference; explicitFileType = sourcecode.javascript; fileEncoding = 4; path = FieldKit.js; sourceTree = "<group>"; };
+		2CA4FD6C1397CC7F00DDF403 /* Sketch.js */ = {isa = PBXFileReference; explicitFileType = sourcecode.javascript; fileEncoding = 4; path = Sketch.js; sourceTree = "<group>"; };
 		2CF7B50D12D4C75600F9F5F7 /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = SOURCE_ROOT; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
@@ -116,7 +116,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C73748913783E6C0096DE4B /* GoingDeeper.app */,
+				2C73748913783E6C0096DE4B /* SketchPad.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 			name = SketchPad;
 			productInstallPath = "$(HOME)/Applications";
 			productName = VX;
-			productReference = 2C73748913783E6C0096DE4B /* GoingDeeper.app */;
+			productReference = 2C73748913783E6C0096DE4B /* SketchPad.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
