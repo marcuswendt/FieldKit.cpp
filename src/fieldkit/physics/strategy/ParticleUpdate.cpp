@@ -24,11 +24,11 @@ void ParticleUpdate::apply(Physics* physics, float dt)
 	vector<Particle*>::iterator pend = physics->particles.end();
 
 	// apply behaviours
-	for (list<Behaviour*>::iterator bit = physics->behaviours.begin(); bit != physics->behaviours.end(); bit++) {
+	for (list<Behaviour*>::iterator bit = physics->behaviours.begin(); bit != physics->behaviours.end(); ++bit) {
 		Behaviour* b = *bit;
 		b->prepare(dt);
 
-		for (vector<Particle*>::iterator pit = pbegin; pit != pend; pit++) {
+		for (vector<Particle*>::iterator pit = pbegin; pit != pend; ++pit) {
 			Particle* p = *pit;
 			if(p->isAlive)
 				b->apply(p);
@@ -37,7 +37,7 @@ void ParticleUpdate::apply(Physics* physics, float dt)
 
 	// update all particles
 	int numAlive = 0;
-	for (vector<Particle*>::iterator pit = pbegin; pit != pend; pit++) {
+	for (vector<Particle*>::iterator pit = pbegin; pit != pend; ++pit) {
 		Particle* p = *pit;
 		if(!p->isAlive) 
 			continue;
@@ -48,13 +48,13 @@ void ParticleUpdate::apply(Physics* physics, float dt)
 
 	// apply constraints
 	for (int i=0; i<constraintIterations; i++) {
-		for (list<Constraint*>::iterator cit = physics->constraints.begin(); cit != physics->constraints.end(); cit++) {
+		for (list<Constraint*>::iterator cit = physics->constraints.begin(); cit != physics->constraints.end(); ++cit) {
 			Constraint* c = *cit;
 
 			if(i==0)
 				c->prepare(dt);
 
-			for (vector<Particle*>::iterator pit = pbegin; pit != pend; pit++) {
+			for (vector<Particle*>::iterator pit = pbegin; pit != pend; ++pit) {
 				Particle* p = *pit;
 				if(p->isAlive)
 					c->apply(p);
