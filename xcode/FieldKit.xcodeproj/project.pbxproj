@@ -1021,6 +1021,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0420;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FieldKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1240,7 +1241,6 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				MACH_O_TYPE = staticlib;
-				PREBINDING = NO;
 				PRODUCT_NAME = "FieldKit-iOS_d";
 				SDKROOT = iphoneos;
 				SYMROOT = ../lib;
@@ -1256,9 +1256,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				MACH_O_TYPE = staticlib;
-				PREBINDING = NO;
 				PRODUCT_NAME = "FieldKit-iOS";
 				SDKROOT = iphoneos;
 				SYMROOT = ../lib;
@@ -1275,7 +1273,6 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				MACH_O_TYPE = staticlib;
-				PREBINDING = NO;
 				PRODUCT_NAME = "FieldKit-iOS-Sim_d";
 				SDKROOT = iphoneos;
 				SYMROOT = ../lib;
@@ -1291,9 +1288,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				MACH_O_TYPE = staticlib;
-				PREBINDING = NO;
 				PRODUCT_NAME = "FieldKit-iOS-Sim";
 				SDKROOT = iphoneos;
 				SYMROOT = ../lib;
@@ -1318,7 +1313,6 @@
 					"$(OPENCV_PATH)/include",
 				);
 				MACH_O_TYPE = staticlib;
-				PREBINDING = NO;
 				PRODUCT_NAME = FBXKit_d;
 				SYMROOT = ../lib;
 			};
@@ -1332,7 +1326,6 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FBXSDK_PATH = ../../FBXSDK;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(FBXSDK_PATH)/include",
 					"$(CINDER_PATH)/boost",
@@ -1340,7 +1333,6 @@
 					"$(OPENCV_PATH)/include",
 				);
 				MACH_O_TYPE = staticlib;
-				PREBINDING = NO;
 				PRODUCT_NAME = FBXKit;
 				SYMROOT = ../lib;
 				ZERO_LINK = NO;
@@ -1354,7 +1346,6 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				MACH_O_TYPE = staticlib;
-				PREBINDING = NO;
 				PRODUCT_NAME = FieldKit_d;
 				SYMROOT = ../lib;
 			};
@@ -1366,9 +1357,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				MACH_O_TYPE = staticlib;
-				PREBINDING = NO;
 				PRODUCT_NAME = FieldKit;
 				SYMROOT = ../lib;
 			};
@@ -1391,7 +1380,6 @@
 				KEEP_PRIVATE_EXTERNS = YES;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "$(V8_PATH)/libv8_g.a";
-				PREBINDING = NO;
 				PRODUCT_NAME = ScriptKit_d;
 				SYMROOT = ../lib;
 				V8_PATH = ../../v8;
@@ -1405,7 +1393,6 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GENERATE_MASTER_OBJECT_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(CINDER_PATH)/boost",
@@ -1415,7 +1402,6 @@
 				KEEP_PRIVATE_EXTERNS = YES;
 				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "$(V8_PATH)/libv8.a";
-				PREBINDING = NO;
 				PRODUCT_NAME = ScriptKit;
 				SYMROOT = ../lib;
 				V8_PATH = ../../v8;
@@ -1451,7 +1437,6 @@
 					"$(CINDER_PATH)/include",
 				);
 				OBJROOT = build/;
-				PREBINDING = NO;
 				USER_HEADER_SEARCH_PATHS = ../include;
 				VALID_ARCHS = "i386 x86_64";
 			};
@@ -1472,7 +1457,6 @@
 					"$(CINDER_PATH)/include",
 				);
 				OBJROOT = build/;
-				PREBINDING = NO;
 				USER_HEADER_SEARCH_PATHS = ../include;
 				VALID_ARCHS = "i386 x86_64";
 			};

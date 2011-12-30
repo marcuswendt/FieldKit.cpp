@@ -86,7 +86,7 @@ void SketchPad::setup()
     // by default points to a file within the application bundle
     // use the -script command line argument or config.xml to point it somewhere else e.g. for live coding
     string script = config.gets("script", "$APP/Contents/Resources/Sketch.js");
-    boost::algorithm::replace_all(script, "$APP", cinder::app::getAppPath());
+    boost::algorithm::replace_all(script, "$APP", cinder::app::getAppPath().c_str());
     reload(script);
     
     // init GL context
