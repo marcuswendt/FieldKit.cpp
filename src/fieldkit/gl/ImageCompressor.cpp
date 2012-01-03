@@ -88,7 +88,7 @@ namespace fieldkit { namespace gl {
 				lock_.unlock();
                 
 				// do the work
-				ci::writeImage(job_.file_, job_.image_);
+				ci::writeImage(ci::fs::path(job_.file_), job_.image_);
                 
 				lock_.lock();
 				isAvailable_ = true;
