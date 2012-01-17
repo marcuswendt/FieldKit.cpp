@@ -22,7 +22,7 @@ namespace fieldkit { namespace physics {
 		void apply(Particle* p);
 		
 		void setPerpetual(bool value);
-		bool isPerpetiual();
+		bool isPerpetual();
 		
 		// Accessors
 		void setState(int value) { state = value; }
