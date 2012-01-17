@@ -59,7 +59,7 @@ float Initializer::getVariant( float value, float variance )
 }
 
 
-bool Initializer::isPerpetiual()
+bool Initializer::isPerpetual()
 {
 	return lifeTime == Particle::LIFETIME_PERPETUAL;
 }
