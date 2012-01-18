@@ -18,6 +18,7 @@
 
 // Modules
 #include "fieldkit/script/Module.h"
+#include "fieldkit/script/module/Date.h"
 #include "fieldkit/script/module/Logger.h"
 #include "fieldkit/script/module/Random.h"
 #include "fieldkit/script/module/TypedArray.h"
