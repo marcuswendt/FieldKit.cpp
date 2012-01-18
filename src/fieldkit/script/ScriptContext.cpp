@@ -181,14 +181,14 @@ static std::time_t GetNewestFileWriteTime(string const& _path)
 // -- Core Bindings ------------------------------------------------------------
 static string currentScriptPath = "";
 
-v8::Handle<Value> ReadFile(Arguments const& args) 
+v8::Handle<Value> ReadFile(v8::Handle<Value> file) 
 {	
     HandleScope handleScope;
     string fileContents = "";
     
-    if(args.Length() == 1) {        
-        String::Utf8Value filePathUTF(args[0]);
-        
+    if(file->IsString()) {
+        String::Utf8Value filePathUTF(Handle<String>::Cast(file));
+    
         std::stringstream ss;
         ss << currentScriptPath << "/" << string(*filePathUTF, filePathUTF.length());
         string filePath = ss.str();    
@@ -198,23 +198,32 @@ v8::Handle<Value> ReadFile(Arguments const& args)
     return handleScope.Close(String::New(fileContents.c_str()));
 }
 
-
-v8::Handle<Value> Require(Arguments const& args) 
+v8::Handle<Value> ReadFile(v8::Arguments const& args) 
 {	
-    if(args.Length() != 1) return Boolean::New(false);
-    
-    try {
-        HandleScope handleScope;
-        
-        Handle<String> source = Handle<String>::Cast(ReadFile(args));
-        bool success = ExecuteString(source);
-        
-        return Boolean::New(success);
-        
-    } catch(std::exception& e) {
-        LOG_ERROR(e.what());
-        return Boolean::New(false);
+    if(args.Length() == 1) {
+        return ReadFile(args[0]);
+    } else {
+        return String::New("");
     }
+}
+
+v8::Handle<Value> ImportScripts(v8::Arguments const& args) 
+{	
+    HandleScope handleScope;
+    
+    if(args.Length() == 0) return Boolean::New(false);
+
+    for(int i=0; i<args.Length(); i++) {
+        try {
+            Handle<String> source = Handle<String>::Cast(ReadFile(args[i]));
+            ExecuteString(source);
+            
+        } catch(std::exception& e) {
+            LOG_ERROR(e.what());
+            return Boolean::New(false);
+        }   
+    }
+    return Boolean::New(true);
 }
 
 
@@ -314,7 +323,7 @@ bool ScriptContext::execute(std::string sourceOrFile)
 void ScriptContext::attachBindings()
 {
     SET_METHOD(context->Global(), "readFile", ReadFile);
-    SET_METHOD(context->Global(), "require", Require);
+    SET_METHOD(context->Global(), "importScripts", ImportScripts);
     
     BOOST_FOREACH(Module* m, modules) {
         m->Initialize(context->Global());
