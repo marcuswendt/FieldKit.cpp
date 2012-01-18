@@ -1,21 +1,14 @@
 /*                                                                           
  *      _____  __  _____  __     ____                                   
- *     / ___/ / / /____/ / /    /    \   FieldKit
+ *     / ___/ / / /____/ / /    /    \   FieldKit - SketchPadCoffee
  *    / ___/ /_/ /____/ / /__  /  /  /   (c) 2012, FIELD. All rights reserved.              
  *   /_/        /____/ /____/ /_____/    http://www.field.io           
  *   
- *	 Created by Marcus Wendt on 18/01/2012.
+ *	 Created by Marcus Wendt on 17/01/2012.
  */
 
 #pragma once
 
-#include "fieldkit/script/Module.h"
+#include "cinder/CinderResources.h"
 
-namespace fieldkit { namespace script {
-	
-    //! Partially implements the standard JavaScript Date class
-	class Date : public Module {
-		void Initialize(Handle<Object> global);
-	};
-	
-} }
+#define RES_CONFIG  CINDER_RESOURCE(../resources/, config.xml, 100, TEXT)

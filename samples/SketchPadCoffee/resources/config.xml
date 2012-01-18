@@ -1,0 +1,8 @@
+<config>
+    <script>$APP/Contents/Resources/js/main.js</script>
+	<framerate>60</framerate>
+	<fullscreen>0</fullscreen>
+    <chromeless>0</chromeless>
+	<window>1280,720</window>
+	<position>-1, -1</position> <!-- set to -1,-1 to center the window -->
+</config>
