@@ -10,9 +10,14 @@
 
 SketchPadCoffee
 
+Shows how to setup a more advanced JavaScript centric project
 
-Uses the excellent
+Using:
+* require.js - http://requirejs.org
+  Used to define code in modules that can be used in various script contexts (e.g. within a Cinder-ScriptKit native app, Browser script etc.)
 
-http://requirejs.org
-http://coffeescript.org
-https://github.com/jrburke/require-cs
+* CoffeeScript - http://coffeescript.org
+  A modern script language that compiles into JavaScript
+
+* require-cs - https://github.com/jrburke/require-cs
+  A require.js plugin to allow using CoffeeScript modules side by side with normal JavaScript modules
