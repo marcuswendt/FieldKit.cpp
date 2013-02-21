@@ -14,7 +14,7 @@
  * 		LOG(INFO, "This is just some info");
  * 
  *		// setting up writing to file
- *      Logger::getInstance()->addLogOutput(new FileLogger("/path/to/file.log"));
+ *      Logger::Instance()->addLogOutput(new FileLogger("/path/to/file.log"));
  */
 
 #pragma once
