@@ -34,7 +34,7 @@ namespace field  {
         if(args.Length() == 1) {
             HandleScope handleScope;
             std::string file = fieldkit::script::ToStdString( Handle<String>::Cast(args[0]) );
-            std::string path = ci::getHomeDirectory() + ci::getPathSeparator() + file;
+            std::string path = ci::getHomeDirectory().string() + ci::getPathSeparator() + file;
             
             compressor.Compress(path, ci::app::copyWindowSurface());
         }

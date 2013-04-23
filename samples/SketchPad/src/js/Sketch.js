@@ -9,7 +9,7 @@
 
 
 // include additional JavaScript sources & libraries via the builtin require(..) function
-require("FieldKit.js"); 
+importScripts("FieldKit.js"); 
 
 
 var Sketch = function(width, height)
