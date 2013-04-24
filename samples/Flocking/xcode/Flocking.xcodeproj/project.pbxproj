@@ -276,8 +276,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CINDER_PATH = ../../../../cinder;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				FIELDKIT_PATH = ../../..;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -288,9 +290,9 @@
 					"$(CINDER_PATH)/boost",
 					../../../../../boost_1_44_0,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PREBINDING = NO;
-				SDKROOT = macosx;
+				SDKROOT = "";
 				USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/include $(FIELDKIT_PATH)/include ../include ../src";
 				V8_PATH = ../../../../v8;
 				VALID_ARCHS = "i386 x86_64";
@@ -301,8 +303,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = i386;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CINDER_PATH = ../../../../cinder;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				FIELDKIT_PATH = ../../..;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -313,9 +317,9 @@
 					"$(CINDER_PATH)/boost",
 					../../../../../boost_1_44_0,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PREBINDING = NO;
-				SDKROOT = macosx;
+				SDKROOT = "";
 				USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/include $(FIELDKIT_PATH)/include ../include ../src";
 				V8_PATH = ../../../../v8;
 				VALID_ARCHS = "i386 x86_64";
